@@ -1,0 +1,102 @@
+# =========================
+# Python basics
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# =========================
+# Virtual environments
+# =========================
+.pcs/
+venv/
+.env/
+.envrc/
+
+# =========================
+# PyTorch / ML artifacts
+# =========================
+# Model weights & checkpoints
+*.pt
+*.pth
+*.ckpt
+checkpoints/
+runs/
+outputs/
+logs/
+
+# Tensorboard / logging
+events.out.tfevents.*
+tensorboard/
+
+# =========================
+# Whisper / audio / video intermediates
+# =========================
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.mp4
+*.avi
+*.mkv
+
+# Transcripts / generated text (optional — comment if you want to keep)
+*.txt
+
+# =========================
+# pyannote / embeddings
+# =========================
+*.npy
+*.npz
+
+# =========================
+# HuggingFace / model caches
+# =========================
+.cache/
+huggingface/
+hf_cache/
+
+# =========================
+# OS / Editor junk
+# =========================
+.DS_Store
+Thumbs.db
+
+# VSCode / JetBrains
+.vscode/
+.idea/
+
+# =========================
+# Secrets / env
+# =========================
+.env
+*.env
+.env.*
+
+# =========================
+# Misc
+# =========================
+*.log
+*.tmp
+*.swp
