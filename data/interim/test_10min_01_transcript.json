@@ -1,0 +1,895 @@
+{
+  "schema_version": "0.1.0",
+  "source": {
+    "input_path": "/home/thebeast/Documents/PCS/data/input/test_10min.wav",
+    "input_filename": "test_10min.wav",
+    "media_type": "audio",
+    "language_expected": "fr",
+    "duration_seconds": 599.86
+  },
+  "pipeline": {
+    "created_at": "2026-04-13T13:26:01.670048+00:00",
+    "updated_at": "2026-04-13T13:26:47.574723+00:00",
+    "stages_completed": [
+      "transcription"
+    ],
+    "stage_outputs": {
+      "transcription": "/home/thebeast/Documents/PCS/data/interim/test_10min_01_transcript.json",
+      "diarization": null,
+      "merge": null,
+      "enrichment": null,
+      "export": null
+    }
+  },
+  "transcript": {
+    "engine": {
+      "name": "faster-whisper",
+      "model": "large-v3",
+      "device": "cuda",
+      "compute_type": "float16"
+    },
+    "language_detected": "fr",
+    "language_probability": 1,
+    "segments_count": 77,
+    "raw_segments": [
+      {
+        "segment_id": "whisper_000001",
+        "time": {
+          "start_seconds": 9.81,
+          "end_seconds": 26.85,
+          "duration_seconds": 17.04,
+          "start_ts": "00:00:09.81",
+          "end_ts": "00:00:26.85"
+        },
+        "text": "Bonjour à tous, je vous ai entendu monsieur Cordier, la séance est ouverte et pas de photo effectivement. L'ordre du jour appelle les questions au gouvernement. La première va être posée par monsieur Paul Christophe, président du groupe Horizon."
+      },
+      {
+        "segment_id": "whisper_000002",
+        "time": {
+          "start_seconds": 26.85,
+          "end_seconds": 41.73,
+          "duration_seconds": 14.879999999999995,
+          "start_ts": "00:00:26.85",
+          "end_ts": "00:00:41.73"
+        },
+        "text": "Merci madame la présidente, ma question s'adresse à monsieur le premier ministre. Alors que la France connaît d'importantes turbulences financières, le prix de l'énergie n'échappe pas à l'instabilité grandissante de notre économie."
+      },
+      {
+        "segment_id": "whisper_000003",
+        "time": {
+          "start_seconds": 42.63,
+          "end_seconds": 52.0,
+          "duration_seconds": 9.369999999999997,
+          "start_ts": "00:00:42.63",
+          "end_ts": "00:00:52.00"
+        },
+        "text": "Celui-ci est désormais un facteur majeur d'insécurité, aussi bien pour les particuliers que pour nos entreprises. Et nous voilà face à un triste record."
+      },
+      {
+        "segment_id": "whisper_000004",
+        "time": {
+          "start_seconds": 52.78,
+          "end_seconds": 59.56,
+          "duration_seconds": 6.780000000000001,
+          "start_ts": "00:00:52.78",
+          "end_ts": "00:00:59.56"
+        },
+        "text": "36% des ménages français déclarent avoir souffert du froid l'hiver dernier parce qu'ils ont dû réduire l'eau."
+      },
+      {
+        "segment_id": "whisper_000005",
+        "time": {
+          "start_seconds": 59.6,
+          "end_seconds": 75.47,
+          "duration_seconds": 15.869999999999997,
+          "start_ts": "00:00:59.60",
+          "end_ts": "00:01:15.47"
+        },
+        "text": "Leur chauffage faute de pouvoir payer la facture. Du côté de nos TPE et PME, même constat. Le choc énergétique est tel que nos entreprises sont forcées d'augmenter leurs tarifs et de réduire leurs effectifs pour survivre."
+      },
+      {
+        "segment_id": "whisper_000006",
+        "time": {
+          "start_seconds": 76.25,
+          "end_seconds": 88.91,
+          "duration_seconds": 12.659999999999997,
+          "start_ts": "00:01:16.25",
+          "end_ts": "00:01:28.91"
+        },
+        "text": "Certaines stoppent même tragiquement tout nouvel investissement. Le prix de l'énergie est un élément clé pour la dignité sociale de chacun de nos concitoyens, comme pour la compétitivité économique de nos entreprises."
+      },
+      {
+        "segment_id": "whisper_000007",
+        "time": {
+          "start_seconds": 89.75,
+          "end_seconds": 89.77,
+          "duration_seconds": 0.01999999999999602,
+          "start_ts": "00:01:29.75",
+          "end_ts": "00:01:29.77"
+        },
+        "text": "Merci."
+      },
+      {
+        "segment_id": "whisper_000008",
+        "time": {
+          "start_seconds": 89.79,
+          "end_seconds": 96.03,
+          "duration_seconds": 6.239999999999995,
+          "start_ts": "00:01:29.79",
+          "end_ts": "00:01:36.03"
+        },
+        "text": "Alors, allons-nous laisser les ménages inquiets et notre tissu productif se dégrader sans rien faire ?"
+      },
+      {
+        "segment_id": "whisper_000009",
+        "time": {
+          "start_seconds": 96.03,
+          "end_seconds": 102.37,
+          "duration_seconds": 6.340000000000003,
+          "start_ts": "00:01:36.03",
+          "end_ts": "00:01:42.37"
+        },
+        "text": "Avec le groupe Horizon Indépendant, nous voulons donner de la perspective, de la visibilité à nos concitoyens comme à nos entreprises."
+      },
+      {
+        "segment_id": "whisper_000010",
+        "time": {
+          "start_seconds": 103.23,
+          "end_seconds": 116.59,
+          "duration_seconds": 13.36,
+          "start_ts": "00:01:43.23",
+          "end_ts": "00:01:56.59"
+        },
+        "text": "Avec notre collègue Henri Alfandari, nous défendons une reprise en main du prix de l'énergie et une stratégie énergétique de long terme qui puisse offrir de la clarté aux consommateurs, aux producteurs et aux fournisseurs."
+      },
+      {
+        "segment_id": "whisper_000011",
+        "time": {
+          "start_seconds": 117.33,
+          "end_seconds": 119.91,
+          "duration_seconds": 2.5799999999999983,
+          "start_ts": "00:01:57.33",
+          "end_ts": "00:01:59.91"
+        },
+        "text": "Afin de lutter contre ces fluctuations tarifaires, nous voulons donner de la visibilité à nos concitoyens."
+      },
+      {
+        "segment_id": "whisper_000012",
+        "time": {
+          "start_seconds": 119.91,
+          "end_seconds": 120.91,
+          "duration_seconds": 1.0,
+          "start_ts": "00:01:59.91",
+          "end_ts": "00:02:00.91"
+        },
+        "text": "Merci."
+      },
+      {
+        "segment_id": "whisper_000013",
+        "time": {
+          "start_seconds": 120.91,
+          "end_seconds": 130.63,
+          "duration_seconds": 9.719999999999999,
+          "start_ts": "00:02:00.91",
+          "end_ts": "00:02:10.63"
+        },
+        "text": "Vous avez indiqué à la presse, avoir confié au ministre Roland Lescure, le soin de travailler à différents scénarios permettant une baisse significative du prix de l'électricité."
+      },
+      {
+        "segment_id": "whisper_000014",
+        "time": {
+          "start_seconds": 131.67,
+          "end_seconds": 137.07,
+          "duration_seconds": 5.400000000000006,
+          "start_ts": "00:02:11.67",
+          "end_ts": "00:02:17.07"
+        },
+        "text": "Si nous accueillons favorablement cette annonce, pouvez-vous nous préciser quelles sont les options sérieusement envisagées ?"
+      },
+      {
+        "segment_id": "whisper_000015",
+        "time": {
+          "start_seconds": 137.77,
+          "end_seconds": 145.18,
+          "duration_seconds": 7.409999999999997,
+          "start_ts": "00:02:17.77",
+          "end_ts": "00:02:25.18"
+        },
+        "text": "Et puisqu'il y a urgence, comment ces mesures seront concrètement intégrées au projet de loi de finances pour 2026 ? Je vous en remercie."
+      },
+      {
+        "segment_id": "whisper_000016",
+        "time": {
+          "start_seconds": 145.56,
+          "end_seconds": 149.84,
+          "duration_seconds": 4.280000000000001,
+          "start_ts": "00:02:25.56",
+          "end_ts": "00:02:29.84"
+        },
+        "text": "Merci beaucoup, M. le Président Christophe. La parole est à M. le Premier ministre."
+      },
+      {
+        "segment_id": "whisper_000017",
+        "time": {
+          "start_seconds": 150.14,
+          "end_seconds": 172.1,
+          "duration_seconds": 21.960000000000008,
+          "start_ts": "00:02:30.14",
+          "end_ts": "00:02:52.10"
+        },
+        "text": "Merci Madame la Présidente de l'Assemblée nationale, Mesdames et Messieurs les députés, Monsieur le ministre, Monsieur le Président Paul-Christophe, je pense que la question énergétique va nous occuper beaucoup dans les temps qui viendront et c'est pour cela que j'ai souhaité que dans le cadre des consultations politiques qui vont démarrer dans les tout prochains jours avec les différentes formations politiques,"
+      },
+      {
+        "segment_id": "whisper_000018",
+        "time": {
+          "start_seconds": 172.1,
+          "end_seconds": 187.84,
+          "duration_seconds": 15.740000000000009,
+          "start_ts": "00:02:52.10",
+          "end_ts": "00:03:07.84"
+        },
+        "text": "on puisse avoir un point de rencontre sur cette question de l'énergie parce qu'on le voit bien, initiatives parlementaires, propositions de lois diverses et variées, dépôt d'amendements, vous avez rappelé vous-même l'action des membres de votre groupe sur ce sujet, c'est vrai dans les deux chambres."
+      },
+      {
+        "segment_id": "whisper_000019",
+        "time": {
+          "start_seconds": 188.04,
+          "end_seconds": 202.04,
+          "duration_seconds": 14.0,
+          "start_ts": "00:03:08.04",
+          "end_ts": "00:03:22.04"
+        },
+        "text": "Hier la ministre Agnès Pannier-Runacher posait une question au gouvernement, une tribune a été signée, que signée, une tribune transpartisane a été publiée, pardonnez-moi, ces derniers jours et on voit bien au fond que parce que,"
+      },
+      {
+        "segment_id": "whisper_000020",
+        "time": {
+          "start_seconds": 202.24,
+          "end_seconds": 218.16,
+          "duration_seconds": 15.919999999999987,
+          "start_ts": "00:03:22.24",
+          "end_ts": "00:03:38.16"
+        },
+        "text": "question industrielle, parce que, question souveraineté, parce que, question écologique, aménagement du territoire et vous l'avez dit, pouvoir d'achat des Françaises et des Français, on voit bien qu'on a besoin de se poser l'espace d'un instant sur cette question et donc les consultations vont nous permettre d'avancer."
+      },
+      {
+        "segment_id": "whisper_000021",
+        "time": {
+          "start_seconds": 218.54,
+          "end_seconds": 231.82,
+          "duration_seconds": 13.280000000000001,
+          "start_ts": "00:03:38.54",
+          "end_ts": "00:03:51.82"
+        },
+        "text": "Ça veut dire aussi qu'on a plusieurs éléments qui doivent nous guider dans les temps qui vont venir. Le premier c'est la sincérisation de la stratégie de consommation. Un rapport d'RTE est à attendre et cette question,"
+      },
+      {
+        "segment_id": "whisper_000022",
+        "time": {
+          "start_seconds": 232.1,
+          "end_seconds": 262.08,
+          "duration_seconds": 29.97999999999999,
+          "start_ts": "00:03:52.10",
+          "end_ts": "00:04:22.08"
+        },
+        "text": "de notre stratégie de consommation et non sans lien avec notre stratégie industrielle, c'est pour ça que c'est le ministre Lescure, est-ce qualité ministre de l'énergie mais aussi ministre en charge des questions industrielles, on va devoir aussi se projeter dans les années qui vont venir, y compris avec la question évidemment de la consommation liée au data center, la question aussi de l'électrification d'un certain nombre d'usages, nous sommes encore trop dépendants des énergies fossiles et donc ça pose cette question que le débat allemand a amené ou un tout petit peu importé ici dans le débat national."
+      },
+      {
+        "segment_id": "whisper_000023",
+        "time": {
+          "start_seconds": 262.1,
+          "end_seconds": 292.08,
+          "duration_seconds": 29.97999999999996,
+          "start_ts": "00:04:22.10",
+          "end_ts": "00:04:52.08"
+        },
+        "text": "Le français mais et nous dans tout cela au moment où le chancelier a fait un certain nombre d'annonces et nous dans tout cela, heureusement, nous avons le nucléaire et nous avons un prix de l'électricité qui fait partie des moins chères d'Europe et donc pour les électro intensifs et notamment sur le haut du spectre de nos industries, même avec les mesures allemandes, nous restons plus compétitifs sur le terrain énergétique mais très vite, la question est apparue dans les débats parlementaires dans les expressions publiques de celles et ceux qui ne sont pas électro intensifs PME, l'exemple de nos boulangers souvent d'ailleurs,"
+      },
+      {
+        "segment_id": "whisper_000024",
+        "time": {
+          "start_seconds": 292.1,
+          "end_seconds": 307.22,
+          "duration_seconds": 15.120000000000005,
+          "start_ts": "00:04:52.10",
+          "end_ts": "00:05:07.22"
+        },
+        "text": "et cité en exemple particulier et je pense que pour le coup, stratégie de consommation pluriannuelle, macro en quelque sorte pour le pays, en planification, davantage de stratégie micro pour les accompagner, ça je pense que c'est un premier axe de débat."
+      },
+      {
+        "segment_id": "whisper_000025",
+        "time": {
+          "start_seconds": 307.44,
+          "end_seconds": 320.24,
+          "duration_seconds": 12.800000000000011,
+          "start_ts": "00:05:07.44",
+          "end_ts": "00:05:20.24"
+        },
+        "text": "La deuxième des choses, il y a une approche aussi environnementale, la question de la sobriété, la question des C2E qui ont occupé déjà un certain nombre de débats, je ne veux pas être trop long mais en tout cas c'est la famille de la consommation sur laquelle je souhaite effectivement avancer."
+      },
+      {
+        "segment_id": "whisper_000026",
+        "time": {
+          "start_seconds": 320.24,
+          "end_seconds": 322.08,
+          "duration_seconds": 1.839999999999975,
+          "start_ts": "00:05:20.24",
+          "end_ts": "00:05:22.08"
+        },
+        "text": "Donc j'ai donné mandat au ministre de l'économie."
+      },
+      {
+        "segment_id": "whisper_000027",
+        "time": {
+          "start_seconds": 322.1,
+          "end_seconds": 340.8,
+          "duration_seconds": 18.69999999999999,
+          "start_ts": "00:05:22.10",
+          "end_ts": "00:05:40.80"
+        },
+        "text": "de faire des propositions sur ce sujet, il y a un enjeu pour les finances publiques, on le sait tous et on se rappelle que d'ailleurs si on a cette situation actuelle en matière de déficit public, c'est parce qu'il y a eu le bouclier énergétique dans le passé, donc il convient de trouver une disposition qui fonctionne et qui corresponde à un réel besoin."
+      },
+      {
+        "segment_id": "whisper_000028",
+        "time": {
+          "start_seconds": 341.16,
+          "end_seconds": 351.58,
+          "duration_seconds": 10.419999999999959,
+          "start_ts": "00:05:41.16",
+          "end_ts": "00:05:51.58"
+        },
+        "text": "La deuxième des choses, c'est évidemment la sincérisation de la stratégie industrielle, alors vous en savez quelque chose, nucléaire, vous qui êtes le député, l'heureux député de Gravelines,"
+      },
+      {
+        "segment_id": "whisper_000029",
+        "time": {
+          "start_seconds": 352.1,
+          "end_seconds": 364.94,
+          "duration_seconds": 12.839999999999975,
+          "start_ts": "00:05:52.10",
+          "end_ts": "00:06:04.94"
+        },
+        "text": "et qui doit voir prochainement des décisions importantes évidemment sur le nouveau nucléaire, avec là le mandat qui a été donné au nouveau PDG d'EDF avec cette stratégie pluriannuelle qui nous conviendra de préciser encore dans les temps qui viendront."
+      },
+      {
+        "segment_id": "whisper_000030",
+        "time": {
+          "start_seconds": 365.26,
+          "end_seconds": 381.6,
+          "duration_seconds": 16.340000000000032,
+          "start_ts": "00:06:05.26",
+          "end_ts": "00:06:21.60"
+        },
+        "text": "Même chose pour les énergies renouvelables, notamment avec les filières ENR nationales et souveraines, puisque ça y est enfin on commence à avoir des capacités qui sont françaises, c'est le normand que je suis qui vous le dit, et qui nous permettent quand même de regarder un tout petit peu cette trajectoire industrielle là aussi de manière un peu différente."
+      },
+      {
+        "segment_id": "whisper_000031",
+        "time": {
+          "start_seconds": 382.1,
+          "end_seconds": 395.32,
+          "duration_seconds": 13.21999999999997,
+          "start_ts": "00:06:22.10",
+          "end_ts": "00:06:35.32"
+        },
+        "text": "Puis dernier point, évidemment la question des outre-mer et de la corrélation avec nos grandes ambitions climatiques, et outre-mer plus la question évidemment de la Corse, je le dis pour votre voisin immédiat, le ministre Marc Angeli,"
+      },
+      {
+        "segment_id": "whisper_000032",
+        "time": {
+          "start_seconds": 395.92,
+          "end_seconds": 408.38,
+          "duration_seconds": 12.45999999999998,
+          "start_ts": "00:06:35.92",
+          "end_ts": "00:06:48.38"
+        },
+        "text": "où là on le voit bien, on a une PPE en discussion en cours de travaux qui est hexagonale, mais derrière la stratégie nationale doit englober évidemment les territoires insulaires ou non interconnectés,"
+      },
+      {
+        "segment_id": "whisper_000033",
+        "time": {
+          "start_seconds": 408.74,
+          "end_seconds": 411.8,
+          "duration_seconds": 3.0600000000000023,
+          "start_ts": "00:06:48.74",
+          "end_ts": "00:06:51.80"
+        },
+        "text": "et là on le voit bien, on est en train de prendre du retard sur ces territoires."
+      },
+      {
+        "segment_id": "whisper_000034",
+        "time": {
+          "start_seconds": 412.1,
+          "end_seconds": 421.0,
+          "duration_seconds": 8.899999999999977,
+          "start_ts": "00:06:52.10",
+          "end_ts": "00:07:01.00"
+        },
+        "text": "Donc la décarbonation est une attente très forte, l'autonomie énergétique est une attente très très forte, et sur lequel je serai amené peut-être à préciser un certain nombre d'éléments de stratégie dans les temps qui viendront,"
+      },
+      {
+        "segment_id": "whisper_000035",
+        "time": {
+          "start_seconds": 421.0,
+          "end_seconds": 427.9,
+          "duration_seconds": 6.899999999999977,
+          "start_ts": "00:07:01.00",
+          "end_ts": "00:07:07.90"
+        },
+        "text": "parce que nos ambitions elles sont nationales et internationales, et donc par définition elle ne doit laisser aucun territoire de côté."
+      },
+      {
+        "segment_id": "whisper_000036",
+        "time": {
+          "start_seconds": 428.08,
+          "end_seconds": 441.3,
+          "duration_seconds": 13.220000000000027,
+          "start_ts": "00:07:08.08",
+          "end_ts": "00:07:21.30"
+        },
+        "text": "Et puis enfin la question de l'hydroélectricité, c'est la proposition de loi des parlementaires Battistel et Bollot, des années de discussion avec la Commission européenne,"
+      },
+      {
+        "segment_id": "whisper_000037",
+        "time": {
+          "start_seconds": 441.3,
+          "end_seconds": 442.06,
+          "duration_seconds": 0.7599999999999909,
+          "start_ts": "00:07:21.30",
+          "end_ts": "00:07:22.06"
+        },
+        "text": "beaucoup de valets."
+      },
+      {
+        "segment_id": "whisper_000038",
+        "time": {
+          "start_seconds": 442.1,
+          "end_seconds": 451.14,
+          "duration_seconds": 9.039999999999964,
+          "start_ts": "00:07:22.10",
+          "end_ts": "00:07:31.14"
+        },
+        "text": "Et donc je souhaite que cette proposition de loi puisse être inscrite à l'ordre du jour de l'Assemblée nationale en sortant du Conseil d'État le plus vite possible, c'est-à-dire à la fin du mois de janvier,"
+      },
+      {
+        "segment_id": "whisper_000039",
+        "time": {
+          "start_seconds": 451.48,
+          "end_seconds": 455.38,
+          "duration_seconds": 3.8999999999999773,
+          "start_ts": "00:07:31.48",
+          "end_ts": "00:07:35.38"
+        },
+        "text": "parce qu'on le voit bien aussi dans la question énergétique, beaucoup d'autres sujets sont à venir."
+      },
+      {
+        "segment_id": "whisper_000040",
+        "time": {
+          "start_seconds": 455.48,
+          "end_seconds": 462.4,
+          "duration_seconds": 6.919999999999959,
+          "start_ts": "00:07:35.48",
+          "end_ts": "00:07:42.40"
+        },
+        "text": "Voilà Madame la Présidente, pardon d'avoir été long, mais ça me permet de clarifier le débat à venir sur la question énergétique qui va nous occuper dans les prochaines semaines."
+      },
+      {
+        "segment_id": "whisper_000041",
+        "time": {
+          "start_seconds": 462.52,
+          "end_seconds": 463.18,
+          "duration_seconds": 0.660000000000025,
+          "start_ts": "00:07:42.52",
+          "end_ts": "00:07:43.18"
+        },
+        "text": "Merci à toutes et à tous."
+      },
+      {
+        "segment_id": "whisper_000042",
+        "time": {
+          "start_seconds": 463.5,
+          "end_seconds": 465.4,
+          "duration_seconds": 1.8999999999999773,
+          "start_ts": "00:07:43.50",
+          "end_ts": "00:07:45.40"
+        },
+        "text": "Merci beaucoup Monsieur le Premier ministre."
+      },
+      {
+        "segment_id": "whisper_000043",
+        "time": {
+          "start_seconds": 466.32,
+          "end_seconds": 469.34,
+          "duration_seconds": 3.019999999999982,
+          "start_ts": "00:07:46.32",
+          "end_ts": "00:07:49.34"
+        },
+        "text": "La parole est à présent à Monsieur Marcelin Nadeau, pour le GDR."
+      },
+      {
+        "segment_id": "whisper_000044",
+        "time": {
+          "start_seconds": 469.94,
+          "end_seconds": 471.24,
+          "duration_seconds": 1.3000000000000114,
+          "start_ts": "00:07:49.94",
+          "end_ts": "00:07:51.24"
+        },
+        "text": "Merci Madame la Présidente."
+      },
+      {
+        "segment_id": "whisper_000045",
+        "time": {
+          "start_seconds": 472.1,
+          "end_seconds": 478.56,
+          "duration_seconds": 6.4599999999999795,
+          "start_ts": "00:07:52.10",
+          "end_ts": "00:07:58.56"
+        },
+        "text": "Je m'adresse à Monsieur le Ministre des Affaires étrangères et de l'Europe, et à très à la place des dix Outre-mer dans l'action diplomatique française."
+      },
+      {
+        "segment_id": "whisper_000046",
+        "time": {
+          "start_seconds": 479.08,
+          "end_seconds": 486.82,
+          "duration_seconds": 7.740000000000009,
+          "start_ts": "00:07:59.08",
+          "end_ts": "00:08:06.82"
+        },
+        "text": "Effectivement Monsieur le Ministre, l'actualité est dans, j'aurais pu vous interpeller sur des éléments relevant, plutôt du volet extra-européen de vos missions,"
+      },
+      {
+        "segment_id": "whisper_000047",
+        "time": {
+          "start_seconds": 487.28,
+          "end_seconds": 495.78,
+          "duration_seconds": 8.5,
+          "start_ts": "00:08:07.28",
+          "end_ts": "00:08:15.78"
+        },
+        "text": "s'agissant notamment des manœuvres états-uniennes dans la mer des Caraïbes, qui nous ramènent dangereusement un siècle en arrière avec la fameuse doctrine Monroe."
+      },
+      {
+        "segment_id": "whisper_000048",
+        "time": {
+          "start_seconds": 495.9,
+          "end_seconds": 501.72,
+          "duration_seconds": 5.82000000000005,
+          "start_ts": "00:08:15.90",
+          "end_ts": "00:08:21.72"
+        },
+        "text": "Et permettez-moi de préciser que les États de la Caraïbe sont inquiets, mais aussi très surpris du silence."
+      },
+      {
+        "segment_id": "whisper_000049",
+        "time": {
+          "start_seconds": 502.1,
+          "end_seconds": 516.48,
+          "duration_seconds": 14.379999999999995,
+          "start_ts": "00:08:22.10",
+          "end_ts": "00:08:36.48"
+        },
+        "text": "Ils sont très inquiets de la France face à l'attitude guerrière du Président des États-Unis d'Amérique qui, prétextant de la lutte contre le narcotrafic, menace des pays, mais également des civils, à travers leur activité, je pense, singulièrement à la pêche dans la mer des Caraïbes."
+      },
+      {
+        "segment_id": "whisper_000050",
+        "time": {
+          "start_seconds": 516.88,
+          "end_seconds": 523.08,
+          "duration_seconds": 6.2000000000000455,
+          "start_ts": "00:08:36.88",
+          "end_ts": "00:08:43.08"
+        },
+        "text": "Mais je tâcherai aujourd'hui de me concentrer sur des sujets relevant plutôt de notre relation à l'Europe, avec trois questions."
+      },
+      {
+        "segment_id": "whisper_000051",
+        "time": {
+          "start_seconds": 523.08,
+          "end_seconds": 523.88,
+          "duration_seconds": 0.7999999999999545,
+          "start_ts": "00:08:43.08",
+          "end_ts": "00:08:43.88"
+        },
+        "text": "Première question."
+      },
+      {
+        "segment_id": "whisper_000052",
+        "time": {
+          "start_seconds": 524.34,
+          "end_seconds": 532.08,
+          "duration_seconds": 7.740000000000009,
+          "start_ts": "00:08:44.34",
+          "end_ts": "00:08:52.08"
+        },
+        "text": "Vous étiez vous-même, et ici même, engagé à mettre en œuvre, à partir de la fin du mois d'avril, l'extension de la Charte européenne des droits de l'homme."
+      },
+      {
+        "segment_id": "whisper_000053",
+        "time": {
+          "start_seconds": 532.1,
+          "end_seconds": 533.58,
+          "duration_seconds": 1.4800000000000182,
+          "start_ts": "00:08:52.10",
+          "end_ts": "00:08:53.58"
+        },
+        "text": "Les droits sociaux aux dix Outre-mer."
+      },
+      {
+        "segment_id": "whisper_000054",
+        "time": {
+          "start_seconds": 534.0,
+          "end_seconds": 535.9,
+          "duration_seconds": 1.8999999999999773,
+          "start_ts": "00:08:54.00",
+          "end_ts": "00:08:55.90"
+        },
+        "text": "Depuis, nous n'avons aucune nouvelle."
+      },
+      {
+        "segment_id": "whisper_000055",
+        "time": {
+          "start_seconds": 536.32,
+          "end_seconds": 542.74,
+          "duration_seconds": 6.419999999999959,
+          "start_ts": "00:08:56.32",
+          "end_ts": "00:09:02.74"
+        },
+        "text": "Est-ce le signe d'une volonté du gouvernement français de ne jamais appliquer cette charte à nos territoires ?"
+      },
+      {
+        "segment_id": "whisper_000056",
+        "time": {
+          "start_seconds": 542.74,
+          "end_seconds": 549.82,
+          "duration_seconds": 7.080000000000041,
+          "start_ts": "00:09:02.74",
+          "end_ts": "00:09:09.82"
+        },
+        "text": "Pourquoi donc, et à défaut, dites-nous de façon précise à quelle date cette charte pourra être appliquée à nos pays ?"
+      },
+      {
+        "segment_id": "whisper_000057",
+        "time": {
+          "start_seconds": 549.82,
+          "end_seconds": 556.28,
+          "duration_seconds": 6.459999999999923,
+          "start_ts": "00:09:09.82",
+          "end_ts": "00:09:16.28"
+        },
+        "text": "Deuxièmement, concernant les fonds européens et la nouvelle gestion qui devrait être mise en place, notamment pour les aides relevant du POSEI."
+      },
+      {
+        "segment_id": "whisper_000058",
+        "time": {
+          "start_seconds": 556.28,
+          "end_seconds": 561.9,
+          "duration_seconds": 5.6200000000000045,
+          "start_ts": "00:09:16.28",
+          "end_ts": "00:09:21.90"
+        },
+        "text": "Et là, je me fais le relais des acteurs de l'agriculture de nos territoires qui sont un peu plus inquiets."
+      },
+      {
+        "segment_id": "whisper_000059",
+        "time": {
+          "start_seconds": 562.1,
+          "end_seconds": 568.1,
+          "duration_seconds": 6.0,
+          "start_ts": "00:09:22.10",
+          "end_ts": "00:09:28.10"
+        },
+        "text": "Êtes-vous en mesure de nous garantir que cette gestion n'impactera pas de façon négative l'agriculture de nos pays ?"
+      },
+      {
+        "segment_id": "whisper_000060",
+        "time": {
+          "start_seconds": 568.1,
+          "end_seconds": 576.72,
+          "duration_seconds": 8.620000000000005,
+          "start_ts": "00:09:28.10",
+          "end_ts": "00:09:36.72"
+        },
+        "text": "Enfin, monsieur le ministre, s'agissant du POSEI, justement, qu'en est-il de l'aide forfaitaire de 2 millions promis aux petits agriculteurs de Martinique ?"
+      },
+      {
+        "segment_id": "whisper_000061",
+        "time": {
+          "start_seconds": 576.72,
+          "end_seconds": 579.06,
+          "duration_seconds": 2.339999999999918,
+          "start_ts": "00:09:36.72",
+          "end_ts": "00:09:39.06"
+        },
+        "text": "J'attends vos réponses en vous remerciant."
+      },
+      {
+        "segment_id": "whisper_000062",
+        "time": {
+          "start_seconds": 580.34,
+          "end_seconds": 582.08,
+          "duration_seconds": 1.740000000000009,
+          "start_ts": "00:09:40.34",
+          "end_ts": "00:09:42.08"
+        },
+        "text": "Merci beaucoup, monsieur le député."
+      },
+      {
+        "segment_id": "whisper_000063",
+        "time": {
+          "start_seconds": 582.22,
+          "end_seconds": 587.62,
+          "duration_seconds": 5.399999999999977,
+          "start_ts": "00:09:42.22",
+          "end_ts": "00:09:47.62"
+        },
+        "text": "La parole est à madame Eleonore Carroix, ministre chargée de la francophonie et des partenariats internationaux."
+      },
+      {
+        "segment_id": "whisper_000064",
+        "time": {
+          "start_seconds": 587.84,
+          "end_seconds": 588.96,
+          "duration_seconds": 1.1200000000000045,
+          "start_ts": "00:09:47.84",
+          "end_ts": "00:09:48.96"
+        },
+        "text": "Merci, madame la présidente."
+      },
+      {
+        "segment_id": "whisper_000065",
+        "time": {
+          "start_seconds": 588.96,
+          "end_seconds": 590.68,
+          "duration_seconds": 1.7199999999999136,
+          "start_ts": "00:09:48.96",
+          "end_ts": "00:09:50.68"
+        },
+        "text": "Monsieur le député Nadeau."
+      },
+      {
+        "segment_id": "whisper_000066",
+        "time": {
+          "start_seconds": 590.68,
+          "end_seconds": 590.84,
+          "duration_seconds": 0.16000000000008185,
+          "start_ts": "00:09:50.68",
+          "end_ts": "00:09:50.84"
+        },
+        "text": "Merci à vous."
+      },
+      {
+        "segment_id": "whisper_000067",
+        "time": {
+          "start_seconds": 590.84,
+          "end_seconds": 590.88,
+          "duration_seconds": 0.03999999999996362,
+          "start_ts": "00:09:50.84",
+          "end_ts": "00:09:50.88"
+        },
+        "text": "Merci à vous."
+      },
+      {
+        "segment_id": "whisper_000068",
+        "time": {
+          "start_seconds": 590.88,
+          "end_seconds": 590.92,
+          "duration_seconds": 0.03999999999996362,
+          "start_ts": "00:09:50.88",
+          "end_ts": "00:09:50.92"
+        },
+        "text": "Merci à vous."
+      },
+      {
+        "segment_id": "whisper_000069",
+        "time": {
+          "start_seconds": 590.92,
+          "end_seconds": 590.96,
+          "duration_seconds": 0.04000000000007731,
+          "start_ts": "00:09:50.92",
+          "end_ts": "00:09:50.96"
+        },
+        "text": "Merci à vous."
+      },
+      {
+        "segment_id": "whisper_000070",
+        "time": {
+          "start_seconds": 590.96,
+          "end_seconds": 591.0,
+          "duration_seconds": 0.03999999999996362,
+          "start_ts": "00:09:50.96",
+          "end_ts": "00:09:51.00"
+        },
+        "text": "Merci à vous."
+      },
+      {
+        "segment_id": "whisper_000071",
+        "time": {
+          "start_seconds": 591.0,
+          "end_seconds": 591.04,
+          "duration_seconds": 0.03999999999996362,
+          "start_ts": "00:09:51.00",
+          "end_ts": "00:09:51.04"
+        },
+        "text": "Merci à vous."
+      },
+      {
+        "segment_id": "whisper_000072",
+        "time": {
+          "start_seconds": 591.04,
+          "end_seconds": 591.12,
+          "duration_seconds": 0.08000000000004093,
+          "start_ts": "00:09:51.04",
+          "end_ts": "00:09:51.12"
+        },
+        "text": "Merci à vous."
+      },
+      {
+        "segment_id": "whisper_000073",
+        "time": {
+          "start_seconds": 591.12,
+          "end_seconds": 591.16,
+          "duration_seconds": 0.03999999999996362,
+          "start_ts": "00:09:51.12",
+          "end_ts": "00:09:51.16"
+        },
+        "text": "Merci à vous."
+      },
+      {
+        "segment_id": "whisper_000074",
+        "time": {
+          "start_seconds": 591.16,
+          "end_seconds": 591.2,
+          "duration_seconds": 0.04000000000007731,
+          "start_ts": "00:09:51.16",
+          "end_ts": "00:09:51.20"
+        },
+        "text": "Merci à vous."
+      },
+      {
+        "segment_id": "whisper_000075",
+        "time": {
+          "start_seconds": 591.2,
+          "end_seconds": 595.48,
+          "duration_seconds": 4.279999999999973,
+          "start_ts": "00:09:51.20",
+          "end_ts": "00:09:55.48"
+        },
+        "text": "Avant tout, j'aimerais vous remercier de parler de la Caraïbe et de la mettre au cœur de cet hémicycle."
+      },
+      {
+        "segment_id": "whisper_000076",
+        "time": {
+          "start_seconds": 595.6,
+          "end_seconds": 598.48,
+          "duration_seconds": 2.8799999999999955,
+          "start_ts": "00:09:55.60",
+          "end_ts": "00:09:58.48"
+        },
+        "text": "La Caraïbienne que je suis ne peut que vous en remercier."
+      },
+      {
+        "segment_id": "whisper_000077",
+        "time": {
+          "start_seconds": 598.9,
+          "end_seconds": 599.86,
+          "duration_seconds": 0.9600000000000364,
+          "start_ts": "00:09:58.90",
+          "end_ts": "00:09:59.86"
+        },
+        "text": "Vous posez deux questions."
+      }
+    ]
+  },
+  "diarization": {
+    "engine": {
+      "name": "pyannote",
+      "model": null,
+      "device": null
+    },
+    "speakers_count": null,
+    "raw_segments": [],
+    "speaker_embeddings": []
+  },
+  "segments": []
+}

@@ -61,8 +61,6 @@ tensorboard/
 *.avi
 *.mkv
 
-# Transcripts / generated text (optional — comment if you want to keep)
-*.txt
 
 # =========================
 # pyannote / embeddings

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 import time
 from pathlib import Path
 
@@ -44,7 +45,7 @@ def transcribe_audio(
     output_txt_path: Path | None = None,
     model_name: str = "large-v3",
     device: str = "auto",
-    compute_type: str = "int8",
+    compute_type: str = "auto",
     language: str = "fr",
     beam_size: int = 5,
     vad_filter: bool = True,
@@ -91,9 +92,24 @@ def transcribe_audio(
 
     text_lines: list[str] = []
 
+    # logs / progress
+    total_duration = info.duration or 0.0  # seconds
+    start_time = time.time()
+
     for idx, segment in enumerate(segments_iter, start=1):
+        progress = segment.end / total_duration if total_duration else 0.0
+        elapsed = time.time() - start_time
+        speed = segment.end / elapsed if elapsed > 0 else 0.0
+
         cleaned_text = segment.text.strip()
         time_range = TimeRange.from_seconds(segment.start, segment.end)
+
+        bar_width = 30
+        filled = int(progress * bar_width)
+        bar = "=" * filled + " " * (bar_width - filled)
+
+        sys.stdout.write(f"\r[{bar}] {progress * 100:5.1f}% | {speed:4.2f}x realtime")
+        sys.stdout.flush()
 
         raw_segment = TranscriptRawSegment(
             segment_id=f"whisper_{idx:06d}",
@@ -108,6 +124,7 @@ def transcribe_audio(
         )
 
     elapsed = time.time() - start_time
+    print()
 
     doc.transcript.segments_count = len(doc.transcript.raw_segments)
     doc.source.duration_seconds = (
@@ -150,7 +167,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-txt", help="Optional output text path")
     parser.add_argument("--model", default="large-v3", help="Whisper model name")
     parser.add_argument("--device", default="auto", help="Device: auto, cpu, cuda")
-    parser.add_argument("--compute-type", default="int8", help="Compute type")
+    parser.add_argument("--compute-type", default="auto", help="Compute type")
     parser.add_argument("--language", default="fr", help="Language code")
     parser.add_argument("--beam-size", type=int, default=5, help="Beam size")
     parser.add_argument(
