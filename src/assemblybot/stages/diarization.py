@@ -6,13 +6,14 @@ import os
 import time
 from pathlib import Path
 
+import soundfile as sf
 import torch
 from pyannote.audio import Pipeline
+from pyannote.audio.pipelines.utils.hook import ProgressHook
 
 from assemblybot.config import INTERIM_DIR
 from assemblybot.models.diarization import DiarizationRawSegment
-from assemblybot.models.factories import mark_stage_completed
-from assemblybot.models.time import TimeRange
+from assemblybot.models.time import TimeRange, now_utc_iso
 
 
 def build_default_output_path(input_audio_path: Path) -> Path:
@@ -76,10 +77,26 @@ def diarize_audio(
         model_name,
         token=hf_token,
     )
-    pipeline.to(torch_device)
+    pipeline.to(torch_device)  # type: ignore
 
     print(f"Diarizing: {input_audio_path.name}")
-    diarization = pipeline(str(input_audio_path))
+    audio, sample_rate = sf.read(str(input_audio_path), dtype="float32")
+
+    if audio.ndim == 1:
+        waveform = torch.from_numpy(audio).unsqueeze(0)  # (1, time)
+    else:
+        waveform = torch.from_numpy(audio.T)  # (channels, time)
+
+    with ProgressHook() as hook:
+        diarization = pipeline(  # type: ignore
+            {
+                "waveform": waveform,
+                "sample_rate": sample_rate,
+            },
+            hook=hook,
+        )
+
+    annotation = diarization.speaker_diarization
 
     elapsed = time.time() - start_time
 
@@ -93,7 +110,7 @@ def diarize_audio(
     speaker_ids: set[str] = set()
 
     for idx, (turn, _, speaker_label) in enumerate(
-        diarization.itertracks(yield_label=True), start=1
+        annotation.itertracks(yield_label=True), start=1
     ):
         speaker_ids.add(speaker_label)
 
@@ -120,19 +137,20 @@ def diarize_audio(
         )
 
     doc["diarization"]["speakers_count"] = len(speaker_ids)
+    doc["diarization"]["segments_count"] = len(doc["diarization"]["raw_segments"])
 
-    mark_stage_completed(
-        doc,
-        stage_name="diarization",
-        output_path=str(output_json_path),
-    )
+    if "diarization" not in doc["pipeline"]["stages_completed"]:
+        doc["pipeline"]["stages_completed"].append("diarization")
+
+    doc["pipeline"]["updated_at"] = now_utc_iso()
+    doc["pipeline"]["stage_outputs"]["diarization"] = str(output_json_path)
 
     save_document(doc, output_json_path)
 
-    print(f"✓ Speakers detected: {doc['diarization']['speakers_count']}")
-    print(f"✓ Raw diarization segments: {len(doc['diarization']['raw_segments'])}")
-    print(f"✓ Time: {elapsed / 60:.1f} min")
-    print(f"✓ JSON transcript+diarization: {output_json_path}")
+    print(f"Speakers detected: {doc['diarization']['speakers_count']}")
+    print(f"Raw diarization segments: {len(doc['diarization']['raw_segments'])}")
+    print(f"Time: {elapsed / 60:.1f} min")
+    print(f"JSON transcript+diarization: {output_json_path}")
 
     return doc
 

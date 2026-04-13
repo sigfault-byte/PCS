@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "ctranslate2",
+    "soundfile>=0.13.1",
     "yt-dlp>=2026.3.17",
 ]
 
@@ -14,4 +15,5 @@ inference = [
     "faster-whisper>=1.2.1",
     "pyannote-audio>=4.0.4",
     "torch>=2.11.0",
+    "torchcodec>=0.11.0",
 ]

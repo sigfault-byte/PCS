@@ -22,5 +22,6 @@ class DiarizationRawSegment:
 class DiarizationSection:
     engine: DiarizationEngine = field(default_factory=DiarizationEngine)
     speakers_count: int | None = None
+    segments_count: int = 0
     raw_segments: list[DiarizationRawSegment] = field(default_factory=list)
     speaker_embeddings: list[list[float]] = field(default_factory=list)
