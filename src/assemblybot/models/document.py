@@ -2,6 +2,7 @@ from dataclasses import asdict, dataclass, field
 from typing import Any
 
 from .diarization import DiarizationSection
+from .flags import flags_to_list
 from .segments import FinalSegment
 from .transcript import TranscriptSection
 
@@ -42,4 +43,14 @@ class CanonicalDocument:
     segments: list[FinalSegment] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+        data = asdict(self)
+
+        # future-proof hook
+        data["schema_version"] = self.schema_version
+
+        # enrich for debug / readability
+        for seg in data.get("segments", []):
+            flags = seg.get("flags", 0)
+            seg["flags_readable"] = flags_to_list(flags)
+
+        return data

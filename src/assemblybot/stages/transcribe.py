@@ -3,44 +3,39 @@ from __future__ import annotations
 import argparse
 import json
 import time
-from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any
 
+import torch
 from faster_whisper import WhisperModel
 
 from assemblybot.config import INTERIM_DIR
+from assemblybot.models.factories import create_empty_document, mark_stage_completed
+from assemblybot.models.time import TimeRange, seconds_to_timestamp
+from assemblybot.models.transcript import TranscriptRawSegment
 
 
-@dataclass
-class TranscriptSegment:
-    start: float
-    end: float
-    text: str
+# Better safe than sorry -> move to global config
+# -------------------------------
+def resolve_device_and_compute(device: str, compute_type: str):
+    if device == "auto":
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    if compute_type == "auto":
+        compute_type = "float16" if device == "cuda" else "int8"
+
+    print(f"Running on {device}!")
+    return device, compute_type
 
 
-@dataclass
-class TranscriptResult:
-    input_file: str
-    language: str
-    language_probability: float
-    model_name: str
-    device: str
-    compute_type: str
-    elapsed_seconds: float
-    segments: list[TranscriptSegment]
-
-
-def format_timestamp(seconds: float) -> str:
-    return f"{seconds:.2f}s"
+# ------------------------------
 
 
 def build_default_output_path(input_path: Path) -> Path:
-    return INTERIM_DIR / f"{input_path.stem}_transcript.json"
+    return INTERIM_DIR / f"{input_path.stem}_01_transcript.json"
 
 
 def build_default_text_output_path(input_path: Path) -> Path:
-    return INTERIM_DIR / f"{input_path.stem}_transcript.txt"
+    return INTERIM_DIR / f"{input_path.stem}_01_transcript.txt"
 
 
 def transcribe_audio(
@@ -54,7 +49,7 @@ def transcribe_audio(
     beam_size: int = 5,
     vad_filter: bool = True,
     min_silence_duration_ms: int = 500,
-) -> TranscriptResult:
+):
     input_path = input_path.resolve()
 
     if not input_path.exists():
@@ -66,8 +61,15 @@ def transcribe_audio(
     output_json_path.parent.mkdir(parents=True, exist_ok=True)
     output_txt_path.parent.mkdir(parents=True, exist_ok=True)
 
+    doc = create_empty_document(input_path=input_path, language_expected=language)
+
+    device, compute_type = resolve_device_and_compute(device, compute_type)
+
     print("Loading Whisper model...")
+    print(f"Using device: {device} ({compute_type})")
+
     model = WhisperModel(model_name, device=device, compute_type=compute_type)
+
     print("Model loaded")
 
     print(f"Transcribing: {input_path.name}")
@@ -81,49 +83,62 @@ def transcribe_audio(
         vad_parameters={"min_silence_duration_ms": min_silence_duration_ms},
     )
 
-    segments: list[TranscriptSegment] = [
-        TranscriptSegment(
-            start=segment.start,
-            end=segment.end,
-            text=segment.text.strip(),
+    doc.transcript.engine.model = model_name
+    doc.transcript.engine.device = device
+    doc.transcript.engine.compute_type = compute_type
+    doc.transcript.language_detected = info.language
+    doc.transcript.language_probability = info.language_probability
+
+    text_lines: list[str] = []
+
+    for idx, segment in enumerate(segments_iter, start=1):
+        cleaned_text = segment.text.strip()
+        time_range = TimeRange.from_seconds(segment.start, segment.end)
+
+        raw_segment = TranscriptRawSegment(
+            segment_id=f"whisper_{idx:06d}",
+            time=time_range,
+            text=cleaned_text,
         )
-        for segment in segments_iter
-    ]
+        doc.transcript.raw_segments.append(raw_segment)
+
+        text_lines.append(
+            f"[{seconds_to_timestamp(segment.start)} -> "
+            f"{seconds_to_timestamp(segment.end)}] {cleaned_text}"
+        )
 
     elapsed = time.time() - start_time
 
-    result = TranscriptResult(
-        input_file=str(input_path),
-        language=info.language,
-        language_probability=info.language_probability,
-        model_name=model_name,
-        device=device,
-        compute_type=compute_type,
-        elapsed_seconds=elapsed,
-        segments=segments,
+    doc.transcript.segments_count = len(doc.transcript.raw_segments)
+    doc.source.duration_seconds = (
+        doc.transcript.raw_segments[-1].time.end_seconds
+        if doc.transcript.raw_segments
+        else 0.0
+    )
+
+    mark_stage_completed(
+        doc,
+        stage_name="transcription",
+        output_path=str(output_json_path),
     )
 
     with output_txt_path.open("w", encoding="utf-8") as f:
-        for segment in segments:
-            line = (
-                f"[{format_timestamp(segment.start)} -> "
-                f"{format_timestamp(segment.end)}] {segment.text}"
-            )
+        for line in text_lines:
             f.write(line + "\n")
 
     with output_json_path.open("w", encoding="utf-8") as f:
-        json.dump(asdict(result), f, ensure_ascii=False, indent=2)
+        json.dump(doc.to_dict(), f, ensure_ascii=False, indent=2)
 
     print(
-        f"Detected language: {result.language} "
-        f"(confidence: {result.language_probability:.2f})"
+        f"Detected language: {doc.transcript.language_detected} "
+        f"(confidence: {doc.transcript.language_probability:.2f})"
     )
-    print(f"Segments: {len(result.segments)}")
+    print(f"Segments: {doc.transcript.segments_count}")
     print(f"Time: {elapsed / 60:.1f} min")
     print(f"Text transcript: {output_txt_path}")
     print(f"JSON transcript: {output_json_path}")
 
-    return result
+    return doc
 
 
 def parse_args() -> argparse.Namespace:
@@ -147,7 +162,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--no-vad",
         action="store_true",
-        help="Disable VAD filter",
+        help="Disable VAD filtering",
     )
     return parser.parse_args()
 
