@@ -19,6 +19,9 @@ inference = [
     "torch>=2.11.0",
     "torchcodec>=0.11.0",
 ]
+scrape = [
+    "beautifulsoup4>=4.14.3",
+]
 
 [tool.uv.sources]
 fr-core-news-sm = { url = "https://github.com/explosion/spacy-models/releases/download/fr_core_news_sm-3.8.0/fr_core_news_sm-3.8.0-py3-none-any.whl" }

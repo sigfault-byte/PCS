@@ -1,0 +1,2494 @@
+
+=== SEGMENT seg_000001 ===
+IMPORTANT VERBS: ['entendu', 'est', 'appelle', 'être', 'posée']
+TOKEN='Cordier' NAME='Cordier' POS=PROPN DEP=nmod HEAD='monsieur' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, head.title=monsieur
+  CHILDREN: []
+TOKEN='Paul' NAME='Paul Christophe' POS=PROPN DEP=appos HEAD='monsieur' SCORE=13
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.dep=obl:agent, head.title=monsieur, has flat:name child, has appos child, name extended with flat:name
+  CHILDREN: ['Christophe', ',', 'président']
+TOKEN='Christophe' NAME='Paul Christophe' POS=PROPN DEP=flat:name HEAD='Paul' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000002 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=vocative HEAD='adresse' SCORE=-1
+  REASONS: ent_type=PER, pos=NOUN, dep=vocative (weaker)
+  CHILDREN: ['madame']
+-------------------------------
+
+=== SEGMENT seg_000007 ===
+TOKEN='Henri' NAME='Henri Alfandari' POS=PROPN DEP=nmod HEAD='collègue' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Alfandari']
+TOKEN='Alfandari' NAME='Henri Alfandari' POS=PROPN DEP=flat:name HEAD='Henri' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000008 ===
+IMPORTANT VERBS: ['indiqué']
+TOKEN='Roland' NAME='Roland Lescure' POS=PROPN DEP=appos HEAD='ministre' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.title=ministre, has flat:name child, name extended with flat:name
+  CHILDREN: ['Lescure']
+TOKEN='Lescure' NAME='Roland Lescure' POS=PROPN DEP=flat:name HEAD='Roland' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000014 ===
+IMPORTANT VERBS: ['posait']
+TOKEN='Agnès' NAME='Agnès Pannier' POS=PROPN DEP=appos HEAD='ministre' SCORE=12
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.dep=nsubj, head.title=ministre, has flat:name child, name extended with flat:name
+  CHILDREN: ['Pannier']
+TOKEN='Pannier' NAME='Agnès Pannier' POS=PROPN DEP=flat:name HEAD='Agnès' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+TOKEN='-' NAME='-' POS=PROPN DEP=nmod HEAD='ministre' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, head.dep=nsubj, head.title=ministre
+  CHILDREN: []
+TOKEN='Runacher' NAME='Runacher' POS=PROPN DEP=nmod HEAD='ministre' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, head.dep=nsubj, head.title=ministre
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000050 ===
+IMPORTANT VERBS: ['dis']
+TOKEN='Marc' NAME='Marc Angeli' POS=PROPN DEP=appos HEAD='ministre' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.title=ministre, has flat:name child, name extended with flat:name
+  CHILDREN: ['Angeli']
+TOKEN='Angeli' NAME='Marc Angeli' POS=PROPN DEP=flat:name HEAD='Marc' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000063 ===
+IMPORTANT VERBS: ['été']
+TOKEN='Madame' NAME='Voilà Madame' POS=NOUN DEP=flat:name HEAD='Voilà' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_000065 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: []
+TOKEN='Premier' NAME='Premier' POS=ADJ DEP=amod HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['le', 'Premier']
+-------------------------------
+
+=== SEGMENT seg_000066 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=obl:arg HEAD='présent' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, has flat:name child
+  CHILDREN: ['à', 'Marcelin']
+TOKEN='Marcelin' NAME='Marcelin Nadeau' POS=PROPN DEP=flat:name HEAD='Monsieur' SCORE=11
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Monsieur, has flat:name child, name extended with flat:name
+  CHILDREN: ['Nadeau']
+TOKEN='Nadeau' NAME='Marcelin Nadeau' POS=PROPN DEP=flat:name HEAD='Marcelin' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000067 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_000068 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=obl:arg HEAD='adresse' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['à', 'Ministre']
+-------------------------------
+
+=== SEGMENT seg_000069 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Effectivement' NAME='Effectivement' POS=ADV DEP=advmod HEAD='est' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: ['Monsieur', 'actualité']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=dep HEAD='Effectivement' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Ministre']
+-------------------------------
+
+=== SEGMENT seg_000086 ===
+IMPORTANT VERBS: ['être']
+TOKEN='Charte' NAME='Charte' POS=NOUN DEP=nsubj HEAD='pourra' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, dep=nsubj
+  CHILDREN: ['cette']
+-------------------------------
+
+=== SEGMENT seg_000095 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Eleonore' NAME='Eleonore Carroy' POS=PROPN DEP=nmod HEAD='madame' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, head.title=madame, has flat:name child, name extended with flat:name
+  CHILDREN: ['Carroy']
+TOKEN='Carroy' NAME='Eleonore Carroy' POS=PROPN DEP=flat:name HEAD='Eleonore' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000096 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', '.']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'député', ',']
+-------------------------------
+
+=== SEGMENT seg_000114 ===
+IMPORTANT VERBS: ['être']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=dep HEAD='doit' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: [',', 'député']
+-------------------------------
+
+=== SEGMENT seg_000126 ===
+IMPORTANT VERBS: ['soient']
+TOKEN='Charte' NAME='Charte' POS=NOUN DEP=nmod HEAD='applicabilité' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['de', 'cette']
+-------------------------------
+
+=== SEGMENT seg_000131 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'beaucoup', 'Madame', 'Ministre', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: []
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_000132 ===
+IMPORTANT VERBS: ['être', 'été']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=vocative HEAD='rassuré' SCORE=-1
+  REASONS: ent_type=PER, pos=NOUN, dep=vocative (weaker)
+  CHILDREN: ['Ministre']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_000137 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur, has flat:name child
+  CHILDREN: ['parole', 'est', 'à', 'Monsieur', 'Marc', 'groupe', '.']
+TOKEN='Marc' NAME='Marc Chavan' POS=PROPN DEP=flat:name HEAD='Monsieur' SCORE=11
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Monsieur, has flat:name child, name extended with flat:name
+  CHILDREN: ['Chavan']
+TOKEN='Chavan' NAME='Marc Chavan' POS=PROPN DEP=flat:name HEAD='Marc' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000138 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_000139 ===
+TOKEN='Premier' NAME='Premier' POS=ADJ DEP=amod HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['le', 'Premier']
+-------------------------------
+
+=== SEGMENT seg_000169 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=obj HEAD='remercie' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['député']
+-------------------------------
+
+=== SEGMENT seg_000170 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur, has flat:name child
+  CHILDREN: ['parole', 'est', 'à', 'Monsieur', 'Roland', '.']
+TOKEN='Roland' NAME='Roland Lescure' POS=PROPN DEP=flat:name HEAD='Monsieur' SCORE=12
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Monsieur, has flat:name child, has appos child, name extended with flat:name
+  CHILDREN: ['Lescure', ',', 'ministre']
+TOKEN='Lescure' NAME='Roland Lescure' POS=PROPN DEP=flat:name HEAD='Roland' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000171 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'Présidente', 'Mesdames', 'Messieurs', 'Monsieur']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+TOKEN='Mesdames' NAME='Mesdames' POS=NOUN DEP=conj HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: [',']
+TOKEN='Messieurs' NAME='Messieurs' POS=NOUN DEP=conj HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: [',', 'députés']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=conj HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: [',', 'député', 'Marc', ',']
+TOKEN='Marc' NAME='Marc Chavan' POS=PROPN DEP=nmod HEAD='Monsieur' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, head.title=Monsieur, has flat:name child, name extended with flat:name
+  CHILDREN: ['Chavan']
+TOKEN='Chavan' NAME='Marc Chavan' POS=PROPN DEP=flat:name HEAD='Marc' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000174 ===
+TOKEN='Ferroglobe' NAME='Ferroglobe' POS=PROPN DEP=nmod HEAD='cité' SCORE=4
+  REASONS: ent_type=PER, pos=PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000188 ===
+IMPORTANT VERBS: ['été']
+TOKEN='président' NAME='président' POS=NOUN DEP=nsubj HEAD='ferme' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, dep=nsubj
+  CHILDREN: ['Le', 'République']
+TOKEN='de' NAME='de' POS=ADP DEP=case HEAD='République' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='République' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='République' NAME='République' POS=NOUN DEP=nmod HEAD='président' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.dep=nsubj, head.title=président
+  CHILDREN: ['de', 'la']
+-------------------------------
+
+=== SEGMENT seg_000207 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'député', '?']
+-------------------------------
+
+=== SEGMENT seg_000234 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Jonathan' NAME='Jonathan Géry' POS=PROPN DEP=punct HEAD='présent' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Géry']
+TOKEN='Géry' NAME='Jonathan Géry' POS=PROPN DEP=flat:name HEAD='Jonathan' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000236 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', '.']
+-------------------------------
+
+=== SEGMENT seg_000238 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'ministre', ',']
+-------------------------------
+
+=== SEGMENT seg_000246 ===
+TOKEN='Bonnard' NAME='Bonnard' POS=PROPN DEP=flat:name HEAD='entreprise' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000292 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Roland' NAME='Roland Lescure' POS=PROPN DEP=appos HEAD='monsieur' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.title=monsieur, has flat:name child, name extended with flat:name
+  CHILDREN: ['Lescure']
+TOKEN='Lescure' NAME='Roland Lescure' POS=PROPN DEP=flat:name HEAD='Roland' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000294 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', ',']
+-------------------------------
+
+=== SEGMENT seg_000355 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'député', '?']
+-------------------------------
+
+=== SEGMENT seg_000360 ===
+TOKEN='Corinne' NAME='Corinne Vignon' POS=PROPN DEP=nmod HEAD='madame' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, head.title=madame, has flat:name child, name extended with flat:name
+  CHILDREN: ['Vignon']
+TOKEN='Vignon' NAME='Corinne Vignon' POS=PROPN DEP=flat:name HEAD='Corinne' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000362 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', '.']
+-------------------------------
+
+=== SEGMENT seg_000367 ===
+TOKEN='président' NAME='président' POS=NOUN DEP=ROOT HEAD='président' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=président
+  CHILDREN: ['dernier', 'le', 'président', 'République']
+TOKEN='de' NAME='de' POS=ADP DEP=case HEAD='République' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='République' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='République' NAME='République' POS=NOUN DEP=nmod HEAD='président' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=président
+  CHILDREN: ['de', 'la']
+-------------------------------
+
+=== SEGMENT seg_000404 ===
+TOKEN='Galiléo' NAME='Galiléo' POS=PROPN DEP=nmod HEAD='suite' SCORE=4
+  REASONS: ent_type=PER, pos=PROPN
+  CHILDREN: ['de']
+-------------------------------
+
+=== SEGMENT seg_000405 ===
+TOKEN='Artemis' NAME='Artemis' POS=VERB DEP=nmod HEAD='exploration' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: ['avec']
+-------------------------------
+
+=== SEGMENT seg_000423 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, has flat:name child
+  CHILDREN: ['Merci', 'beaucoup', 'Madame', 'députée', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=flat:name HEAD='Merci' SCORE=4
+  REASONS: ent_type=PER, pos=NOUN, dep=flat:name
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000424 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur, has flat:name child
+  CHILDREN: ['parole', 'est', 'à', 'Monsieur', 'Roland', ',']
+TOKEN='Roland' NAME='Roland Lescure' POS=PROPN DEP=flat:name HEAD='Monsieur' SCORE=11
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Monsieur, has flat:name child, name extended with flat:name
+  CHILDREN: ['Lescure']
+TOKEN='Lescure' NAME='Roland Lescure' POS=PROPN DEP=flat:name HEAD='Roland' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000426 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', ',']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_000427 ===
+TOKEN='Mesdames' NAME='Mesdames' POS=NOUN DEP=ROOT HEAD='Mesdames' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Mesdames', 'Messieurs', '.']
+TOKEN='Messieurs' NAME='Messieurs' POS=NOUN DEP=conj HEAD='Mesdames' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: [',', 'députés']
+-------------------------------
+
+=== SEGMENT seg_000428 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'députée', 'Corinne', ',']
+TOKEN='Corinne' NAME='Corinne Vignon' POS=PROPN DEP=nmod HEAD='Madame' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, head.title=Madame, has flat:name child, name extended with flat:name
+  CHILDREN: ['Vignon']
+TOKEN='Vignon' NAME='Corinne Vignon' POS=PROPN DEP=flat:name HEAD='Corinne' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000435 ===
+TOKEN='Philippe' NAME='Philippe Baptiste' POS=PROPN DEP=obj HEAD='excuser' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Baptiste']
+TOKEN='Baptiste' NAME='Philippe Baptiste' POS=PROPN DEP=flat:name HEAD='Philippe' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000445 ===
+TOKEN='Président' NAME='Président' POS=NOUN DEP=ROOT HEAD='Président' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Président
+  CHILDREN: ['le', 'Président']
+-------------------------------
+
+=== SEGMENT seg_000450 ===
+TOKEN='Président' NAME='Président' POS=NOUN DEP=nsubj HEAD='fait' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, dep=nsubj
+  CHILDREN: ['Le', 'République']
+TOKEN='de' NAME='de' POS=ADP DEP=case HEAD='République' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='République' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='République' NAME='République' POS=NOUN DEP=nmod HEAD='Président' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.dep=nsubj, head.title=Président
+  CHILDREN: ['de', 'la']
+-------------------------------
+
+=== SEGMENT seg_000482 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_000483 ===
+TOKEN='Premier' NAME='Premier' POS=ADJ DEP=amod HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=obl:arg HEAD='adresse' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['au', 'Premier']
+-------------------------------
+
+=== SEGMENT seg_000484 ===
+TOKEN='Premier' NAME='Premier' POS=ADJ DEP=amod HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['le', 'Premier']
+-------------------------------
+
+=== SEGMENT seg_000490 ===
+TOKEN='Sinon' NAME='Sinon' POS=ADV DEP=ROOT HEAD='Sinon' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: ['Sinon']
+-------------------------------
+
+=== SEGMENT seg_000520 ===
+TOKEN='Elia' NAME='Elia Sambar' POS=PROPN DEP=ROOT HEAD='Elia' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Elia', 'Sambar']
+TOKEN='Sambar' NAME='Elia Sambar' POS=PROPN DEP=flat:name HEAD='Elia' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000529 ===
+TOKEN='Samedi' NAME='Samedi' POS=NOUN DEP=ROOT HEAD='Samedi' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Samedi', 'prochain']
+-------------------------------
+
+=== SEGMENT seg_000536 ===
+TOKEN='Premier' NAME='Premier' POS=ADJ DEP=amod HEAD='ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=ministre
+  CHILDREN: []
+TOKEN='ministre' NAME='ministre' POS=NOUN DEP=nmod HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['le', 'Premier']
+-------------------------------
+
+=== SEGMENT seg_000542 ===
+TOKEN='Eléonore' NAME='Eléonore' POS=NOUN DEP=ROOT HEAD='Eléonore' SCORE=2
+  REASONS: ent_type=PER, pos=NOUN, has appos child
+  CHILDREN: ['Eléonore', 'Carroy', ',', 'ministre']
+TOKEN='Carroy' NAME='Carroy' POS=PROPN DEP=nmod HEAD='Eléonore' SCORE=4
+  REASONS: ent_type=PER, pos=PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000544 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', '.']
+-------------------------------
+
+=== SEGMENT seg_000545 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'député']
+TOKEN='Thomas' NAME='Thomas Porte' POS=PROPN DEP=flat:name HEAD='député' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, has flat:name child, name extended with flat:name
+  CHILDREN: ['Porte']
+TOKEN='Porte' NAME='Thomas Porte' POS=PROPN DEP=flat:name HEAD='Thomas' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000575 ===
+IMPORTANT VERBS: ['annoncé']
+TOKEN='président' NAME='président' POS=NOUN DEP=nsubj HEAD='annoncé' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, dep=nsubj
+  CHILDREN: ['Le', 'République']
+TOKEN='de' NAME='de' POS=ADP DEP=case HEAD='République' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='République' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='République' NAME='République' POS=NOUN DEP=nmod HEAD='président' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.dep=nsubj, head.title=président
+  CHILDREN: ['de', 'la']
+-------------------------------
+
+=== SEGMENT seg_000610 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'député', '.']
+-------------------------------
+
+=== SEGMENT seg_000616 ===
+TOKEN='Béatrice' NAME='Béatrice' POS=PROPN DEP=nmod HEAD='madame' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, head.title=madame
+  CHILDREN: []
+TOKEN='Bellet' NAME='Bellet' POS=PROPN DEP=flat:name HEAD='madame' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=madame
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000618 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', '.']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur']
+-------------------------------
+
+=== SEGMENT seg_000697 ===
+TOKEN='Victorin' NAME='Victorin Lurel' POS=PROPN DEP=obl:mod HEAD='veux' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Lurel']
+TOKEN='Lurel' NAME='Victorin Lurel' POS=PROPN DEP=flat:name HEAD='Victorin' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000698 ===
+TOKEN='Erika' NAME='Erika Barretz' POS=PROPN DEP=ROOT HEAD='Erika' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Erika', 'Barretz', ',']
+TOKEN='Barretz' NAME='Erika Barretz' POS=PROPN DEP=flat:name HEAD='Erika' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000711 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['ailleurs', ',', 'Madame', 'députée', '.']
+-------------------------------
+
+=== SEGMENT seg_000751 ===
+TOKEN='Jean-Pierre' NAME='Jean-Pierre Vigier' POS=PROPN DEP=ROOT HEAD='Jean-Pierre' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Jean-Pierre', 'Vigier']
+TOKEN='Vigier' NAME='Jean-Pierre Vigier' POS=PROPN DEP=flat:name HEAD='Jean-Pierre' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000753 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', '.']
+-------------------------------
+
+=== SEGMENT seg_000757 ===
+TOKEN='Premier' NAME='Premier' POS=ADJ DEP=amod HEAD='ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=ministre
+  CHILDREN: []
+TOKEN='ministre' NAME='ministre' POS=NOUN DEP=nmod HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['le', 'Premier']
+-------------------------------
+
+=== SEGMENT seg_000802 ===
+TOKEN='Premier' NAME='Premier' POS=ADJ DEP=amod HEAD='ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=ministre
+  CHILDREN: []
+TOKEN='ministre' NAME='ministre' POS=NOUN DEP=nmod HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['le', 'Premier']
+-------------------------------
+
+=== SEGMENT seg_000812 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Françoise' NAME='Françoise Gattel' POS=PROPN DEP=appos HEAD='madame' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.title=madame, has flat:name child, name extended with flat:name
+  CHILDREN: ['Gattel']
+TOKEN='Gattel' NAME='Françoise Gattel' POS=PROPN DEP=flat:name HEAD='Françoise' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000814 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', '.']
+-------------------------------
+
+=== SEGMENT seg_000816 ===
+TOKEN='Jean-Pierre' NAME='Jean-Pierre Vigier' POS=PROPN DEP=appos HEAD='député' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, has flat:name child, name extended with flat:name
+  CHILDREN: ['Vigier']
+TOKEN='Vigier' NAME='Jean-Pierre Vigier' POS=PROPN DEP=flat:name HEAD='Jean-Pierre' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000822 ===
+TOKEN='Marie-Noëlle' NAME='Marie-Noëlle Batistel' POS=PROPN DEP=ROOT HEAD='Marie-Noëlle' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['mais', 'aussi', 'Marie-Noëlle', 'Batistel', ',']
+TOKEN='Batistel' NAME='Marie-Noëlle Batistel' POS=PROPN DEP=flat:name HEAD='Marie-Noëlle' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000838 ===
+TOKEN='Marie-Noëlle' NAME='Marie-Noëlle Batistel' POS=PROPN DEP=obj HEAD='regarde' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Batistel']
+TOKEN='Batistel' NAME='Marie-Noëlle Batistel' POS=PROPN DEP=flat:name HEAD='Marie-Noëlle' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000870 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'beaucoup', 'Madame', 'Ministre', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: []
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_000872 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=4
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame, has appos child
+  CHILDREN: ['à', 'Madame', 'Julie']
+TOKEN='Julie' NAME='Julie Lernousse' POS=PROPN DEP=appos HEAD='Madame' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.title=Madame, has flat:name child, name extended with flat:name
+  CHILDREN: ['Lernousse']
+TOKEN='Lernousse' NAME='Julie Lernousse' POS=PROPN DEP=flat:name HEAD='Julie' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000875 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['à', 'Madame', 'Ministre']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_000877 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'Ministre', ',']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_000878 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Bellem' NAME='Bellem' POS=PROPN DEP=nmod HEAD='30' SCORE=4
+  REASONS: ent_type=PER, pos=PROPN
+  CHILDREN: ['de']
+-------------------------------
+
+=== SEGMENT seg_000914 ===
+TOKEN='Macron' NAME='Macron' POS=NOUN DEP=nmod HEAD='président' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.dep=nsubj, head.title=président
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000926 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=vocative HEAD='allez' SCORE=-1
+  REASONS: ent_type=PER, pos=NOUN, dep=vocative (weaker)
+  CHILDREN: ['ministre']
+-------------------------------
+
+=== SEGMENT seg_000937 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Monique' NAME='Monique Barbu' POS=PROPN DEP=appos HEAD='madame' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.title=madame, has flat:name child, name extended with flat:name
+  CHILDREN: ['Barbu']
+TOKEN='Barbu' NAME='Monique Barbu' POS=PROPN DEP=flat:name HEAD='Monique' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_000939 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'présidente', 'madame', ',']
+-------------------------------
+
+=== SEGMENT seg_001001 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'beaucoup', 'Madame', 'Ministre', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: []
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_001002 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur, has flat:name child
+  CHILDREN: ['parole', 'est', 'à', 'Monsieur', 'Didier']
+TOKEN='Didier' NAME='Didier Padet' POS=PROPN DEP=flat:name HEAD='Monsieur' SCORE=11
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Monsieur, has flat:name child, name extended with flat:name
+  CHILDREN: ['Padet']
+TOKEN='Padet' NAME='Didier Padet' POS=PROPN DEP=flat:name HEAD='Didier' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001004 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_001005 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=obl:arg HEAD='adresse' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['à', 'Ministre']
+-------------------------------
+
+=== SEGMENT seg_001006 ===
+TOKEN='Sébastien' NAME='Sébastien Martin' POS=PROPN DEP=appos HEAD='Industrie' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, has flat:name child, name extended with flat:name
+  CHILDREN: ['Martin']
+TOKEN='Martin' NAME='Sébastien Martin' POS=PROPN DEP=flat:name HEAD='Sébastien' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001058 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Roland' NAME='Roland Lescure' POS=PROPN DEP=ROOT HEAD='Roland' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, has appos child, name extended with flat:name
+  CHILDREN: ['parole', 'est', 'à', 'Roland', 'Lescure', ',', 'ministre', '.']
+TOKEN='Lescure' NAME='Roland Lescure' POS=PROPN DEP=flat:name HEAD='Roland' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001059 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', ',', 'madame', '.']
+-------------------------------
+
+=== SEGMENT seg_001060 ===
+TOKEN='Mesdames' NAME='Mesdames' POS=NOUN DEP=ROOT HEAD='Mesdames' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Mesdames', 'messieurs', ',', 'monsieur', ',']
+TOKEN='Padet' NAME='Padet' POS=PROPN DEP=flat:name HEAD='député' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001083 ===
+TOKEN='Mesdames' NAME='Mesdames' POS=NOUN DEP=ROOT HEAD='Mesdames' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Mesdames', 'messieurs', ',']
+-------------------------------
+
+=== SEGMENT seg_001116 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'député', '?']
+-------------------------------
+
+=== SEGMENT seg_001122 ===
+TOKEN='Yannick' NAME='Yannick Favenec - Becot' POS=PROPN DEP=nmod HEAD='monsieur' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, head.title=monsieur, has flat:name child, name extended with flat:name
+  CHILDREN: ['Favenec', '-', 'Becot']
+TOKEN='Favenec' NAME='Yannick Favenec - Becot' POS=PROPN DEP=flat:name HEAD='Yannick' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+TOKEN='-' NAME='Yannick Favenec - Becot' POS=PROPN DEP=flat:name HEAD='Yannick' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+TOKEN='Becot' NAME='Yannick Favenec - Becot' POS=PROPN DEP=flat:name HEAD='Yannick' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001124 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', ',', 'madame', '.']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'ministre']
+-------------------------------
+
+=== SEGMENT seg_001140 ===
+TOKEN='Mathieu' NAME='Mathieu Cornu' POS=PROPN DEP=ROOT HEAD='Mathieu' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Mathieu', 'Cornu', ',', 'sapeur', '-', 'pompier']
+TOKEN='Cornu' NAME='Mathieu Cornu' POS=PROPN DEP=flat:name HEAD='Mathieu' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001147 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Alors', ',', 'Monsieur', 'Ministre', ',']
+-------------------------------
+
+=== SEGMENT seg_001164 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: [',', 'Monsieur', 'Ministre', ',']
+-------------------------------
+
+=== SEGMENT seg_001169 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: [',', 'Monsieur', 'Ministre', ',']
+-------------------------------
+
+=== SEGMENT seg_001182 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Monsieur', '.']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=conj HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: [',', 'député']
+-------------------------------
+
+=== SEGMENT seg_001186 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'Présidente', 'Mesdames', 'Messieurs']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+TOKEN='Mesdames' NAME='Mesdames' POS=NOUN DEP=conj HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: [',']
+TOKEN='Messieurs' NAME='Messieurs' POS=NOUN DEP=conj HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['et']
+-------------------------------
+
+=== SEGMENT seg_001187 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=conj HEAD='députés' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: [',', 'député']
+-------------------------------
+
+=== SEGMENT seg_001241 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'député', '?']
+-------------------------------
+
+=== SEGMENT seg_001261 ===
+TOKEN='Horizon' NAME='Horizon Indépendant' POS=PROPN DEP=nmod HEAD='groupe' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Indépendant']
+TOKEN='Indépendant' NAME='Horizon Indépendant' POS=PROPN DEP=flat:name HEAD='Horizon' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001265 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Frédéric' NAME='Frédéric Valtoux' POS=PROPN DEP=appos HEAD='monsieur' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.title=monsieur, has flat:name child, name extended with flat:name
+  CHILDREN: ['Valtoux']
+TOKEN='Valtoux' NAME='Frédéric Valtoux' POS=PROPN DEP=flat:name HEAD='Frédéric' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001268 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'Présidente', 'Madame', ',']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=conj HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: [',', 'Ministre']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_001348 ===
+TOKEN='Simone' NAME='Simone' POS=PROPN DEP=obl:agent HEAD='portée' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, dep=obl:agent
+  CHILDREN: ['par', 'Veil']
+TOKEN='Veil' NAME='Veil' POS=PROPN DEP=nmod HEAD='Simone' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.dep=obl:agent, head.pos=PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001351 ===
+TOKEN='Claude' NAME='Claude Hévin' POS=PROPN DEP=obl:agent HEAD='portée' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=obl:agent, has flat:name child, name extended with flat:name
+  CHILDREN: ['par', 'Hévin']
+TOKEN='Hévin' NAME='Claude Hévin' POS=PROPN DEP=flat:name HEAD='Claude' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.dep=obl:agent, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001357 ===
+TOKEN='président' NAME='président' POS=NOUN DEP=ROOT HEAD='président' SCORE=4
+  REASONS: ent_type=PER, pos=NOUN, head.title=président, has appos child
+  CHILDREN: ['par', 'le', 'président', 'République', ',', 'Jacques', ',']
+TOKEN='de' NAME='de' POS=ADP DEP=case HEAD='République' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='République' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='République' NAME='République' POS=NOUN DEP=nmod HEAD='président' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=président
+  CHILDREN: ['de', 'la']
+TOKEN='Jacques' NAME='Jacques Chirac' POS=PROPN DEP=appos HEAD='président' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.title=président, has flat:name child, name extended with flat:name
+  CHILDREN: ['Chirac']
+TOKEN='Chirac' NAME='Jacques Chirac' POS=PROPN DEP=flat:name HEAD='Jacques' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001407 ===
+TOKEN='Eric' NAME='Eric Wörth' POS=PROPN DEP=appos HEAD='collègues' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, has flat:name child, name extended with flat:name
+  CHILDREN: ['Wörth']
+TOKEN='Wörth' NAME='Eric Wörth' POS=PROPN DEP=flat:name HEAD='Eric' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001537 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'ministre']
+-------------------------------
+
+=== SEGMENT seg_001538 ===
+TOKEN='Amélie' NAME='Amélie' POS=NOUN DEP=ROOT HEAD='Amélie' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Amélie', 'Montchalin']
+TOKEN='de' NAME='de' POS=ADP DEP=case HEAD='Montchalin' SCORE=2
+  REASONS: ent_type=PER, head.pos=PROPN
+  CHILDREN: []
+TOKEN='Montchalin' NAME='Montchalin' POS=PROPN DEP=nmod HEAD='Amélie' SCORE=4
+  REASONS: ent_type=PER, pos=PROPN
+  CHILDREN: ['de']
+-------------------------------
+
+=== SEGMENT seg_001559 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_001560 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'rapporteur']
+-------------------------------
+
+=== SEGMENT seg_001561 ===
+TOKEN='Frédéric' NAME='Frédéric Valteau' POS=PROPN DEP=ROOT HEAD='Frédéric' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['cher', 'Frédéric', 'Valteau', ',']
+TOKEN='Valteau' NAME='Frédéric Valteau' POS=PROPN DEP=flat:name HEAD='Frédéric' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001562 ===
+TOKEN='Mesdames' NAME='Mesdames' POS=NOUN DEP=ROOT HEAD='Mesdames' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Mesdames', 'Messieurs', ',']
+TOKEN='Messieurs' NAME='Messieurs' POS=NOUN DEP=conj HEAD='Mesdames' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['et', 'députés']
+-------------------------------
+
+=== SEGMENT seg_001629 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=vocative HEAD='doit' SCORE=-1
+  REASONS: ent_type=PER, pos=NOUN, dep=vocative (weaker)
+  CHILDREN: ['rapporteur']
+-------------------------------
+
+=== SEGMENT seg_001636 ===
+TOKEN='Appliquer' NAME='Appliquer' POS=VERB DEP=ROOT HEAD='Appliquer' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: ['Appliquer', 'protocole', ',']
+-------------------------------
+
+=== SEGMENT seg_001690 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['avec', 'Madame', 'Anne', '-', 'Cécile']
+TOKEN='Anne' NAME='Anne' POS=PROPN DEP=nmod HEAD='Madame' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, head.title=Madame
+  CHILDREN: []
+TOKEN='-' NAME='-' POS=PROPN DEP=nmod HEAD='Madame' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, head.title=Madame
+  CHILDREN: []
+TOKEN='Cécile' NAME='Cécile Violand' POS=PROPN DEP=nmod HEAD='Madame' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, head.title=Madame, has flat:name child, name extended with flat:name
+  CHILDREN: ['Violand']
+TOKEN='Violand' NAME='Cécile Violand' POS=PROPN DEP=flat:name HEAD='Cécile' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001692 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'Ministre', ',']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_001693 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'rapporteur']
+-------------------------------
+
+=== SEGMENT seg_001694 ===
+TOKEN='Président' NAME='Président' POS=NOUN DEP=ROOT HEAD='Président' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Président
+  CHILDREN: ['Président', 'Commission', ',']
+TOKEN='de' NAME='de' POS=ADP DEP=case HEAD='Commission' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Commission' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='Commission' NAME='Commission' POS=NOUN DEP=nmod HEAD='Président' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Président
+  CHILDREN: ['de', 'la', 'Affaires']
+TOKEN='des' NAME='des' POS=ADP DEP=case HEAD='Affaires' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='Affaires' NAME='Affaires' POS=NOUN DEP=nmod HEAD='Commission' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, has flat:name child
+  CHILDREN: ['des', 'Sociales']
+TOKEN='Sociales' NAME='Sociales' POS=PROPN DEP=flat:name HEAD='Affaires' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001703 ===
+TOKEN='accomplis' NAME='accomplis' POS=VERB DEP=ROOT HEAD='accomplis' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: ['accomplis', 'matière', ',']
+-------------------------------
+
+=== SEGMENT seg_001738 ===
+TOKEN='Diminution' NAME='Diminution' POS=NOUN DEP=ROOT HEAD='Diminution' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Diminution', 'consommation', ',']
+-------------------------------
+
+=== SEGMENT seg_001844 ===
+TOKEN='Indépendant' NAME='Indépendant' POS=VERB DEP=conj HEAD='groupe' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: ['et']
+-------------------------------
+
+=== SEGMENT seg_001848 ===
+IMPORTANT VERBS: ['est']
+TOKEN='M.' NAME='M.' POS=NOUN DEP=ROOT HEAD='M.' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=M., has flat:name child
+  CHILDREN: ['parole', 'est', 'à', 'M.', 'Charles', 'Courson']
+TOKEN='Charles' NAME='Charles' POS=PROPN DEP=flat:name HEAD='M.' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=M.
+  CHILDREN: []
+TOKEN='de' NAME='de' POS=ADP DEP=case HEAD='Courson' SCORE=2
+  REASONS: ent_type=PER, head.pos=PROPN
+  CHILDREN: []
+TOKEN='Courson' NAME='Courson' POS=PROPN DEP=nmod HEAD='M.' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, head.title=M.
+  CHILDREN: ['de']
+-------------------------------
+
+=== SEGMENT seg_001850 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_001851 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'Ministre', ',']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_001852 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'rapporteur', 'collègues', '.']
+-------------------------------
+
+=== SEGMENT seg_001906 ===
+IMPORTANT VERBS: ['était']
+TOKEN='Eric' NAME='Eric Wörth' POS=PROPN DEP=ROOT HEAD='Eric' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Eric', 'Wörth', ',', 'qui', 'était']
+TOKEN='Wörth' NAME='Eric Wörth' POS=PROPN DEP=flat:name HEAD='Eric' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_001943 ===
+TOKEN='transfrontalière' NAME='transfrontalière' POS=ADJ DEP=ROOT HEAD='transfrontalière' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: ['transfrontalière']
+-------------------------------
+
+=== SEGMENT seg_002009 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Yannick' NAME='Yannick Monnet' POS=PROPN DEP=appos HEAD='monsieur' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.title=monsieur, has flat:name child, name extended with flat:name
+  CHILDREN: ['Monnet']
+TOKEN='Monnet' NAME='Yannick Monnet' POS=PROPN DEP=flat:name HEAD='Yannick' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_002011 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'Présidente', 'Madame', ',']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=conj HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: [',', 'Ministre']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_002012 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'rapporteur', 'collègues', ',']
+-------------------------------
+
+=== SEGMENT seg_002117 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', ',']
+-------------------------------
+
+=== SEGMENT seg_002118 ===
+TOKEN='madame' NAME='madame' POS=NOUN DEP=ROOT HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: ['madame', 'ministre', 'monsieur', ',']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=ministre
+  CHILDREN: []
+TOKEN='ministre' NAME='ministre' POS=NOUN DEP=nmod HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_002245 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Alexandre' NAME='Alexandre' POS=PROPN DEP=flat:name HEAD='monsieur' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=monsieur
+  CHILDREN: []
+TOKEN='Dufaussez' NAME='Dufaussez' POS=ADV DEP=dep HEAD='monsieur' SCORE=3
+  REASONS: ent_type=PER, head.title=monsieur
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_002247 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', ',']
+-------------------------------
+
+=== SEGMENT seg_002248 ===
+TOKEN='madame' NAME='madame' POS=NOUN DEP=ROOT HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: ['madame', 'ministre', 'monsieur', ',']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=ministre
+  CHILDREN: []
+TOKEN='ministre' NAME='ministre' POS=NOUN DEP=nmod HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_002328 ===
+TOKEN='général' NAME='général' POS=NOUN DEP=nmod HEAD='parle' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['le', 'Gaulle']
+TOKEN='de' NAME='de' POS=ADP DEP=case HEAD='Gaulle' SCORE=2
+  REASONS: ent_type=PER, head.pos=PROPN
+  CHILDREN: []
+TOKEN='Gaulle' NAME='Gaulle' POS=PROPN DEP=nmod HEAD='général' SCORE=4
+  REASONS: ent_type=PER, pos=PROPN
+  CHILDREN: ['de']
+-------------------------------
+
+=== SEGMENT seg_002393 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur, has flat:name child
+  CHILDREN: ['parole', 'est', 'à', 'Monsieur', 'Pierre']
+-------------------------------
+
+=== SEGMENT seg_002395 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', 'Monsieur', ',']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=conj HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: [',', 'Ministre']
+-------------------------------
+
+=== SEGMENT seg_002396 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'Ministre', ',', 'pardon', ',']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_002397 ===
+IMPORTANT VERBS: ['dire']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'rapporteur']
+-------------------------------
+
+=== SEGMENT seg_002398 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=conj HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: [',', 'Président']
+TOKEN='Président' NAME='Président' POS=NOUN DEP=nmod HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['le']
+-------------------------------
+
+=== SEGMENT seg_002400 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['et', 'Monsieur', 'Président']
+TOKEN='Président' NAME='Président' POS=NOUN DEP=nmod HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['le']
+-------------------------------
+
+=== SEGMENT seg_002406 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=conj HEAD='travail' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: [',', 'rapporteur']
+-------------------------------
+
+=== SEGMENT seg_002408 ===
+TOKEN='Président' NAME='Président' POS=NOUN DEP=ROOT HEAD='Président' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Président
+  CHILDREN: ['en', 'Président', 'Commission']
+TOKEN='de' NAME='de' POS=ADP DEP=case HEAD='Commission' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Commission' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+TOKEN='Commission' NAME='Commission' POS=NOUN DEP=nmod HEAD='Président' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Président
+  CHILDREN: ['de', 'la']
+-------------------------------
+
+=== SEGMENT seg_002409 ===
+TOKEN='Président' NAME='Président' POS=NOUN DEP=ROOT HEAD='Président' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Président
+  CHILDREN: ['mais', 'aussi', 'en', 'ancien', 'Président']
+-------------------------------
+
+=== SEGMENT seg_002411 ===
+TOKEN='constant' NAME='constant' POS=VERB DEP=ROOT HEAD='constant' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: ['constant', ',', 'déterminé']
+-------------------------------
+
+=== SEGMENT seg_002426 ===
+TOKEN='Jacques' NAME='Jacques Chirac' POS=PROPN DEP=nmod HEAD='présidence' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['de', 'Chirac']
+TOKEN='Chirac' NAME='Jacques Chirac' POS=PROPN DEP=flat:name HEAD='Jacques' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_002436 ===
+TOKEN='Buzyn' NAME='Buzyn' POS=PROPN DEP=nmod HEAD='loi' SCORE=4
+  REASONS: ent_type=PER, pos=PROPN
+  CHILDREN: ['planifiée']
+-------------------------------
+
+=== SEGMENT seg_002550 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['Madame', 'Présidente', 'Madame']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=conj HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: [',', 'Ministre']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_002551 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'rapporteur', 'collègues']
+-------------------------------
+
+=== SEGMENT seg_002607 ===
+TOKEN='Dali' NAME='Dali' POS=PROPN DEP=ROOT HEAD='Dali' SCORE=5
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN
+  CHILDREN: ['Dali']
+-------------------------------
+
+=== SEGMENT seg_002609 ===
+TOKEN='John' NAME='John Dali' POS=PROPN DEP=ROOT HEAD='John' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['John', 'Dali', 'actif']
+TOKEN='Dali' NAME='John Dali' POS=PROPN DEP=flat:name HEAD='John' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_002616 ===
+TOKEN='Philippe' NAME='Philippe Maurice' POS=PROPN DEP=nmod HEAD='actions' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['de', 'Maurice']
+TOKEN='Maurice' NAME='Philippe Maurice' POS=PROPN DEP=flat:name HEAD='Philippe' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_002706 ===
+TOKEN='Marietta' NAME='Marietta Caramanli' POS=PROPN DEP=ROOT HEAD='Marietta' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Marietta', 'Caramanli', 'groupe']
+TOKEN='Caramanli' NAME='Marietta Caramanli' POS=PROPN DEP=flat:name HEAD='Marietta' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_002831 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', 'présidente']
+-------------------------------
+
+=== SEGMENT seg_002832 ===
+TOKEN='madame' NAME='madame' POS=NOUN DEP=ROOT HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: ['madame', 'ministre', 'monsieur']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=ministre
+  CHILDREN: []
+TOKEN='ministre' NAME='ministre' POS=NOUN DEP=nmod HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_002837 ===
+TOKEN='Jacques' NAME='Jacques Chirac' POS=PROPN DEP=appos HEAD='président' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.title=président, has flat:name child, name extended with flat:name
+  CHILDREN: ['Chirac']
+TOKEN='Chirac' NAME='Jacques Chirac' POS=PROPN DEP=flat:name HEAD='Jacques' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_002875 ===
+TOKEN='Frédéric' NAME='Frédéric Valtoux' POS=PROPN DEP=appos HEAD='collègue' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, has flat:name child, name extended with flat:name
+  CHILDREN: ['Valtoux']
+TOKEN='Valtoux' NAME='Frédéric Valtoux' POS=PROPN DEP=flat:name HEAD='Frédéric' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_002996 ===
+TOKEN='madame' NAME='madame' POS=NOUN DEP=ROOT HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: ['madame', 'présidente', 'collègues']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=présidente
+  CHILDREN: []
+TOKEN='présidente' NAME='présidente' POS=NOUN DEP=nmod HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_003021 ===
+TOKEN='Philippe' NAME='Philippe Maurice Andilon' POS=PROPN DEP=obl:agent HEAD='commandé' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=obl:agent, has flat:name child, name extended with flat:name
+  CHILDREN: ['par', 'Maurice', 'Andilon']
+TOKEN='Maurice' NAME='Philippe Maurice Andilon' POS=PROPN DEP=flat:name HEAD='Philippe' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.dep=obl:agent, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+TOKEN='Andilon' NAME='Philippe Maurice Andilon' POS=PROPN DEP=flat:name HEAD='Philippe' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.dep=obl:agent, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003082 ===
+TOKEN='grise' NAME='grise' POS=NOUN DEP=ROOT HEAD='grise' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['grise', 'réglementaire']
+TOKEN='réglementaire' NAME='réglementaire' POS=ADJ DEP=amod HEAD='grise' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003138 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Christophe' NAME='Christophe Blanchet' POS=PROPN DEP=flat:name HEAD='monsieur' SCORE=11
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=monsieur, has flat:name child, name extended with flat:name
+  CHILDREN: ['Blanchet']
+TOKEN='Blanchet' NAME='Christophe Blanchet' POS=PROPN DEP=flat:name HEAD='Christophe' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003140 ===
+TOKEN='madame' NAME='madame' POS=NOUN DEP=ROOT HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: ['madame', 'présidente', 'madame']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=présidente
+  CHILDREN: []
+TOKEN='présidente' NAME='présidente' POS=NOUN DEP=nmod HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: ['la']
+TOKEN='madame' NAME='madame' POS=NOUN DEP=conj HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: [',', 'ministre']
+-------------------------------
+
+=== SEGMENT seg_003188 ===
+TOKEN='inonde' NAME='inonde' POS=ADJ DEP=ROOT HEAD='inonde' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: ['inonde', 'marché']
+-------------------------------
+
+=== SEGMENT seg_003293 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Philippe' NAME='Philippe Bonnecarrère' POS=PROPN DEP=appos HEAD='monsieur' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.title=monsieur, has flat:name child, name extended with flat:name
+  CHILDREN: ['Bonnecarrère']
+TOKEN='Bonnecarrère' NAME='Philippe Bonnecarrère' POS=PROPN DEP=flat:name HEAD='Philippe' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003460 ===
+TOKEN='Nicolas' NAME='Nicolas Thierry' POS=PROPN DEP=nmod HEAD='amendement' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['de', 'Thierry']
+TOKEN='Thierry' NAME='Nicolas Thierry' POS=PROPN DEP=flat:name HEAD='Nicolas' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003496 ===
+IMPORTANT VERBS: ['sont']
+TOKEN='Philippe' NAME='Philippe Maurice' POS=PROPN DEP=obl:arg HEAD='éteints' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['avec', 'Maurice']
+TOKEN='Maurice' NAME='Philippe Maurice' POS=PROPN DEP=flat:name HEAD='Philippe' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003502 ===
+TOKEN='Johannes' NAME='Johannes Hahn' POS=PROPN DEP=ROOT HEAD='Johannes' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Johannes', 'Hahn']
+TOKEN='Hahn' NAME='Johannes Hahn' POS=PROPN DEP=flat:name HEAD='Johannes' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003565 ===
+TOKEN='Philippe' NAME='Philippe Maurice' POS=PROPN DEP=ROOT HEAD='Philippe' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['avec', 'Philippe', 'Maurice']
+TOKEN='Maurice' NAME='Philippe Maurice' POS=PROPN DEP=flat:name HEAD='Philippe' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003587 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', 'présidente']
+-------------------------------
+
+=== SEGMENT seg_003674 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Mme' NAME='Mme' POS=VERB DEP=obl:arg HEAD='allez' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: ['y']
+-------------------------------
+
+=== SEGMENT seg_003678 ===
+TOKEN='M.' NAME='M.' POS=NOUN DEP=nmod HEAD='5' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, has flat:name child
+  CHILDREN: ['de', 'Valtoux']
+TOKEN='Valtoux' NAME='Valtoux' POS=PROPN DEP=flat:name HEAD='M.' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=M.
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003684 ===
+TOKEN='Mme' NAME='Mme' POS=NOUN DEP=ROOT HEAD='Mme' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Mme, has flat:name child
+  CHILDREN: ['Mme', 'Hervé', 'allez', '-', 'y']
+TOKEN='Hervé' NAME='Hervé' POS=PROPN DEP=flat:name HEAD='Mme' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Mme
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003685 ===
+TOKEN='Mme' NAME='Mme' POS=NOUN DEP=ROOT HEAD='Mme' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Mme
+  CHILDREN: ['oui', 'Mme', 'Présidente', 'collègues']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=obj HEAD='Mme' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Mme
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_003688 ===
+TOKEN='M.' NAME='M.' POS=NOUN DEP=nmod HEAD='5' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, has flat:name child
+  CHILDREN: ['de', 'Valtoux']
+TOKEN='Valtoux' NAME='Valtoux' POS=PROPN DEP=flat:name HEAD='M.' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=M.
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003698 ===
+TOKEN='Mme' NAME='Mme' POS=NOUN DEP=ROOT HEAD='Mme' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Mme, has flat:name child
+  CHILDREN: ['Mme', 'Hervieux']
+TOKEN='Hervieux' NAME='Hervieux' POS=PROPN DEP=flat:name HEAD='Mme' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Mme
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003700 ===
+TOKEN='Mme' NAME='Mme' POS=NOUN DEP=ROOT HEAD='Mme' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Mme
+  CHILDREN: ['oui', 'Mme', 'Présidente', 'collègues']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=obj HEAD='Mme' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Mme
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_003713 ===
+TOKEN='Philippe' NAME='Philippe Maurice' POS=PROPN DEP=obl:agent HEAD='financé' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=obl:agent, has flat:name child, name extended with flat:name
+  CHILDREN: ['par', 'Maurice', 'international']
+TOKEN='Maurice' NAME='Philippe Maurice' POS=PROPN DEP=flat:name HEAD='Philippe' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.dep=obl:agent, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+TOKEN='international' NAME='international' POS=ADJ DEP=amod HEAD='Philippe' SCORE=4
+  REASONS: ent_type=PER, head.dep=obl:agent, head.pos=PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003734 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame']
+-------------------------------
+
+=== SEGMENT seg_003739 ===
+TOKEN='Philippe' NAME='Philippe Maurice' POS=PROPN DEP=obl:agent HEAD='commandé' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=obl:agent, has flat:name child, name extended with flat:name
+  CHILDREN: ['par', 'Maurice']
+TOKEN='Maurice' NAME='Philippe Maurice' POS=PROPN DEP=flat:name HEAD='Philippe' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.dep=obl:agent, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003756 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame, has flat:name child
+  CHILDREN: ['Madame', 'Ministre', 'allez', '-', 'y']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Ministre' SCORE=3
+  REASONS: ent_type=PER, head.title=Ministre
+  CHILDREN: []
+TOKEN='Ministre' NAME='Ministre' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_003785 ===
+TOKEN='Lamartine' NAME='Lamartine' POS=PROPN DEP=flat:name HEAD='salle' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003807 ===
+TOKEN='Claude' NAME='Claude Revel' POS=PROPN DEP=obj HEAD='souhaite' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Revel']
+TOKEN='Revel' NAME='Claude Revel' POS=PROPN DEP=flat:name HEAD='Claude' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003815 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Claude' NAME='Claude Revel' POS=PROPN DEP=flat:name HEAD='madame' SCORE=11
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=madame, has flat:name child, name extended with flat:name
+  CHILDREN: ['Revel']
+TOKEN='Revel' NAME='Claude Revel' POS=PROPN DEP=flat:name HEAD='Claude' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_003991 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', 'Mesdames', 'Messieurs']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+TOKEN='Mesdames' NAME='Mesdames' POS=NOUN DEP=conj HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: [',']
+TOKEN='Messieurs' NAME='Messieurs' POS=NOUN DEP=conj HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['et']
+-------------------------------
+
+=== SEGMENT seg_004000 ===
+TOKEN='Thomas' NAME='Thomas Cazenave' POS=PROPN DEP=ROOT HEAD='Thomas' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Thomas', 'Cazenave']
+TOKEN='Cazenave' NAME='Thomas Cazenave' POS=PRON DEP=flat:name HEAD='Thomas' SCORE=5
+  REASONS: ent_type=PER, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: ['ministre']
+-------------------------------
+
+=== SEGMENT seg_004001 ===
+IMPORTANT VERBS: ['était']
+TOKEN='Dominique' NAME='Dominique Faure' POS=PROPN DEP=acl:relcl HEAD='époque' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['qui', 'était', 'Faure']
+TOKEN='Faure' NAME='Dominique Faure' POS=PROPN DEP=flat:name HEAD='Dominique' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004205 ===
+TOKEN='Frédéric' NAME='Frédéric Petit' POS=PROPN DEP=appos HEAD='monsieur' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.title=monsieur, has flat:name child, name extended with flat:name
+  CHILDREN: ['Petit']
+TOKEN='Petit' NAME='Frédéric Petit' POS=ADJ DEP=flat:name HEAD='Frédéric' SCORE=5
+  REASONS: ent_type=PER, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004284 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame, has flat:name child
+  CHILDREN: ['Madame', 'Revelle', 'Monsieur']
+TOKEN='Revelle' NAME='Revelle' POS=PROPN DEP=flat:name HEAD='Madame' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Madame
+  CHILDREN: []
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=conj HEAD='Madame' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame, has flat:name child
+  CHILDREN: [',', 'Ravignon']
+TOKEN='Ravignon' NAME='Ravignon' POS=PROPN DEP=flat:name HEAD='Monsieur' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Monsieur
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004285 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame, has flat:name child
+  CHILDREN: ['Madame', 'Revelle', 'allez', 'y']
+TOKEN='Revelle' NAME='Revelle' POS=PROPN DEP=flat:name HEAD='Madame' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Madame
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004320 ===
+TOKEN='Ravignon' NAME='Ravignon' POS=PROPN DEP=nmod HEAD='merci' SCORE=4
+  REASONS: ent_type=PER, pos=PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004334 ===
+TOKEN='madame' NAME='madame' POS=NOUN DEP=nmod HEAD='sens' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, has flat:name child
+  CHILDREN: ['de', 'Revelle']
+TOKEN='Revelle' NAME='Revelle' POS=PROPN DEP=flat:name HEAD='madame' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=madame
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004374 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Bruno' NAME='Bruno' POS=PROPN DEP=flat:name HEAD='monsieur' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=monsieur
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004502 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Saint-Martin' NAME='Saint-Martin' POS=PROPN DEP=nmod HEAD='monsieur' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, head.title=monsieur
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004674 ===
+TOKEN='madame' NAME='madame' POS=NOUN DEP=ROOT HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: ['madame', 'notamment']
+-------------------------------
+
+=== SEGMENT seg_004677 ===
+TOKEN='Ravignon' NAME='Ravignon' POS=ADV DEP=ROOT HEAD='Ravignon' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: ['Ravignon']
+-------------------------------
+
+=== SEGMENT seg_004686 ===
+TOKEN='madame' NAME='madame' POS=NOUN DEP=ROOT HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: ['et', 'madame', 'méthodes']
+-------------------------------
+
+=== SEGMENT seg_004761 ===
+TOKEN='madame' NAME='madame' POS=NOUN DEP=ROOT HEAD='madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame
+  CHILDREN: ['madame', 'Revelle', '?']
+TOKEN='Revelle' NAME='Revelle' POS=PROPN DEP=nmod HEAD='madame' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, head.title=madame
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004778 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Roux' NAME='Roux' POS=NOUN DEP=flat:name HEAD='monsieur' SCORE=6
+  REASONS: ent_type=PER, pos=NOUN, dep=flat:name, head.title=monsieur
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004789 ===
+TOKEN='Petit' NAME='Petit' POS=ADJ DEP=amod HEAD='monsieur' SCORE=3
+  REASONS: ent_type=PER, head.title=monsieur
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004790 ===
+TOKEN='madame' NAME='madame' POS=NOUN DEP=ROOT HEAD='madame' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame, has flat:name child
+  CHILDREN: ['madame', 'Blain', 'moins']
+TOKEN='Blain' NAME='Blain' POS=PROPN DEP=flat:name HEAD='madame' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=madame
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004833 ===
+IMPORTANT VERBS: ['est']
+TOKEN='madame' NAME='madame' POS=NOUN DEP=nmod HEAD='sens' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: []
+TOKEN='monsieur' NAME='monsieur' POS=NOUN DEP=nmod HEAD='sens' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004843 ===
+TOKEN='Lavarde' NAME='Lavarde' POS=PROPN DEP=nmod HEAD='rapport' SCORE=4
+  REASONS: ent_type=PER, pos=PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004922 ===
+TOKEN='Mme' NAME='Mme' POS=NOUN DEP=ROOT HEAD='Mme' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Mme, has flat:name child
+  CHILDREN: ['Mme', 'Gruyde', 'inscrite', 'allez', '-', 'y']
+TOKEN='Gruyde' NAME='Gruyde' POS=PROPN DEP=flat:name HEAD='Mme' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Mme
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004923 ===
+TOKEN='Ravignon' NAME='Ravignon' POS=DET DEP=flat:name HEAD='M.' SCORE=6
+  REASONS: ent_type=PER, dep=flat:name, head.title=M.
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_004925 ===
+TOKEN='M.' NAME='M.' POS=NOUN DEP=ROOT HEAD='M.' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=M., has flat:name child
+  CHILDREN: ['et', 'M.', 'Barnier']
+TOKEN='Barnier' NAME='Barnier' POS=PROPN DEP=flat:name HEAD='M.' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=M.
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005070 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, has flat:name child
+  CHILDREN: ['Merci', 'Madame', 'présidente']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=flat:name HEAD='Merci' SCORE=4
+  REASONS: ent_type=PER, pos=NOUN, dep=flat:name
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005122 ===
+IMPORTANT VERBS: ['dit', 'dit']
+TOKEN='Bruno' NAME='Bruno' POS=PROPN DEP=nmod HEAD='collègue' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, head.dep=nsubj
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005123 ===
+IMPORTANT VERBS: ['dit']
+TOKEN='M.' NAME='M.' POS=NOUN DEP=appos HEAD='dit' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, dep=appos, has flat:name child
+  CHILDREN: ['Ravignon', ',']
+TOKEN='Ravignon' NAME='Ravignon' POS=PROPN DEP=flat:name HEAD='M.' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=M.
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005136 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, has flat:name child
+  CHILDREN: ['Merci', 'M.', 'ministre', '.']
+TOKEN='M.' NAME='M.' POS=NOUN DEP=flat:name HEAD='Merci' SCORE=4
+  REASONS: ent_type=PER, pos=NOUN, dep=flat:name
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005161 ===
+TOKEN='Rénov' NAME='Rénov' POS=PROPN DEP=nmod HEAD='prime' SCORE=4
+  REASONS: ent_type=PER, pos=PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005176 ===
+TOKEN='Rénov' NAME='Rénov' POS=PROPN DEP=nmod HEAD='prime' SCORE=4
+  REASONS: ent_type=PER, pos=PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005199 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame, has flat:name child
+  CHILDREN: ['Madame', 'Revelle', '?']
+TOKEN='Revelle' NAME='Revelle' POS=PROPN DEP=flat:name HEAD='Madame' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Madame
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005218 ===
+IMPORTANT VERBS: ['est']
+TOKEN='M.' NAME='M.' POS=NOUN DEP=ROOT HEAD='M.' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=M., has flat:name child
+  CHILDREN: ['parole', 'est', 'à', 'M.', 'David', 'Amiel', ',']
+TOKEN='David' NAME='David' POS=PROPN DEP=flat:name HEAD='M.' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=M.
+  CHILDREN: []
+TOKEN='Amiel' NAME='Amiel' POS=PROPN DEP=flat:name HEAD='M.' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=M.
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005221 ===
+TOKEN='Mme' NAME='Mme' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Mme' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Mme
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_005222 ===
+TOKEN='Mesdames' NAME='Mesdames' POS=NOUN DEP=ROOT HEAD='Mesdames' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Mesdames', 'Messieurs', ',']
+TOKEN='Messieurs' NAME='Messieurs' POS=NOUN DEP=conj HEAD='Mesdames' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['et', 'députés']
+-------------------------------
+
+=== SEGMENT seg_005267 ===
+IMPORTANT VERBS: ['été']
+TOKEN='M.' NAME='M.' POS=NOUN DEP=nmod HEAD='celui' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, has flat:name child
+  CHILDREN: ['de', 'Ravignon']
+TOKEN='Ravignon' NAME='Ravignon' POS=PROPN DEP=flat:name HEAD='M.' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=M.
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005305 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_005309 ===
+TOKEN='Lise' NAME='Lise Manier' POS=PROPN DEP=obl:mod HEAD='souligné' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['avec', 'Manier']
+TOKEN='Manier' NAME='Lise Manier' POS=PROPN DEP=flat:name HEAD='Lise' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005310 ===
+IMPORTANT VERBS: ['dire']
+TOKEN='Boris' NAME='Boris Sarkozy' POS=PROPN DEP=nmod HEAD='celui' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['de', 'Sarkozy']
+TOKEN='Sarkozy' NAME='Boris Sarkozy' POS=PROPN DEP=flat:name HEAD='Boris' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+TOKEN='Boris' NAME='Boris Sarkozy' POS=PROPN DEP=nmod HEAD='celui' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['de', 'Sarkozy']
+TOKEN='Sarkozy' NAME='Boris Sarkozy' POS=PROPN DEP=flat:name HEAD='Boris' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005311 ===
+IMPORTANT VERBS: ['dire']
+TOKEN='Boris' NAME='Boris Sarkozy' POS=PROPN DEP=nmod HEAD='celui' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['de', 'Sarkozy']
+TOKEN='Sarkozy' NAME='Boris Sarkozy' POS=PROPN DEP=flat:name HEAD='Boris' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005316 ===
+TOKEN='Évaluer' NAME='Évaluer' POS=VERB DEP=ROOT HEAD='Évaluer' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: ['Évaluer', 'année', ',', 'lettres']
+-------------------------------
+
+=== SEGMENT seg_005322 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=vocative HEAD='commencé' SCORE=-1
+  REASONS: ent_type=PER, pos=NOUN, dep=vocative (weaker)
+  CHILDREN: ['ministre']
+-------------------------------
+
+=== SEGMENT seg_005326 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'ministre', 'allez', '-', 'y.']
+-------------------------------
+
+=== SEGMENT seg_005330 ===
+IMPORTANT VERBS: ['été']
+TOKEN='François' NAME='François Bayrou' POS=PROPN DEP=nmod HEAD='gouvernement' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['de', 'Bayrou']
+TOKEN='Bayrou' NAME='François Bayrou' POS=PROPN DEP=flat:name HEAD='François' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005333 ===
+IMPORTANT VERBS: ['été', 'annoncée']
+TOKEN='François' NAME='François Bayrou' POS=PROPN DEP=nmod HEAD='gouvernement' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, head.dep=obl:agent, has flat:name child, name extended with flat:name
+  CHILDREN: ['de', 'Bayrou', ',', 'enclenchée']
+TOKEN='Bayrou' NAME='François Bayrou' POS=PROPN DEP=flat:name HEAD='François' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+TOKEN='Laurent' NAME='Laurent Marcangeli' POS=PROPN DEP=appos HEAD='prédécesseur' SCORE=10
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, head.dep=obl:agent, has flat:name child, name extended with flat:name
+  CHILDREN: ['Marcangeli']
+TOKEN='Marcangeli' NAME='Laurent Marcangeli' POS=PROPN DEP=flat:name HEAD='Laurent' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005352 ===
+IMPORTANT VERBS: ['est']
+TOKEN='M.' NAME='M.' POS=NOUN DEP=ROOT HEAD='M.' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=M., has flat:name child
+  CHILDREN: ['parole', 'est', 'à', 'M.', 'Bruno', '.']
+TOKEN='Bruno' NAME='Bruno' POS=PROPN DEP=flat:name HEAD='M.' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=M.
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005392 ===
+IMPORTANT VERBS: ['est']
+TOKEN='madame' NAME='madame' POS=NOUN DEP=ROOT HEAD='madame' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=madame, has flat:name child
+  CHILDREN: ['parole', 'est', 'à', 'madame', 'Marceau', '.']
+TOKEN='Marceau' NAME='Marceau' POS=PROPN DEP=flat:name HEAD='madame' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=madame
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005393 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', 'monsieur', '.']
+-------------------------------
+
+=== SEGMENT seg_005412 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', 'Madame', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=conj HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: [',', 'députée']
+TOKEN='Sandra' NAME='Sandra Marceau' POS=PROPN DEP=appos HEAD='députée' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=appos, has flat:name child, name extended with flat:name
+  CHILDREN: ['Marceau']
+TOKEN='Marceau' NAME='Sandra Marceau' POS=PROPN DEP=flat:name HEAD='Sandra' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005439 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Saint-Martin' NAME='Saint-Martin' POS=PROPN DEP=nmod HEAD='monsieur' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, head.title=monsieur
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005440 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'madame', '.']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'ministre', ',']
+-------------------------------
+
+=== SEGMENT seg_005447 ===
+TOKEN='François' NAME='François Bayrou' POS=PROPN DEP=ROOT HEAD='François' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['Un', 'certain', 'François', 'Bayrou', ',']
+TOKEN='Bayrou' NAME='François Bayrou' POS=PROPN DEP=flat:name HEAD='François' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005462 ===
+TOKEN='Naguère' NAME='Naguère' POS=NOUN DEP=obj HEAD='dénoncé' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['déjà']
+-------------------------------
+
+=== SEGMENT seg_005508 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', 'Monsieur', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=conj HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: [',', 'député']
+-------------------------------
+
+=== SEGMENT seg_005549 ===
+TOKEN='François' NAME='François Bayrou' POS=PROPN DEP=ROOT HEAD='François' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, head.pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['de', 'François', 'Bayrou', 'lui-même']
+TOKEN='Bayrou' NAME='François Bayrou' POS=PROPN DEP=flat:name HEAD='François' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005569 ===
+TOKEN='Max' NAME='Max Weber' POS=PROPN DEP=obl:arg HEAD='faites' SCORE=6
+  REASONS: ent_type=PER, pos=PROPN, has flat:name child, name extended with flat:name
+  CHILDREN: ['de', 'Weber']
+TOKEN='Weber' NAME='Max Weber' POS=PROPN DEP=flat:name HEAD='Max' SCORE=8
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.pos=PROPN, name rebuilt from head PROPN
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005574 ===
+IMPORTANT VERBS: ['est']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=ROOT HEAD='Madame' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame, has flat:name child
+  CHILDREN: ['parole', 'est', 'à', 'Madame', 'Blain', '.']
+TOKEN='Blain' NAME='Blain' POS=PROPN DEP=flat:name HEAD='Madame' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Madame
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005575 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_005576 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'ministre', ',']
+-------------------------------
+
+=== SEGMENT seg_005641 ===
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=conj HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Présidente
+  CHILDREN: [',', 'députée']
+-------------------------------
+
+=== SEGMENT seg_005697 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_005746 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_005749 ===
+IMPORTANT VERBS: ['était']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=nmod HEAD='question' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['député']
+-------------------------------
+
+=== SEGMENT seg_005756 ===
+IMPORTANT VERBS: ['était']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=nmod HEAD='question' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['député']
+-------------------------------
+
+=== SEGMENT seg_005758 ===
+IMPORTANT VERBS: ['était']
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=nmod HEAD='question' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['député']
+-------------------------------
+
+=== SEGMENT seg_005810 ===
+TOKEN='M.' NAME='M.' POS=NOUN DEP=obl:mod HEAD='allons' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, has flat:name child
+  CHILDREN: ['avec', 'Fesneau']
+TOKEN='Fesneau' NAME='Fesneau' POS=PROPN DEP=flat:name HEAD='M.' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=M.
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005811 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'beaucoup', 'Madame', '.']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_005816 ===
+TOKEN='Monsieur' NAME='Monsieur' POS=NOUN DEP=ROOT HEAD='Monsieur' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur
+  CHILDREN: ['Monsieur', 'ministre', 'merci', '.']
+-------------------------------
+
+=== SEGMENT seg_005878 ===
+TOKEN='Merci' NAME='Merci' POS=NOUN DEP=ROOT HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Merci', 'Madame', ',']
+TOKEN='Madame' NAME='Madame' POS=NOUN DEP=nmod HEAD='Merci' SCORE=1
+  REASONS: ent_type=PER, pos=NOUN
+  CHILDREN: ['Présidente']
+TOKEN='la' NAME='la' POS=DET DEP=det HEAD='Présidente' SCORE=3
+  REASONS: ent_type=PER, head.title=Présidente
+  CHILDREN: []
+TOKEN='Présidente' NAME='Présidente' POS=NOUN DEP=nmod HEAD='Madame' SCORE=3
+  REASONS: ent_type=PER, pos=NOUN, head.title=Madame
+  CHILDREN: ['la']
+-------------------------------
+
+=== SEGMENT seg_005879 ===
+TOKEN='Président' NAME='Président' POS=NOUN DEP=nmod HEAD='Monsieur' SCORE=5
+  REASONS: ent_type=PER, pos=NOUN, head.title=Monsieur, has flat:name child
+  CHILDREN: ['le', 'Fesneau']
+TOKEN='Fesneau' NAME='Fesneau' POS=PROPN DEP=flat:name HEAD='Président' SCORE=9
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name, head.title=Président
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005940 ===
+TOKEN='Prochaine' NAME='Prochaine' POS=ADJ DEP=amod HEAD='séance' SCORE=1
+  REASONS: ent_type=PER
+  CHILDREN: []
+-------------------------------
+
+=== SEGMENT seg_005941 ===
+TOKEN='Lamartine' NAME='Lamartine' POS=PROPN DEP=flat:name HEAD='salle' SCORE=7
+  REASONS: ent_type=PER, pos=PROPN, dep=flat:name
+  CHILDREN: []
+-------------------------------
+NLP signal extratction enrichment written to: None

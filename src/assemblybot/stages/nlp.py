@@ -8,41 +8,6 @@ from spacy.language import Language
 
 from assemblybot.config import INTERIM_DIR
 
-IGNORE_PERS = {"merci", "voici"}
-IMPORTANT_LEMMAS = {"entendre", "dire", "répondre", "être"}
-IMPORTANT_WORDS = {"monsieur", "madame", "m", "mme"}
-KEEP_DEPS = {
-    "nsubj",
-    "csubj",
-    "obj",
-    "iobj",
-    "obl:agent",
-    "appos",
-    "flat:name",
-    "nmod",
-}
-
-KEEP_POS = {"VERB", "AUX", "PROPN", "NOUN"}
-
-
-def should_keep_token(token) -> bool:
-    if token.is_punct:
-        return False
-
-    if token.ent_type_ == "PER":
-        return True
-
-    if token.dep_ in KEEP_DEPS:
-        return True
-
-    if token.pos_ in KEEP_POS or token.lemma_.lower() in IMPORTANT_LEMMAS:
-        return True
-
-    if token.text.lower() in IMPORTANT_WORDS:
-        return True
-
-    return False
-
 
 def build_default_output_path(input_json_path: Path) -> Path:
     stem = input_json_path.stem.replace("_03_merged", "")
@@ -68,16 +33,12 @@ def extract_entities(doc) -> list[dict]:
     entities = []
 
     for ent in doc.ents:
-        if ent.label_ == "MISC":
-            continue
-        text_lower = ent.text.strip().lower()
         entities.append(
             {
                 "text": ent.text,
                 "label": ent.label_,
                 "start": ent.start,
                 "end": ent.end,
-                "ignored": ent.label_ == "PER" and text_lower in IGNORE_PERS,
             }
         )
 
@@ -88,8 +49,6 @@ def extract_tokens(doc) -> list[dict]:
     tokens = []
 
     for token in doc:
-        if not should_keep_token(token):
-            continue
         tokens.append(
             {
                 "i": token.i,
@@ -107,35 +66,6 @@ def extract_tokens(doc) -> list[dict]:
     return tokens
 
 
-def extract_signals(doc) -> list[dict]:
-    signals = []
-
-    for token in doc:
-        lemma = token.lemma_.lower()
-        text = token.text.lower()
-
-        if lemma in IMPORTANT_LEMMAS:
-            signals.append(
-                {
-                    "type": "important_lemma",
-                    "token_i": token.i,
-                    "text": token.text,
-                    "lemma": token.lemma_,
-                }
-            )
-
-        if text in IMPORTANT_WORDS:
-            signals.append(
-                {
-                    "type": "important_word",
-                    "token_i": token.i,
-                    "text": token.text,
-                }
-            )
-
-    return signals
-
-
 def process_segment(nlp: Language, segment: dict) -> dict:
     text_block = segment.get("text", {})
     text = text_block.get("normalized") or text_block.get("raw", "")
@@ -145,7 +75,6 @@ def process_segment(nlp: Language, segment: dict) -> dict:
         "spacy": {
             "entities": extract_entities(doc),
             "tokens": extract_tokens(doc),
-            "signals": extract_signals(doc),
         }
     }
 
