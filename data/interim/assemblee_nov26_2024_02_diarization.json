@@ -9,7 +9,7 @@
   },
   "pipeline": {
     "created_at": "2026-04-17T12:30:12.082013+00:00",
-    "updated_at": "2026-04-17T12:52:15.352274+00:00",
+    "updated_at": "2026-04-17T13:03:32.078461+00:00",
     "stages_completed": [
       "transcription",
       "diarization"
