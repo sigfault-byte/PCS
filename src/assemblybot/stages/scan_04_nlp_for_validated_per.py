@@ -251,7 +251,7 @@ def scan(input_path: Path, output_path: Path | None = None) -> Path:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Flatten spaCy PER speaker-candidate signals into a CSV for review."
+        description="Flatten spaCy PER candidate signals into a CSV."
     )
     parser.add_argument(
         "--input-json",

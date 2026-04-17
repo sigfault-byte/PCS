@@ -12,7 +12,7 @@ from faster_whisper import WhisperModel
 from assemblybot.config import INTERIM_DIR
 from assemblybot.models.factories import create_empty_document, mark_stage_completed
 from assemblybot.models.time import TimeRange, seconds_to_timestamp
-from assemblybot.models.transcript import TranscriptRawSegment, TranscriptRawToken
+from assemblybot.models.transcript import TranscriptRawSegment
 
 
 # Better safe than sorry -> move to global config
@@ -82,7 +82,6 @@ def transcribe_audio(
         beam_size=beam_size,
         vad_filter=vad_filter,
         vad_parameters={"min_silence_duration_ms": min_silence_duration_ms},
-        word_timestamps=True,
     )
 
     doc.transcript.engine.model = model_name
@@ -96,8 +95,6 @@ def transcribe_audio(
     # logs / progress
     total_duration = info.duration or 0.0  # seconds
     start_time = time.time()
-
-    next_token_id = 0
 
     for idx, segment in enumerate(segments_iter, start=1):
         progress = segment.end / total_duration if total_duration else 0.0
@@ -114,36 +111,8 @@ def transcribe_audio(
         sys.stdout.write(f"\r[{bar}] {progress * 100:5.1f}% | {speed:4.2f}x realtime")
         sys.stdout.flush()
 
-        segment_token_start_id = next_token_id
-
-        for word in segment.words or []:
-            if word.start is None or word.end is None:
-                continue
-
-            raw_token_text = word.word
-            if raw_token_text is None:
-                continue
-
-            raw_token = TranscriptRawToken(
-                token_id=next_token_id,
-                start_seconds=float(word.start),
-                end_seconds=float(word.end),
-                raw_token=raw_token_text,
-            )
-            doc.transcript.raw_tokens.append(raw_token)
-            next_token_id += 1
-
-        segment_token_end_id = next_token_id - 1
-
-        if segment_token_end_id < segment_token_start_id:
-            # Fallback: keep the segment anchor even if no word timings were emitted.
-            segment_token_start_id = -1
-            segment_token_end_id = -1
-
         raw_segment = TranscriptRawSegment(
             segment_id=f"whisper_{idx:06d}",
-            start_token_id=segment_token_start_id,
-            end_token_id=segment_token_end_id,
             time=time_range,
             text=cleaned_text,
         )
@@ -157,7 +126,6 @@ def transcribe_audio(
     elapsed = time.time() - start_time
     print()
 
-    doc.transcript.tokens_count = len(doc.transcript.raw_tokens)
     doc.transcript.segments_count = len(doc.transcript.raw_segments)
     doc.source.duration_seconds = (
         doc.transcript.raw_segments[-1].time.end_seconds
@@ -183,7 +151,6 @@ def transcribe_audio(
         f"(confidence: {doc.transcript.language_probability:.2f})"
     )
     print(f"Segments: {doc.transcript.segments_count}")
-    print(f"Tokens: {doc.transcript.tokens_count}")
     print(f"Time: {elapsed / 60:.1f} min")
     print(f"Text transcript: {output_txt_path}")
     print(f"JSON transcript: {output_json_path}")

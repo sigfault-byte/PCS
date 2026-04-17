@@ -17,7 +17,7 @@ from assemblybot.models.time import TimeRange, now_utc_iso
 
 
 def build_default_output_path(input_audio_path: Path) -> Path:
-    return INTERIM_DIR / f"{input_audio_path.stem}_02_diarization.json"
+    return INTERIM_DIR / f"{input_audio_path.stem}_02_diarization.json"  # type: ignore
 
 
 def load_document(json_path: Path) -> dict:

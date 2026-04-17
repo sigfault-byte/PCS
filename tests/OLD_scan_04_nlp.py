@@ -2,7 +2,7 @@ import argparse
 import json
 from pathlib import Path
 
-from assemblybot.config import INTERIM_DIR
+from ..src.assemblybot.config import INTERIM_DIR
 
 
 def build_default_output_path(input_json_path: Path) -> Path:

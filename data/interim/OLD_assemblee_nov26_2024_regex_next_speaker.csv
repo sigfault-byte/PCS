@@ -1,0 +1,42 @@
+segment_id,entities
+seg_000066,"[{'text': 'Monsieur', 'label': 'PER', 'start': 6, 'end': 7}, {'text': 'Marcelin Nadeau', 'label': 'PER', 'start': 7, 'end': 9}]"
+seg_000095,"[{'text': 'Eleonore Carroy', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_000137,"[{'text': 'Monsieur', 'label': 'PER', 'start': 4, 'end': 5}, {'text': 'Marc Chavan', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_000170,"[{'text': 'Monsieur', 'label': 'PER', 'start': 4, 'end': 5}, {'text': 'Roland Lescure', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_000234,"[{'text': 'Jonathan Géry', 'label': 'PER', 'start': 7, 'end': 9}]"
+seg_000292,"[{'text': 'Roland Lescure', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_000359,[]
+seg_000424,"[{'text': 'Monsieur', 'label': 'PER', 'start': 4, 'end': 5}, {'text': 'Roland Lescure', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_000479,[]
+seg_000541,[]
+seg_000615,[]
+seg_000684,[]
+seg_000750,[]
+seg_000812,"[{'text': 'Françoise Gattel', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_000871,[]
+seg_000937,"[{'text': 'Monique Barbu', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_001002,"[{'text': 'Monsieur', 'label': 'PER', 'start': 4, 'end': 5}, {'text': 'Didier Padet', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_001058,"[{'text': 'Roland Lescure', 'label': 'PER', 'start': 4, 'end': 6}]"
+seg_001121,[]
+seg_001265,"[{'text': 'Frédéric Valtoux', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_001848,"[{'text': 'M.', 'label': 'PER', 'start': 4, 'end': 5}, {'text': 'Charles de Courson', 'label': 'PER', 'start': 5, 'end': 8}]"
+seg_002009,"[{'text': 'Yannick Monnet', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_002115,[]
+seg_002245,"[{'text': 'Alexandre Dufaussez', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_002393,"[{'text': 'Monsieur', 'label': 'PER', 'start': 4, 'end': 5}]"
+seg_002548,[]
+seg_002705,[]
+seg_002829,[]
+seg_002994,[]
+seg_003138,"[{'text': 'Christophe Blanchet', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_003293,"[{'text': 'Philippe Bonnecarrère', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_003815,"[{'text': 'Claude Revel', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_003987,[]
+seg_004374,"[{'text': 'Bruno', 'label': 'PER', 'start': 5, 'end': 6}]"
+seg_004502,"[{'text': 'Saint-Martin', 'label': 'PER', 'start': 5, 'end': 6}]"
+seg_004778,"[{'text': 'Roux', 'label': 'PER', 'start': 9, 'end': 10}]"
+seg_005218,"[{'text': 'M.', 'label': 'PER', 'start': 4, 'end': 5}, {'text': 'David Amiel', 'label': 'PER', 'start': 5, 'end': 7}]"
+seg_005352,"[{'text': 'M. Bruno', 'label': 'PER', 'start': 8, 'end': 10}]"
+seg_005392,"[{'text': 'madame Marceau', 'label': 'PER', 'start': 8, 'end': 10}]"
+seg_005439,"[{'text': 'Saint-Martin', 'label': 'PER', 'start': 9, 'end': 10}]"
+seg_005574,"[{'text': 'Madame Blain', 'label': 'PER', 'start': 4, 'end': 6}]"
