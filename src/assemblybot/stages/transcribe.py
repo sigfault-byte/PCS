@@ -104,7 +104,6 @@ def transcribe_audio(
         elapsed = time.time() - start_time
         speed = segment.end / elapsed if elapsed > 0 else 0.0
 
-        cleaned_text = segment.text.strip()
         time_range = TimeRange.from_seconds(segment.start, segment.end)
 
         bar_width = 30
@@ -145,13 +144,12 @@ def transcribe_audio(
             start_token_id=segment_token_start_id,
             end_token_id=segment_token_end_id,
             time=time_range,
-            text=cleaned_text,
         )
         doc.transcript.raw_segments.append(raw_segment)
 
         text_lines.append(
             f"[{seconds_to_timestamp(segment.start)} -> "
-            f"{seconds_to_timestamp(segment.end)}] {cleaned_text}"
+            f"{seconds_to_timestamp(segment.end)}]"
         )
 
     elapsed = time.time() - start_time

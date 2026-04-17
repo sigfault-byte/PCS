@@ -41,7 +41,6 @@ class TranscriptRawSegment:
     start_token_id: int
     end_token_id: int
     time: TimeRange
-    text: str
 
 
 @dataclass
