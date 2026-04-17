@@ -6,6 +6,12 @@ from .flags import flags_to_list
 from .segments import FinalSegment
 from .transcript import TranscriptSection
 
+# Idea is :
+# transcript.raw_tokens = source truth
+# transcript.raw_segments = Whisper anchors
+# diarization.raw_segments = speaker time anchors
+# segments = reconstructed analysis segments
+
 
 @dataclass
 class SourceInfo:

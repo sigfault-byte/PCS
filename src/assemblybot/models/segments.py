@@ -23,6 +23,8 @@ class TextInfo:
 class Provenance:
     transcript_segment_ids: list[str] = field(default_factory=list)
     diarization_segment_ids: list[str] = field(default_factory=list)
+    transcript_token_start_id: int | None = None
+    transcript_token_end_id: int | None = None
     stage_created_by: str | None = None
 
 

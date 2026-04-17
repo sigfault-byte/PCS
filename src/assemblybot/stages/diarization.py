@@ -174,7 +174,13 @@ def diarize_audio(
 
     doc["diarization"]["engine"]["model"] = model_name
     doc["diarization"]["engine"]["device"] = device
+
     doc["diarization"]["raw_segments"] = []
+
+    # NEW (important)
+    doc["diarization"]["collapsed_segments"] = []
+    doc["diarization"]["collapsed_segments_count"] = 0
+    doc["diarization"]["artifacts"] = {}
 
     speaker_ids: set[str] = set()
     diarization_rows: list[dict] = []
@@ -215,7 +221,7 @@ def diarize_audio(
         embedding_model_name,
         use_auth_token=hf_token,
     )
-    embedding_inference = Inference(embedding_model, window="whole")
+    embedding_inference = Inference(embedding_model, window="whole")  # type: ignore
     embedding_inference.to(torch_device)
 
     segment_ids: list[str] = []

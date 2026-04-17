@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 
+from .collapse_diarization import CollapsedDiarizationSegment
 from .time import TimeRange
 
 
@@ -24,4 +25,8 @@ class DiarizationSection:
     speakers_count: int | None = None
     segments_count: int = 0
     raw_segments: list[DiarizationRawSegment] = field(default_factory=list)
-    speaker_embeddings: list[list[float]] = field(default_factory=list)
+
+    collapsed_segments: list[CollapsedDiarizationSegment] = field(default_factory=list)
+    collapsed_segments_count: int = 0
+
+    artifacts: dict[str, str | None] = field(default_factory=dict)

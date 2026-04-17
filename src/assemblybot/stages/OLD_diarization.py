@@ -105,7 +105,12 @@ def diarize_audio(
     # Fill diarization metadata
     doc["diarization"]["engine"]["model"] = model_name
     doc["diarization"]["engine"]["device"] = device
+
+    # Reset derived/content fields for a fresh diarization run.
     doc["diarization"]["raw_segments"] = []
+    doc["diarization"]["collapsed_segments"] = []
+    doc["diarization"]["collapsed_segments_count"] = 0
+    doc["diarization"]["artifacts"] = {}
 
     speaker_ids: set[str] = set()
 

@@ -2,33 +2,11 @@ from __future__ import annotations
 
 import argparse
 import json
-import re
 from pathlib import Path
 
 from assemblybot.config import INTERIM_DIR
 from assemblybot.models.flags import SegmentFlag
 from assemblybot.models.time import now_utc_iso
-
-TERMINAL_PUNCTUATION_RE = re.compile(r"""[.!?…]+(?:[\]\)\}"'»”]*)\s*$""")
-SPACE_BEFORE_PUNCT_RE = re.compile(r"\s+([,.;:!?…])")
-MULTISPACE_RE = re.compile(r"\s+")
-
-# Merge behavior thresholds.
-SOFT_MIN_CHARS = 120
-SOFT_MIN_WORDS = 20
-SOFT_MIN_SOURCE_SEGMENTS = 2
-HARD_MAX_CHARS = 800
-HARD_MAX_DURATION_SECONDS = 15.0
-
-# Attribution thresholds.
-DEFAULT_MIN_OTHER_OVERLAP_SECONDS = 0.2
-DEFAULT_MULTIPLE_SPEAKER_RATIO_THRESHOLD = 0.2
-
-# Merge veto: preserve useful Whisper boundaries when the next raw segment
-# looks like a possible speaker handoff despite same primary speaker id.
-MERGE_VETO_ON_PUNCTUATED_BOUNDARY_WITH_OVERLAP = True
-MERGE_VETO_MIN_OVERLAP_SECONDS = 0.40
-MERGE_VETO_MIN_OVERLAP_RATIO = 0.12
 
 
 def build_default_output_path(input_json_path: Path) -> Path:
@@ -47,294 +25,194 @@ def save_document(doc: dict, json_path: Path) -> None:
         json.dump(doc, f, ensure_ascii=False, indent=2)
 
 
-def has_meaningful_other_speaker_overlap(item: dict) -> bool:
-    for other in item.get("other_speakers", []):
-        if (
-            other.get("overlap_seconds", 0.0) >= MERGE_VETO_MIN_OVERLAP_SECONDS
-            or other.get("overlap_ratio", 0.0) >= MERGE_VETO_MIN_OVERLAP_RATIO
-        ):
-            return True
-    return False
-
-
 def overlap_seconds(
     a_start: float, a_end: float, b_start: float, b_end: float
 ) -> float:
     return max(0.0, min(a_end, b_end) - max(a_start, b_start))
 
 
-def normalize_joined_text(parts: list[str]) -> str:
-    text = " ".join(part.strip() for part in parts if part and part.strip())
-    text = MULTISPACE_RE.sub(" ", text).strip()
-    text = SPACE_BEFORE_PUNCT_RE.sub(r"\1", text)
-    return text
+def build_token_to_transcript_segment_map(
+    transcript_segments: list[dict],
+) -> dict[int, str]:
+    """
+    Map each token_id to its parent Whisper raw segment id.
+
+    Transcript raw segments are anchors only:
+    they reference a contiguous token range via start_token_id/end_token_id.
+    """
+    token_to_segment: dict[int, str] = {}
+
+    for seg in transcript_segments:
+        start_token_id = seg.get("start_token_id")
+        end_token_id = seg.get("end_token_id")
+
+        if start_token_id is None or end_token_id is None:
+            continue
+
+        if start_token_id < 0 or end_token_id < 0:
+            continue
+
+        for token_id in range(start_token_id, end_token_id + 1):
+            token_to_segment[token_id] = seg["segment_id"]
+
+    return token_to_segment
 
 
-def ends_with_terminal_punctuation(text: str) -> bool:
-    return bool(TERMINAL_PUNCTUATION_RE.search(text.strip()))
+def assign_tokens_to_diarization_segments(
+    transcript_tokens: list[dict],
+    diarization_segments: list[dict],
+) -> dict[str, list[dict]]:
+    """
+    Assign each transcript raw token to a diarization segment
+    using token midpoint containment.
 
+    Returns:
+        dict[dia_segment_id] -> list of token dicts
+    """
+    diarization_segments_sorted = sorted(
+        diarization_segments,
+        key=lambda seg: seg["time"]["start_seconds"],
+    )
+    transcript_tokens_sorted = sorted(
+        transcript_tokens,
+        key=lambda tok: tok["start_seconds"],
+    )
 
-def compute_time_block(raw_segments: list[dict]) -> dict:
-    start_seconds = raw_segments[0]["time"]["start_seconds"]
-    end_seconds = raw_segments[-1]["time"]["end_seconds"]
-    return {
-        "start": raw_segments[0]["time"].get("start_ts"),
-        "end": raw_segments[-1]["time"].get("end_ts"),
-        "start_seconds": start_seconds,
-        "end_seconds": end_seconds,
-        "duration_seconds": end_seconds - start_seconds,
+    assigned: dict[str, list[dict]] = {
+        d_seg["segment_id"]: [] for d_seg in diarization_segments_sorted
     }
 
+    dia_idx = 0
+    dia_count = len(diarization_segments_sorted)
 
-def group_text(group: list[dict]) -> str:
-    return normalize_joined_text([item["transcript_segment"]["text"] for item in group])
+    for tok in transcript_tokens_sorted:
+        tmid = (tok["start_seconds"] + tok["end_seconds"]) / 2.0
+
+        while dia_idx < dia_count:
+            current = diarization_segments_sorted[dia_idx]
+            current_end = current["time"]["end_seconds"]
+
+            if tmid <= current_end:
+                break
+
+            dia_idx += 1
+
+        if dia_idx >= dia_count:
+            break
+
+        current = diarization_segments_sorted[dia_idx]
+        current_start = current["time"]["start_seconds"]
+        current_end = current["time"]["end_seconds"]
+
+        if current_start <= tmid <= current_end:
+            assigned[current["segment_id"]].append(tok)
+
+    return assigned
 
 
-def count_words(text: str) -> int:
-    return len(text.split()) if text else 0
+def build_token_provenance(tokens: list[dict]) -> tuple[int | None, int | None]:
+    if not tokens:
+        return None, None
+
+    return tokens[0]["token_id"], tokens[-1]["token_id"]
 
 
-def should_flush_on_punctuation(text: str, group_size: int) -> bool:
-    if not ends_with_terminal_punctuation(text):
-        return False
+def build_transcript_segment_provenance(
+    tokens: list[dict],
+    token_to_transcript_segment: dict[int, str],
+) -> list[str]:
+    segment_ids: list[str] = []
+    seen: set[str] = set()
 
-    enough_chars = len(text) >= SOFT_MIN_CHARS
-    enough_words = count_words(text) >= SOFT_MIN_WORDS
-    enough_segments = group_size >= SOFT_MIN_SOURCE_SEGMENTS
-    return enough_segments and (enough_chars or enough_words)
+    for tok in tokens:
+        seg_id = token_to_transcript_segment.get(tok["token_id"])
+        if seg_id is None or seg_id in seen:
+            continue
+        seen.add(seg_id)
+        segment_ids.append(seg_id)
+
+    return segment_ids
 
 
-def should_flush_on_max_size(text: str, duration_seconds: float) -> bool:
-    return len(text) >= HARD_MAX_CHARS or duration_seconds >= HARD_MAX_DURATION_SECONDS
+def reconstruct_text_from_tokens(tokens: list[dict]) -> str:
+    """
+    Rebuild exact raw transcript text from raw tokens.
+
+    Important:
+    raw_token keeps Whisper spacing as emitted,
+    so we must use ''.join(...) and not ' '.join(...).
+    """
+    return "".join(tok["raw_token"] for tok in tokens)
 
 
-def attribute_transcript_segment(
-    t_seg: dict,
-    diarization_segments: list[dict],
+def compute_other_speakers_for_diarization_segment(
+    current_diarization_segment: dict,
+    all_diarization_segments: list[dict],
     min_other_overlap_seconds: float,
     multiple_speaker_ratio_threshold: float,
-) -> dict:
-    t_time = t_seg["time"]
-    t_start = t_time["start_seconds"]
-    t_end = t_time["end_seconds"]
-    t_duration = t_time["duration_seconds"]
+) -> list[dict]:
+    current_time = current_diarization_segment["time"]
+    current_start = current_time["start_seconds"]
+    current_end = current_time["end_seconds"]
+    current_duration = current_time["duration_seconds"]
+    current_id = current_diarization_segment["segment_id"]
+    current_speaker_id = current_diarization_segment["speaker_id"]
 
     overlaps_by_speaker: dict[str, float] = {}
-    overlap_details: dict[str, list[str]] = {}
 
-    for d_seg in diarization_segments:
-        d_time = d_seg["time"]
-        d_start = d_time["start_seconds"]
-        d_end = d_time["end_seconds"]
+    for other in all_diarization_segments:
+        other_id = other["segment_id"]
+        if other_id == current_id:
+            continue
 
-        ov = overlap_seconds(t_start, t_end, d_start, d_end)
+        other_speaker_id = other["speaker_id"]
+        if other_speaker_id == current_speaker_id:
+            continue
+
+        other_time = other["time"]
+        ov = overlap_seconds(
+            current_start,
+            current_end,
+            other_time["start_seconds"],
+            other_time["end_seconds"],
+        )
+
         if ov <= 0:
             continue
 
-        speaker_id = d_seg["speaker_id"]
-        overlaps_by_speaker[speaker_id] = overlaps_by_speaker.get(speaker_id, 0.0) + ov
-        overlap_details.setdefault(speaker_id, []).append(d_seg["segment_id"])
-
-    flags = SegmentFlag.NONE
-    primary_speaker_id: str | None = None
-    primary_confidence: float | None = None
-    other_speakers: list[dict] = []
-    provenance_diarization_ids: list[str] = []
-
-    if not overlaps_by_speaker:
-        flags |= SegmentFlag.NEEDS_REVIEW
-    else:
-        ranked = sorted(overlaps_by_speaker.items(), key=lambda x: x[1], reverse=True)
-        primary_speaker_id, primary_overlap = ranked[0]
-        primary_confidence = primary_overlap / t_duration if t_duration > 0 else None
-
-        provenance_diarization_ids.extend(overlap_details.get(primary_speaker_id, []))
-
-        for speaker_id, ov in ranked[1:]:
-            overlap_ratio = ov / t_duration if t_duration > 0 else 0.0
-            if (
-                ov >= min_other_overlap_seconds
-                or overlap_ratio >= multiple_speaker_ratio_threshold
-            ):
-                other_speakers.append(
-                    {
-                        "speaker_id": speaker_id,
-                        "overlap_seconds": ov,
-                        "overlap_ratio": overlap_ratio,
-                    }
-                )
-                provenance_diarization_ids.extend(overlap_details.get(speaker_id, []))
-
-        if other_speakers:
-            flags |= SegmentFlag.MULTIPLE_SPEAKERS
-
-    if t_duration < 1.5:
-        flags |= SegmentFlag.IS_SHORT
-
-    return {
-        "transcript_segment": t_seg,
-        "primary_speaker_id": primary_speaker_id,
-        "primary_confidence": primary_confidence,
-        "flags": flags,
-        "other_speakers": other_speakers,
-        "provenance_diarization_ids": sorted(set(provenance_diarization_ids)),
-    }
-
-
-def build_final_segment(
-    idx: int,
-    group: list[dict],
-    language: str | None,
-    flush_reason: str,
-) -> dict:
-    raw_segments = [item["transcript_segment"] for item in group]
-    time_block = compute_time_block(raw_segments)
-    text_raw = normalize_joined_text([seg["text"] for seg in raw_segments])
-
-    flags = SegmentFlag.NONE
-    all_other_speakers: dict[str, dict] = {}
-    diarization_ids: set[str] = set()
-    transcript_ids: list[str] = []
-    source_segments: list[dict] = []
-
-    weighted_confidence_sum = 0.0
-    weighted_confidence_duration = 0.0
-    primary_speaker_id = group[0]["primary_speaker_id"]
-
-    for item in group:
-        seg = item["transcript_segment"]
-        seg_duration = seg["time"].get("duration_seconds", 0.0) or 0.0
-        transcript_ids.append(seg["segment_id"])
-        diarization_ids.update(item["provenance_diarization_ids"])
-        flags |= item["flags"]
-
-        conf = item["primary_confidence"]
-        if conf is not None and seg_duration > 0:
-            weighted_confidence_sum += conf * seg_duration
-            weighted_confidence_duration += seg_duration
-
-        for other in item["other_speakers"]:
-            current = all_other_speakers.get(other["speaker_id"])
-            if current is None:
-                all_other_speakers[other["speaker_id"]] = other.copy()
-            else:
-                current["overlap_seconds"] += other["overlap_seconds"]
-                current["overlap_ratio"] += other["overlap_ratio"]
-
-        source_segments.append(
-            {
-                "transcript_segment_id": seg["segment_id"],
-                "time": seg["time"],
-                "text": seg["text"],
-                "primary_speaker_id": item["primary_speaker_id"],
-                "primary_confidence": item["primary_confidence"],
-                "diarization_segment_ids": item["provenance_diarization_ids"],
-            }
+        overlaps_by_speaker[other_speaker_id] = (
+            overlaps_by_speaker.get(other_speaker_id, 0.0) + ov
         )
 
-    primary_confidence = (
-        weighted_confidence_sum / weighted_confidence_duration
-        if weighted_confidence_duration > 0
-        else None
-    )
+    other_speakers: list[dict] = []
 
-    other_speakers = sorted(
-        all_other_speakers.values(),
-        key=lambda x: (x["overlap_seconds"], x["speaker_id"]),
+    for speaker_id, ov in sorted(
+        overlaps_by_speaker.items(),
+        key=lambda x: x[1],
         reverse=True,
-    )
+    ):
+        overlap_ratio = ov / current_duration if current_duration > 0 else 0.0
 
-    return {
-        "segment_id": f"seg_{idx:06d}",
-        "time": time_block,
-        "speaker": {
-            "speaker_id": primary_speaker_id,
-            "speaker_label": None,
-            "speaker_label_source": None,
-            "confidence": primary_confidence,
-        },
-        "text": {
-            "raw": text_raw,
-            "normalized": None,
-            "language": language,
-        },
-        "flags": int(flags),
-        "other_speakers": other_speakers,
-        "entities": [],
-        "keywords": [],
-        "provenance": {
-            "transcript_segment_ids": transcript_ids,
-            "diarization_segment_ids": sorted(diarization_ids),
-            "source_segments": source_segments,
-            "flush_reason": flush_reason,
-            "stage_created_by": "merge",
-        },
-    }
-
-
-def group_attributed_segments(attributed_segments: list[dict]) -> list[dict]:
-    grouped: list[dict] = []
-    current_group: list[dict] = []
-
-    def flush_current(reason: str) -> None:
-        nonlocal current_group
-        if not current_group:
-            return
-        grouped.append({"group": current_group, "flush_reason": reason})
-        current_group = []
-
-    for item in attributed_segments:
-        if not current_group:
-            current_group.append(item)
-            continue
-
-            previous_item = current_group[-1]
-            previous_speaker = previous_item["primary_speaker_id"]
-            current_speaker = item["primary_speaker_id"]
-            speaker_changed = previous_speaker != current_speaker
-
-            previous_text = previous_item["transcript_segment"]["text"]
-            previous_sentence_closed = ends_with_terminal_punctuation(previous_text)
-
-            merge_veto_on_boundary_overlap = (
-                MERGE_VETO_ON_PUNCTUATED_BOUNDARY_WITH_OVERLAP
-                and previous_sentence_closed
-                and has_meaningful_other_speaker_overlap(item)
+        if (
+            ov >= min_other_overlap_seconds
+            or overlap_ratio >= multiple_speaker_ratio_threshold
+        ):
+            other_speakers.append(
+                {
+                    "speaker_id": speaker_id,
+                    "overlap_seconds": ov,
+                    "overlap_ratio": overlap_ratio,
+                }
             )
 
-            if speaker_changed:
-                flush_current("speaker_change")
-                current_group.append(item)
-                continue
-
-            if merge_veto_on_boundary_overlap:
-                flush_current("punctuated_boundary_with_overlap")
-                current_group.append(item)
-                continue
-
-        current_group.append(item)
-
-        current_text = group_text(current_group)
-        current_duration = compute_time_block(
-            [x["transcript_segment"] for x in current_group]
-        )["duration_seconds"]
-
-        if should_flush_on_max_size(current_text, current_duration):
-            flush_current("max_size")
-            continue
-
-        if should_flush_on_punctuation(current_text, len(current_group)):
-            flush_current("terminal_punctuation")
-
-    flush_current("end_of_input")
-    return grouped
+    return other_speakers
 
 
 def merge_segments(
     input_json_path: Path,
     output_json_path: Path | None = None,
-    min_other_overlap_seconds: float = DEFAULT_MIN_OTHER_OVERLAP_SECONDS,
-    multiple_speaker_ratio_threshold: float = DEFAULT_MULTIPLE_SPEAKER_RATIO_THRESHOLD,
+    min_other_overlap_seconds: float = 0.5,
+    multiple_speaker_ratio_threshold: float = 0.2,
 ) -> dict:
     input_json_path = input_json_path.resolve()
 
@@ -344,30 +222,99 @@ def merge_segments(
     output_json_path = output_json_path or build_default_output_path(input_json_path)
     doc = load_document(input_json_path)
 
+    transcript_tokens = doc["transcript"]["raw_tokens"]
     transcript_segments = doc["transcript"]["raw_segments"]
     diarization_segments = doc["diarization"]["raw_segments"]
-    language = doc["transcript"].get("language_detected")
 
-    attributed_segments = [
-        attribute_transcript_segment(
-            t_seg=t_seg,
-            diarization_segments=diarization_segments,
+    # ------------------------------------------------------------------
+    # Build helper maps once.
+    # ------------------------------------------------------------------
+    token_to_transcript_segment = build_token_to_transcript_segment_map(
+        transcript_segments
+    )
+
+    diarization_tokens = assign_tokens_to_diarization_segments(
+        transcript_tokens=transcript_tokens,
+        diarization_segments=diarization_segments,
+    )
+
+    final_segments: list[dict] = []
+
+    # Keep diarization chronology as the final segment chronology.
+    diarization_segments_sorted = sorted(
+        diarization_segments,
+        key=lambda seg: seg["time"]["start_seconds"],
+    )
+
+    for idx, d_seg in enumerate(diarization_segments_sorted, start=1):
+        d_time = d_seg["time"]
+        d_duration = d_time["duration_seconds"]
+        d_segment_id = d_seg["segment_id"]
+        d_speaker_id = d_seg["speaker_id"]
+
+        assigned_tokens = diarization_tokens.get(d_segment_id, [])
+
+        reconstructed_text = reconstruct_text_from_tokens(assigned_tokens)
+        token_start_id, token_end_id = build_token_provenance(assigned_tokens)
+        transcript_segment_ids = build_transcript_segment_provenance(
+            assigned_tokens,
+            token_to_transcript_segment,
+        )
+
+        other_speakers = compute_other_speakers_for_diarization_segment(
+            current_diarization_segment=d_seg,
+            all_diarization_segments=diarization_segments_sorted,
             min_other_overlap_seconds=min_other_overlap_seconds,
             multiple_speaker_ratio_threshold=multiple_speaker_ratio_threshold,
         )
-        for t_seg in transcript_segments
-    ]
 
-    grouped_segments = group_attributed_segments(attributed_segments)
-    final_segments = [
-        build_final_segment(
-            idx=i,
-            group=entry["group"],
-            language=language,
-            flush_reason=entry["flush_reason"],
-        )
-        for i, entry in enumerate(grouped_segments, start=1)
-    ]
+        # ------------------------------------------------------------------
+        # Flags
+        # ------------------------------------------------------------------
+        flags = SegmentFlag.NONE
+
+        # No text recovered from tokens: likely deserves review.
+        if not assigned_tokens or not reconstructed_text.strip():
+            flags |= SegmentFlag.NEEDS_REVIEW
+
+        # Preserve the old short-segment warning.
+        if d_duration < 1.5:
+            flags |= SegmentFlag.IS_SHORT
+
+        # Overlapping competing diarization speakers.
+        if other_speakers:
+            flags |= SegmentFlag.MULTIPLE_SPEAKERS
+
+        final_segment = {
+            "segment_id": f"seg_{idx:06d}",
+            "time": d_time,
+            "speaker": {
+                "speaker_id": d_speaker_id,
+                "speaker_label": None,
+                "speaker_label_source": None,
+                # Since this segment is diarization-native, confidence is not
+                # overlap-derived anymore. Keep None for now.
+                "confidence": None,
+            },
+            "text": {
+                "raw": reconstructed_text,
+                "normalized": None,
+                "language": doc["transcript"].get("language_detected"),
+            },
+            "flags": int(flags),
+            "other_speakers": other_speakers,
+            "entities": [],
+            "keywords": [],
+            "provenance": {
+                "transcript_segment_ids": transcript_segment_ids,
+                "diarization_segment_ids": [d_segment_id],
+                "transcript_token_start_id": token_start_id,
+                "transcript_token_end_id": token_end_id,
+                "stage_created_by": "merge",
+            },
+        }
+
+        final_segments.append(final_segment)
 
     doc["segments"] = final_segments
 
@@ -387,9 +334,7 @@ def merge_segments(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description=(
-            "Merge transcript and diarization into speaker-attributed, sentence-aware segments."
-        )
+        description="Merge transcript and diarization into final speaker-attributed segments."
     )
     parser.add_argument(
         "--input-json",
@@ -403,13 +348,13 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--min-other-overlap-seconds",
         type=float,
-        default=DEFAULT_MIN_OTHER_OVERLAP_SECONDS,
+        default=0.5,
         help="Minimum overlap in seconds to keep as other speaker",
     )
     parser.add_argument(
         "--multiple-speaker-ratio-threshold",
         type=float,
-        default=DEFAULT_MULTIPLE_SPEAKER_RATIO_THRESHOLD,
+        default=0.2,
         help="Minimum overlap ratio to keep as other speaker",
     )
     return parser.parse_args()
