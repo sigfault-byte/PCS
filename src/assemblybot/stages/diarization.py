@@ -17,6 +17,49 @@ from assemblybot.config import INTERIM_DIR
 from assemblybot.models.diarization import DiarizationRawSegment
 from assemblybot.models.time import TimeRange, now_utc_iso
 
+MIN_EMBEDDING_DURATION_SECONDS = 0.80
+SKIP_ULTRA_SHORT_EMBEDDINGS_BELOW_SECONDS = 0.08
+
+
+def clamp_segment(start: float, end: float, max_end: float) -> tuple[float, float]:
+    start = max(0.0, start)
+    end = min(max_end, end)
+    if end < start:
+        end = start
+    return start, end
+
+
+def expand_segment_to_min_duration(
+    start: float,
+    end: float,
+    min_duration: float,
+    max_end: float,
+) -> tuple[float, float]:
+    duration = end - start
+    if duration >= min_duration:
+        return clamp_segment(start, end, max_end)
+
+    deficit = min_duration - duration
+    left = deficit / 2.0
+    right = deficit - left
+
+    new_start = start - left
+    new_end = end + right
+
+    if new_start < 0.0:
+        new_end += -new_start
+        new_start = 0.0
+
+    if new_end > max_end:
+        shift = new_end - max_end
+        new_start -= shift
+        new_end = max_end
+
+    if new_start < 0.0:
+        new_start = 0.0
+
+    return clamp_segment(new_start, new_end, max_end)
+
 
 def build_default_output_path(input_audio_path: Path) -> Path:
     return INTERIM_DIR / f"{input_audio_path.stem}_02_diarization.json"  # type: ignore
@@ -181,12 +224,29 @@ def diarize_audio(
 
     print("Extracting one embedding per diarization segment...")
 
+    audio_source = {
+        "waveform": waveform,
+        "sample_rate": sample_rate,
+    }
+
     for row in diarization_rows:
         start = row["time"]["start_seconds"]
         end = row["time"]["end_seconds"]
+        duration = end - start
 
-        excerpt = Segment(start, end)
-        emb = embedding_inference.crop(str(input_audio_path), excerpt)
+        if duration < SKIP_ULTRA_SHORT_EMBEDDINGS_BELOW_SECONDS:
+            print(f"Skipping ultra-short segment {row['segment_id']} ({duration:.3f}s)")
+            continue
+
+        safe_start, safe_end = expand_segment_to_min_duration(
+            start=start,
+            end=end,
+            min_duration=MIN_EMBEDDING_DURATION_SECONDS,
+            max_end=float(doc["source"]["duration_seconds"]),
+        )
+
+        excerpt = Segment(safe_start, safe_end)
+        emb = embedding_inference.crop(audio_source, excerpt)
         emb = np.asarray(emb).squeeze().astype(np.float32)
 
         if emb.ndim != 1:
