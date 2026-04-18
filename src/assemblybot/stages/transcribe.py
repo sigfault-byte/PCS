@@ -1,47 +1,95 @@
 from __future__ import annotations
 
 import argparse
-import json
-import sys
 import time
 from pathlib import Path
 
-import torch
 from faster_whisper import WhisperModel
 
-from assemblybot.config import INTERIM_DIR
-from assemblybot.models.factories import create_empty_document, mark_stage_completed
-from assemblybot.models.time import TimeRange, seconds_to_timestamp
+from assemblybot.helper.directory import build_default_output_path
+from assemblybot.helper.document import load_document, save_document
+from assemblybot.models.document import CanonicalDocument
+from assemblybot.models.factories import (
+    create_empty_document,
+    mark_stage_completed,
+    mark_stage_failed,
+    mark_stage_running,
+)
+from assemblybot.models.time import TimeRange
 from assemblybot.models.transcript import TranscriptRawSegment, TranscriptRawToken
 
 
-# Better safe than sorry -> move to global config
-# -------------------------------
-def resolve_device_and_compute(device: str, compute_type: str):
+def resolve_device_and_compute(
+    device: str,
+    compute_type: str,
+) -> tuple[str, str]:
+    """
+    Normalize runtime configuration for faster-whisper.
+
+    CPU generally prefers int8.
+    CUDA can use float16 unless caller explicitly asks otherwise.
+    """
     if device == "auto":
-        device = "cuda" if torch.cuda.is_available() else "cpu"
+        try:
+            import torch
+
+            device = "cuda" if torch.cuda.is_available() else "cpu"
+        except Exception:
+            device = "cpu"
 
     if compute_type == "auto":
         compute_type = "float16" if device == "cuda" else "int8"
 
-    print(f"Running on {device}!")
     return device, compute_type
 
 
-# ------------------------------
+def build_transcript_text_lines(
+    raw_segments: list[TranscriptRawSegment],
+) -> list[str]:
+    """
+    Build a simple human-readable transcript text artifact from raw segments.
+    """
+    lines: list[str] = []
+    for segment in raw_segments:
+        lines.append(
+            f"[{segment.time.start_ts} -> {segment.time.end_ts}] {segment.raw_text}"
+        )
+    return lines
 
 
-def build_default_output_path(input_path: Path) -> Path:
-    return INTERIM_DIR / f"{input_path.stem}_01_transcript.json"
+def apply_transcript_to_document(
+    document: CanonicalDocument,
+    model_name: str,
+    device: str,
+    compute_type: str,
+    language_detected: str | None,
+    language_probability: float | None,
+    raw_tokens: list[TranscriptRawToken],
+    raw_segments: list[TranscriptRawSegment],
+    media_duration_seconds: float | None,
+) -> None:
+    """
+    Write raw transcription results into the typed canonical document.
+    """
+    document.transcript.engine.model = model_name
+    document.transcript.engine.device = device
+    document.transcript.engine.compute_type = compute_type
+    document.transcript.language_detected = language_detected
+    document.transcript.language_probability = language_probability
+    document.transcript.raw_tokens = raw_tokens
+    document.transcript.raw_segments = raw_segments
 
-
-def build_default_text_output_path(input_path: Path) -> Path:
-    return INTERIM_DIR / f"{input_path.stem}_01_transcript.txt"
+    # If transcription stage learned the full media duration, keep it on source.
+    # If diarization already filled it, this should just confirm the same value.
+    if media_duration_seconds is not None:
+        document.source.duration_seconds = media_duration_seconds
 
 
 def transcribe_audio(
-    input_path: Path,
-    output_json_path: Path | None = None,
+    document: CanonicalDocument,
+    input_audio_path: Path,
+    output_json_path: Path,
+    *,
     output_txt_path: Path | None = None,
     model_name: str = "large-v3",
     device: str = "auto",
@@ -49,186 +97,281 @@ def transcribe_audio(
     language: str = "fr",
     beam_size: int = 5,
     vad_filter: bool = True,
-    min_silence_duration_ms: int = 500,
-):
-    input_path = input_path.resolve()
+    vad_min_silence_duration_ms: int = 500,
+    word_timestamps: bool = True,
+) -> CanonicalDocument:
+    """
+    Main transcription stage orchestrator.
 
-    if not input_path.exists():
-        raise FileNotFoundError(f"Input audio not found: {input_path}")
+    This stage is intentionally "raw":
+    - raw_tokens = smallest timestamped text truth
+    - raw_segments = Whisper decoder chunk anchors
+    - no downstream repair / merge logic here
+    """
+    input_audio_path = input_audio_path.resolve()
+    output_json_path = output_json_path.resolve()
 
-    output_json_path = output_json_path or build_default_output_path(input_path)
-    output_txt_path = output_txt_path or build_default_text_output_path(input_path)
+    if not input_audio_path.exists():
+        raise FileNotFoundError(f"Input audio not found: {input_audio_path}")
 
     output_json_path.parent.mkdir(parents=True, exist_ok=True)
-    output_txt_path.parent.mkdir(parents=True, exist_ok=True)
 
-    doc = create_empty_document(input_path=input_path, language_expected=language)
+    if output_txt_path is None:
+        output_txt_path = build_default_output_path(
+            input_audio_path,
+            "_02_transcript",
+            "txt",
+        )
+    output_txt_path = output_txt_path.resolve()
+    output_txt_path.parent.mkdir(parents=True, exist_ok=True)
 
     device, compute_type = resolve_device_and_compute(device, compute_type)
 
-    print("Loading Whisper model...")
-    print(f"Using device: {device} ({compute_type})")
+    mark_stage_running(document, "transcription")
 
-    model = WhisperModel(model_name, device=device, compute_type=compute_type)
+    stage_start_time = time.time()
 
-    print("Model loaded")
+    try:
+        print(f"Loading faster-whisper model: {model_name}")
+        print(f"Using device: {device} ({compute_type})")
+        print(f"Transcribing: {input_audio_path.name}")
 
-    print(f"Transcribing: {input_path.name}")
-    start_time = time.time()
+        model = WhisperModel(
+            model_name,
+            device=device,
+            compute_type=compute_type,
+        )
 
-    segments_iter, info = model.transcribe(
-        str(input_path),
-        language=language,
-        beam_size=beam_size,
-        vad_filter=vad_filter,
-        vad_parameters={"min_silence_duration_ms": min_silence_duration_ms},
-        word_timestamps=True,
-    )
+        segments_iter, info = model.transcribe(
+            str(input_audio_path),
+            language=language,
+            beam_size=beam_size,
+            vad_filter=vad_filter,
+            vad_parameters={
+                "min_silence_duration_ms": vad_min_silence_duration_ms,
+            },
+            word_timestamps=word_timestamps,
+        )
 
-    doc.transcript.engine.model = model_name
-    doc.transcript.engine.device = device
-    doc.transcript.engine.compute_type = compute_type
-    doc.transcript.language_detected = info.language
-    doc.transcript.language_probability = info.language_probability
+        raw_tokens: list[TranscriptRawToken] = []
+        raw_segments: list[TranscriptRawSegment] = []
 
-    text_lines: list[str] = []
+        token_id_counter = 0
+        media_duration_seconds: float = 0.0
 
-    # logs / progress
-    total_duration = info.duration or 0.0  # seconds
-    start_time = time.time()
+        # We consume the iterator once, converting immediately into our own models.
+        for segment_index, segment in enumerate(segments_iter, start=1):
+            segment_token_start_id: int | None = None
+            segment_token_end_id: int | None = None
 
-    next_token_id = 0
+            # Keep the segment text as emitted by the decoder.
+            segment_raw_text = (segment.text or "").strip()
 
-    for idx, segment in enumerate(segments_iter, start=1):
-        progress = segment.end / total_duration if total_duration else 0.0
-        elapsed = time.time() - start_time
-        speed = segment.end / elapsed if elapsed > 0 else 0.0
+            # If word timestamps exist, use them as our smallest text-time truth.
+            words = getattr(segment, "words", None) or []
 
-        time_range = TimeRange.from_seconds(segment.start, segment.end)
+            for word in words:
+                word_start = getattr(word, "start", None)
+                word_end = getattr(word, "end", None)
+                word_text = getattr(word, "word", None)
 
-        bar_width = 30
-        filled = int(progress * bar_width)
-        bar = "=" * filled + " " * (bar_width - filled)
+                if word_start is None or word_end is None:
+                    continue
+                if word_text is None:
+                    continue
 
-        sys.stdout.write(f"\r[{bar}] {progress * 100:5.1f}% | {speed:4.2f}x realtime")
-        sys.stdout.flush()
+                if segment_token_start_id is None:
+                    segment_token_start_id = token_id_counter
+                segment_token_end_id = token_id_counter
 
-        segment_token_start_id = next_token_id
+                raw_tokens.append(
+                    TranscriptRawToken(
+                        token_id=token_id_counter,
+                        start_seconds=float(word_start),
+                        end_seconds=float(word_end),
+                        raw_token=str(word_text),
+                    )
+                )
+                token_id_counter += 1
 
-        for word in segment.words or []:
-            if word.start is None or word.end is None:
-                continue
-
-            raw_token_text = word.word
-            if raw_token_text is None:
-                continue
-
-            raw_token = TranscriptRawToken(
-                token_id=next_token_id,
-                start_seconds=float(word.start),
-                end_seconds=float(word.end),
-                raw_token=raw_token_text,
+            segment_time = TimeRange.from_seconds(
+                float(segment.start),
+                float(segment.end),
             )
-            doc.transcript.raw_tokens.append(raw_token)
-            next_token_id += 1
 
-        segment_token_end_id = next_token_id - 1
+            raw_segments.append(
+                TranscriptRawSegment(
+                    segment_id=f"wseg_{segment_index:06d}",
+                    start_token_id=segment_token_start_id,
+                    end_token_id=segment_token_end_id,
+                    time=segment_time,
+                    raw_text=segment_raw_text,
+                )
+            )
 
-        if segment_token_end_id < segment_token_start_id:
-            # Fallback: keep the segment anchor even if no word timings were emitted.
-            segment_token_start_id = -1
-            segment_token_end_id = -1
+            media_duration_seconds = max(
+                media_duration_seconds,
+                float(segment.end),
+            )
 
-        raw_segment = TranscriptRawSegment(
-            segment_id=f"whisper_{idx:06d}",
-            start_token_id=segment_token_start_id,
-            end_token_id=segment_token_end_id,
-            time=time_range,
+        apply_transcript_to_document(
+            document=document,
+            model_name=model_name,
+            device=device,
+            compute_type=compute_type,
+            language_detected=getattr(info, "language", None),
+            language_probability=getattr(info, "language_probability", None),
+            raw_tokens=raw_tokens,
+            raw_segments=raw_segments,
+            media_duration_seconds=media_duration_seconds or None,
         )
-        doc.transcript.raw_segments.append(raw_segment)
 
-        text_lines.append(
-            f"[{seconds_to_timestamp(segment.start)} -> "
-            f"{seconds_to_timestamp(segment.end)}]"
+        # Save a simple transcript text artifact for human inspection/debugging.
+        lines = build_transcript_text_lines(raw_segments)
+        output_txt_path.write_text("\n".join(lines), encoding="utf-8")
+
+        mark_stage_completed(
+            document,
+            "transcription",
+            output_path=str(output_json_path),
         )
+        save_document(document, output_json_path)
 
-    elapsed = time.time() - start_time
-    print()
+        elapsed = time.time() - stage_start_time
 
-    doc.transcript.tokens_count = len(doc.transcript.raw_tokens)
-    doc.transcript.segments_count = len(doc.transcript.raw_segments)
-    doc.source.duration_seconds = (
-        doc.transcript.raw_segments[-1].time.end_seconds
-        if doc.transcript.raw_segments
-        else 0.0
-    )
+        print(f"Language detected: {document.transcript.language_detected}")
+        print(f"Language probability: {document.transcript.language_probability}")
+        print(f"Raw transcript tokens: {len(document.transcript.raw_tokens)}")
+        print(f"Raw transcript segments: {len(document.transcript.raw_segments)}")
+        print(f"Transcript TXT: {output_txt_path}")
+        print(f"Canonical JSON: {output_json_path}")
+        print(f"Time: {elapsed / 60:.1f} min")
 
-    mark_stage_completed(
-        doc,
-        stage_name="transcription",
-        output_path=str(output_json_path),
-    )
+        return document
 
-    with output_txt_path.open("w", encoding="utf-8") as f:
-        for line in text_lines:
-            f.write(line + "\n")
-
-    with output_json_path.open("w", encoding="utf-8") as f:
-        json.dump(doc.to_dict(), f, ensure_ascii=False, indent=2)
-
-    print(
-        f"Detected language: {doc.transcript.language_detected} "
-        f"(confidence: {doc.transcript.language_probability:.2f})"
-    )
-    print(f"Segments: {doc.transcript.segments_count}")
-    print(f"Tokens: {doc.transcript.tokens_count}")
-    print(f"Time: {elapsed / 60:.1f} min")
-    print(f"Text transcript: {output_txt_path}")
-    print(f"JSON transcript: {output_json_path}")
-
-    return doc
+    except Exception as exc:
+        mark_stage_failed(document, "transcription", str(exc))
+        save_document(document, output_json_path)
+        raise
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Transcribe an audio file with faster-whisper"
+        description="Run faster-whisper transcription and create/update the canonical document."
     )
-    parser.add_argument("--input", required=True, help="Path to input .wav file")
-    parser.add_argument("--output-json", help="Optional output JSON path")
-    parser.add_argument("--output-txt", help="Optional output text path")
-    parser.add_argument("--model", default="large-v3", help="Whisper model name")
-    parser.add_argument("--device", default="auto", help="Device: auto, cpu, cuda")
-    parser.add_argument("--compute-type", default="auto", help="Compute type")
-    parser.add_argument("--language", default="fr", help="Language code")
-    parser.add_argument("--beam-size", type=int, default=5, help="Beam size")
+
     parser.add_argument(
-        "--min-silence-ms",
+        "--input-audio",
+        required=True,
+        help="Path to input audio file",
+    )
+
+    parser.add_argument(
+        "--input-json",
+        help="Optional existing canonical document JSON to resume from",
+    )
+
+    parser.add_argument(
+        "--output-json",
+        help="Optional output JSON path (default: generated in interim directory)",
+    )
+
+    parser.add_argument(
+        "--output-txt",
+        help="Optional output transcript text path",
+    )
+
+    parser.add_argument(
+        "--model",
+        default="large-v3",
+        help="faster-whisper model name",
+    )
+
+    parser.add_argument(
+        "--device",
+        default="auto",
+        help="Device to use: auto, cpu, cuda",
+    )
+
+    parser.add_argument(
+        "--compute-type",
+        default="auto",
+        help="Compute type: auto, int8, float16, float32, etc.",
+    )
+
+    parser.add_argument(
+        "--language",
+        default="fr",
+        help="Expected transcription language",
+    )
+
+    parser.add_argument(
+        "--beam-size",
+        type=int,
+        default=5,
+        help="Beam size for decoding",
+    )
+
+    parser.add_argument(
+        "--vad-filter",
+        action="store_true",
+        help="Enable VAD filtering",
+    )
+
+    parser.add_argument(
+        "--vad-min-silence-duration-ms",
         type=int,
         default=500,
-        help="VAD min silence duration in milliseconds",
+        help="Minimum silence duration for VAD filtering",
     )
+
     parser.add_argument(
-        "--no-vad",
+        "--no-word-timestamps",
         action="store_true",
-        help="Disable VAD filtering",
+        help="Disable word timestamps",
     )
+
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
 
+    input_audio_path = Path(args.input_audio).resolve()
+
+    output_json_path = (
+        Path(args.output_json).resolve()
+        if args.output_json
+        else build_default_output_path(
+            input_audio_path,
+            "_02_transcription",
+            "json",
+        )
+    )
+
+    # Standalone mode: create a fresh document if none exists yet.
+    # Pipeline mode: reuse the document already created upstream.
+    if args.input_json:
+        document = load_document(Path(args.input_json).resolve())
+    else:
+        document = create_empty_document(
+            input_audio_path,
+            language_expected=args.language,
+        )
+
     transcribe_audio(
-        input_path=Path(args.input),
-        output_json_path=Path(args.output_json) if args.output_json else None,
-        output_txt_path=Path(args.output_txt) if args.output_txt else None,
+        document=document,
+        input_audio_path=input_audio_path,
+        output_json_path=output_json_path,
+        output_txt_path=(Path(args.output_txt).resolve() if args.output_txt else None),
         model_name=args.model,
         device=args.device,
         compute_type=args.compute_type,
         language=args.language,
         beam_size=args.beam_size,
-        vad_filter=not args.no_vad,
-        min_silence_duration_ms=args.min_silence_ms,
+        vad_filter=args.vad_filter,
+        vad_min_silence_duration_ms=args.vad_min_silence_duration_ms,
+        word_timestamps=not args.no_word_timestamps,
     )
 
 
