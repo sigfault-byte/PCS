@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 from typing import Any
 
 from .diarization import (
@@ -114,3 +114,6 @@ class CanonicalDocument:
                 FinalSegment.from_dict(item) for item in data.get("segments", [])
             ],
         )
+
+    def to_dict(self) -> dict[str, Any]:
+        return asdict(self)
