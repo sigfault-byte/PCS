@@ -5,13 +5,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "ctranslate2",
     "fr-core-news-sm",
-    "hydra-core>=1.3.2",
-    "omegaconf>=2.3.0",
-    "soundfile>=0.13.1",
     "spacy>=3.8.14",
-    "yt-dlp>=2026.3.17",
 ]
 
 [project.optional-dependencies]
@@ -20,9 +15,18 @@ inference = [
     "pyannote-audio>=4.0.4",
     "torch>=2.11.0",
     "torchcodec>=0.11.0",
+    "hydra-core>=1.3.2",
+    "soundfile>=0.13.1",
+    "omegaconf>=2.3.0",
+    "ctranslate2",
+]
+dev = [
+   "marimo",
+   "pandas>=3.0.2",
 ]
 scrape = [
-    "beautifulsoup4>=4.14.3",
+   "yt-dlp>=2026.3.17",
+   "beautifulsoup4>=4.14.3",
 ]
 
 [tool.uv.sources]

@@ -1,42 +1,96 @@
-from dataclasses import asdict, dataclass, field
+from __future__ import annotations
+
+from dataclasses import dataclass, field
 from typing import Any
 
-from .diarization import DiarizationSection
-from .flags import flags_to_list
-from .segments import FinalSegment
-from .transcript import TranscriptSection
+from .diarization import (
+    DiarizationSection,
+)
+from .final_segment import FinalSegment
+from .transcript import (
+    TranscriptSection,
+)
 
-# Idea is :
-# transcript.raw_tokens = source truth
-# transcript.raw_segments = Whisper anchors
-# diarization.raw_segments = speaker time anchors
-# segments = reconstructed analysis segments
+
+class StageArtifactStatus:
+    NOT_STARTED = "not_started"
+    RUNNING = "running"
+    COMPLETED = "completed"
+    FAILED = "failed"
 
 
 @dataclass
 class SourceInfo:
+    source_id: str
     input_path: str
     input_filename: str
     media_type: str = "audio"
     language_expected: str = "fr"
     duration_seconds: float | None = None
+    file_sha256: str | None = None
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "SourceInfo":
+        return cls(
+            source_id=data.get("source_id", ""),
+            input_path=data.get("input_path", ""),
+            input_filename=data.get("input_filename", ""),
+            media_type=data.get("media_type", "audio"),
+            language_expected=data.get("language_expected", "fr"),
+            duration_seconds=data.get("duration_seconds"),
+            file_sha256=data.get("file_sha256"),
+        )
+
+
+@dataclass
+class StageArtifact:
+    status: str = "not_started"
+    output_path: str | None = None
+    completed_at: str | None = None
+    error_message: str | None = None
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "StageArtifact":
+        return cls(
+            status=data.get("status", "not_started"),
+            output_path=data.get("output_path"),
+            completed_at=data.get("completed_at"),
+            error_message=data.get("error_message"),
+        )
 
 
 @dataclass
 class StageOutputs:
-    transcription: str | None = None
-    diarization: str | None = None
-    merge: str | None = None
-    enrichment: str | None = None
-    export: str | None = None
+    transcription: StageArtifact = field(default_factory=StageArtifact)
+    diarization: StageArtifact = field(default_factory=StageArtifact)
+    merge: StageArtifact = field(default_factory=StageArtifact)
+    enrichment: StageArtifact = field(default_factory=StageArtifact)
+    export: StageArtifact = field(default_factory=StageArtifact)
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "StageOutputs":
+        return cls(
+            transcription=StageArtifact.from_dict(data.get("transcription", {})),
+            diarization=StageArtifact.from_dict(data.get("diarization", {})),
+            merge=StageArtifact.from_dict(data.get("merge", {})),
+            enrichment=StageArtifact.from_dict(data.get("enrichment", {})),
+            export=StageArtifact.from_dict(data.get("export", {})),
+        )
 
 
 @dataclass
 class PipelineInfo:
     created_at: str
     updated_at: str
-    stages_completed: list[str] = field(default_factory=list)
     stage_outputs: StageOutputs = field(default_factory=StageOutputs)
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "PipelineInfo":
+        return cls(
+            created_at=data.get("created_at", ""),
+            updated_at=data.get("updated_at", ""),
+            stage_outputs=StageOutputs.from_dict(data.get("stage_outputs", {})),
+        )
 
 
 @dataclass
@@ -48,15 +102,15 @@ class CanonicalDocument:
     diarization: DiarizationSection = field(default_factory=DiarizationSection)
     segments: list[FinalSegment] = field(default_factory=list)
 
-    def to_dict(self) -> dict[str, Any]:
-        data = asdict(self)
-
-        # future-proof hook
-        data["schema_version"] = self.schema_version
-
-        # enrich for debug / readability
-        for seg in data.get("segments", []):
-            flags = seg.get("flags", 0)
-            seg["flags_readable"] = flags_to_list(flags)
-
-        return data
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "CanonicalDocument":
+        return cls(
+            schema_version=data.get("schema_version", "0.1.0"),
+            source=SourceInfo.from_dict(data.get("source", {})),
+            pipeline=PipelineInfo.from_dict(data.get("pipeline", {})),
+            transcript=TranscriptSection.from_dict(data.get("transcript", {})),
+            diarization=DiarizationSection.from_dict(data.get("diarization", {})),
+            segments=[
+                FinalSegment.from_dict(item) for item in data.get("segments", [])
+            ],
+        )

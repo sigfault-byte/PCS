@@ -30,3 +30,10 @@ class TimeRange:
             start_ts=seconds_to_timestamp(start_seconds),
             end_ts=seconds_to_timestamp(end_seconds),
         )
+
+    @classmethod
+    def from_dict(cls, data: dict) -> "TimeRange":
+        return cls.from_seconds(
+            start_seconds=data["start_seconds"],
+            end_seconds=data["end_seconds"],
+        )

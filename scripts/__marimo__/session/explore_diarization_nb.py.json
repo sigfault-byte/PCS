@@ -1,0 +1,49 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.23.1",
+    "script_metadata_hash": null
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "f226ef69134881c87f354358a26a7a18",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "/Users/sigfault/Documents/PCS/.venv/bin/python3\n<class 'dict'>\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "23c81ae95a1fe6cffb988608d97458a3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "dict_keys(['schema_version', 'source', 'pipeline', 'transcript', 'diarization', 'segments'])\n<class 'dict'>\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    }
+  ]
+}
