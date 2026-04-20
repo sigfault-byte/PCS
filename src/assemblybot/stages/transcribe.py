@@ -97,7 +97,7 @@ def transcribe_audio(
     language: str = "fr",
     beam_size: int = 5,
     vad_filter: bool = True,
-    vad_min_silence_duration_ms: int = 500,
+    vad_min_silence_duration_ms: int = 2000,
     word_timestamps: bool = True,
 ) -> CanonicalDocument:
     """
