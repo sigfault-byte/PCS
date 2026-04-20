@@ -4,7 +4,7 @@ import argparse
 import time
 from pathlib import Path
 
-from faster_whisper import WhisperModel
+from faster_whisper import WhisperModel  # type: ignore
 
 from assemblybot.helper.directory import build_default_output_path
 from assemblybot.helper.document import load_document, save_document
@@ -31,7 +31,7 @@ def resolve_device_and_compute(
     """
     if device == "auto":
         try:
-            import torch
+            import torch  # type: ignore
 
             device = "cuda" if torch.cuda.is_available() else "cpu"
         except Exception:
