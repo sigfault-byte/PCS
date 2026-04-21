@@ -18,23 +18,35 @@ from assemblybot.models.diarization import (
 )
 from assemblybot.models.document import CanonicalDocument
 from assemblybot.models.factories import (
-    create_empty_document,
     mark_stage_completed,
     mark_stage_failed,
     mark_stage_running,
 )
-from assemblybot.models.final_segment import FinalSegment
+from assemblybot.models.final_segment import (
+    FinalSegment,
+    Provenance,
+    SpeakerInfo,
+    TextInfo,
+)
 from assemblybot.models.time import TimeRange
 from assemblybot.models.transcript import TranscriptRawSegment
+from src.assemblybot.models.flags import SegmentFlag
 
-DIARIZATION_SEGMENT_GAP = 2.0
+# Diarization max gap
+DIARIZATION_SEGMENT_GAP = 4
+
+# transcription merge
+SHORT_SEGMENT_SECONDS = 2.5
+BOUNDARY_BIAS_WINDOW = 0.75
 
 
 def collapse_diarization_segments(
     diarization: DiarizationSection,
 ) -> tuple[list[CollapsedDiarizationSegment], list[tuple[float, float]]]:
-
-    raw_segments = diarization.raw_segments
+    raw_segments = sorted(
+        diarization.raw_segments,
+        key=lambda segment: segment.time.start_seconds,
+    )
 
     if not raw_segments:
         return [], []
@@ -110,10 +122,45 @@ def assign_transcript_segments(
     true_gaps_sorted = sorted(true_gaps)
 
     for transcript_segment in transcript_segments:
-        midpoint = (
-            transcript_segment.time.start_seconds + transcript_segment.time.end_seconds
-        ) / 2.0
+        transcript_start = transcript_segment.time.start_seconds
+        transcript_end = transcript_segment.time.end_seconds
+        transcript_duration = transcript_end - transcript_start
+        midpoint = (transcript_start + transcript_end) / 2.0
 
+        # --------------------------------------------------
+        # Special boundary rescue:
+        # if a short transcript segment overlaps exactly two
+        # adjacent diarization segments and barely crosses the
+        # boundary, bias it to the previous segment.
+        # --------------------------------------------------
+        overlapping_segments: list[CollapsedDiarizationSegment] = []
+
+        for collapsed_segment in collapsed_sorted:
+            overlap = max(
+                0.0,
+                min(transcript_end, collapsed_segment.time.end_seconds)
+                - max(transcript_start, collapsed_segment.time.start_seconds),
+            )
+            if overlap > 0.0:
+                overlapping_segments.append(collapsed_segment)
+
+        # This is a bandage it only fixes one part of the problem
+        # if len(overlapping_segments) == 2:
+        #     prev_seg = overlapping_segments[0]
+        #     next_seg = overlapping_segments[1]
+        #     boundary = next_seg.time.start_seconds
+
+        #     if (
+        #         transcript_duration <= SHORT_SEGMENT_SECONDS
+        #         and transcript_start < boundary < transcript_end
+        #         and 0.0 <= midpoint - boundary <= BOUNDARY_BIAS_WINDOW
+        #     ):
+        #         assigned_segments[prev_seg.segment_id].append(transcript_segment)
+        #         continue
+
+        # --------------------------------------------------
+        # Original midpoint assignment logic
+        # --------------------------------------------------
         assigned = False
         for collapsed_segment in collapsed_sorted:
             if (
@@ -130,6 +177,9 @@ def assign_transcript_segments(
         if assigned:
             continue
 
+        # --------------------------------------------------
+        # Original gap classification logic
+        # --------------------------------------------------
         in_gap = False
         for gap_start, gap_end in true_gaps_sorted:
             if gap_start <= midpoint <= gap_end:
@@ -145,49 +195,124 @@ def assign_transcript_segments(
     return assigned_segments, transcript_ids_in_gap, unmatched_transcript_ids
 
 
+def build_raw_text(transcript_segments: list[TranscriptRawSegment]) -> str:
+    text_parts = [segment.raw_text.strip() for segment in transcript_segments]
+    return " ".join(part for part in text_parts if part)
+
+
+def build_transcript_token_bounds(
+    transcript_segments: list[TranscriptRawSegment],
+) -> tuple[int | None, int | None]:
+    start_token_ids = [
+        segment.start_token_id
+        for segment in transcript_segments
+        if segment.start_token_id is not None
+    ]
+    end_token_ids = [
+        segment.end_token_id
+        for segment in transcript_segments
+        if segment.end_token_id is not None
+    ]
+
+    token_start_id = min(start_token_ids) if start_token_ids else None
+    token_end_id = max(end_token_ids) if end_token_ids else None
+    return token_start_id, token_end_id
+
+
+def build_final_segments(
+    document: CanonicalDocument,
+    collapsed_segments: list[CollapsedDiarizationSegment],
+    assigned_segments: dict[str, list[TranscriptRawSegment]],
+) -> list[FinalSegment]:
+    final_segments: list[FinalSegment] = []
+    language_detected = document.transcript.language_detected
+
+    collapsed_sorted = sorted(
+        collapsed_segments,
+        key=lambda segment: segment.time.start_seconds,
+    )
+
+    for idx, collapsed_segment in enumerate(collapsed_sorted, start=1):
+        transcript_segments = sorted(
+            assigned_segments.get(collapsed_segment.segment_id, []),
+            key=lambda segment: segment.time.start_seconds,
+        )
+        transcript_token_start_id, transcript_token_end_id = (
+            build_transcript_token_bounds(transcript_segments)
+        )
+
+        final_segments.append(
+            FinalSegment(
+                segment_id=f"seg_{idx:06d}",
+                time=TimeRange.from_seconds(
+                    collapsed_segment.time.start_seconds,
+                    collapsed_segment.time.end_seconds,
+                ),
+                speaker=SpeakerInfo(
+                    speaker_id=collapsed_segment.speaker_id,
+                    speaker_label=None,
+                    speaker_label_source=None,
+                    confidence=None,
+                ),
+                text=TextInfo(
+                    raw=build_raw_text(transcript_segments),
+                    normalized=None,
+                    language=language_detected,
+                ),
+                flags=SegmentFlag.NONE,
+                entities=[],
+                keywords=[],
+                provenance=Provenance(
+                    transcript_segment_ids=[
+                        segment.segment_id for segment in transcript_segments
+                    ],
+                    diarization_segment_ids=list(
+                        collapsed_segment.source_diarization_segment_ids
+                    ),
+                    transcript_token_start_id=transcript_token_start_id,
+                    transcript_token_end_id=transcript_token_end_id,
+                    stage_created_by="merge",
+                ),
+            )
+        )
+
+    return final_segments
+
+
 def merge(
     document: CanonicalDocument,
     output_json_path: Path,
 ) -> CanonicalDocument:
-
-    transcript_seg = document.transcript.raw_segments
-    collapse_diarization_seg, true_gaps = collapse_diarization_segments(
+    transcript_segments = document.transcript.raw_segments
+    collapsed_diarization_segments, true_gaps = collapse_diarization_segments(
         document.diarization
     )
     assigned_segments, transcript_ids_in_gap, unmatched_transcript_ids = (
         assign_transcript_segments(
-            transcript_seg,
-            collapse_diarization_seg,
+            transcript_segments,
+            collapsed_diarization_segments,
             true_gaps,
         )
     )
-    document.diarization.collapsed_segments = collapse_diarization_seg
+    document.diarization.collapsed_segments = collapsed_diarization_segments
+    document.segments = build_final_segments(
+        document,
+        collapsed_diarization_segments,
+        assigned_segments,
+    )
 
-    # DEBUG ----------
-    print(f"Collapsed diarization segments: {len(collapse_diarization_seg)}")
-    for segment in collapse_diarization_seg:
-        print(
-            segment.segment_id,
-            segment.speaker_id,
-            segment.time.start_seconds,
-            segment.time.end_seconds,
-            segment.source_diarization_segment_ids,
-        )
-    print(f"True gaps (>2s): {len(true_gaps)}")
-    for gap in true_gaps:
-        print(gap)
-    print(f"Assigned collapsed segments: {len(assigned_segments)}")
-    print(f"Transcript segment ids in gap: {sorted(transcript_ids_in_gap)}")
-    print(f"Unmatched transcript segment ids: {unmatched_transcript_ids}")
+    orphan_transcript_ids = sorted(
+        transcript_ids_in_gap.union(unmatched_transcript_ids)
+    )
+    print(f"Orphan transcript segment ids: {orphan_transcript_ids}")
 
-    for seg in document.transcript.raw_segments:
-        if seg.segment_id in transcript_ids_in_gap:
-            print(
-                seg.segment_id,
-                seg.time.start_seconds,
-                seg.time.end_seconds,
-                seg.raw_text,
-            )
+    mark_stage_completed(
+        document,
+        "merge",
+        output_path=str(output_json_path),
+    )
+    save_document(document, output_json_path)
+    print(f"Saved merged document: {output_json_path}")
 
     return document
 
@@ -219,14 +344,24 @@ def main() -> None:
     input_json_path = Path(args.input_json).resolve()
     clean_stem = input_json_path.stem.removesuffix("_02_transcription")
     fake_path = input_json_path.with_name(clean_stem + input_json_path.suffix)
-    output_json_path = build_default_output_path(
-        fake_path,
-        "_03_merge",
-        "json",
+    output_json_path = (
+        Path(args.output_json).resolve()
+        if args.output_json
+        else build_default_output_path(
+            fake_path,
+            "_03_merge",
+            "json",
+        )
     )
 
-    print(output_json_path)
-    merge(document, output_json_path)
+    mark_stage_running(document, "merge")
+
+    try:
+        merge(document, output_json_path)
+    except Exception as exc:
+        mark_stage_failed(document, "merge", str(exc))
+        save_document(document, output_json_path)
+        raise
 
 
 if __name__ == "__main__":
