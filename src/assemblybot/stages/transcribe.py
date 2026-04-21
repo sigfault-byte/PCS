@@ -214,6 +214,13 @@ def transcribe_audio(
                 float(segment.end),
             )
 
+            if segment_index % 100 == 0:
+                print(
+                    f"[segment {segment_index:06d}] "
+                    f"up to {segment.end:.2f}s | "
+                    f"tokens: {token_id_counter}"
+                )
+
         apply_transcript_to_document(
             document=document,
             model_name=model_name,
