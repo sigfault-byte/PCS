@@ -4,8 +4,6 @@ import argparse
 import time
 from pathlib import Path
 
-from faster_whisper import WhisperModel  # type: ignore
-
 from assemblybot.helper.directory import build_default_output_path
 from assemblybot.helper.document import load_document, save_document
 from assemblybot.models.document import CanonicalDocument
@@ -132,6 +130,8 @@ def transcribe_audio(
     stage_start_time = time.time()
 
     try:
+        from faster_whisper import WhisperModel  # type: ignore
+
         print(f"Loading faster-whisper model: {model_name}")
         print(f"Using device: {device} ({compute_type})")
         print(f"Transcribing: {input_audio_path.name}")
@@ -206,6 +206,9 @@ def transcribe_audio(
                     end_token_id=segment_token_end_id,
                     time=segment_time,
                     raw_text=segment_raw_text,
+                    avg_logprob=getattr(segment, "avg_logprob", None),
+                    no_speech_prob=getattr(segment, "no_speech_prob", None),
+                    compression_ratio=getattr(segment, "compression_ratio", None),
                 )
             )
 
@@ -320,15 +323,15 @@ def parse_args() -> argparse.Namespace:
     )
 
     parser.add_argument(
-        "--vad-filter",
+        "--no-vad-filter",
         action="store_true",
-        help="Enable VAD filtering",
+        help="Disable faster-whisper VAD filtering",
     )
 
     parser.add_argument(
         "--vad-min-silence-duration-ms",
         type=int,
-        default=500,
+        default=2000,
         help="Minimum silence duration for VAD filtering",
     )
 
@@ -376,7 +379,7 @@ def main() -> None:
         compute_type=args.compute_type,
         language=args.language,
         beam_size=args.beam_size,
-        vad_filter=args.vad_filter,
+        vad_filter=not args.no_vad_filter,
         vad_min_silence_duration_ms=args.vad_min_silence_duration_ms,
         word_timestamps=not args.no_word_timestamps,
     )
