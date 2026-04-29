@@ -14,6 +14,8 @@ from .vad import VadSection
 
 
 class StageArtifactStatus:
+    """Allowed status values for pipeline stage artifacts."""
+
     NOT_STARTED = "not_started"
     RUNNING = "running"
     COMPLETED = "completed"
@@ -22,6 +24,8 @@ class StageArtifactStatus:
 
 @dataclass
 class SourceInfo:
+    """Input media metadata copied through the whole pipeline."""
+
     source_id: str
     input_path: str
     input_filename: str
@@ -45,6 +49,8 @@ class SourceInfo:
 
 @dataclass
 class StageArtifact:
+    """Execution status and primary output path for one stage."""
+
     status: str = "not_started"
     output_path: str | None = None
     completed_at: str | None = None
@@ -62,6 +68,8 @@ class StageArtifact:
 
 @dataclass
 class StageOutputs:
+    """Per-stage execution metadata, not model output payloads."""
+
     vad: StageArtifact = field(default_factory=StageArtifact)
     transcription: StageArtifact = field(default_factory=StageArtifact)
     diarization: StageArtifact = field(default_factory=StageArtifact)
@@ -83,6 +91,8 @@ class StageOutputs:
 
 @dataclass
 class PipelineInfo:
+    """Document-level pipeline bookkeeping."""
+
     created_at: str
     updated_at: str
     stage_outputs: StageOutputs = field(default_factory=StageOutputs)
@@ -98,10 +108,12 @@ class PipelineInfo:
 
 @dataclass
 class CanonicalDocument:
+    """Top-level JSON schema passed between pipeline stages."""
+
     schema_version: str
     source: SourceInfo
     pipeline: PipelineInfo
-    vad: VadSection
+    vad: VadSection = field(default_factory=VadSection)
     transcript: TranscriptSection = field(default_factory=TranscriptSection)
     diarization: DiarizationSection = field(default_factory=DiarizationSection)
     segments: list[FinalSegment] = field(default_factory=list)

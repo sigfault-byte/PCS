@@ -3,7 +3,14 @@ from pathlib import Path
 from .document import CanonicalDocument, PipelineInfo, SourceInfo
 from .time import now_utc_iso
 
-VALID_STAGE_NAMES = {"transcription", "diarization", "merge", "enrichment", "export"}
+VALID_STAGE_NAMES = {
+    "vad",
+    "transcription",
+    "diarization",
+    "merge",
+    "enrichment",
+    "export",
+}
 
 
 def create_empty_document(

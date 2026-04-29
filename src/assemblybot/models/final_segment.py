@@ -8,6 +8,8 @@ from .time import TimeRange
 
 @dataclass
 class SpeakerInfo:
+    """Resolved speaker metadata for a final segment."""
+
     speaker_id: str | None = None
     speaker_label: str | None = None
     speaker_label_source: str | None = None
@@ -25,6 +27,8 @@ class SpeakerInfo:
 
 @dataclass
 class TextInfo:
+    """Text payload for a final segment."""
+
     raw: str
     normalized: str | None = None
     language: str | None = None
@@ -40,6 +44,8 @@ class TextInfo:
 
 @dataclass
 class Provenance:
+    """Source segment ids used to build a final segment."""
+
     transcript_segment_ids: list[str] = field(default_factory=list)
     diarization_segment_ids: list[str] = field(default_factory=list)
     transcript_token_start_id: int | None = None
@@ -59,6 +65,8 @@ class Provenance:
 
 @dataclass
 class FinalSegment:
+    """Merged user-facing segment built from transcript and diarization data."""
+
     segment_id: str
     time: TimeRange
     speaker: SpeakerInfo
@@ -75,7 +83,7 @@ class FinalSegment:
             time=TimeRange.from_dict(data["time"]),
             speaker=SpeakerInfo.from_dict(data.get("speaker", {})),
             text=TextInfo.from_dict(data.get("text", {})),
-            flags=data.get("flags", 0),
+            flags=SegmentFlag(data.get("flags", 0)),
             entities=list(data.get("entities", [])),
             keywords=list(data.get("keywords", [])),
             provenance=Provenance.from_dict(data.get("provenance", {})),

@@ -7,6 +7,8 @@ from .time import TimeRange
 
 @dataclass
 class TranscriptEngine:
+    """Runtime settings used by the transcription stage."""
+
     name: str = "faster-whisper"
     model: str | None = None
     device: str | None = None
@@ -24,6 +26,8 @@ class TranscriptEngine:
 
 @dataclass
 class TranscriptRawToken:
+    """Smallest timestamped text unit emitted by transcription."""
+
     token_id: int
     start_seconds: float
     end_seconds: float
@@ -41,6 +45,8 @@ class TranscriptRawToken:
 
 @dataclass
 class TranscriptRawSegment:
+    """Decoder segment grouping raw text and optional token bounds."""
+
     segment_id: str
     start_token_id: int | None
     end_token_id: int | None
@@ -56,11 +62,14 @@ class TranscriptRawSegment:
             end_token_id=data.get("end_token_id"),
             time=TimeRange.from_dict(data["time"]),
             raw_text=data.get("raw_text", ""),
+            flags=SegmentFlag(data.get("flags", 0)),
         )
 
 
 @dataclass
 class TranscriptSection:
+    """Canonical transcription output stored at document.transcript."""
+
     engine: TranscriptEngine = field(default_factory=TranscriptEngine)
     language_detected: str | None = None
     language_probability: float | None = None

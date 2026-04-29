@@ -8,6 +8,8 @@ from .time import TimeRange
 
 @dataclass
 class DiarizationEngine:
+    """Runtime settings used by the diarization stage."""
+
     name: str = "pyannote"
     model: str | None = None
     device: str | None = None
@@ -25,6 +27,8 @@ class DiarizationEngine:
 
 @dataclass
 class DiarizationRawSegment:
+    """One speaker-labeled interval emitted by diarization."""
+
     segment_id: str
     time: TimeRange
     speaker_id: str
@@ -36,11 +40,14 @@ class DiarizationRawSegment:
             segment_id=data["segment_id"],
             time=TimeRange.from_dict(data["time"]),
             speaker_id=data["speaker_id"],
+            flags=SegmentFlag(data.get("flags", 0)),
         )
 
 
 @dataclass
 class DiarizationArtifacts:
+    """Paths to files produced by the diarization stage."""
+
     raw_txt_path: str | None = None
     collapsed_txt_path: str | None = None
     embeddings_npy_path: str | None = None
@@ -60,6 +67,8 @@ class DiarizationArtifacts:
 
 @dataclass
 class DiarizationSection:
+    """Canonical diarization output stored at document.diarization."""
+
     engine: DiarizationEngine = field(default_factory=DiarizationEngine)
     raw_segments: list[DiarizationRawSegment] = field(default_factory=list)
     collapsed_segments: list[CollapsedDiarizationSegment] = field(default_factory=list)

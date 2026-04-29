@@ -3,6 +3,8 @@ from datetime import datetime, timezone
 
 
 def seconds_to_timestamp(seconds: float) -> str:
+    """Format seconds as HH:MM:SS.ss."""
+
     hours = int(seconds // 3600)
     minutes = int((seconds % 3600) // 60)
     secs = seconds % 60
@@ -10,11 +12,15 @@ def seconds_to_timestamp(seconds: float) -> str:
 
 
 def now_utc_iso() -> str:
+    """Current UTC time as an ISO-8601 string."""
+
     return datetime.now(timezone.utc).isoformat()
 
 
 @dataclass
 class TimeRange:
+    """Shared interval representation used by every timed model."""
+
     start_seconds: float
     end_seconds: float
     duration_seconds: float
@@ -37,3 +43,12 @@ class TimeRange:
             start_seconds=data["start_seconds"],
             end_seconds=data["end_seconds"],
         )
+
+    def to_dict(self) -> dict[str, float | str]:
+        return {
+            "start_seconds": self.start_seconds,
+            "end_seconds": self.end_seconds,
+            "duration_seconds": self.duration_seconds,
+            "start_ts": self.start_ts,
+            "end_ts": self.end_ts,
+        }

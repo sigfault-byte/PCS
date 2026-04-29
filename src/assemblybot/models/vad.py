@@ -6,6 +6,8 @@ from .time import TimeRange
 
 @dataclass
 class VadEngine:
+    """Runtime settings used by the voice activity detector."""
+
     name: str = "silero-vad"
     model: str | None = None
     threshold: float | None = None
@@ -30,6 +32,8 @@ class VadEngine:
 
 @dataclass
 class VadSegment:
+    """One detected speech interval."""
+
     segment_id: str
     time: TimeRange
     confidence: float | None = None
@@ -52,6 +56,8 @@ class VadSegment:
 
 @dataclass
 class VadSection:
+    """Canonical VAD output stored at document.vad."""
+
     engine: VadEngine = field(default_factory=VadEngine)
     segments: list[VadSegment] = field(default_factory=list)
     speech_seconds_total: float = 0.0

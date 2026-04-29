@@ -6,6 +6,8 @@ from .time import TimeRange
 
 @dataclass
 class CollapsedDiarizationSegment:
+    """Consecutive diarization intervals merged for one speaker."""
+
     segment_id: str
     time: TimeRange
     speaker_id: str

@@ -2,6 +2,8 @@ from enum import IntFlag, auto
 
 
 class SegmentFlag(IntFlag):
+    """Bitmask flags attached to segments that need downstream attention."""
+
     NONE = 0
     IS_SHORT = auto()  # 2^0 = 1
     HAS_OVERLAP = auto()  # 2^1 = 2
@@ -11,5 +13,7 @@ class SegmentFlag(IntFlag):
     NEEDS_REVIEW = auto()  # 2^5 = 32
 
 
-def flags_to_list(flags: int) -> list[str | None]:
+def flags_to_list(flags: int | SegmentFlag) -> list[str]:
+    """Return active flag names; excludes NONE."""
+
     return [f.name for f in SegmentFlag if f & flags]
