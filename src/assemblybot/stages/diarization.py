@@ -4,20 +4,14 @@ import argparse
 import os
 import time
 from pathlib import Path
+from typing import TYPE_CHECKING
 
-import numpy as np
-import soundfile as sf
-import torch
-from pyannote.audio import Inference, Model, Pipeline
-from pyannote.audio.pipelines.utils.hook import ProgressHook
-from pyannote.core import Segment
-
-from assemblybot.helper.artifact import save_npz
 from assemblybot.helper.directory import build_default_output_path
 from assemblybot.helper.document import load_document, save_document
 from assemblybot.models.diarization import (
     CollapsedDiarizationSegment,
     DiarizationArtifacts,
+    DiarizationOverlapRegion,
     DiarizationRawSegment,
 )
 from assemblybot.models.document import CanonicalDocument
@@ -27,62 +21,17 @@ from assemblybot.models.factories import (
     mark_stage_failed,
     mark_stage_running,
 )
+from assemblybot.models.flags import SegmentFlag
 from assemblybot.models.time import TimeRange
 
-MIN_EMBEDDING_DURATION_SECONDS = 0.80
-SKIP_ULTRA_SHORT_EMBEDDINGS_BELOW_SECONDS = 0.08
-
-
-def clamp_segment(start: float, end: float, max_end: float) -> tuple[float, float]:
-    """Clamp a segment to the valid audio range."""
-    start = max(0.0, start)
-    end = min(max_end, end)
-    if end < start:
-        end = start
-    return start, end
-
-
-def expand_segment_to_min_duration(
-    start: float,
-    end: float,
-    min_duration: float,
-    max_end: float,
-) -> tuple[float, float]:
-    """
-    Expand a segment symmetrically so embedding extraction has enough audio.
-
-    Very short diarization segments can produce unstable embeddings.
-    This keeps the segment centered as much as possible while respecting
-    audio boundaries.
-    """
-    duration = end - start
-    if duration >= min_duration:
-        return clamp_segment(start, end, max_end)
-
-    deficit = min_duration - duration
-    left = deficit / 2.0
-    right = deficit - left
-
-    new_start = start - left
-    new_end = end + right
-
-    if new_start < 0.0:
-        new_end += -new_start
-        new_start = 0.0
-
-    if new_end > max_end:
-        shift = new_end - max_end
-        new_start -= shift
-        new_end = max_end
-
-    if new_start < 0.0:
-        new_start = 0.0
-
-    return clamp_segment(new_start, new_end, max_end)
+if TYPE_CHECKING:
+    import torch
 
 
 def resolve_device(device: str) -> str:
     """Resolve 'auto' to a real torch device string."""
+    import torch
+
     if device == "auto":
         return "cuda" if torch.cuda.is_available() else "cpu"
     return device
@@ -97,6 +46,9 @@ def load_audio_as_waveform(input_audio_path: Path) -> tuple[torch.Tensor, int, f
         sample_rate: int
         duration_seconds: float
     """
+    import soundfile as sf
+    import torch
+
     audio, sample_rate = sf.read(str(input_audio_path), dtype="float32")
 
     if audio.ndim == 1:
@@ -120,6 +72,9 @@ def run_pyannote_diarization(
     Run pyannote diarization and convert the result immediately into our own
     typed raw diarization segments.
     """
+    from pyannote.audio import Pipeline
+    from pyannote.audio.pipelines.utils.hook import ProgressHook
+
     print(f"Loading diarization pipeline: {model_name}")
     pipeline = Pipeline.from_pretrained(model_name, token=hf_token)
     pipeline.to(torch_device)  # type: ignore[arg-type]
@@ -151,9 +106,91 @@ def run_pyannote_diarization(
     return raw_segments
 
 
+def compute_overlap_regions(
+    raw_segments: list[DiarizationRawSegment],
+) -> list[DiarizationOverlapRegion]:
+    """Find speaker overlap intervals without changing raw segment timings."""
+    events_by_time: dict[float, list[tuple[str, str]]] = {}
+    for segment in raw_segments:
+        events_by_time.setdefault(segment.time.start_seconds, []).append(
+            ("start", segment.speaker_id)
+        )
+        events_by_time.setdefault(segment.time.end_seconds, []).append(
+            ("end", segment.speaker_id)
+        )
+
+    active_counts: dict[str, int] = {}
+    overlap_regions: list[DiarizationOverlapRegion] = []
+    previous_time: float | None = None
+
+    for current_time in sorted(events_by_time):
+        active_speaker_ids = sorted(
+            speaker_id
+            for speaker_id, count in active_counts.items()
+            if count > 0
+        )
+
+        if (
+            previous_time is not None
+            and current_time > previous_time
+            and len(active_speaker_ids) >= 2
+        ):
+            overlap_regions.append(
+                DiarizationOverlapRegion(
+                    region_id=f"overlap_{len(overlap_regions) + 1:06d}",
+                    time=TimeRange.from_seconds(previous_time, current_time),
+                    speaker_ids=active_speaker_ids,
+                )
+            )
+
+        for event_type, speaker_id in events_by_time[current_time]:
+            if event_type == "end":
+                active_counts[speaker_id] = active_counts.get(speaker_id, 0) - 1
+                if active_counts[speaker_id] <= 0:
+                    del active_counts[speaker_id]
+
+        for event_type, speaker_id in events_by_time[current_time]:
+            if event_type == "start":
+                active_counts[speaker_id] = active_counts.get(speaker_id, 0) + 1
+
+        previous_time = current_time
+
+    return overlap_regions
+
+
+def annotate_raw_segment_overlaps(
+    raw_segments: list[DiarizationRawSegment],
+    overlap_regions: list[DiarizationOverlapRegion],
+) -> None:
+    """Annotate raw segments that intersect overlap regions."""
+    for segment in raw_segments:
+        overlap_speaker_ids: set[str] = set(segment.overlap_speaker_ids)
+
+        for region in overlap_regions:
+            intersects = (
+                segment.time.start_seconds < region.time.end_seconds
+                and region.time.start_seconds < segment.time.end_seconds
+            )
+            if not intersects:
+                continue
+
+            overlap_speaker_ids.update(
+                speaker_id
+                for speaker_id in region.speaker_ids
+                if speaker_id != segment.speaker_id
+            )
+
+            segment.flags |= SegmentFlag.DIARIZATION_OVERLAP
+            if len(region.speaker_ids) >= 2:
+                segment.flags |= SegmentFlag.MULTI_SPEAKER_CANDIDATE
+
+        segment.overlap_speaker_ids = sorted(overlap_speaker_ids)
+
+
 def apply_diarization_to_document(
     document: CanonicalDocument,
     raw_segments: list[DiarizationRawSegment],
+    overlap_regions: list[DiarizationOverlapRegion],
     collapsed_segments: list[CollapsedDiarizationSegment],
     model_name: str,
     device: str,
@@ -162,155 +199,9 @@ def apply_diarization_to_document(
     document.diarization.engine.model = model_name
     document.diarization.engine.device = device
     document.diarization.raw_segments = raw_segments
+    document.diarization.overlap_regions = overlap_regions
     document.diarization.collapsed_segments = collapsed_segments
     document.diarization.speakers_count = len({seg.speaker_id for seg in raw_segments})
-
-
-def extract_segment_embeddings(
-    raw_segments: list[DiarizationRawSegment],
-    waveform: torch.Tensor,
-    sample_rate: int,
-    audio_duration_seconds: float,
-    hf_token: str,
-    embedding_model_name: str,
-    torch_device: torch.device,
-) -> tuple[list[str], list[str], list[np.ndarray], np.ndarray]:
-    """
-    Extract one embedding per diarization segment.
-
-    Returns:
-        segment_ids
-        segment_speaker_ids
-        segment_embeddings_list
-        stacked_embeddings_matrix
-    """
-    print(f"Loading embedding model: {embedding_model_name}")
-    embedding_model = Model.from_pretrained(
-        embedding_model_name,
-        use_auth_token=hf_token,
-    )
-    embedding_inference = Inference(embedding_model, window="whole")  # type: ignore[misc]
-    embedding_inference.to(torch_device)
-
-    print("Extracting one embedding per diarization segment...")
-
-    audio_source = {
-        "waveform": waveform,
-        "sample_rate": sample_rate,
-    }
-
-    segment_ids: list[str] = []
-    segment_speaker_ids: list[str] = []
-    segment_embeddings_list: list[np.ndarray] = []
-
-    for segment in raw_segments:
-        start = segment.time.start_seconds
-        end = segment.time.end_seconds
-        duration = end - start
-
-        if duration < SKIP_ULTRA_SHORT_EMBEDDINGS_BELOW_SECONDS:
-            print(
-                f"Skipping ultra-short segment {segment.segment_id} ({duration:.3f}s)"
-            )
-            continue
-
-        safe_start, safe_end = expand_segment_to_min_duration(
-            start=start,
-            end=end,
-            min_duration=MIN_EMBEDDING_DURATION_SECONDS,
-            max_end=audio_duration_seconds,
-        )
-
-        excerpt = Segment(safe_start, safe_end)
-        emb = embedding_inference.crop(audio_source, excerpt)
-        emb = np.asarray(emb).squeeze().astype(np.float32)
-
-        if emb.ndim != 1:
-            raise RuntimeError(
-                f"Unexpected embedding shape for {segment.segment_id}: {emb.shape}"
-            )
-
-        segment_ids.append(segment.segment_id)
-        segment_speaker_ids.append(segment.speaker_id)
-        segment_embeddings_list.append(emb)
-
-    if segment_embeddings_list:
-        segment_embeddings = np.vstack(segment_embeddings_list).astype(np.float32)
-    else:
-        segment_embeddings = np.empty((0, 0), dtype=np.float32)
-
-    return (
-        segment_ids,
-        segment_speaker_ids,
-        segment_embeddings_list,
-        segment_embeddings,
-    )
-
-
-def compute_speaker_centroids(
-    segment_speaker_ids: list[str],
-    segment_embeddings_list: list[np.ndarray],
-) -> tuple[list[str], np.ndarray]:
-    """
-    Compute one centroid embedding per speaker from the per-segment embeddings.
-    """
-    speaker_to_embeddings: dict[str, list[np.ndarray]] = {}
-    for speaker_id, emb in zip(segment_speaker_ids, segment_embeddings_list):
-        speaker_to_embeddings.setdefault(speaker_id, []).append(emb)
-
-    if not speaker_to_embeddings:
-        return [], np.empty((0, 0), dtype=np.float32)
-
-    sorted_speaker_ids = sorted(speaker_to_embeddings.keys())
-    speaker_centroids = np.vstack(
-        [
-            np.mean(np.vstack(speaker_to_embeddings[speaker_id]), axis=0)
-            for speaker_id in sorted_speaker_ids
-        ]
-    ).astype(np.float32)
-
-    return sorted_speaker_ids, speaker_centroids
-
-
-def save_embedding_artifacts(
-    output_segment_embeddings_path: Path,
-    output_speaker_centroids_path: Path,
-    segment_ids: list[str],
-    segment_speaker_ids: list[str],
-    segment_embeddings: np.ndarray,
-    speaker_ids: list[str],
-    speaker_centroids: np.ndarray,
-) -> None:
-    """Persist NPZ artifacts for later speaker analysis / mapping."""
-    output_segment_embeddings_path.parent.mkdir(parents=True, exist_ok=True)
-    output_speaker_centroids_path.parent.mkdir(parents=True, exist_ok=True)
-
-    save_npz(
-        output_segment_embeddings_path,
-        segment_ids=np.array(segment_ids, dtype=object),
-        segment_speaker_ids=np.array(segment_speaker_ids, dtype=object),
-        segment_embeddings=segment_embeddings,
-    )
-
-    save_npz(
-        output_speaker_centroids_path,
-        speaker_ids=np.array(speaker_ids, dtype=object),
-        speaker_centroids=speaker_centroids,
-    )
-
-
-def apply_artifacts_to_document(
-    document: CanonicalDocument,
-    output_segment_embeddings_path: Path,
-    output_speaker_centroids_path: Path,
-    embedding_model_name: str,
-) -> None:
-    """Store artifact paths in the typed diarization section."""
-    document.diarization.artifacts = DiarizationArtifacts(
-        embeddings_npy_path=str(output_segment_embeddings_path),
-        centroids_npy_path=str(output_speaker_centroids_path),
-        embedding_model=embedding_model_name,
-    )
 
 
 def diarize_audio(
@@ -322,6 +213,7 @@ def diarize_audio(
     hf_token: str | None = None,
     model_name: str = "pyannote/speaker-diarization-3.1",
     embedding_model_name: str = "pyannote/embedding",
+    extract_embeddings: bool = True,
     device: str = "auto",
 ) -> CanonicalDocument:
     """
@@ -352,25 +244,28 @@ def diarize_audio(
             "Missing Hugging Face token. Set HF_TOKEN or HUGGINGFACE_HUB_TOKEN."
         )
 
-    output_segment_embeddings_path = (
-        output_segment_embeddings_path
-        or build_default_output_path(
-            input_audio_path,
-            "_01_segment_embeddings",
-            "npz",
-        )
-    ).resolve()
+    if extract_embeddings:
+        output_segment_embeddings_path = (
+            output_segment_embeddings_path
+            or build_default_output_path(
+                input_audio_path,
+                "_01_segment_embeddings",
+                "npz",
+            )
+        ).resolve()
 
-    output_speaker_centroids_path = (
-        output_speaker_centroids_path
-        or build_default_output_path(
-            input_audio_path,
-            "_01_speaker_centroids",
-            "npz",
-        )
-    ).resolve()
+        output_speaker_centroids_path = (
+            output_speaker_centroids_path
+            or build_default_output_path(
+                input_audio_path,
+                "_01_speaker_centroids",
+                "npz",
+            )
+        ).resolve()
 
     device = resolve_device(device)
+    import torch
+
     torch_device = torch.device(device)
 
     mark_stage_running(document, "diarization")
@@ -395,6 +290,8 @@ def diarize_audio(
             model_name=model_name,
             torch_device=torch_device,
         )
+        overlap_regions = compute_overlap_regions(raw_segments)
+        annotate_raw_segment_overlaps(raw_segments, overlap_regions)
 
         # Collapsed diarization is a later derived view.
         # We do not build it here because it requires heuristics.
@@ -403,47 +300,36 @@ def diarize_audio(
         apply_diarization_to_document(
             document=document,
             raw_segments=raw_segments,
+            overlap_regions=overlap_regions,
             collapsed_segments=collapsed_segments,
             model_name=model_name,
             device=device,
         )
 
-        (
-            segment_ids,
-            segment_speaker_ids,
-            segment_embeddings_list,
-            segment_embeddings,
-        ) = extract_segment_embeddings(
-            raw_segments=raw_segments,
-            waveform=waveform,
-            sample_rate=sample_rate,
-            audio_duration_seconds=duration_seconds,
-            hf_token=hf_token,
-            embedding_model_name=embedding_model_name,
-            torch_device=torch_device,
-        )
+        if extract_embeddings:
+            if output_segment_embeddings_path is None:
+                raise RuntimeError("Missing segment embeddings output path.")
+            if output_speaker_centroids_path is None:
+                raise RuntimeError("Missing speaker centroids output path.")
 
-        speaker_ids, speaker_centroids = compute_speaker_centroids(
-            segment_speaker_ids=segment_speaker_ids,
-            segment_embeddings_list=segment_embeddings_list,
-        )
+            from assemblybot.stages.diarization_embeddings import (
+                save_diarization_embedding_artifacts,
+            )
 
-        save_embedding_artifacts(
-            output_segment_embeddings_path=output_segment_embeddings_path,
-            output_speaker_centroids_path=output_speaker_centroids_path,
-            segment_ids=segment_ids,
-            segment_speaker_ids=segment_speaker_ids,
-            segment_embeddings=segment_embeddings,
-            speaker_ids=speaker_ids,
-            speaker_centroids=speaker_centroids,
-        )
-
-        apply_artifacts_to_document(
-            document=document,
-            output_segment_embeddings_path=output_segment_embeddings_path,
-            output_speaker_centroids_path=output_speaker_centroids_path,
-            embedding_model_name=embedding_model_name,
-        )
+            save_diarization_embedding_artifacts(
+                document=document,
+                raw_segments=raw_segments,
+                waveform=waveform,
+                sample_rate=sample_rate,
+                audio_duration_seconds=duration_seconds,
+                hf_token=hf_token,
+                embedding_model_name=embedding_model_name,
+                torch_device=torch_device,
+                output_segment_embeddings_path=output_segment_embeddings_path,
+                output_speaker_centroids_path=output_speaker_centroids_path,
+            )
+        else:
+            document.diarization.artifacts = DiarizationArtifacts()
 
         mark_stage_completed(
             document,
@@ -456,11 +342,13 @@ def diarize_audio(
 
         print(f"Speakers detected: {document.diarization.speakers_count}")
         print(f"Raw diarization segments: {len(document.diarization.raw_segments)}")
+        print(f"Overlap regions: {len(document.diarization.overlap_regions)}")
         print(
             f"Collapsed diarization segments: {len(document.diarization.collapsed_segments)}"
         )
-        print(f"Segment embeddings: {output_segment_embeddings_path}")
-        print(f"Speaker centroids: {output_speaker_centroids_path}")
+        if extract_embeddings:
+            print(f"Segment embeddings: {output_segment_embeddings_path}")
+            print(f"Speaker centroids: {output_speaker_centroids_path}")
         print(f"Canonical JSON: {output_json_path}")
         print(f"Time: {elapsed / 60:.1f} min")
 
@@ -503,6 +391,12 @@ def parse_args() -> argparse.Namespace:
         "--embedding-model",
         default="pyannote/embedding",
         help="Pyannote embedding model name",
+    )
+
+    parser.add_argument(
+        "--no-embeddings",
+        action="store_true",
+        help="Skip embedding extraction, centroid computation, and NPZ artifacts",
     )
 
     parser.add_argument(
@@ -568,6 +462,7 @@ def main() -> None:
         hf_token=args.hf_token,
         model_name=args.model,
         embedding_model_name=args.embedding_model,
+        extract_embeddings=not args.no_embeddings,
         device=args.device,
     )
 

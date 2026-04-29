@@ -33,6 +33,7 @@ class DiarizationRawSegment:
     time: TimeRange
     speaker_id: str
     flags: SegmentFlag = SegmentFlag.NONE
+    overlap_speaker_ids: list[str] = field(default_factory=list)
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "DiarizationRawSegment":
@@ -41,6 +42,24 @@ class DiarizationRawSegment:
             time=TimeRange.from_dict(data["time"]),
             speaker_id=data["speaker_id"],
             flags=SegmentFlag(data.get("flags", 0)),
+            overlap_speaker_ids=list(data.get("overlap_speaker_ids", [])),
+        )
+
+
+@dataclass
+class DiarizationOverlapRegion:
+    """Time interval where two or more speakers are active."""
+
+    region_id: str
+    time: TimeRange
+    speaker_ids: list[str]
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "DiarizationOverlapRegion":
+        return cls(
+            region_id=data["region_id"],
+            time=TimeRange.from_dict(data["time"]),
+            speaker_ids=list(data.get("speaker_ids", [])),
         )
 
 
@@ -50,8 +69,8 @@ class DiarizationArtifacts:
 
     raw_txt_path: str | None = None
     collapsed_txt_path: str | None = None
-    embeddings_npy_path: str | None = None
-    centroids_npy_path: str | None = None
+    embeddings_npz_path: str | None = None
+    centroids_npz_path: str | None = None
     embedding_model: str | None = None
 
     @classmethod
@@ -59,8 +78,12 @@ class DiarizationArtifacts:
         return cls(
             raw_txt_path=data.get("raw_txt_path"),
             collapsed_txt_path=data.get("collapsed_txt_path"),
-            embeddings_npy_path=data.get("embeddings_npy_path"),
-            centroids_npy_path=data.get("centroids_npy_path"),
+            embeddings_npz_path=(
+                data.get("embeddings_npz_path") or data.get("embeddings_npy_path")
+            ),
+            centroids_npz_path=(
+                data.get("centroids_npz_path") or data.get("centroids_npy_path")
+            ),
             embedding_model=data.get("embedding_model"),
         )
 
@@ -71,6 +94,7 @@ class DiarizationSection:
 
     engine: DiarizationEngine = field(default_factory=DiarizationEngine)
     raw_segments: list[DiarizationRawSegment] = field(default_factory=list)
+    overlap_regions: list[DiarizationOverlapRegion] = field(default_factory=list)
     collapsed_segments: list[CollapsedDiarizationSegment] = field(default_factory=list)
     speakers_count: int | None = None
     artifacts: DiarizationArtifacts = field(default_factory=DiarizationArtifacts)
@@ -82,6 +106,10 @@ class DiarizationSection:
             raw_segments=[
                 DiarizationRawSegment.from_dict(item)
                 for item in data.get("raw_segments", [])
+            ],
+            overlap_regions=[
+                DiarizationOverlapRegion.from_dict(item)
+                for item in data.get("overlap_regions", [])
             ],
             collapsed_segments=[
                 CollapsedDiarizationSegment.from_dict(item)

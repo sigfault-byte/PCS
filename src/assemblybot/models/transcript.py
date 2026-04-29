@@ -45,13 +45,19 @@ class TranscriptRawToken:
 
 @dataclass
 class TranscriptRawSegment:
-    """Decoder segment grouping raw text and optional token bounds."""
+    """Decoder segment grouping raw text, token bounds, and decoder confidence signals."""
 
     segment_id: str
     start_token_id: int | None
     end_token_id: int | None
     time: TimeRange
     raw_text: str
+    # Whisper confidence proxies
+    avg_logprob: float | None = None
+    no_speech_prob: float | None = None
+    compression_ratio: float | None = None
+
+    # flags for later logic
     flags: SegmentFlag = SegmentFlag.NONE
 
     @classmethod
@@ -62,6 +68,9 @@ class TranscriptRawSegment:
             end_token_id=data.get("end_token_id"),
             time=TimeRange.from_dict(data["time"]),
             raw_text=data.get("raw_text", ""),
+            avg_logprob=data.get("avg_logprob"),
+            no_speech_prob=data.get("no_speech_prob"),
+            compression_ratio=data.get("compression_ratio"),
             flags=SegmentFlag(data.get("flags", 0)),
         )
 
