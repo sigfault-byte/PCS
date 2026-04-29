@@ -6,7 +6,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 
 from src.assemblybot.helper.document import load_document
 
-FILE = PROJECT_ROOT / "data" / "interim" / "assemblee_nov26_2024_03_merge.json"
+FILE = PROJECT_ROOT / "data" / "interim" / "14avril_2026_03_merge.json"
 
 document = load_document(FILE)
 

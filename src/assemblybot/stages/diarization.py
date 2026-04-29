@@ -151,56 +151,6 @@ def run_pyannote_diarization(
     return raw_segments
 
 
-def collapse_diarization_segments(
-    raw_segments: list[DiarizationRawSegment],
-) -> list[CollapsedDiarizationSegment]:
-    """
-    Merge adjacent diarization segments when they belong to the same speaker.
-
-    This is a convenience view derived from raw diarization, not source truth.
-    """
-    if not raw_segments:
-        return []
-
-    collapsed: list[CollapsedDiarizationSegment] = []
-
-    current = CollapsedDiarizationSegment(
-        segment_id="cdia_000001",
-        time=TimeRange.from_seconds(
-            raw_segments[0].time.start_seconds,
-            raw_segments[0].time.end_seconds,
-        ),
-        speaker_id=raw_segments[0].speaker_id,
-        source_diarization_segment_ids=[raw_segments[0].segment_id],
-    )
-
-    counter = 1
-
-    for segment in raw_segments[1:]:
-        if segment.speaker_id == current.speaker_id:
-            current.time = TimeRange.from_seconds(
-                current.time.start_seconds,
-                segment.time.end_seconds,
-            )
-            current.source_diarization_segment_ids.append(segment.segment_id)
-            continue
-
-        collapsed.append(current)
-        counter += 1
-        current = CollapsedDiarizationSegment(
-            segment_id=f"cdia_{counter:06d}",
-            time=TimeRange.from_seconds(
-                segment.time.start_seconds,
-                segment.time.end_seconds,
-            ),
-            speaker_id=segment.speaker_id,
-            source_diarization_segment_ids=[segment.segment_id],
-        )
-
-    collapsed.append(current)
-    return collapsed
-
-
 def apply_diarization_to_document(
     document: CanonicalDocument,
     raw_segments: list[DiarizationRawSegment],

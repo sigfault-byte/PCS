@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from .collapse_diarization import CollapsedDiarizationSegment
+from .flags import SegmentFlag
 from .time import TimeRange
 
 
@@ -27,6 +28,7 @@ class DiarizationRawSegment:
     segment_id: str
     time: TimeRange
     speaker_id: str
+    flags: SegmentFlag = SegmentFlag.NONE
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "DiarizationRawSegment":

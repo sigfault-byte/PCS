@@ -1,6 +1,7 @@
 from dataclasses import dataclass, field
 from typing import Any
 
+from .flags import SegmentFlag
 from .time import TimeRange
 
 
@@ -45,6 +46,7 @@ class TranscriptRawSegment:
     end_token_id: int | None
     time: TimeRange
     raw_text: str
+    flags: SegmentFlag = SegmentFlag.NONE
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "TranscriptRawSegment":

@@ -10,6 +10,7 @@ from .final_segment import FinalSegment
 from .transcript import (
     TranscriptSection,
 )
+from .vad import VadSection
 
 
 class StageArtifactStatus:
@@ -61,6 +62,7 @@ class StageArtifact:
 
 @dataclass
 class StageOutputs:
+    vad: StageArtifact = field(default_factory=StageArtifact)
     transcription: StageArtifact = field(default_factory=StageArtifact)
     diarization: StageArtifact = field(default_factory=StageArtifact)
     merge: StageArtifact = field(default_factory=StageArtifact)
@@ -70,6 +72,7 @@ class StageOutputs:
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "StageOutputs":
         return cls(
+            vad=StageArtifact.from_dict(data.get("vad", {})),
             transcription=StageArtifact.from_dict(data.get("transcription", {})),
             diarization=StageArtifact.from_dict(data.get("diarization", {})),
             merge=StageArtifact.from_dict(data.get("merge", {})),
@@ -98,6 +101,7 @@ class CanonicalDocument:
     schema_version: str
     source: SourceInfo
     pipeline: PipelineInfo
+    vad: VadSection
     transcript: TranscriptSection = field(default_factory=TranscriptSection)
     diarization: DiarizationSection = field(default_factory=DiarizationSection)
     segments: list[FinalSegment] = field(default_factory=list)
@@ -108,6 +112,7 @@ class CanonicalDocument:
             schema_version=data.get("schema_version", "0.1.0"),
             source=SourceInfo.from_dict(data.get("source", {})),
             pipeline=PipelineInfo.from_dict(data.get("pipeline", {})),
+            vad=VadSection.from_dict(data.get("vad", {})),
             transcript=TranscriptSection.from_dict(data.get("transcript", {})),
             diarization=DiarizationSection.from_dict(data.get("diarization", {})),
             segments=[

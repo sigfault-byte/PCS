@@ -154,7 +154,7 @@ def build_token_df(tokens: list[dict[str, Any]]) -> pd.DataFrame:
             tok.get("start_sec", tok.get("start_seconds", tok.get("start")))
         )
         end_sec = safe_float(tok.get("end_sec", tok.get("end_seconds", tok.get("end"))))
-        text = tok.get("text", tok.get("token", tok.get("raw_tokens", "")))
+        text = tok.get("text", tok.get("token", tok.get("raw_token", "")))
         segment_id = tok.get("segment_id")
 
         rows.append(

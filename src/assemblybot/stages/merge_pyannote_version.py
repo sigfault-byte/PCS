@@ -1,19 +1,12 @@
 from __future__ import annotations
 
 import argparse
-import os
-import time
 from pathlib import Path
 
-import numpy as np
-
-from assemblybot.helper.artifact import save_npz
 from assemblybot.helper.directory import build_default_output_path
 from assemblybot.helper.document import load_document, save_document
 from assemblybot.models.diarization import (
     CollapsedDiarizationSegment,
-    DiarizationArtifacts,
-    DiarizationRawSegment,
     DiarizationSection,
 )
 from assemblybot.models.document import CanonicalDocument
@@ -35,9 +28,19 @@ from src.assemblybot.models.flags import SegmentFlag
 # Diarization max gap
 DIARIZATION_SEGMENT_GAP = 4
 
-# transcription merge
-SHORT_SEGMENT_SECONDS = 2.5
-BOUNDARY_BIAS_WINDOW = 0.75
+# Pyannote tutorial-style fallback:
+# if there is no overlap at all, assign to the nearest collapsed diarization
+# segment only when the transcript midpoint is close enough.
+NEAREST_ASSIGN_MAX_DISTANCE_SECONDS = 1.5
+
+
+def compute_overlap_seconds(
+    start_a: float,
+    end_a: float,
+    start_b: float,
+    end_b: float,
+) -> float:
+    return max(0.0, min(end_a, end_b) - max(start_a, start_b))
 
 
 def collapse_diarization_segments(
@@ -109,6 +112,20 @@ def assign_transcript_segments(
     set[str],
     set[str],
 ]:
+    """
+    Pyannote-style merge:
+    1. For each transcript segment, compute overlap with every collapsed diarization
+       segment.
+    2. Assign the transcript segment to the collapsed diarization segment with the
+       largest overlap.
+    3. If there is no overlap at all, fall back to the nearest collapsed diarization
+       segment by midpoint, but only if it is close enough.
+    4. If midpoint falls in a long true gap, classify it in the gap bucket.
+    5. Otherwise keep it unmatched.
+
+    This keeps the same return shape as the existing implementation so the rest of
+    the file can stay unchanged.
+    """
     assigned_segments: dict[str, list[TranscriptRawSegment]] = {
         segment.segment_id: [] for segment in collapsed_segments
     }
@@ -124,62 +141,28 @@ def assign_transcript_segments(
     for transcript_segment in transcript_segments:
         transcript_start = transcript_segment.time.start_seconds
         transcript_end = transcript_segment.time.end_seconds
-        # transcript_duration = transcript_end - transcript_start
         midpoint = (transcript_start + transcript_end) / 2.0
 
-        # --------------------------------------------------
-        # Special boundary rescue:
-        # if a short transcript segment overlaps exactly two
-        # adjacent diarization segments and barely crosses the
-        # boundary, bias it to the previous segment.
-        # --------------------------------------------------
-        overlapping_segments: list[CollapsedDiarizationSegment] = []
+        best_segment: CollapsedDiarizationSegment | None = None
+        best_overlap = 0.0
 
         for collapsed_segment in collapsed_sorted:
-            overlap = max(
-                0.0,
-                min(transcript_end, collapsed_segment.time.end_seconds)
-                - max(transcript_start, collapsed_segment.time.start_seconds),
+            overlap = compute_overlap_seconds(
+                transcript_start,
+                transcript_end,
+                collapsed_segment.time.start_seconds,
+                collapsed_segment.time.end_seconds,
             )
-            if overlap > 0.0:
-                overlapping_segments.append(collapsed_segment)
+            if overlap > best_overlap:
+                best_overlap = overlap
+                best_segment = collapsed_segment
 
-        # This is a bandage it only fixes one part of the problem
-        # if len(overlapping_segments) == 2:
-        #     prev_seg = overlapping_segments[0]
-        #     next_seg = overlapping_segments[1]
-        #     boundary = next_seg.time.start_seconds
-
-        #     if (
-        #         transcript_duration <= SHORT_SEGMENT_SECONDS
-        #         and transcript_start < boundary < transcript_end
-        #         and 0.0 <= midpoint - boundary <= BOUNDARY_BIAS_WINDOW
-        #     ):
-        #         assigned_segments[prev_seg.segment_id].append(transcript_segment)
-        #         continue
-
-        # --------------------------------------------------
-        # Original midpoint assignment logic
-        # --------------------------------------------------
-        assigned = False
-        for collapsed_segment in collapsed_sorted:
-            if (
-                collapsed_segment.time.start_seconds
-                <= midpoint
-                <= collapsed_segment.time.end_seconds
-            ):
-                assigned_segments[collapsed_segment.segment_id].append(
-                    transcript_segment
-                )
-                assigned = True
-                break
-
-        if assigned:
+        # Primary assignment: largest temporal overlap wins.
+        if best_segment is not None and best_overlap > 0.0:
+            assigned_segments[best_segment.segment_id].append(transcript_segment)
             continue
 
-        # --------------------------------------------------
-        # Original gap classification logic
-        # --------------------------------------------------
+        # Long uncovered region: keep it in the explicit gap bucket.
         in_gap = False
         for gap_start, gap_end in true_gaps_sorted:
             if gap_start <= midpoint <= gap_end:
@@ -188,6 +171,29 @@ def assign_transcript_segments(
                 break
 
         if in_gap:
+            continue
+
+        # No overlap at all: optional nearest-segment fallback by midpoint.
+        nearest_segment: CollapsedDiarizationSegment | None = None
+        nearest_distance = float("inf")
+
+        for collapsed_segment in collapsed_sorted:
+            if midpoint < collapsed_segment.time.start_seconds:
+                distance = collapsed_segment.time.start_seconds - midpoint
+            elif midpoint > collapsed_segment.time.end_seconds:
+                distance = midpoint - collapsed_segment.time.end_seconds
+            else:
+                distance = 0.0
+
+            if distance < nearest_distance:
+                nearest_distance = distance
+                nearest_segment = collapsed_segment
+
+        if (
+            nearest_segment is not None
+            and nearest_distance <= NEAREST_ASSIGN_MAX_DISTANCE_SECONDS
+        ):
+            assigned_segments[nearest_segment.segment_id].append(transcript_segment)
             continue
 
         unmatched_transcript_ids.add(transcript_segment.segment_id)
@@ -349,7 +355,7 @@ def main() -> None:
         if args.output_json
         else build_default_output_path(
             fake_path,
-            "_03_merge",
+            "_03_merge_pyannote_style",
             "json",
         )
     )
