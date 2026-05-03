@@ -3,7 +3,7 @@
 
 - Modular pipeline stages implemented
 - Multiple full session experiments conducted
-- Merge logic under active redesign (*prioritazing precision to eliminate hallucination*) 
+- Merge logic under active redesign (*prioritizing precision to eliminate hallucination*) 
 - No unified end-to-end runner yet
 
 ## Goal
