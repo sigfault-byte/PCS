@@ -1239,7 +1239,7 @@
 [01:08:58.24 -> 01:09:00.32] vous avez pris la décision de ne pas convoquer
 [01:09:00.32 -> 01:09:01.94] la commission mixte paritaire
 [01:09:01.94 -> 01:09:03.90] et de faire renoncer à avoir ce texte appliqué
-[01:09:04.78 -> 01:09:05.38] le 1er mai.
+[01:09:04.78 -> 01:09:05.38] le 1er mai.w
 [01:09:05.46 -> 01:09:08.20] Le groupe Horizon et Indépendant le regrettent.
 [01:09:08.36 -> 01:09:10.14] Ma question est donc claire,
 [01:09:10.24 -> 01:09:11.02] monsieur le Premier ministre,

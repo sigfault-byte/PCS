@@ -46,10 +46,6 @@ runs/
 outputs/
 logs/
 
-# Tensorboard / logging
-events.out.tfevents.*
-tensorboard/
-
 # =========================
 # Whisper / audio / video intermediates
 # =========================
@@ -66,7 +62,7 @@ tensorboard/
 # pyannote / embeddings
 # =========================
 *.npy
-#*.npz
+*.npz
 
 # =========================
 # HuggingFace / model caches
