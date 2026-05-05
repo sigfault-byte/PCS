@@ -57,6 +57,7 @@ logs/
 *.avi
 *.mkv
 
+data/audio-audit/
 
 # =========================
 # pyannote / embeddings
@@ -84,7 +85,6 @@ Thumbs.db
 # =========================
 # Secrets / env
 # =========================
-.env
 *.env
 .env.*
 

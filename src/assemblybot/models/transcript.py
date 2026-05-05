@@ -59,6 +59,7 @@ class TranscriptRawSegment:
 
     # flags for later logic
     flags: SegmentFlag = SegmentFlag.NONE
+    # audio_audit_id: str | uuid | int ?
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "TranscriptRawSegment":
