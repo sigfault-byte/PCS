@@ -377,14 +377,9 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Create one self-contained librosa audio audit JSON artifact."
     )
-    parser.add_argument(
-        "input_audio",
-        nargs="?",
-        help="Path to the input audio file. Kept as a positional fallback.",
-    )
+
     parser.add_argument(
         "--input-audio",
-        dest="input_audio_option",
         help="Path to the input audio file.",
     )
     parser.add_argument(
@@ -392,7 +387,6 @@ def parse_args() -> argparse.Namespace:
         help="Optional output JSON path. Defaults to the configured audio audit directory.",
     )
     args = parser.parse_args()
-    args.input_audio = args.input_audio_option or args.input_audio
     if not args.input_audio:
         parser.error("an input audio path is required; use --input-audio PATH")
     return args

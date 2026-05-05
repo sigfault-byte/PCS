@@ -11,16 +11,20 @@ class SegmentFlag(IntFlag):
     NEEDS_REVIEW = auto()
     GIBBERISH = auto()
     NON_FRENCH = auto()
+    MOSTLY_SILENCE_WITH_SHORT_EVENT = auto()
 
     # VAD alignment
     OUTSIDE_VAD = auto()
     PARTIAL_VAD_OVERLAP = auto()
     INSIDE_VAD_GAP = auto()
+    LONG_WHISPER_SEGMENT_LOW_VAD_COVERAGE = auto()
 
     # Whisper quality
     LOW_WHISPER_CONFIDENCE = auto()
     HIGH_NO_SPEECH_PROB = auto()
     HIGH_COMPRESSION_RATIO = auto()
+
+    LONG_DURATION_SHORT_TEXT = auto()
 
     # Diarization quality
     DIARIZATION_OVERLAP = auto()
