@@ -63,6 +63,7 @@ Silero VAD was added as an independent speech-presence layer. On the tested sess
 Instead of relying only on model outputs, the pipeline now also measures acoustic properties over time.
 [Journal 06: Librosa Audio Audit](notes/current/Journal_06_librosa_audio_audit.md)  
 [Journal 07: Heuristic Flags For Whisper Segments](notes/current/Journal_07_finding_heuristics_flags_whisper_segment.md)
+[Journal 08: Flag audits](notes/current/Journal_07_finding_heuristics_flags_whisper_segment.md)
 
 ### Official Transcript Comparison
 

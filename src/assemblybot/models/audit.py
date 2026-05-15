@@ -25,7 +25,7 @@ class AudioAuditSource:
 @dataclass
 class AudioAuditParameters:
     target_sample_rate: int
-    sample_rate: int
+    sample_rate: int | float
     frame_length: int
     hop_length: int
     frame_duration_seconds: float
@@ -109,5 +109,5 @@ class AudioAuditBuildResult:
     parameters: AudioAuditParameters
     summary: AudioAuditSummary
     features: dict[str, np.ndarray]
-    sample_rate: int
+    sample_rate: int | float
     rows: int

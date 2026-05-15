@@ -8,6 +8,7 @@ dependencies = [
     "fr-core-news-sm",
     "librosa>=0.11.0",
     "matplotlib[dev]>=3.10.8",
+    "plotly>=6.7.0",
     "silero-vad>=6.2.1",
     "soundfile>=0.13.1",
     "spacy>=3.8.14",

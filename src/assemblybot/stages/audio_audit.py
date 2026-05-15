@@ -69,7 +69,7 @@ def frame_count(sample_count: int) -> int:
 
 def compute_chunk_features(
     y: np.ndarray,
-    sample_rate: int,
+    sample_rate: int | float,
     rows: int,
 ) -> dict[str, np.ndarray]:
     features = {
@@ -146,8 +146,8 @@ def summarize_feature(values: np.ndarray) -> FeatureSummary:
 
     percentiles = np.percentile(values, [5, 10, 25, 50, 75, 90, 95, 99])
     return FeatureSummary(
-        mean=finite_float(np.mean(values), "summary.mean"),
-        std=finite_float(np.std(values), "summary.std"),
+        mean=finite_float(np.mean(values), "summary.mean"),  # type: ignore
+        std=finite_float(np.std(values), "summary.std"),  # type: ignore
         min=finite_float(np.min(values), "summary.min"),
         p05=finite_float(percentiles[0], "summary.p05"),
         p10=finite_float(percentiles[1], "summary.p10"),
@@ -164,13 +164,14 @@ def summarize_feature(values: np.ndarray) -> FeatureSummary:
 def frame_record_at_index(
     features: dict[str, np.ndarray],
     frame_index: int,
-    sample_rate: int,
+    sample_rate: int | float,
 ) -> dict[str, float | int]:
     frame_duration_seconds = FRAME_LENGTH / sample_rate
     frame_start_seconds = frame_index * HOP_LENGTH / sample_rate
 
     # The timestamp is the frame center because each row describes the whole
     # analysis window, not just the instant where that window starts.
+    # Apparently this is a convention, but the json keeps all 4 values.
     frame_center_seconds = frame_start_seconds + frame_duration_seconds / 2
     frame_end_seconds = frame_start_seconds + frame_duration_seconds
 

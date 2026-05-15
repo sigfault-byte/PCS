@@ -3,7 +3,7 @@ import json
 import pandas as pd
 
 
-# ---------- helpers ----------
+# copy pasted vim style
 def sec_to_ts(seconds: float) -> str:
     h = int(seconds // 3600)
     m = int((seconds % 3600) // 60)
@@ -13,12 +13,9 @@ def sec_to_ts(seconds: float) -> str:
 
 file = "../data/interim/assemblee_nov26_2024_03_diarization_collapsed.json"
 
-# ---------- load json ----------
 with open(file, "r", encoding="utf-8") as f:
     data = json.load(f)
 
-
-# ---------- diarization: collapsed segments ----------
 collapsed = data["diarization"]["collapsed_segments"]
 
 ddf = pd.DataFrame(collapsed)
@@ -26,13 +23,12 @@ ddf_time = pd.json_normalize(ddf["time"])  # type: ignore
 ddf = pd.concat([ddf.drop(columns=["time"]), ddf_time], axis=1)
 ddf = ddf.sort_values("start_seconds").reset_index(drop=True)
 
-print("\n=== COLLAPSED DIARIZATION SEGMENTS ===")
+print("\n+=== COLLAPSED DIARIZATION SEGMENTS =====")
 print(ddf.head())
 print(ddf.columns.tolist())
 print(f"count: {len(ddf)}")
 
-
-# ---------- compute gaps between diarization segments ----------
+# compute gaps
 gaps = pd.DataFrame(
     {
         "prev_segment_id": ddf["segment_id"].shift(1),
@@ -52,15 +48,15 @@ print("\n=== DIARIZATION GAPS ===")
 print(gaps.head(10))
 print(f"gap count: {len(gaps)}")
 print("\nGap duration stats:")
-print(gaps["gap_seconds"].describe())
+print(gaps["gap_seconds"].describe())  # type: ignore
 
-# ---------- whisper raw tokens ----------
+
 raw_tokens = data["transcript"]["raw_tokens"]
 wdf = pd.DataFrame(raw_tokens)
 
-# flatten nested "time" dict if present
+# flattenin nested "time" dict if present
 if "time" in wdf.columns:
-    wdf_time = pd.json_normalize(wdf["time"])
+    wdf_time = pd.json_normalize(wdf["time"])  # type: ignore
     wdf = pd.concat([wdf.drop(columns=["time"]), wdf_time], axis=1)
 
 # sort by token start time
