@@ -11,7 +11,7 @@
   },
   "pipeline": {
     "created_at": "2026-05-17T17:17:29.559966+00:00",
-    "updated_at": "2026-05-17T18:54:08.918616+00:00",
+    "updated_at": "2026-05-17T18:23:16.206758+00:00",
     "stage_outputs": {
       "vad": {
         "status": "completed",
@@ -22,7 +22,7 @@
       "transcription": {
         "status": "completed",
         "output_path": "/home/thebeast/Documents/PCS/data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_transcription.json",
-        "completed_at": "2026-05-17T18:54:08.918616+00:00",
+        "completed_at": "2026-05-17T18:23:16.206758+00:00",
         "error_message": null
       },
       "diarization": {

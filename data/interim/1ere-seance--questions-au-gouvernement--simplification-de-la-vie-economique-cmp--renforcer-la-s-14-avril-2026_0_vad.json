@@ -10,13 +10,13 @@
     "file_sha256": null
   },
   "pipeline": {
-    "created_at": "2026-05-17T09:22:51.962346+00:00",
-    "updated_at": "2026-05-17T09:24:05.440372+00:00",
+    "created_at": "2026-05-17T17:17:29.559966+00:00",
+    "updated_at": "2026-05-17T17:18:41.679169+00:00",
     "stage_outputs": {
       "vad": {
         "status": "completed",
         "output_path": "/home/thebeast/Documents/PCS/data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_0_vad.json",
-        "completed_at": "2026-05-17T09:24:05.440372+00:00",
+        "completed_at": "2026-05-17T17:18:41.679169+00:00",
         "error_message": null
       },
       "transcription": {
@@ -34973,7 +34973,8 @@
       "name": "faster-whisper",
       "model": null,
       "device": null,
-      "compute_type": null
+      "compute_type": null,
+      "options": {}
     },
     "language_detected": null,
     "language_probability": null,
@@ -34985,7 +34986,8 @@
       "name": "pyannote",
       "model": null,
       "device": null,
-      "version": null
+      "version": null,
+      "options": {}
     },
     "raw_segments": [],
     "overlap_regions": [],
