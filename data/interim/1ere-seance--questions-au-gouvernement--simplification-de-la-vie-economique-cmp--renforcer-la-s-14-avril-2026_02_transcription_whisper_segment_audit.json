@@ -317189,7 +317189,7 @@
         "avg_logprob": -0.10845170481638475,
         "no_speech_prob": 0.01445770263671875,
         "compression_ratio": 1.4705882352941178,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 4,
@@ -317937,7 +317937,7 @@
         "avg_logprob": -0.10181451917335552,
         "no_speech_prob": 0.003536224365234375,
         "compression_ratio": 1.6370558375634519,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 48,
@@ -318753,7 +318753,7 @@
         "avg_logprob": -0.08037320261807751,
         "no_speech_prob": 0.0008425712585449219,
         "compression_ratio": 1.5551724137931036,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 96,
@@ -319025,7 +319025,7 @@
         "avg_logprob": -0.06297348773840702,
         "no_speech_prob": 0.0018968582153320312,
         "compression_ratio": 1.6144200626959249,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 112,
@@ -320470,7 +320470,7 @@
         "avg_logprob": -0.10126689414720277,
         "no_speech_prob": 0.0021991729736328125,
         "compression_ratio": 1.6174142480211082,
-        "flags": 0
+        "flags": 2
       },
       {
         "segment_id": 197,
@@ -320929,7 +320929,7 @@
         "avg_logprob": -0.07700276061974837,
         "no_speech_prob": 0.00400543212890625,
         "compression_ratio": 1.6590909090909092,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 224,
@@ -321286,7 +321286,7 @@
         "avg_logprob": -0.12038590644029963,
         "no_speech_prob": 0.001941680908203125,
         "compression_ratio": 1.725609756097561,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 245,
@@ -321558,7 +321558,7 @@
         "avg_logprob": -0.10621421607851073,
         "no_speech_prob": 0.0002532005310058594,
         "compression_ratio": 1.4569288389513109,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 261,
@@ -321660,7 +321660,7 @@
         "avg_logprob": -0.10621421607851073,
         "no_speech_prob": 0.0002532005310058594,
         "compression_ratio": 1.4569288389513109,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 267,
@@ -321779,7 +321779,7 @@
         "avg_logprob": -0.07875844785893285,
         "no_speech_prob": 0.0078125,
         "compression_ratio": 1.6845878136200716,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 274,
@@ -321813,7 +321813,7 @@
         "avg_logprob": -0.07875844785893285,
         "no_speech_prob": 0.0078125,
         "compression_ratio": 1.6845878136200716,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 276,
@@ -322085,7 +322085,7 @@
         "avg_logprob": -0.08988864822634335,
         "no_speech_prob": 0.0008897781372070312,
         "compression_ratio": 1.670731707317073,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 292,
@@ -322187,7 +322187,7 @@
         "avg_logprob": -0.10099511173184357,
         "no_speech_prob": 0.0029811859130859375,
         "compression_ratio": 1.6765578635014837,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 298,
@@ -322850,7 +322850,7 @@
         "avg_logprob": -0.10501893921331926,
         "no_speech_prob": 0.0029811859130859375,
         "compression_ratio": 1.6752873563218391,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 337,
@@ -323020,7 +323020,7 @@
         "avg_logprob": -0.07103924418604651,
         "no_speech_prob": 0.0013666152954101562,
         "compression_ratio": 1.5833333333333333,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 347,
@@ -323105,7 +323105,7 @@
         "avg_logprob": -0.05373938005526089,
         "no_speech_prob": 0.001178741455078125,
         "compression_ratio": 1.5825688073394495,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 352,
@@ -323156,7 +323156,7 @@
         "avg_logprob": -0.0719039348402509,
         "no_speech_prob": 0.00307464599609375,
         "compression_ratio": 1.4943396226415093,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 355,
@@ -323224,7 +323224,7 @@
         "avg_logprob": -0.0719039348402509,
         "no_speech_prob": 0.00307464599609375,
         "compression_ratio": 1.4943396226415093,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 359,
@@ -323241,7 +323241,7 @@
         "avg_logprob": -0.11775362329638522,
         "no_speech_prob": 0.0008625984191894531,
         "compression_ratio": 1.5454545454545454,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 360,
@@ -323258,7 +323258,7 @@
         "avg_logprob": -0.11775362329638522,
         "no_speech_prob": 0.0008625984191894531,
         "compression_ratio": 1.5454545454545454,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 361,
@@ -323275,7 +323275,7 @@
         "avg_logprob": -0.11775362329638522,
         "no_speech_prob": 0.0008625984191894531,
         "compression_ratio": 1.5454545454545454,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 362,
@@ -323292,7 +323292,7 @@
         "avg_logprob": -0.11775362329638522,
         "no_speech_prob": 0.0008625984191894531,
         "compression_ratio": 1.5454545454545454,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 363,
@@ -323309,7 +323309,7 @@
         "avg_logprob": -0.11775362329638522,
         "no_speech_prob": 0.0008625984191894531,
         "compression_ratio": 1.5454545454545454,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 364,
@@ -323734,7 +323734,7 @@
         "avg_logprob": -0.09751772838281401,
         "no_speech_prob": 0.00130462646484375,
         "compression_ratio": 1.647239263803681,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 389,
@@ -324142,7 +324142,7 @@
         "avg_logprob": -0.09023179084259943,
         "no_speech_prob": 0.016632080078125,
         "compression_ratio": 1.6182965299684542,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 413,
@@ -324193,7 +324193,7 @@
         "avg_logprob": -0.09023179084259943,
         "no_speech_prob": 0.016632080078125,
         "compression_ratio": 1.6182965299684542,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 416,
@@ -324669,7 +324669,7 @@
         "avg_logprob": -0.09329637240978979,
         "no_speech_prob": 0.00775146484375,
         "compression_ratio": 1.790625,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 444,
@@ -324686,7 +324686,7 @@
         "avg_logprob": -0.09329637240978979,
         "no_speech_prob": 0.00775146484375,
         "compression_ratio": 1.790625,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 445,
@@ -324924,7 +324924,7 @@
         "avg_logprob": -0.09125000163912773,
         "no_speech_prob": 0.0100860595703125,
         "compression_ratio": 1.6802507836990597,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 459,
@@ -325332,7 +325332,7 @@
         "avg_logprob": -0.07179213648266865,
         "no_speech_prob": 0.001560211181640625,
         "compression_ratio": 1.5345454545454544,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 483,
@@ -325349,7 +325349,7 @@
         "avg_logprob": -0.07179213648266865,
         "no_speech_prob": 0.001560211181640625,
         "compression_ratio": 1.5345454545454544,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 484,
@@ -325400,7 +325400,7 @@
         "avg_logprob": -0.07179213648266865,
         "no_speech_prob": 0.001560211181640625,
         "compression_ratio": 1.5345454545454544,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 487,
@@ -325434,7 +325434,7 @@
         "avg_logprob": -0.0879407026924384,
         "no_speech_prob": 0.00020992755889892578,
         "compression_ratio": 1.5950920245398772,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 489,
@@ -325910,7 +325910,7 @@
         "avg_logprob": -0.06548713090665201,
         "no_speech_prob": 0.021759033203125,
         "compression_ratio": 1.5706371191135735,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 517,
@@ -326182,7 +326182,7 @@
         "avg_logprob": -0.12734375510896956,
         "no_speech_prob": 0.002414703369140625,
         "compression_ratio": 1.7465277777777777,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 533,
@@ -326199,7 +326199,7 @@
         "avg_logprob": -0.12734375510896956,
         "no_speech_prob": 0.002414703369140625,
         "compression_ratio": 1.7465277777777777,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 534,
@@ -326250,7 +326250,7 @@
         "avg_logprob": -0.12734375510896956,
         "no_speech_prob": 0.002414703369140625,
         "compression_ratio": 1.7465277777777777,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 537,
@@ -326267,7 +326267,7 @@
         "avg_logprob": -0.12734375510896956,
         "no_speech_prob": 0.002414703369140625,
         "compression_ratio": 1.7465277777777777,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 538,
@@ -326352,7 +326352,7 @@
         "avg_logprob": -0.2579327052866919,
         "no_speech_prob": 0.001781463623046875,
         "compression_ratio": 1.713450292397661,
-        "flags": 0
+        "flags": 2
       },
       {
         "segment_id": 543,
@@ -326624,7 +326624,7 @@
         "avg_logprob": -0.07688210498202931,
         "no_speech_prob": 0.007171630859375,
         "compression_ratio": 1.6394052044609666,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 559,
@@ -326743,7 +326743,7 @@
         "avg_logprob": -0.06917613446712494,
         "no_speech_prob": 0.0015850067138671875,
         "compression_ratio": 1.6271186440677967,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 566,
@@ -326760,7 +326760,7 @@
         "avg_logprob": -0.06917613446712494,
         "no_speech_prob": 0.0015850067138671875,
         "compression_ratio": 1.6271186440677967,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 567,
@@ -326777,7 +326777,7 @@
         "avg_logprob": -0.06917613446712494,
         "no_speech_prob": 0.0015850067138671875,
         "compression_ratio": 1.6271186440677967,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 568,
@@ -326828,7 +326828,7 @@
         "avg_logprob": -0.07105928270474952,
         "no_speech_prob": 0.003322601318359375,
         "compression_ratio": 1.6079136690647482,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 571,
@@ -326879,7 +326879,7 @@
         "avg_logprob": -0.07105928270474952,
         "no_speech_prob": 0.003322601318359375,
         "compression_ratio": 1.6079136690647482,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 574,
@@ -327933,7 +327933,7 @@
         "avg_logprob": -0.04411325807784014,
         "no_speech_prob": 0.03900146484375,
         "compression_ratio": 1.6103896103896105,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 636,
@@ -328052,7 +328052,7 @@
         "avg_logprob": -0.04411325807784014,
         "no_speech_prob": 0.03900146484375,
         "compression_ratio": 1.6103896103896105,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 643,
@@ -328647,7 +328647,7 @@
         "avg_logprob": -0.12710160940711263,
         "no_speech_prob": 0.0007672309875488281,
         "compression_ratio": 1.663265306122449,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 678,
@@ -329004,7 +329004,7 @@
         "avg_logprob": -0.07072061211315554,
         "no_speech_prob": 0.0010242462158203125,
         "compression_ratio": 1.6240875912408759,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 699,
@@ -329123,7 +329123,7 @@
         "avg_logprob": -0.08358828535863569,
         "no_speech_prob": 0.03533935546875,
         "compression_ratio": 1.6385542168674698,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 706,
@@ -329769,7 +329769,7 @@
         "avg_logprob": -0.05004882734889785,
         "no_speech_prob": 0.0157623291015625,
         "compression_ratio": 1.6987179487179487,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 744,
@@ -330007,7 +330007,7 @@
         "avg_logprob": -0.09157659729620568,
         "no_speech_prob": 0.032745361328125,
         "compression_ratio": 1.6772151898734178,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 758,
@@ -330160,7 +330160,7 @@
         "avg_logprob": -0.10609374791383744,
         "no_speech_prob": 0.005908966064453125,
         "compression_ratio": 1.6987577639751552,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 767,
@@ -330364,7 +330364,7 @@
         "avg_logprob": -0.09037012115437934,
         "no_speech_prob": 9.316205978393555e-05,
         "compression_ratio": 1.7013422818791946,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 779,
@@ -330500,7 +330500,7 @@
         "avg_logprob": -0.18188622308348468,
         "no_speech_prob": 0.0017547607421875,
         "compression_ratio": 1.7014925373134329,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 787,
@@ -330636,7 +330636,7 @@
         "avg_logprob": -0.07474662298084916,
         "no_speech_prob": 0.00403594970703125,
         "compression_ratio": 1.694078947368421,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 795,
@@ -330653,7 +330653,7 @@
         "avg_logprob": -0.0698390133453138,
         "no_speech_prob": 0.06085205078125,
         "compression_ratio": 1.7058823529411764,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 796,
@@ -331163,7 +331163,7 @@
         "avg_logprob": -0.117487979766268,
         "no_speech_prob": 0.027496337890625,
         "compression_ratio": 1.704268292682927,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 826,
@@ -331180,7 +331180,7 @@
         "avg_logprob": -0.117487979766268,
         "no_speech_prob": 0.027496337890625,
         "compression_ratio": 1.704268292682927,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 827,
@@ -331197,7 +331197,7 @@
         "avg_logprob": -0.08131110526662966,
         "no_speech_prob": 0.007007598876953125,
         "compression_ratio": 1.741687979539642,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 828,
@@ -331350,7 +331350,7 @@
         "avg_logprob": -0.08798146572743737,
         "no_speech_prob": 0.0013666152954101562,
         "compression_ratio": 1.7976539589442815,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 837,
@@ -331945,7 +331945,7 @@
         "avg_logprob": -0.08637971595023414,
         "no_speech_prob": 0.00034332275390625,
         "compression_ratio": 1.6346153846153846,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 872,
@@ -332115,7 +332115,7 @@
         "avg_logprob": -0.09331354931746115,
         "no_speech_prob": 0.0157623291015625,
         "compression_ratio": 1.6455331412103746,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 882,
@@ -332234,7 +332234,7 @@
         "avg_logprob": -0.06599620478587914,
         "no_speech_prob": 0.0010728836059570312,
         "compression_ratio": 1.6481994459833795,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 889,
@@ -332268,7 +332268,7 @@
         "avg_logprob": -0.06599620478587914,
         "no_speech_prob": 0.0010728836059570312,
         "compression_ratio": 1.6481994459833795,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 891,
@@ -332965,7 +332965,7 @@
         "avg_logprob": -0.08869791621963183,
         "no_speech_prob": 0.0009107589721679688,
         "compression_ratio": 1.6501650165016502,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 932,
@@ -333169,7 +333169,7 @@
         "avg_logprob": -0.08541666353742282,
         "no_speech_prob": 0.0015010833740234375,
         "compression_ratio": 1.5945121951219512,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 944,
@@ -333288,7 +333288,7 @@
         "avg_logprob": -0.09717085763547548,
         "no_speech_prob": 0.003765106201171875,
         "compression_ratio": 1.5895953757225434,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 951,
@@ -333305,7 +333305,7 @@
         "avg_logprob": -0.09717085763547548,
         "no_speech_prob": 0.003765106201171875,
         "compression_ratio": 1.5895953757225434,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 952,
@@ -333322,7 +333322,7 @@
         "avg_logprob": -0.09717085763547548,
         "no_speech_prob": 0.003765106201171875,
         "compression_ratio": 1.5895953757225434,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 953,
@@ -333900,7 +333900,7 @@
         "avg_logprob": -0.14184397797212533,
         "no_speech_prob": 0.0009622573852539062,
         "compression_ratio": 1.6435331230283912,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 987,
@@ -334104,7 +334104,7 @@
         "avg_logprob": -0.06234121031877471,
         "no_speech_prob": 0.007061004638671875,
         "compression_ratio": 1.5509433962264152,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 999,
@@ -334155,7 +334155,7 @@
         "avg_logprob": -0.06234121031877471,
         "no_speech_prob": 0.007061004638671875,
         "compression_ratio": 1.5509433962264152,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1002,
@@ -334546,7 +334546,7 @@
         "avg_logprob": -0.09561012122070506,
         "no_speech_prob": 0.005336761474609375,
         "compression_ratio": 1.687150837988827,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1025,
@@ -335753,7 +335753,7 @@
         "avg_logprob": -0.10050154357780645,
         "no_speech_prob": 0.002269744873046875,
         "compression_ratio": 1.786833855799373,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1096,
@@ -335957,7 +335957,7 @@
         "avg_logprob": -0.0833125,
         "no_speech_prob": 0.0023784637451171875,
         "compression_ratio": 1.528225806451613,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1108,
@@ -336008,7 +336008,7 @@
         "avg_logprob": -0.0833125,
         "no_speech_prob": 0.0023784637451171875,
         "compression_ratio": 1.528225806451613,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 1111,
@@ -336229,7 +336229,7 @@
         "avg_logprob": -0.09125000166893005,
         "no_speech_prob": 0.002910614013671875,
         "compression_ratio": 1.582375478927203,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1124,
@@ -336586,7 +336586,7 @@
         "avg_logprob": -0.12151529023544394,
         "no_speech_prob": 0.001926422119140625,
         "compression_ratio": 1.7578947368421052,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1145,
@@ -337079,7 +337079,7 @@
         "avg_logprob": -0.08754380492963523,
         "no_speech_prob": 0.00628662109375,
         "compression_ratio": 1.584,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1174,
@@ -337164,7 +337164,7 @@
         "avg_logprob": -0.06498015737013212,
         "no_speech_prob": 0.00055694580078125,
         "compression_ratio": 1.5053380782918149,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1179,
@@ -337538,7 +337538,7 @@
         "avg_logprob": -0.0806749142292473,
         "no_speech_prob": 0.0084381103515625,
         "compression_ratio": 1.6149068322981366,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1201,
@@ -337657,7 +337657,7 @@
         "avg_logprob": -0.10337094555574435,
         "no_speech_prob": 0.004131317138671875,
         "compression_ratio": 1.5686274509803921,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1208,
@@ -337674,7 +337674,7 @@
         "avg_logprob": -0.07302427833730524,
         "no_speech_prob": 0.0016613006591796875,
         "compression_ratio": 1.5340501792114696,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 1209,
@@ -337742,7 +337742,7 @@
         "avg_logprob": -0.07302427833730524,
         "no_speech_prob": 0.0016613006591796875,
         "compression_ratio": 1.5340501792114696,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1213,
@@ -337793,7 +337793,7 @@
         "avg_logprob": -0.08404182023642694,
         "no_speech_prob": 0.0021991729736328125,
         "compression_ratio": 1.603448275862069,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 1216,
@@ -337997,7 +337997,7 @@
         "avg_logprob": -0.06882101947611029,
         "no_speech_prob": 0.003246307373046875,
         "compression_ratio": 1.5962264150943397,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1228,
@@ -338031,7 +338031,7 @@
         "avg_logprob": -0.06867121698475685,
         "no_speech_prob": 0.0018672943115234375,
         "compression_ratio": 1.6015936254980079,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1230,
@@ -338099,7 +338099,7 @@
         "avg_logprob": -0.06867121698475685,
         "no_speech_prob": 0.0018672943115234375,
         "compression_ratio": 1.6015936254980079,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1234,
@@ -338116,7 +338116,7 @@
         "avg_logprob": -0.06867121698475685,
         "no_speech_prob": 0.0018672943115234375,
         "compression_ratio": 1.6015936254980079,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1235,
@@ -338133,7 +338133,7 @@
         "avg_logprob": -0.08486643181212487,
         "no_speech_prob": 0.0037937164306640625,
         "compression_ratio": 1.5037593984962405,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1236,
@@ -338150,7 +338150,7 @@
         "avg_logprob": -0.08486643181212487,
         "no_speech_prob": 0.0037937164306640625,
         "compression_ratio": 1.5037593984962405,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1237,
@@ -338167,7 +338167,7 @@
         "avg_logprob": -0.08486643181212487,
         "no_speech_prob": 0.0037937164306640625,
         "compression_ratio": 1.5037593984962405,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1238,
@@ -338184,7 +338184,7 @@
         "avg_logprob": -0.08486643181212487,
         "no_speech_prob": 0.0037937164306640625,
         "compression_ratio": 1.5037593984962405,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1239,
@@ -338269,7 +338269,7 @@
         "avg_logprob": -0.0690651288052567,
         "no_speech_prob": 0.0017681121826171875,
         "compression_ratio": 1.5421245421245422,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1244,
@@ -338286,7 +338286,7 @@
         "avg_logprob": -0.0690651288052567,
         "no_speech_prob": 0.0017681121826171875,
         "compression_ratio": 1.5421245421245422,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 1245,
@@ -338405,7 +338405,7 @@
         "avg_logprob": -0.05672409328130575,
         "no_speech_prob": 0.0009546279907226562,
         "compression_ratio": 1.5328185328185329,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1252,
@@ -338643,7 +338643,7 @@
         "avg_logprob": -0.08546757317127142,
         "no_speech_prob": 0.0227813720703125,
         "compression_ratio": 1.5680272108843538,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1266,
@@ -338694,7 +338694,7 @@
         "avg_logprob": -0.08546757317127142,
         "no_speech_prob": 0.0227813720703125,
         "compression_ratio": 1.5680272108843538,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1269,
@@ -338728,7 +338728,7 @@
         "avg_logprob": -0.053906249893563137,
         "no_speech_prob": 0.002651214599609375,
         "compression_ratio": 1.583050847457627,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1271,
@@ -339000,7 +339000,7 @@
         "avg_logprob": -0.05768327112484695,
         "no_speech_prob": 0.00897979736328125,
         "compression_ratio": 1.618881118881119,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1287,
@@ -339731,7 +339731,7 @@
         "avg_logprob": -0.09070849088767102,
         "no_speech_prob": 0.0015010833740234375,
         "compression_ratio": 1.6146179401993355,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 1330,
@@ -340224,7 +340224,7 @@
         "avg_logprob": -0.07964555409130634,
         "no_speech_prob": 0.0004239082336425781,
         "compression_ratio": 1.5648148148148149,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1359,
@@ -340292,7 +340292,7 @@
         "avg_logprob": -0.1009954634693361,
         "no_speech_prob": 0.004535675048828125,
         "compression_ratio": 1.6570397111913358,
-        "flags": 0
+        "flags": 2147497984
       },
       {
         "segment_id": 1363,
@@ -340938,7 +340938,7 @@
         "avg_logprob": -0.07574152460290214,
         "no_speech_prob": 0.0194091796875,
         "compression_ratio": 1.5687732342007434,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1401,
@@ -341159,7 +341159,7 @@
         "avg_logprob": -0.09334936126684532,
         "no_speech_prob": 0.006587982177734375,
         "compression_ratio": 1.5257731958762886,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1414,
@@ -341431,7 +341431,7 @@
         "avg_logprob": -0.06707058137371427,
         "no_speech_prob": 0.0028438568115234375,
         "compression_ratio": 1.6483180428134556,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 1430,
@@ -341890,7 +341890,7 @@
         "avg_logprob": -0.12196493041601113,
         "no_speech_prob": 0.003734588623046875,
         "compression_ratio": 1.7813620071684588,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1457,
@@ -342077,7 +342077,7 @@
         "avg_logprob": -0.13472222255335914,
         "no_speech_prob": 0.0006213188171386719,
         "compression_ratio": 1.6482558139534884,
-        "flags": 0
+        "flags": 2
       },
       {
         "segment_id": 1468,
@@ -342349,7 +342349,7 @@
         "avg_logprob": -0.12810360078942284,
         "no_speech_prob": 0.00133514404296875,
         "compression_ratio": 1.6595092024539877,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1484,
@@ -342400,7 +342400,7 @@
         "avg_logprob": -0.12810360078942284,
         "no_speech_prob": 0.00133514404296875,
         "compression_ratio": 1.6595092024539877,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 1487,
@@ -344474,7 +344474,7 @@
         "avg_logprob": -0.07873603326981295,
         "no_speech_prob": 0.00183868408203125,
         "compression_ratio": 1.7122905027932962,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1609,
@@ -344950,7 +344950,7 @@
         "avg_logprob": -0.12080223647071354,
         "no_speech_prob": 0.001972198486328125,
         "compression_ratio": 1.7281879194630871,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 1637,
@@ -345069,7 +345069,7 @@
         "avg_logprob": -0.04966145716607571,
         "no_speech_prob": 0.004467010498046875,
         "compression_ratio": 1.6644951140065147,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 1644,
@@ -345137,7 +345137,7 @@
         "avg_logprob": -0.10026041623204947,
         "no_speech_prob": 0.043304443359375,
         "compression_ratio": 1.5258620689655173,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 1648,
@@ -345171,7 +345171,7 @@
         "avg_logprob": -0.10026041623204947,
         "no_speech_prob": 0.043304443359375,
         "compression_ratio": 1.5258620689655173,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 1650,
@@ -345256,7 +345256,7 @@
         "avg_logprob": -0.09165846233762155,
         "no_speech_prob": 0.05023193359375,
         "compression_ratio": 1.6431372549019607,
-        "flags": 0
+        "flags": 14336
       },
       {
         "segment_id": 1655,
@@ -345273,7 +345273,7 @@
         "avg_logprob": -0.09165846233762155,
         "no_speech_prob": 0.05023193359375,
         "compression_ratio": 1.6431372549019607,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 1656,
@@ -345290,7 +345290,7 @@
         "avg_logprob": -0.11499550391873009,
         "no_speech_prob": 0.0111541748046875,
         "compression_ratio": 1.6595744680851063,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 1657,
@@ -345307,7 +345307,7 @@
         "avg_logprob": -0.11499550391873009,
         "no_speech_prob": 0.0111541748046875,
         "compression_ratio": 1.6595744680851063,
-        "flags": 0
+        "flags": 10240
       },
       {
         "segment_id": 1658,
@@ -345324,7 +345324,7 @@
         "avg_logprob": -0.11499550391873009,
         "no_speech_prob": 0.0111541748046875,
         "compression_ratio": 1.6595744680851063,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 1659,
@@ -346463,7 +346463,7 @@
         "avg_logprob": -0.048518319787650276,
         "no_speech_prob": 0.07281494140625,
         "compression_ratio": 1.6284722222222223,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1726,
@@ -346667,7 +346667,7 @@
         "avg_logprob": -0.06510416666666667,
         "no_speech_prob": 0.01482391357421875,
         "compression_ratio": 1.6548387096774193,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 1738,
@@ -346701,7 +346701,7 @@
         "avg_logprob": -0.06510416666666667,
         "no_speech_prob": 0.01482391357421875,
         "compression_ratio": 1.6548387096774193,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1740,
@@ -346735,7 +346735,7 @@
         "avg_logprob": -0.06510416666666667,
         "no_speech_prob": 0.01482391357421875,
         "compression_ratio": 1.6548387096774193,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1742,
@@ -346871,7 +346871,7 @@
         "avg_logprob": -0.08779535001916129,
         "no_speech_prob": 0.0041656494140625,
         "compression_ratio": 1.551246537396122,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1750,
@@ -347109,7 +347109,7 @@
         "avg_logprob": -0.10584900125993037,
         "no_speech_prob": 0.007457733154296875,
         "compression_ratio": 1.5465116279069768,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1764,
@@ -347279,7 +347279,7 @@
         "avg_logprob": -0.04714752906976744,
         "no_speech_prob": 0.002452850341796875,
         "compression_ratio": 1.583941605839416,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1774,
@@ -347619,7 +347619,7 @@
         "avg_logprob": -0.06640624839525956,
         "no_speech_prob": 0.006793975830078125,
         "compression_ratio": 1.553191489361702,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 1794,
@@ -348027,7 +348027,7 @@
         "avg_logprob": -0.09915058804838449,
         "no_speech_prob": 0.0010480880737304688,
         "compression_ratio": 1.585987261146497,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 1818,
@@ -348741,7 +348741,7 @@
         "avg_logprob": -0.07594697132255092,
         "no_speech_prob": 0.0014896392822265625,
         "compression_ratio": 1.6493150684931508,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 1860,
@@ -349404,7 +349404,7 @@
         "avg_logprob": -0.09232954633108435,
         "no_speech_prob": 0.0004839897155761719,
         "compression_ratio": 1.5860349127182045,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 1899,
@@ -349880,7 +349880,7 @@
         "avg_logprob": -0.08484886928659971,
         "no_speech_prob": 0.0704345703125,
         "compression_ratio": 1.5474452554744527,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 1927,
@@ -351138,7 +351138,7 @@
         "avg_logprob": -0.05326704598370601,
         "no_speech_prob": 0.0013561248779296875,
         "compression_ratio": 1.6424870466321244,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2001,
@@ -351869,7 +351869,7 @@
         "avg_logprob": -0.13594745754436321,
         "no_speech_prob": 0.036163330078125,
         "compression_ratio": 1.722741433021807,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2044,
@@ -351954,7 +351954,7 @@
         "avg_logprob": -0.0769196434531893,
         "no_speech_prob": 0.009552001953125,
         "compression_ratio": 1.6174863387978142,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2049,
@@ -352447,7 +352447,7 @@
         "avg_logprob": -0.0836476316654134,
         "no_speech_prob": 0.0022335052490234375,
         "compression_ratio": 1.6392961876832846,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2078,
@@ -352583,7 +352583,7 @@
         "avg_logprob": -0.07769363725477932,
         "no_speech_prob": 0.002132415771484375,
         "compression_ratio": 1.7443820224719102,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2086,
@@ -352702,7 +352702,7 @@
         "avg_logprob": -0.06052215187515639,
         "no_speech_prob": 0.0005440711975097656,
         "compression_ratio": 1.6211699164345403,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2093,
@@ -353076,7 +353076,7 @@
         "avg_logprob": -0.07911229514322438,
         "no_speech_prob": 0.004398345947265625,
         "compression_ratio": 1.7002967359050445,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2115,
@@ -354283,7 +354283,7 @@
         "avg_logprob": -0.08012820274019852,
         "no_speech_prob": 0.00183868408203125,
         "compression_ratio": 1.6797583081570997,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2186,
@@ -354368,7 +354368,7 @@
         "avg_logprob": -0.13189338805044398,
         "no_speech_prob": 0.0104827880859375,
         "compression_ratio": 1.7142857142857142,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 2191,
@@ -354419,7 +354419,7 @@
         "avg_logprob": -0.05782781753177736,
         "no_speech_prob": 0.04449462890625,
         "compression_ratio": 1.4700854700854702,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 2194,
@@ -354453,7 +354453,7 @@
         "avg_logprob": -0.05136536375105938,
         "no_speech_prob": 0.002269744873046875,
         "compression_ratio": 1.547008547008547,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2196,
@@ -354470,7 +354470,7 @@
         "avg_logprob": -0.05136536375105938,
         "no_speech_prob": 0.002269744873046875,
         "compression_ratio": 1.547008547008547,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2197,
@@ -354487,7 +354487,7 @@
         "avg_logprob": -0.05609374916553497,
         "no_speech_prob": 0.00969696044921875,
         "compression_ratio": 1.6309963099630995,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 2198,
@@ -354521,7 +354521,7 @@
         "avg_logprob": -0.05609374916553497,
         "no_speech_prob": 0.00969696044921875,
         "compression_ratio": 1.6309963099630995,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2200,
@@ -354793,7 +354793,7 @@
         "avg_logprob": -0.10454963290077798,
         "no_speech_prob": 0.0036487579345703125,
         "compression_ratio": 1.576219512195122,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2216,
@@ -354861,7 +354861,7 @@
         "avg_logprob": -0.06559001987994607,
         "no_speech_prob": 0.006847381591796875,
         "compression_ratio": 1.6131386861313868,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2220,
@@ -354895,7 +354895,7 @@
         "avg_logprob": -0.06559001987994607,
         "no_speech_prob": 0.006847381591796875,
         "compression_ratio": 1.6131386861313868,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2222,
@@ -354929,7 +354929,7 @@
         "avg_logprob": -0.053489964591325635,
         "no_speech_prob": 0.0021152496337890625,
         "compression_ratio": 1.5235109717868338,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2224,
@@ -355014,7 +355014,7 @@
         "avg_logprob": -0.16704358003641429,
         "no_speech_prob": 0.04736328125,
         "compression_ratio": 1.6689895470383276,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2229,
@@ -355065,7 +355065,7 @@
         "avg_logprob": -0.16704358003641429,
         "no_speech_prob": 0.04736328125,
         "compression_ratio": 1.6689895470383276,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 2232,
@@ -355082,7 +355082,7 @@
         "avg_logprob": -0.16704358003641429,
         "no_speech_prob": 0.04736328125,
         "compression_ratio": 1.6689895470383276,
-        "flags": 0
+        "flags": 10240
       },
       {
         "segment_id": 2233,
@@ -355099,7 +355099,7 @@
         "avg_logprob": -0.16704358003641429,
         "no_speech_prob": 0.04736328125,
         "compression_ratio": 1.6689895470383276,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2234,
@@ -355116,7 +355116,7 @@
         "avg_logprob": -0.16704358003641429,
         "no_speech_prob": 0.04736328125,
         "compression_ratio": 1.6689895470383276,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 2235,
@@ -355133,7 +355133,7 @@
         "avg_logprob": -0.16704358003641429,
         "no_speech_prob": 0.04736328125,
         "compression_ratio": 1.6689895470383276,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2236,
@@ -355643,7 +355643,7 @@
         "avg_logprob": -0.06250000274773185,
         "no_speech_prob": 0.00030303001403808594,
         "compression_ratio": 1.5419354838709678,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2266,
@@ -356017,7 +356017,7 @@
         "avg_logprob": -0.07990771952091448,
         "no_speech_prob": 0.0007791519165039062,
         "compression_ratio": 1.5981308411214954,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2288,
@@ -356119,7 +356119,7 @@
         "avg_logprob": -0.0677083358168602,
         "no_speech_prob": 0.0008296966552734375,
         "compression_ratio": 1.5844155844155845,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2294,
@@ -356153,7 +356153,7 @@
         "avg_logprob": -0.0837500007947286,
         "no_speech_prob": 0.0014553070068359375,
         "compression_ratio": 1.606164383561644,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2296,
@@ -356510,7 +356510,7 @@
         "avg_logprob": -0.17158018952270723,
         "no_speech_prob": 0.00279998779296875,
         "compression_ratio": 1.5782608695652174,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2317,
@@ -356527,7 +356527,7 @@
         "avg_logprob": -0.17158018952270723,
         "no_speech_prob": 0.00279998779296875,
         "compression_ratio": 1.5782608695652174,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2318,
@@ -356595,7 +356595,7 @@
         "avg_logprob": -0.11874999980131785,
         "no_speech_prob": 0.0031223297119140625,
         "compression_ratio": 1.9795081967213115,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2322,
@@ -356629,7 +356629,7 @@
         "avg_logprob": -0.11874999980131785,
         "no_speech_prob": 0.0031223297119140625,
         "compression_ratio": 1.9795081967213115,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 2324,
@@ -356680,7 +356680,7 @@
         "avg_logprob": -0.11874999980131785,
         "no_speech_prob": 0.0031223297119140625,
         "compression_ratio": 1.9795081967213115,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2327,
@@ -356731,7 +356731,7 @@
         "avg_logprob": -0.08496093672389786,
         "no_speech_prob": 0.00628662109375,
         "compression_ratio": 1.6131147540983606,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2330,
@@ -356765,7 +356765,7 @@
         "avg_logprob": -0.08496093672389786,
         "no_speech_prob": 0.00628662109375,
         "compression_ratio": 1.6131147540983606,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2332,
@@ -356782,7 +356782,7 @@
         "avg_logprob": -0.08496093672389786,
         "no_speech_prob": 0.00628662109375,
         "compression_ratio": 1.6131147540983606,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 2333,
@@ -358006,7 +358006,7 @@
         "avg_logprob": -0.12124060419269074,
         "no_speech_prob": 0.0014553070068359375,
         "compression_ratio": 1.6576923076923078,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 2405,
@@ -358142,7 +358142,7 @@
         "avg_logprob": -0.08761621950086483,
         "no_speech_prob": 0.0010986328125,
         "compression_ratio": 1.6094890510948905,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 2413,
@@ -358618,7 +358618,7 @@
         "avg_logprob": -0.09126420429145748,
         "no_speech_prob": 0.0012254714965820312,
         "compression_ratio": 1.9196428571428572,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 2441,
@@ -358669,7 +358669,7 @@
         "avg_logprob": -0.12069389552581967,
         "no_speech_prob": 0.00042057037353515625,
         "compression_ratio": 1.5714285714285714,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2444,
@@ -358703,7 +358703,7 @@
         "avg_logprob": -0.12069389552581967,
         "no_speech_prob": 0.00042057037353515625,
         "compression_ratio": 1.5714285714285714,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 2446,
@@ -358924,7 +358924,7 @@
         "avg_logprob": -0.07984518157232792,
         "no_speech_prob": 0.004787445068359375,
         "compression_ratio": 1.5393700787401574,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2459,
@@ -359009,7 +359009,7 @@
         "avg_logprob": -0.13499540715094874,
         "no_speech_prob": 0.01910400390625,
         "compression_ratio": 1.6007194244604317,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2464,
@@ -359043,7 +359043,7 @@
         "avg_logprob": -0.13499540715094874,
         "no_speech_prob": 0.01910400390625,
         "compression_ratio": 1.6007194244604317,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2466,
@@ -359128,7 +359128,7 @@
         "avg_logprob": -0.13499540715094874,
         "no_speech_prob": 0.01910400390625,
         "compression_ratio": 1.6007194244604317,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2471,
@@ -359264,7 +359264,7 @@
         "avg_logprob": -0.07894123340053345,
         "no_speech_prob": 0.0010242462158203125,
         "compression_ratio": 1.6065573770491803,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2479,
@@ -359315,7 +359315,7 @@
         "avg_logprob": -0.07894123340053345,
         "no_speech_prob": 0.0010242462158203125,
         "compression_ratio": 1.6065573770491803,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 2482,
@@ -359587,7 +359587,7 @@
         "avg_logprob": -0.11141304684721905,
         "no_speech_prob": 0.00041413307189941406,
         "compression_ratio": 1.6518218623481782,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 2498,
@@ -359638,7 +359638,7 @@
         "avg_logprob": -0.10659246743746,
         "no_speech_prob": 0.006587982177734375,
         "compression_ratio": 1.6197718631178708,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2501,
@@ -359655,7 +359655,7 @@
         "avg_logprob": -0.10659246743746,
         "no_speech_prob": 0.006587982177734375,
         "compression_ratio": 1.6197718631178708,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 2502,
@@ -359672,7 +359672,7 @@
         "avg_logprob": -0.10659246743746,
         "no_speech_prob": 0.006587982177734375,
         "compression_ratio": 1.6197718631178708,
-        "flags": 0
+        "flags": 2147483651
       },
       {
         "segment_id": 2503,
@@ -360216,7 +360216,7 @@
         "avg_logprob": -0.11877349758506718,
         "no_speech_prob": 0.0303497314453125,
         "compression_ratio": 1.5617021276595744,
-        "flags": 0
+        "flags": 14336
       },
       {
         "segment_id": 2535,
@@ -360233,7 +360233,7 @@
         "avg_logprob": -0.11877349758506718,
         "no_speech_prob": 0.0303497314453125,
         "compression_ratio": 1.5617021276595744,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2536,
@@ -360369,7 +360369,7 @@
         "avg_logprob": -0.08777901535587651,
         "no_speech_prob": 0.0028228759765625,
         "compression_ratio": 1.7956204379562044,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 2544,
@@ -360420,7 +360420,7 @@
         "avg_logprob": -0.08777901535587651,
         "no_speech_prob": 0.0028228759765625,
         "compression_ratio": 1.7956204379562044,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2547,
@@ -360437,7 +360437,7 @@
         "avg_logprob": -0.08320630323596118,
         "no_speech_prob": 0.01222991943359375,
         "compression_ratio": 1.4871794871794872,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2548,
@@ -360505,7 +360505,7 @@
         "avg_logprob": -0.08320630323596118,
         "no_speech_prob": 0.01222991943359375,
         "compression_ratio": 1.4871794871794872,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2552,
@@ -360522,7 +360522,7 @@
         "avg_logprob": -0.08320630323596118,
         "no_speech_prob": 0.01222991943359375,
         "compression_ratio": 1.4871794871794872,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2553,
@@ -360539,7 +360539,7 @@
         "avg_logprob": -0.08320630323596118,
         "no_speech_prob": 0.01222991943359375,
         "compression_ratio": 1.4871794871794872,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 2554,
@@ -360573,7 +360573,7 @@
         "avg_logprob": -0.08320630323596118,
         "no_speech_prob": 0.01222991943359375,
         "compression_ratio": 1.4871794871794872,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2556,
@@ -360590,7 +360590,7 @@
         "avg_logprob": -0.11207706430800875,
         "no_speech_prob": 0.010894775390625,
         "compression_ratio": 1.6609589041095891,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2557,
@@ -360607,7 +360607,7 @@
         "avg_logprob": -0.11207706430800875,
         "no_speech_prob": 0.010894775390625,
         "compression_ratio": 1.6609589041095891,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2558,
@@ -360692,7 +360692,7 @@
         "avg_logprob": -0.11207706430800875,
         "no_speech_prob": 0.010894775390625,
         "compression_ratio": 1.6609589041095891,
-        "flags": 0
+        "flags": 10240
       },
       {
         "segment_id": 2563,
@@ -360709,7 +360709,7 @@
         "avg_logprob": -0.10661368836359732,
         "no_speech_prob": 0.004863739013671875,
         "compression_ratio": 1.565040650406504,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2564,
@@ -360743,7 +360743,7 @@
         "avg_logprob": -0.10661368836359732,
         "no_speech_prob": 0.004863739013671875,
         "compression_ratio": 1.565040650406504,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2566,
@@ -360794,7 +360794,7 @@
         "avg_logprob": -0.10661368836359732,
         "no_speech_prob": 0.004863739013671875,
         "compression_ratio": 1.565040650406504,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2569,
@@ -360811,7 +360811,7 @@
         "avg_logprob": -0.10661368836359732,
         "no_speech_prob": 0.004863739013671875,
         "compression_ratio": 1.565040650406504,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2570,
@@ -360845,7 +360845,7 @@
         "avg_logprob": -0.09121919098034711,
         "no_speech_prob": 0.00319671630859375,
         "compression_ratio": 1.7074074074074075,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2572,
@@ -360896,7 +360896,7 @@
         "avg_logprob": -0.09121919098034711,
         "no_speech_prob": 0.00319671630859375,
         "compression_ratio": 1.7074074074074075,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2575,
@@ -360930,7 +360930,7 @@
         "avg_logprob": -0.09121919098034711,
         "no_speech_prob": 0.00319671630859375,
         "compression_ratio": 1.7074074074074075,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2577,
@@ -361015,7 +361015,7 @@
         "avg_logprob": -0.09309348388880241,
         "no_speech_prob": 0.0012159347534179688,
         "compression_ratio": 1.52,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2582,
@@ -361066,7 +361066,7 @@
         "avg_logprob": -0.12274894351928921,
         "no_speech_prob": 0.003246307373046875,
         "compression_ratio": 1.55078125,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2585,
@@ -361134,7 +361134,7 @@
         "avg_logprob": -0.12274894351928921,
         "no_speech_prob": 0.003246307373046875,
         "compression_ratio": 1.55078125,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2589,
@@ -361151,7 +361151,7 @@
         "avg_logprob": -0.06309523525692168,
         "no_speech_prob": 0.0028896331787109375,
         "compression_ratio": 1.579646017699115,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2590,
@@ -361168,7 +361168,7 @@
         "avg_logprob": -0.06309523525692168,
         "no_speech_prob": 0.0028896331787109375,
         "compression_ratio": 1.579646017699115,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2591,
@@ -361219,7 +361219,7 @@
         "avg_logprob": -0.06309523525692168,
         "no_speech_prob": 0.0028896331787109375,
         "compression_ratio": 1.579646017699115,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2594,
@@ -361236,7 +361236,7 @@
         "avg_logprob": -0.09771286356060402,
         "no_speech_prob": 0.0009179115295410156,
         "compression_ratio": 1.6701030927835052,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2595,
@@ -361304,7 +361304,7 @@
         "avg_logprob": -0.09771286356060402,
         "no_speech_prob": 0.0009179115295410156,
         "compression_ratio": 1.6701030927835052,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2599,
@@ -361355,7 +361355,7 @@
         "avg_logprob": -0.12316176119972677,
         "no_speech_prob": 0.00043392181396484375,
         "compression_ratio": 1.602510460251046,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 2602,
@@ -361372,7 +361372,7 @@
         "avg_logprob": -0.12316176119972677,
         "no_speech_prob": 0.00043392181396484375,
         "compression_ratio": 1.602510460251046,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2603,
@@ -361457,7 +361457,7 @@
         "avg_logprob": -0.07220261872455638,
         "no_speech_prob": 0.00182342529296875,
         "compression_ratio": 1.6486486486486487,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2608,
@@ -361474,7 +361474,7 @@
         "avg_logprob": -0.07220261872455638,
         "no_speech_prob": 0.00182342529296875,
         "compression_ratio": 1.6486486486486487,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2609,
@@ -361491,7 +361491,7 @@
         "avg_logprob": -0.07220261872455638,
         "no_speech_prob": 0.00182342529296875,
         "compression_ratio": 1.6486486486486487,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2610,
@@ -361508,7 +361508,7 @@
         "avg_logprob": -0.07220261872455638,
         "no_speech_prob": 0.00182342529296875,
         "compression_ratio": 1.6486486486486487,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2611,
@@ -361542,7 +361542,7 @@
         "avg_logprob": -0.0742521331860469,
         "no_speech_prob": 0.0018815994262695312,
         "compression_ratio": 1.4854771784232366,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2613,
@@ -361627,7 +361627,7 @@
         "avg_logprob": -0.0742521331860469,
         "no_speech_prob": 0.0018815994262695312,
         "compression_ratio": 1.4854771784232366,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2618,
@@ -361848,7 +361848,7 @@
         "avg_logprob": -0.07856722007382591,
         "no_speech_prob": 0.0064849853515625,
         "compression_ratio": 1.6,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2631,
@@ -362205,7 +362205,7 @@
         "avg_logprob": -0.07737379831572373,
         "no_speech_prob": 0.0013885498046875,
         "compression_ratio": 1.5669781931464175,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2652,
@@ -363344,7 +363344,7 @@
         "avg_logprob": -0.07184623977157967,
         "no_speech_prob": 0.0041961669921875,
         "compression_ratio": 1.6656976744186047,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 2719,
@@ -363361,7 +363361,7 @@
         "avg_logprob": -0.07184623977157967,
         "no_speech_prob": 0.0041961669921875,
         "compression_ratio": 1.6656976744186047,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 2720,
@@ -363446,7 +363446,7 @@
         "avg_logprob": -0.10954860890353167,
         "no_speech_prob": 0.044464111328125,
         "compression_ratio": 1.6765676567656767,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2725,
@@ -363582,7 +363582,7 @@
         "avg_logprob": -0.06578351152331932,
         "no_speech_prob": 0.0214080810546875,
         "compression_ratio": 1.6385542168674698,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 2733,
@@ -363888,7 +363888,7 @@
         "avg_logprob": -0.08170363095498855,
         "no_speech_prob": 0.00394439697265625,
         "compression_ratio": 1.6094674556213018,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2751,
@@ -365180,7 +365180,7 @@
         "avg_logprob": -0.09234618803020567,
         "no_speech_prob": 0.00844573974609375,
         "compression_ratio": 1.5992779783393503,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2827,
@@ -365282,7 +365282,7 @@
         "avg_logprob": -0.07335804832183708,
         "no_speech_prob": 0.0196990966796875,
         "compression_ratio": 1.5399239543726235,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2833,
@@ -365333,7 +365333,7 @@
         "avg_logprob": -0.06432481969360017,
         "no_speech_prob": 0.0007319450378417969,
         "compression_ratio": 1.6379928315412187,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2836,
@@ -365435,7 +365435,7 @@
         "avg_logprob": -0.07088137439732413,
         "no_speech_prob": 0.00426483154296875,
         "compression_ratio": 1.5,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2842,
@@ -365554,7 +365554,7 @@
         "avg_logprob": -0.09904234033198125,
         "no_speech_prob": 0.003429412841796875,
         "compression_ratio": 1.721774193548387,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2849,
@@ -365639,7 +365639,7 @@
         "avg_logprob": -0.09660560673680799,
         "no_speech_prob": 0.003620147705078125,
         "compression_ratio": 1.725752508361204,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2854,
@@ -365656,7 +365656,7 @@
         "avg_logprob": -0.09660560673680799,
         "no_speech_prob": 0.003620147705078125,
         "compression_ratio": 1.725752508361204,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2855,
@@ -365690,7 +365690,7 @@
         "avg_logprob": -0.09660560673680799,
         "no_speech_prob": 0.003620147705078125,
         "compression_ratio": 1.725752508361204,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 2857,
@@ -365707,7 +365707,7 @@
         "avg_logprob": -0.09660560673680799,
         "no_speech_prob": 0.003620147705078125,
         "compression_ratio": 1.725752508361204,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2858,
@@ -366030,7 +366030,7 @@
         "avg_logprob": -0.0797787439214052,
         "no_speech_prob": 0.0140533447265625,
         "compression_ratio": 1.6748251748251748,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2877,
@@ -366183,7 +366183,7 @@
         "avg_logprob": -0.15467767801674656,
         "no_speech_prob": 0.007694244384765625,
         "compression_ratio": 1.625,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2886,
@@ -366268,7 +366268,7 @@
         "avg_logprob": -0.15467767801674656,
         "no_speech_prob": 0.007694244384765625,
         "compression_ratio": 1.625,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2891,
@@ -366370,7 +366370,7 @@
         "avg_logprob": -0.09842649800047068,
         "no_speech_prob": 0.02972412109375,
         "compression_ratio": 2.0403225806451615,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2897,
@@ -366421,7 +366421,7 @@
         "avg_logprob": -0.09842649800047068,
         "no_speech_prob": 0.02972412109375,
         "compression_ratio": 2.0403225806451615,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2900,
@@ -367067,7 +367067,7 @@
         "avg_logprob": -0.11488970432406158,
         "no_speech_prob": 0.0014104843139648438,
         "compression_ratio": 1.71875,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2938,
@@ -367169,7 +367169,7 @@
         "avg_logprob": -0.11488970432406158,
         "no_speech_prob": 0.0014104843139648438,
         "compression_ratio": 1.71875,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2944,
@@ -367237,7 +367237,7 @@
         "avg_logprob": -0.08394160453420486,
         "no_speech_prob": 0.0029125213623046875,
         "compression_ratio": 1.6360655737704919,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 2948,
@@ -367577,7 +367577,7 @@
         "avg_logprob": -0.12173507612810205,
         "no_speech_prob": 0.02630615234375,
         "compression_ratio": 1.5863309352517985,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2968,
@@ -367679,7 +367679,7 @@
         "avg_logprob": -0.12173507612810205,
         "no_speech_prob": 0.02630615234375,
         "compression_ratio": 1.5863309352517985,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2974,
@@ -367764,7 +367764,7 @@
         "avg_logprob": -0.06538461698935583,
         "no_speech_prob": 0.006435394287109375,
         "compression_ratio": 1.7073170731707317,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 2979,
@@ -367798,7 +367798,7 @@
         "avg_logprob": -0.06538461698935583,
         "no_speech_prob": 0.006435394287109375,
         "compression_ratio": 1.7073170731707317,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 2981,
@@ -368155,7 +368155,7 @@
         "avg_logprob": -0.09784746201305122,
         "no_speech_prob": 0.0023784637451171875,
         "compression_ratio": 1.6342281879194631,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 3002,
@@ -368172,7 +368172,7 @@
         "avg_logprob": -0.09784746201305122,
         "no_speech_prob": 0.0023784637451171875,
         "compression_ratio": 1.6342281879194631,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 3003,
@@ -368410,7 +368410,7 @@
         "avg_logprob": -0.09200764506412067,
         "no_speech_prob": 0.002017974853515625,
         "compression_ratio": 1.6978193146417446,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 3017,
@@ -368631,7 +368631,7 @@
         "avg_logprob": -0.16172445516516692,
         "no_speech_prob": 0.0211029052734375,
         "compression_ratio": 1.588628762541806,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 3030,
@@ -368682,7 +368682,7 @@
         "avg_logprob": -0.16172445516516692,
         "no_speech_prob": 0.0211029052734375,
         "compression_ratio": 1.588628762541806,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 3033,
@@ -368699,7 +368699,7 @@
         "avg_logprob": -0.16172445516516692,
         "no_speech_prob": 0.0211029052734375,
         "compression_ratio": 1.588628762541806,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 3034,
@@ -368852,7 +368852,7 @@
         "avg_logprob": -0.07996894558023962,
         "no_speech_prob": 0.0025501251220703125,
         "compression_ratio": 1.596774193548387,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 3043,
@@ -368920,7 +368920,7 @@
         "avg_logprob": -0.10957531965313813,
         "no_speech_prob": 0.0041656494140625,
         "compression_ratio": 1.652037617554859,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 3047,
@@ -369073,7 +369073,7 @@
         "avg_logprob": -0.09651081051145281,
         "no_speech_prob": 0.004940032958984375,
         "compression_ratio": 1.6094276094276094,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 3056,
@@ -369634,7 +369634,7 @@
         "avg_logprob": -0.08932605789727475,
         "no_speech_prob": 0.0015850067138671875,
         "compression_ratio": 1.7540453074433657,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 3089,
@@ -369753,7 +369753,7 @@
         "avg_logprob": -0.10630580139834256,
         "no_speech_prob": 0.001926422119140625,
         "compression_ratio": 1.7373417721518987,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 3096,
@@ -369770,7 +369770,7 @@
         "avg_logprob": -0.10630580139834256,
         "no_speech_prob": 0.001926422119140625,
         "compression_ratio": 1.7373417721518987,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 3097,
@@ -370229,7 +370229,7 @@
         "avg_logprob": -0.1596765324734805,
         "no_speech_prob": 0.0005612373352050781,
         "compression_ratio": 1.5805243445692885,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 3124,
@@ -370246,7 +370246,7 @@
         "avg_logprob": -0.1596765324734805,
         "no_speech_prob": 0.0005612373352050781,
         "compression_ratio": 1.5805243445692885,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 3125,
@@ -370875,7 +370875,7 @@
         "avg_logprob": -0.07286458685994149,
         "no_speech_prob": 0.003429412841796875,
         "compression_ratio": 1.688622754491018,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 3162,
@@ -370926,7 +370926,7 @@
         "avg_logprob": -0.07286458685994149,
         "no_speech_prob": 0.003429412841796875,
         "compression_ratio": 1.688622754491018,
-        "flags": 0
+        "flags": 2049
       },
       {
         "segment_id": 3165,
@@ -370960,7 +370960,7 @@
         "avg_logprob": -0.10624999964938445,
         "no_speech_prob": 0.004398345947265625,
         "compression_ratio": 1.6,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 3167,
@@ -371113,7 +371113,7 @@
         "avg_logprob": -0.10508040587107341,
         "no_speech_prob": 0.00844573974609375,
         "compression_ratio": 1.7270114942528736,
-        "flags": 0
+        "flags": 1
       },
       {
         "segment_id": 3176,
@@ -371283,7 +371283,7 @@
         "avg_logprob": -0.08473557754395863,
         "no_speech_prob": 0.003376007080078125,
         "compression_ratio": 1.79874213836478,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 3186,
@@ -371708,7 +371708,7 @@
         "avg_logprob": -0.09291469966465572,
         "no_speech_prob": 0.004680633544921875,
         "compression_ratio": 1.8243243243243243,
-        "flags": 0
+        "flags": 2147483648
       },
       {
         "segment_id": 3211,
@@ -372303,7 +372303,7 @@
         "avg_logprob": -0.08182832535791706,
         "no_speech_prob": 0.0006413459777832031,
         "compression_ratio": 1.865979381443299,
-        "flags": 0
+        "flags": 6144
       },
       {
         "segment_id": 3246,
@@ -372898,7 +372898,7 @@
         "avg_logprob": -0.12437913887548131,
         "no_speech_prob": 0.0012159347534179688,
         "compression_ratio": 1.7222222222222223,
-        "flags": 0
+        "flags": 2048
       },
       {
         "segment_id": 3281,
@@ -373221,7 +373221,7 @@
         "avg_logprob": -0.0836817802153003,
         "no_speech_prob": 0.0041961669921875,
         "compression_ratio": 1.6989966555183946,
-        "flags": 0
+        "flags": 4096
       },
       {
         "segment_id": 3300,

@@ -98,8 +98,8 @@ def transcribe_audio(
     beam_size: int = 5,
     vad_filter: bool = True,
     vad_min_silence_duration_ms: int = 1000,
-    vad_speech_pad_ms: int = 200,
-    temperature: float = 0,
+    vad_speech_pad_ms: int = 400,
+    temperature: list[float] = [0.0, 0.2, 0.4],
     condition_on_previous_text: bool = True,
     word_timestamps: bool = True,
 ) -> CanonicalDocument:
@@ -358,14 +358,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--vad-speech-pad-ms",
         type=int,
-        default=200,
+        default=400,
         help="Speech padding for VAD filtering",
     )
 
     parser.add_argument(
         "--temperature",
         type=float,
-        default=0,
+        default=[0.0, 0.2, 0.4],
         help="Sampling temperature for decoding",
     )
 
