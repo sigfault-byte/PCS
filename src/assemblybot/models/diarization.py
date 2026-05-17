@@ -3,6 +3,7 @@ from typing import Any
 
 from .collapse_diarization import CollapsedDiarizationSegment
 from .flags import SegmentFlag
+from .ids import require_positive_int_id
 from .time import TimeRange
 
 
@@ -29,7 +30,7 @@ class DiarizationEngine:
 class DiarizationRawSegment:
     """One speaker-labeled interval emitted by diarization."""
 
-    segment_id: str
+    segment_id: int
     time: TimeRange
     speaker_id: str
     flags: SegmentFlag = SegmentFlag.NONE
@@ -38,7 +39,7 @@ class DiarizationRawSegment:
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "DiarizationRawSegment":
         return cls(
-            segment_id=data["segment_id"],
+            segment_id=require_positive_int_id(data["segment_id"], "segment_id"),
             time=TimeRange.from_dict(data["time"]),
             speaker_id=data["speaker_id"],
             flags=SegmentFlag(data.get("flags", 0)),
@@ -50,14 +51,14 @@ class DiarizationRawSegment:
 class DiarizationOverlapRegion:
     """Time interval where two or more speakers are active."""
 
-    region_id: str
+    region_id: int
     time: TimeRange
     speaker_ids: list[str]
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "DiarizationOverlapRegion":
         return cls(
-            region_id=data["region_id"],
+            region_id=require_positive_int_id(data["region_id"], "region_id"),
             time=TimeRange.from_dict(data["time"]),
             speaker_ids=list(data.get("speaker_ids", [])),
         )

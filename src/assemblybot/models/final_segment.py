@@ -3,6 +3,7 @@ from typing import Any
 
 from src.assemblybot.models.flags import SegmentFlag
 
+from .ids import require_positive_int_id, require_positive_int_ids
 from .time import TimeRange
 
 
@@ -46,8 +47,8 @@ class TextInfo:
 class Provenance:
     """Source segment ids used to build a final segment."""
 
-    transcript_segment_ids: list[str] = field(default_factory=list)
-    diarization_segment_ids: list[str] = field(default_factory=list)
+    transcript_segment_ids: list[int] = field(default_factory=list)
+    diarization_segment_ids: list[int] = field(default_factory=list)
     transcript_token_start_id: int | None = None
     transcript_token_end_id: int | None = None
     stage_created_by: str | None = None
@@ -55,8 +56,14 @@ class Provenance:
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "Provenance":
         return cls(
-            transcript_segment_ids=list(data.get("transcript_segment_ids", [])),
-            diarization_segment_ids=list(data.get("diarization_segment_ids", [])),
+            transcript_segment_ids=require_positive_int_ids(
+                data.get("transcript_segment_ids", []),
+                "transcript_segment_ids",
+            ),
+            diarization_segment_ids=require_positive_int_ids(
+                data.get("diarization_segment_ids", []),
+                "diarization_segment_ids",
+            ),
             transcript_token_start_id=data.get("transcript_token_start_id"),
             transcript_token_end_id=data.get("transcript_token_end_id"),
             stage_created_by=data.get("stage_created_by"),
@@ -67,7 +74,7 @@ class Provenance:
 class FinalSegment:
     """Merged user-facing segment built from transcript and diarization data."""
 
-    segment_id: str
+    segment_id: int
     time: TimeRange
     speaker: SpeakerInfo
     text: TextInfo
@@ -79,7 +86,7 @@ class FinalSegment:
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "FinalSegment":
         return cls(
-            segment_id=data["segment_id"],
+            segment_id=require_positive_int_id(data["segment_id"], "segment_id"),
             time=TimeRange.from_dict(data["time"]),
             speaker=SpeakerInfo.from_dict(data.get("speaker", {})),
             text=TextInfo.from_dict(data.get("text", {})),

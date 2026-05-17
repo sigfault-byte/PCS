@@ -2,6 +2,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from .flags import SegmentFlag
+from .ids import require_positive_int_id
 from .time import TimeRange
 
 
@@ -47,7 +48,7 @@ class TranscriptRawToken:
 class TranscriptRawSegment:
     """Decoder segment grouping raw text, token bounds, and decoder confidence signals."""
 
-    segment_id: str
+    segment_id: int
     start_token_id: int | None
     end_token_id: int | None
     time: TimeRange
@@ -64,7 +65,7 @@ class TranscriptRawSegment:
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "TranscriptRawSegment":
         return cls(
-            segment_id=data["segment_id"],
+            segment_id=require_positive_int_id(data["segment_id"], "segment_id"),
             start_token_id=data.get("start_token_id"),
             end_token_id=data.get("end_token_id"),
             time=TimeRange.from_dict(data["time"]),

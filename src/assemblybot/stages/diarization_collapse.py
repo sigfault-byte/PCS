@@ -2,6 +2,7 @@ import argparse
 import json
 from pathlib import Path
 
+from assemblybot.models.ids import require_positive_int_id
 from assemblybot.models.time import TimeRange, now_utc_iso
 
 
@@ -51,7 +52,10 @@ def collapse_diarization_segments(
         speaker_id = seg["speaker_id"]
         start_seconds = seg["time"]["start_seconds"]
         end_seconds = seg["time"]["end_seconds"]
-        source_segment_id = seg["segment_id"]
+        source_segment_id = require_positive_int_id(
+            seg["segment_id"],
+            "segment_id",
+        )
 
         # --------------------------------------------------------------
         # Start the first collapsed turn.
@@ -59,7 +63,7 @@ def collapse_diarization_segments(
         if current is None:
             collapsed_idx += 1
             current = {
-                "segment_id": f"cdia_{collapsed_idx:06d}",
+                "segment_id": collapsed_idx,
                 "time": {
                     "start_seconds": start_seconds,
                     "end_seconds": end_seconds,
@@ -99,7 +103,7 @@ def collapse_diarization_segments(
         collapsed_idx += 1
         time_range = TimeRange.from_seconds(start_seconds, end_seconds)
         current = {
-            "segment_id": f"cdia_{collapsed_idx:06d}",
+            "segment_id": collapsed_idx,
             "time": {
                 "start_seconds": start_seconds,
                 "end_seconds": end_seconds,

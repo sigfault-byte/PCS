@@ -1,6 +1,7 @@
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
+from .ids import require_positive_int_id
 from .time import TimeRange
 
 
@@ -34,14 +35,14 @@ class VadEngine:
 class VadSegment:
     """One detected speech interval."""
 
-    segment_id: str
+    segment_id: int
     time: TimeRange
     confidence: float | None = None
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "VadSegment":
         return cls(
-            segment_id=data["segment_id"],
+            segment_id=require_positive_int_id(data["segment_id"], "segment_id"),
             time=TimeRange.from_dict(data["time"]),
             confidence=data.get("confidence"),
         )

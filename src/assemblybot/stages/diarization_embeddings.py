@@ -72,7 +72,7 @@ def extract_segment_embeddings(
     hf_token: str,
     embedding_model_name: str,
     torch_device: torch.device,
-) -> tuple[list[str], list[str], list[np.ndarray], np.ndarray]:
+) -> tuple[list[int], list[str], list[np.ndarray], np.ndarray]:
     """
     Extract one embedding per diarization segment.
 
@@ -100,7 +100,7 @@ def extract_segment_embeddings(
         "sample_rate": sample_rate,
     }
 
-    segment_ids: list[str] = []
+    segment_ids: list[int] = []
     segment_speaker_ids: list[str] = []
     segment_embeddings_list: list[np.ndarray] = []
 
@@ -174,7 +174,7 @@ def compute_speaker_centroids(
 def save_embedding_artifacts(
     output_segment_embeddings_path: Path,
     output_speaker_centroids_path: Path,
-    segment_ids: list[str],
+    segment_ids: list[int],
     segment_speaker_ids: list[str],
     segment_embeddings: np.ndarray,
     speaker_ids: list[str],
@@ -186,7 +186,7 @@ def save_embedding_artifacts(
 
     save_npz(
         output_segment_embeddings_path,
-        segment_ids=np.array(segment_ids, dtype=object),
+        segment_ids=np.array(segment_ids, dtype=np.int64),
         segment_speaker_ids=np.array(segment_speaker_ids, dtype=object),
         segment_embeddings=segment_embeddings,
     )

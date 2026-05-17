@@ -97,7 +97,7 @@ def run_pyannote_diarization(
     ):
         raw_segments.append(
             DiarizationRawSegment(
-                segment_id=f"dia_{idx:06d}",
+                segment_id=idx,
                 time=TimeRange.from_seconds(turn.start, turn.end),
                 speaker_id=speaker_label,
             )
@@ -137,7 +137,7 @@ def compute_overlap_regions(
         ):
             overlap_regions.append(
                 DiarizationOverlapRegion(
-                    region_id=f"overlap_{len(overlap_regions) + 1:06d}",
+                    region_id=len(overlap_regions) + 1,
                     time=TimeRange.from_seconds(previous_time, current_time),
                     speaker_ids=active_speaker_ids,
                 )

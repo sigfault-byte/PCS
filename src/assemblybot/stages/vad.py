@@ -57,7 +57,7 @@ def build_vad_segments(
     """Convert Silero timestamp dictionaries into canonical VAD segments."""
     return [
         VadSegment(
-            segment_id=f"vad_{idx:06d}",
+            segment_id=idx,
             time=TimeRange.from_seconds(
                 float(timestamp["start"]),
                 float(timestamp["end"]),

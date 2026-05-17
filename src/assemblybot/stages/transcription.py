@@ -201,7 +201,7 @@ def transcribe_audio(
 
             raw_segments.append(
                 TranscriptRawSegment(
-                    segment_id=f"wseg_{segment_index:06d}",
+                    segment_id=segment_index,
                     start_token_id=segment_token_start_id,
                     end_token_id=segment_token_end_id,
                     time=segment_time,
