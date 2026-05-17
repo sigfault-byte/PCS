@@ -331,7 +331,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--vad-min-silence-duration-ms",
         type=int,
-        default=2000,
+        default=1000,
         help="Minimum silence duration for VAD filtering",
     )
 
