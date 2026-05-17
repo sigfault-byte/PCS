@@ -194,10 +194,12 @@ def apply_diarization_to_document(
     collapsed_segments: list[CollapsedDiarizationSegment],
     model_name: str,
     device: str,
+    options: dict[str, object],
 ) -> None:
     """Write diarization results into the typed canonical document."""
     document.diarization.engine.model = model_name
     document.diarization.engine.device = device
+    document.diarization.engine.options = options
     document.diarization.raw_segments = raw_segments
     document.diarization.overlap_regions = overlap_regions
     document.diarization.collapsed_segments = collapsed_segments
@@ -304,6 +306,10 @@ def diarize_audio(
             collapsed_segments=collapsed_segments,
             model_name=model_name,
             device=device,
+            options={
+                "embedding_model": embedding_model_name,
+                "extract_embeddings": extract_embeddings,
+            },
         )
 
         if extract_embeddings:

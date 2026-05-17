@@ -7,7 +7,7 @@ import numpy as np
 from assemblybot.models.flags import SegmentFlag, flags_to_list  # type: ignore
 
 FILE = Path(
-    "data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_transcription_VAD-1000_whisper_segment_audit.json"
+    "data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_transcription_whisper_segment_audit.json"
 )
 
 with open(FILE, "r", encoding="utf-8") as f:

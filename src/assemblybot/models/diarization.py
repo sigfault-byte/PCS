@@ -15,6 +15,7 @@ class DiarizationEngine:
     model: str | None = None
     device: str | None = None
     version: str | None = None
+    options: dict[str, Any] = field(default_factory=dict)
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "DiarizationEngine":
@@ -23,6 +24,7 @@ class DiarizationEngine:
             model=data.get("model"),
             device=data.get("device"),
             version=data.get("version"),
+            options=dict(data["options"]),
         )
 
 

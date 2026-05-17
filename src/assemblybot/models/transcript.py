@@ -14,6 +14,7 @@ class TranscriptEngine:
     model: str | None = None
     device: str | None = None
     compute_type: str | None = None
+    options: dict[str, Any] = field(default_factory=dict)
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "TranscriptEngine":
@@ -22,6 +23,7 @@ class TranscriptEngine:
             model=data.get("model"),
             device=data.get("device"),
             compute_type=data.get("compute_type"),
+            options=dict(data["options"]),
         )
 
 

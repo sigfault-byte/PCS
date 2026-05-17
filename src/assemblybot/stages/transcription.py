@@ -60,6 +60,7 @@ def apply_transcript_to_document(
     model_name: str,
     device: str,
     compute_type: str,
+    options: dict[str, object],
     language_detected: str | None,
     language_probability: float | None,
     raw_tokens: list[TranscriptRawToken],
@@ -72,6 +73,7 @@ def apply_transcript_to_document(
     document.transcript.engine.model = model_name
     document.transcript.engine.device = device
     document.transcript.engine.compute_type = compute_type
+    document.transcript.engine.options = options
     document.transcript.language_detected = language_detected
     document.transcript.language_probability = language_probability
     document.transcript.raw_tokens = raw_tokens
@@ -95,7 +97,10 @@ def transcribe_audio(
     language: str = "fr",
     beam_size: int = 5,
     vad_filter: bool = True,
-    vad_min_silence_duration_ms: int = 2000,
+    vad_min_silence_duration_ms: int = 1000,
+    vad_speech_pad_ms: int = 200,
+    temperature: float = 0,
+    condition_on_previous_text: bool = True,
     word_timestamps: bool = True,
 ) -> CanonicalDocument:
     """
@@ -142,14 +147,28 @@ def transcribe_audio(
             compute_type=compute_type,
         )
 
+        vad_parameters = {
+            "min_silence_duration_ms": vad_min_silence_duration_ms,
+            "speech_pad_ms": vad_speech_pad_ms,
+        }
+        options: dict[str, object] = {
+            "language": language,
+            "vad_filter": vad_filter,
+            "vad_parameters": vad_parameters,
+            "beam_size": beam_size,
+            "temperature": temperature,
+            "condition_on_previous_text": condition_on_previous_text,
+            "word_timestamps": word_timestamps,
+        }
+
         segments_iter, info = model.transcribe(
             str(input_audio_path),
             language=language,
             beam_size=beam_size,
             vad_filter=vad_filter,
-            vad_parameters={
-                "min_silence_duration_ms": vad_min_silence_duration_ms,
-            },
+            vad_parameters=vad_parameters,
+            temperature=temperature,
+            condition_on_previous_text=condition_on_previous_text,
             word_timestamps=word_timestamps,
         )
 
@@ -229,6 +248,7 @@ def transcribe_audio(
             model_name=model_name,
             device=device,
             compute_type=compute_type,
+            options=options,
             language_detected=getattr(info, "language", None),
             language_probability=getattr(info, "language_probability", None),
             raw_tokens=raw_tokens,
@@ -336,6 +356,26 @@ def parse_args() -> argparse.Namespace:
     )
 
     parser.add_argument(
+        "--vad-speech-pad-ms",
+        type=int,
+        default=200,
+        help="Speech padding for VAD filtering",
+    )
+
+    parser.add_argument(
+        "--temperature",
+        type=float,
+        default=0,
+        help="Sampling temperature for decoding",
+    )
+
+    parser.add_argument(
+        "--no-condition-on-previous-text",
+        action="store_true",
+        help="Disable conditioning each decode window on previous text",
+    )
+
+    parser.add_argument(
         "--no-word-timestamps",
         action="store_true",
         help="Disable word timestamps",
@@ -381,6 +421,9 @@ def main() -> None:
         beam_size=args.beam_size,
         vad_filter=not args.no_vad_filter,
         vad_min_silence_duration_ms=args.vad_min_silence_duration_ms,
+        vad_speech_pad_ms=args.vad_speech_pad_ms,
+        temperature=args.temperature,
+        condition_on_previous_text=not args.no_condition_on_previous_text,
         word_timestamps=not args.no_word_timestamps,
     )
 
