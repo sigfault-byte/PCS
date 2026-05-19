@@ -45,7 +45,7 @@ checkpoints/
 runs/
 outputs/
 logs/
-
+data/OLD-DATA/
 # =========================
 # Whisper / audio / video intermediates
 # =========================
