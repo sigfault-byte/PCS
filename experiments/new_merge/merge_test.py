@@ -1,7 +1,7 @@
 import json
 from collections import Counter, defaultdict
 
-file = "data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_transcription_whisper_segment_audit.json"
+file = "data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_transcription_flagged.json"
 
 with open(file, "r", encoding="utf-8") as f:
     data = json.load(f)

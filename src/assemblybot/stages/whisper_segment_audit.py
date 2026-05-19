@@ -520,7 +520,7 @@ def main() -> None:
         if args.output
         else build_default_output_path(
             transcript_path,
-            "_whisper_segment_audit",
+            "_flagged",
             "json",
             transcript_path.parent,
         )
