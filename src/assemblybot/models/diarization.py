@@ -1,7 +1,6 @@
 from dataclasses import dataclass, field
 from typing import Any
 
-from .collapse_diarization import CollapsedDiarizationSegment
 from .flags import SegmentFlag
 from .ids import require_positive_int_id
 from .time import TimeRange
@@ -98,7 +97,6 @@ class DiarizationSection:
     engine: DiarizationEngine = field(default_factory=DiarizationEngine)
     raw_segments: list[DiarizationRawSegment] = field(default_factory=list)
     overlap_regions: list[DiarizationOverlapRegion] = field(default_factory=list)
-    collapsed_segments: list[CollapsedDiarizationSegment] = field(default_factory=list)
     speakers_count: int | None = None
     artifacts: DiarizationArtifacts = field(default_factory=DiarizationArtifacts)
 
@@ -113,10 +111,6 @@ class DiarizationSection:
             overlap_regions=[
                 DiarizationOverlapRegion.from_dict(item)
                 for item in data.get("overlap_regions", [])
-            ],
-            collapsed_segments=[
-                CollapsedDiarizationSegment.from_dict(item)
-                for item in data.get("collapsed_segments", [])
             ],
             speakers_count=data.get("speakers_count"),
             artifacts=DiarizationArtifacts.from_dict(data.get("artifacts", {})),

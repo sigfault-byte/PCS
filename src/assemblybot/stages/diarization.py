@@ -4,12 +4,12 @@ import argparse
 import os
 import time
 from pathlib import Path
-from typing import TYPE_CHECKING
+
+import torch
 
 from assemblybot.helper.directory import build_default_output_path
 from assemblybot.helper.document import load_document, save_document
 from assemblybot.models.diarization import (
-    CollapsedDiarizationSegment,
     DiarizationArtifacts,
     DiarizationOverlapRegion,
     DiarizationRawSegment,
@@ -24,14 +24,9 @@ from assemblybot.models.factories import (
 from assemblybot.models.flags import SegmentFlag
 from assemblybot.models.time import TimeRange
 
-if TYPE_CHECKING:
-    import torch
-
 
 def resolve_device(device: str) -> str:
     """Resolve 'auto' to a real torch device string."""
-    import torch
-
     if device == "auto":
         return "cuda" if torch.cuda.is_available() else "cpu"
     return device
@@ -47,7 +42,6 @@ def load_audio_as_waveform(input_audio_path: Path) -> tuple[torch.Tensor, int, f
         duration_seconds: float
     """
     import soundfile as sf
-    import torch
 
     audio, sample_rate = sf.read(str(input_audio_path), dtype="float32")
 
@@ -125,9 +119,7 @@ def compute_overlap_regions(
 
     for current_time in sorted(events_by_time):
         active_speaker_ids = sorted(
-            speaker_id
-            for speaker_id, count in active_counts.items()
-            if count > 0
+            speaker_id for speaker_id, count in active_counts.items() if count > 0
         )
 
         if (
@@ -191,7 +183,6 @@ def apply_diarization_to_document(
     document: CanonicalDocument,
     raw_segments: list[DiarizationRawSegment],
     overlap_regions: list[DiarizationOverlapRegion],
-    collapsed_segments: list[CollapsedDiarizationSegment],
     model_name: str,
     device: str,
     options: dict[str, object],
@@ -202,7 +193,6 @@ def apply_diarization_to_document(
     document.diarization.engine.options = options
     document.diarization.raw_segments = raw_segments
     document.diarization.overlap_regions = overlap_regions
-    document.diarization.collapsed_segments = collapsed_segments
     document.diarization.speakers_count = len({seg.speaker_id for seg in raw_segments})
 
 
@@ -266,7 +256,6 @@ def diarize_audio(
         ).resolve()
 
     device = resolve_device(device)
-    import torch
 
     torch_device = torch.device(device)
 
@@ -295,15 +284,10 @@ def diarize_audio(
         overlap_regions = compute_overlap_regions(raw_segments)
         annotate_raw_segment_overlaps(raw_segments, overlap_regions)
 
-        # Collapsed diarization is a later derived view.
-        # We do not build it here because it requires heuristics.
-        collapsed_segments: list[CollapsedDiarizationSegment] = []
-
         apply_diarization_to_document(
             document=document,
             raw_segments=raw_segments,
             overlap_regions=overlap_regions,
-            collapsed_segments=collapsed_segments,
             model_name=model_name,
             device=device,
             options={
@@ -349,9 +333,6 @@ def diarize_audio(
         print(f"Speakers detected: {document.diarization.speakers_count}")
         print(f"Raw diarization segments: {len(document.diarization.raw_segments)}")
         print(f"Overlap regions: {len(document.diarization.overlap_regions)}")
-        print(
-            f"Collapsed diarization segments: {len(document.diarization.collapsed_segments)}"
-        )
         if extract_embeddings:
             print(f"Segment embeddings: {output_segment_embeddings_path}")
             print(f"Speaker centroids: {output_speaker_centroids_path}")

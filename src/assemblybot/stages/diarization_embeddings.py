@@ -1,16 +1,13 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import TYPE_CHECKING
 
 import numpy as np
+import torch
 
 from assemblybot.helper.artifact import save_npz
 from assemblybot.models.diarization import DiarizationArtifacts, DiarizationRawSegment
 from assemblybot.models.document import CanonicalDocument
-
-if TYPE_CHECKING:
-    import torch
 
 MIN_EMBEDDING_DURATION_SECONDS = 0.80
 SKIP_ULTRA_SHORT_EMBEDDINGS_BELOW_SECONDS = 0.08

@@ -3,6 +3,7 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
+from .alignment import AlignmentSection
 from .diarization import (
     DiarizationSection,
 )
@@ -116,6 +117,7 @@ class CanonicalDocument:
     vad: VadSection = field(default_factory=VadSection)
     transcript: TranscriptSection = field(default_factory=TranscriptSection)
     diarization: DiarizationSection = field(default_factory=DiarizationSection)
+    alignment: AlignmentSection = field(default_factory=AlignmentSection)
     segments: list[FinalSegment] = field(default_factory=list)
 
     @classmethod
@@ -127,6 +129,7 @@ class CanonicalDocument:
             vad=VadSection.from_dict(data.get("vad", {})),
             transcript=TranscriptSection.from_dict(data.get("transcript", {})),
             diarization=DiarizationSection.from_dict(data.get("diarization", {})),
+            alignment=AlignmentSection.from_dict(data.get("alignment", {})),
             segments=[
                 FinalSegment.from_dict(item) for item in data.get("segments", [])
             ],
