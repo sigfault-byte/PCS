@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fr-core-news-sm",
+    "jiwer>=4.0.0",
     "librosa>=0.11.0",
     "matplotlib[dev]>=3.10.8",
     "plotly>=6.7.0",

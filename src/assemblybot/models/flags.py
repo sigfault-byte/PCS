@@ -29,6 +29,8 @@ class SegmentFlag(IntFlag):
     # Audio is mostly quiet, but has a short transient event that may have caused
     # Whisper to hallucinate speech.
     MOSTLY_SILENCE_WITH_SHORT_EVENT = 1 << 5
+    # propagate flag to segments neighboor to a noisy one
+    ADJACENT_INFORMATION_RATE_ANOMALY = 1 << 6
 
     # VAD alignment: bits 10-19
     # Whisper segment has no overlap with any VAD speech interval.
@@ -63,6 +65,9 @@ class SegmentFlag(IntFlag):
     # Intended for segments close to a speaker boundary where attribution may be
     # unstable.
     SPEAKER_CHANGE_NEARBY = 1 << 32
+    # Speaker assignment was decided by deterministic tie break rather than
+    # stronger diarization evidence.
+    TIE_BREAK_SPEAKER = 1 << 33
 
     # Merge integrity: bits 40-49
     # Intended for transcript content that could not be matched to diarization.
@@ -70,11 +75,11 @@ class SegmentFlag(IntFlag):
     # Intended for diarization speech that could not be matched to transcript
     # content.
     ORPHAN_DIARIZATION = 1 << 41
+    # Diarization segments that are linked to a whisper hallucination / noise
+    UNSAFE_FOR_SPEAKER_CENTROID = 1 << 42
 
 
 def flags_to_list(flags: int | SegmentFlag) -> list[str | None]:
-    """Return active flag names; excludes NONE."""
-
     return [f.name for f in SegmentFlag if f & flags]
 
 
