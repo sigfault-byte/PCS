@@ -52,12 +52,6 @@ print(f"Total matches: {len(diarization_transcript_matches)}")
 # for match in diarization_transcript_matches[10:20]:
 #     print(match)
 
-counter = Counter()
-
-for match in diarization_transcript_matches:
-    counter[match["transcription_id"]] += 1
-
-print(counter.most_common(5))
 
 # target = 3206
 

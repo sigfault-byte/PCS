@@ -1,0 +1,480 @@
+================================================================================
+SPEAKER_21
+  raw_per:laurent nunez: 2
+  raw_per:madame la presidente: 1
+================================================================================
+SPEAKER_40
+  raw_per:madame la presidente: 5
+  deputy:643192:chantal jourdan: 1
+  raw_per:bergman: 1
+  deputy:794154:jean-claude raux: 1
+  raw_per:monsieur le ministre du travail: 1
+  raw_per:aurore berger: 1
+  raw_per:marc angeli: 1
+  raw_per:lopez-ligori: 1
+  raw_per:feignet: 1
+================================================================================
+SPEAKER_22
+  raw_per:nicolas maisonneuve: 1
+================================================================================
+SPEAKER_37
+  raw_per:maude brejon: 1
+================================================================================
+SPEAKER_56
+  deputy:720154:nicole dubre-chirat: 1
+================================================================================
+SPEAKER_48
+  raw_per:jean-pierre farandou: 3
+  raw_per:clouet: 1
+================================================================================
+SPEAKER_49
+  raw_per:adrien clouet: 1
+================================================================================
+SPEAKER_18
+  deputy:335612:jean-paul lecoq: 1
+================================================================================
+SPEAKER_28
+  raw_per:jean-noel barraud: 1
+================================================================================
+SPEAKER_05
+  raw_per:alexandra masson: 1
+================================================================================
+SPEAKER_44
+  raw_per:edouard geffray: 4
+================================================================================
+SPEAKER_27
+  raw_per:jean claudreau: 1
+================================================================================
+SPEAKER_39
+  raw_per:stephanie rist: 1
+  raw_per:stephanie riste: 1
+================================================================================
+SPEAKER_14
+  raw_per:bernard chex: 1
+================================================================================
+SPEAKER_12
+  deputy:842187:gabrielle cathala: 1
+================================================================================
+SPEAKER_10
+  deputy:721474:stephane viry: 1
+  raw_per:lyot: 1
+================================================================================
+SPEAKER_52
+  raw_per:david amiel: 1
+================================================================================
+SPEAKER_26
+  deputy:605782:laurent marcangeli: 1
+================================================================================
+SPEAKER_57
+  raw_per:aurelien lopez ligaurie: 1
+================================================================================
+SPEAKER_63
+  deputy:722390:josiane corneloup: 1
+================================================================================
+SPEAKER_11
+  deputy:841665:denis fegne: 1
+================================================================================
+SPEAKER_01
+  deputy:795954:catherine ibled: 1
+================================================================================
+SPEAKER_04
+  deputy:794778:sandra regol: 1
+================================================================================
+SPEAKER_33
+  raw_per:aurore berger: 1
+================================================================================
+SPEAKER_17
+  deputy:721486:christophe naegelen: 1
+================================================================================
+SPEAKER_53
+  deputy:607395:stephane travert: 1
+  raw_per:monsieur le ministre: 1
+================================================================================
+SPEAKER_43
+  raw_per:serge papin: 1
+================================================================================
+SPEAKER_36
+  raw_per:madame la presidente: 13
+  raw_per:yann boucard: 2
+  raw_per:gerard lessol: 1
+  raw_per:emmanuel morel: 1
+  raw_per:laurent mazory: 1
+  raw_per:monsieur le ministre: 1
+  raw_per:monsieur le president: 1
+  raw_per:la presidente: 1
+  raw_per:leaumont: 1
+================================================================================
+SPEAKER_24
+  raw_per:mathieu lefebvre: 1
+  deputy:719930:boris vallaud: 1
+================================================================================
+SPEAKER_09
+  deputy:774958:gerard leseul: 1
+  deputy:795864:pierre cazeneuve: 1
+================================================================================
+SPEAKER_19
+  raw_per:olivier fessa: 3
+================================================================================
+SPEAKER_25
+  deputy:841955:matthias renault: 1
+================================================================================
+SPEAKER_62
+  deputy:721852:marie lebec: 2
+================================================================================
+SPEAKER_35
+  deputy:842029:claire lejeune: 1
+================================================================================
+SPEAKER_54
+  raw_per:laurent lardi: 2
+================================================================================
+SPEAKER_42
+  raw_per:elisabeth lucot: 1
+================================================================================
+SPEAKER_34
+  deputy:719914:genevieve darrieussecq: 1
+================================================================================
+SPEAKER_46
+  deputy:842125:thomas lam: 2
+================================================================================
+SPEAKER_58
+  deputy:793852:pierre meurin: 1
+================================================================================
+SPEAKER_23
+  raw_per:anne stenbach: 1
+================================================================================
+SPEAKER_51
+  raw_per:yann boucard: 1
+  raw_per:elisabeth lucot: 1
+================================================================================
+SPEAKER_20
+  raw_per:laurent mazory: 1
+================================================================================
+SPEAKER_03
+  deputy:721896:elsa faucillon: 1
+================================================================================
+SPEAKER_61
+  deputy:794502:michael taverne: 1
+================================================================================
+SPEAKER_02
+  deputy:643175:stella dupont: 1
+================================================================================
+SPEAKER_07
+  raw_per:jourdan: 1
+  raw_per:kerbra: 1
+================================================================================
+SPEAKER_00
+  raw_per:balagel-mariki: 1
+================================================================================
+SPEAKER_47
+  raw_per:monsieur le president: 1
+================================================================================
+SPEAKER_59
+  raw_per:rieu: 1
+================================================================================
+SPEAKER_30
+  raw_per:marie clique: 1
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+================================================================================
+speaker_id: SPEAKER_21
+person:     raw_per:laurent nunez
+count:      2
+total:      3
+purity:     66.67%
+================================================================================
+speaker_id: SPEAKER_40
+person:     raw_per:madame la presidente
+count:      5
+total:      13
+purity:     38.46%
+================================================================================
+speaker_id: SPEAKER_22
+person:     raw_per:nicolas maisonneuve
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_37
+person:     raw_per:maude brejon
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_56
+person:     deputy:720154:nicole dubre-chirat
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_48
+person:     raw_per:jean-pierre farandou
+count:      3
+total:      4
+purity:     75.00%
+================================================================================
+speaker_id: SPEAKER_49
+person:     raw_per:adrien clouet
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_18
+person:     deputy:335612:jean-paul lecoq
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_28
+person:     raw_per:jean-noel barraud
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_05
+person:     raw_per:alexandra masson
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_44
+person:     raw_per:edouard geffray
+count:      4
+total:      4
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_27
+person:     raw_per:jean claudreau
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_39
+person:     raw_per:stephanie rist
+count:      1
+total:      2
+purity:     50.00%
+================================================================================
+speaker_id: SPEAKER_14
+person:     raw_per:bernard chex
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_12
+person:     deputy:842187:gabrielle cathala
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_10
+person:     deputy:721474:stephane viry
+count:      1
+total:      2
+purity:     50.00%
+================================================================================
+speaker_id: SPEAKER_52
+person:     raw_per:david amiel
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_26
+person:     deputy:605782:laurent marcangeli
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_57
+person:     raw_per:aurelien lopez ligaurie
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_63
+person:     deputy:722390:josiane corneloup
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_11
+person:     deputy:841665:denis fegne
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_01
+person:     deputy:795954:catherine ibled
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_04
+person:     deputy:794778:sandra regol
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_33
+person:     raw_per:aurore berger
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_17
+person:     deputy:721486:christophe naegelen
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_53
+person:     deputy:607395:stephane travert
+count:      1
+total:      2
+purity:     50.00%
+================================================================================
+speaker_id: SPEAKER_43
+person:     raw_per:serge papin
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_36
+person:     raw_per:madame la presidente
+count:      13
+total:      22
+purity:     59.09%
+================================================================================
+speaker_id: SPEAKER_24
+person:     raw_per:mathieu lefebvre
+count:      1
+total:      2
+purity:     50.00%
+================================================================================
+speaker_id: SPEAKER_09
+person:     deputy:774958:gerard leseul
+count:      1
+total:      2
+purity:     50.00%
+================================================================================
+speaker_id: SPEAKER_19
+person:     raw_per:olivier fessa
+count:      3
+total:      3
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_25
+person:     deputy:841955:matthias renault
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_62
+person:     deputy:721852:marie lebec
+count:      2
+total:      2
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_35
+person:     deputy:842029:claire lejeune
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_54
+person:     raw_per:laurent lardi
+count:      2
+total:      2
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_42
+person:     raw_per:elisabeth lucot
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_34
+person:     deputy:719914:genevieve darrieussecq
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_46
+person:     deputy:842125:thomas lam
+count:      2
+total:      2
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_58
+person:     deputy:793852:pierre meurin
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_23
+person:     raw_per:anne stenbach
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_51
+person:     raw_per:yann boucard
+count:      1
+total:      2
+purity:     50.00%
+================================================================================
+speaker_id: SPEAKER_20
+person:     raw_per:laurent mazory
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_03
+person:     deputy:721896:elsa faucillon
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_61
+person:     deputy:794502:michael taverne
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_02
+person:     deputy:643175:stella dupont
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_07
+person:     raw_per:jourdan
+count:      1
+total:      2
+purity:     50.00%
+================================================================================
+speaker_id: SPEAKER_00
+person:     raw_per:balagel-mariki
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_47
+person:     raw_per:monsieur le president
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_59
+person:     raw_per:rieu
+count:      1
+total:      1
+purity:     100.00%
+================================================================================
+speaker_id: SPEAKER_30
+person:     raw_per:marie clique
+count:      1
+total:      1
+purity:     100.00%
+50 number of speaker
+21 number of deputues

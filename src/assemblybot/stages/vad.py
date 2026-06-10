@@ -28,7 +28,9 @@ DEFAULT_MIN_SILENCE_DURATION_MS = 100
 DEFAULT_SPEECH_PAD_MS = 30
 
 
-def load_audio_as_mono_waveform(input_audio_path: Path) -> tuple[torch.Tensor, int, float]:
+def load_audio_as_mono_waveform(
+    input_audio_path: Path,
+) -> tuple[torch.Tensor, int, float]:
     """Load audio with soundfile and convert multichannel audio to mono."""
     import soundfile as sf
 
@@ -48,7 +50,7 @@ def load_vad_model(
     opset_version: int,
 ) -> torch.nn.Module:
     """Load Silero VAD from the installed package."""
-    return load_silero_vad(onnx=onnx, opset_version=opset_version)
+    return load_silero_vad(onnx=onnx, opset_version=opset_version)  # type: ignore
 
 
 def build_vad_segments(

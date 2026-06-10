@@ -1,5 +1,3 @@
-Here is a cleaner version:
-
 A new class was added to store an alignment object representing the transcript <-> diarization match.
 
 A new run was then generated using exactly the same parameters as the previous run. 
@@ -52,4 +50,3 @@ The speaker-overlap results are also identical:
 ---
 
 # Merging
-
