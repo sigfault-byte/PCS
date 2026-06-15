@@ -71,6 +71,7 @@ def build_transcript_diarization_match(
         if overlap_seconds <= 0.0:
             continue
 
+        # TODO: find a weighted logic depending on the lenght of the segment, this is a bit too naive.
         speaker_id = diarization_segment.speaker_id
         match.diarization_segment_ids.append(diarization_segment.segment_id)
         match.total_overlap_seconds += overlap_seconds

@@ -8,6 +8,9 @@ from transformers import pipeline
 
 file = "data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_01_turns.json"
 
+THRESHOLD = 0.8
+THRESHOLD2 = 80
+
 NEXT_SPEAKER_PATTERNS = [
     "la parole est à",
     "je donne la parole à",
@@ -42,7 +45,7 @@ def normalize_name(name: str) -> str:
 deputies = []
 
 
-def resolve_deputy_name(normalized_name: str, threshold: int = 90):
+def resolve_deputy_name(normalized_name: str, threshold: int = THRESHOLD2):
     match, score, _ = process.extractOne(
         normalized_name,
         known_names,
@@ -92,7 +95,7 @@ def context_window(text, start, end, radius=80):
 entities = []
 for turn in turns:
     for ent in ner(turn["text"]):
-        if ent["entity_group"] == "PER" and ent["score"] > 0.90:
+        if ent["entity_group"] == "PER" and ent["score"] > THRESHOLD:
             entities.append(
                 {
                     "entity": ent,
@@ -129,17 +132,47 @@ for item in entities:
     turn_to_infer_speaker.append(item)
 
 turn_prediction = []
+turns_by_id = {turn["turn_id"]: turn for turn in turns}
+
 for i in turn_to_infer_speaker:
     turn_id = i["id"]
     role = i["role"]
+
+    current_turn = turns_by_id[turn_id]
+    current_speaker = current_turn["speaker_id"]
+
+    predicted_turn_id = None
+
     if role == "probable_next_speaker":
-        predicted_turn_id = turn_id + 1
+        for offset in range(1, 6):
+            candidate = turns_by_id.get(turn_id + offset)
+
+            if candidate is None:
+                continue
+
+            if candidate["speaker_id"] != current_speaker:
+                predicted_turn_id = candidate["turn_id"]
+                break
+
+            predicted_turn_id = turn_id + 1
+
     elif role == "probable_previous_speaker":
-        predicted_turn_id = turn_id - 1
+        for offset in range(1, 6):
+            candidate = turns_by_id.get(turn_id - offset)
+
+            if candidate is None:
+                continue
+
+            if candidate["speaker_id"] != current_speaker:
+                predicted_turn_id = candidate["turn_id"]
+                break
+
+            predicted_turn_id = turn_id - 1
+
     else:
         continue
 
-    if predicted_turn_id < 0:
+    if predicted_turn_id is None:
         continue
 
     resolved = resolve_deputy_name(i["normalized_name"])
@@ -217,14 +250,17 @@ print(f"{depute_match_nb} number of deputues")
 
 identified_speakers = len(speaker_id_to_person)
 
-high_purity = sum(1 for v in speaker_id_to_person.values() if v["purity"] >= 0.9)
+high_purity = sum(1 for v in speaker_id_to_person.values() if v["purity"] >= THRESHOLD)
 
 print(f"{high_purity} of High purity (90+)")
 
 high_purity_id = sum(
     1
     for v in speaker_id_to_person.values()
-    if v["purity"] >= 0.9 and "deputy" in v["person"]
+    if v["purity"] >= THRESHOLD and "deputy" in v["person"]
 )
 
 print(f"{high_purity_id} of High purity (90+) ID'd deputy")
+
+# high-purity speaker_id → collect clean diarization segments → recompute centroid → compare / merge duplicated speakers
+#

@@ -9,6 +9,7 @@ from assemblybot.models.flags import SegmentFlag
 from assemblybot.models.time import TimeRange
 from assemblybot.models.turn_document import Turn, TurnDocument
 
+# TODO: Test with various timming. Maybe worth to keep the full turn even with long silence, and chunk with semantic variation
 MAX_TURN_SILENCE_SECONDS = 5.0
 
 

@@ -43,9 +43,11 @@ class TurnAnalysis:
 
     keywords: list[str] = field(default_factory=list)
     persons: list[str] = field(default_factory=list)
+    person_purity: float | None = None
     organizations: list[str] = field(default_factory=list)
     locations: list[str] = field(default_factory=list)
 
+    # maybe a link to a npz with the data instead of the json
     embedding_id: int | None = None
     audio_audit: TurnAudioQualityMetrics | None = None
 
@@ -57,6 +59,7 @@ class TurnAnalysis:
             turn_id=data.get("turn_id", 0),
             keywords=data.get("keywords", []),
             persons=data.get("persons", []),
+            person_purity=data.get("person_purity", None),
             organizations=data.get("organizations", []),
             locations=data.get("locations", []),
             embedding_id=data.get("embedding_id"),
