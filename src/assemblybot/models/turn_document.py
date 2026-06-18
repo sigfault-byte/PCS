@@ -37,13 +37,32 @@ class Turn:
         )
 
 
+@dataclass(frozen=True)
+class PersonIdentity:
+    id: str | None
+    name: str
+    role: str | None
+    kind: str
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "PersonIdentity":
+        return cls(
+            id=data.get("id"),
+            name=data.get("name", ""),
+            role=data.get("role"),
+            kind=data.get("kind", "raw_per"),
+        )
+
+
 @dataclass
 class TurnAnalysis:
     turn_id: int
 
     keywords: list[str] = field(default_factory=list)
-    persons: list[str] = field(default_factory=list)
-    person_purity: float | None = None
+    current_speaker: PersonIdentity | None = None
+    current_speaker_source: str | None = None
+    current_speaker_purity: float | None = None
+    mentioned_persons: list[PersonIdentity] = field(default_factory=list)
     organizations: list[str] = field(default_factory=list)
     locations: list[str] = field(default_factory=list)
 
@@ -58,8 +77,17 @@ class TurnAnalysis:
         return cls(
             turn_id=data.get("turn_id", 0),
             keywords=data.get("keywords", []),
-            persons=data.get("persons", []),
-            person_purity=data.get("person_purity", None),
+            current_speaker=(
+                PersonIdentity.from_dict(data["current_speaker"])
+                if data.get("current_speaker") is not None
+                else None
+            ),
+            current_speaker_source=data.get("current_speaker_source"),
+            current_speaker_purity=data.get("current_speaker_purity", None),
+            mentioned_persons=[
+                PersonIdentity.from_dict(item)
+                for item in data.get("mentioned_persons", [])
+            ],
             organizations=data.get("organizations", []),
             locations=data.get("locations", []),
             embedding_id=data.get("embedding_id"),

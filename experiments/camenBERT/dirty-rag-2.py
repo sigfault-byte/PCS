@@ -21,12 +21,9 @@ result = subprocess.run(
         "jq",
         """
     [
-      limit(
-        100;
-        .turns[]
-        | select((.transcript_segment_ids | length) >= 3)
-        | .text
-      )
+    .turns[]
+    | select((.transcript_segment_ids | length) >= 3)
+    | .text
     ]
     """,
         "data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_01_turns.json",
@@ -222,7 +219,7 @@ print(
     f"Built {len(chunk_db)} chunks from {len(raw_texts)} speech segment for {text_len} chars"
 )
 
-QUERY = "Discussion santé mentale des enfants"
+QUERY = "Éducation chez les jeunes"
 K = 10
 
 print(f"Query is ''{QUERY}'' --- top-k retrived = ''{K}''")
