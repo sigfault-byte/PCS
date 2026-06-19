@@ -11,15 +11,21 @@ from assemblybot.models.document import CanonicalDocument
 from assemblybot.pyannote_config import PyannoteDiarizationConfig
 
 
-CROP_BOUNDARY_EPSILON_SECONDS = 1e-6
+# End-of-file diarization boundaries can round up inside pyannote's crop path.
+# The last second is rarely useful for stable speaker embeddings, and keeping
+# crop windows comfortably inside the file avoids fragile boundary failures.
+CROP_BOUNDARY_EPSILON_SECONDS = 1.0
+
+
+def max_embedding_crop_end(max_end: float) -> float:
+    if max_end > CROP_BOUNDARY_EPSILON_SECONDS:
+        return max_end - CROP_BOUNDARY_EPSILON_SECONDS
+    return max_end
 
 
 def clamp_segment(start: float, end: float, max_end: float) -> tuple[float, float]:
     """Clamp a segment to the valid audio range."""
-    safe_max_end = max_end
-    if max_end > CROP_BOUNDARY_EPSILON_SECONDS:
-        safe_max_end = max_end - CROP_BOUNDARY_EPSILON_SECONDS
-
+    safe_max_end = max_embedding_crop_end(max_end)
     start = min(max(0.0, start), safe_max_end)
     end = min(safe_max_end, end)
     if end < start:
@@ -40,6 +46,16 @@ def expand_segment_to_min_duration(
     This keeps the segment centered as much as possible while respecting
     audio boundaries.
     """
+    max_crop_end = max_embedding_crop_end(max_end)
+
+    if end > max_crop_end:
+        shift = end - max_crop_end
+        start -= shift
+        end = max_crop_end
+
+    if start < 0.0:
+        start = 0.0
+
     duration = end - start
     if duration >= min_duration:
         return clamp_segment(start, end, max_end)
@@ -55,10 +71,10 @@ def expand_segment_to_min_duration(
         new_end += -new_start
         new_start = 0.0
 
-    if new_end > max_end:
-        shift = new_end - max_end
+    if new_end > max_crop_end:
+        shift = new_end - max_crop_end
         new_start -= shift
-        new_end = max_end
+        new_end = max_crop_end
 
     if new_start < 0.0:
         new_start = 0.0
