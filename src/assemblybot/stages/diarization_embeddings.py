@@ -11,10 +11,17 @@ from assemblybot.models.document import CanonicalDocument
 from assemblybot.pyannote_config import PyannoteDiarizationConfig
 
 
+CROP_BOUNDARY_EPSILON_SECONDS = 1e-6
+
+
 def clamp_segment(start: float, end: float, max_end: float) -> tuple[float, float]:
     """Clamp a segment to the valid audio range."""
-    start = max(0.0, start)
-    end = min(max_end, end)
+    safe_max_end = max_end
+    if max_end > CROP_BOUNDARY_EPSILON_SECONDS:
+        safe_max_end = max_end - CROP_BOUNDARY_EPSILON_SECONDS
+
+    start = min(max(0.0, start), safe_max_end)
+    end = min(safe_max_end, end)
     if end < start:
         end = start
     return start, end
