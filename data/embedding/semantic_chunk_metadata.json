@@ -1,0 +1,13 @@
+{
+  "model_name": "h4c5/sts-camembert-base",
+  "dtype": "float32",
+  "normalize_embeddings": true,
+  "chunking_method": "semantic_delta_v1",
+  "delta_threshold": -0.1,
+  "min_words": 8,
+  "sentence_index_policy": "start inclusive, end exclusive",
+  "input_json_path": "/Users/sigfault/Documents/PCS/data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_per_extraction.json",
+  "output_dir": "/Users/sigfault/Documents/PCS/data/embedding",
+  "turn_embeddings_npz": "/Users/sigfault/Documents/PCS/data/embedding/turn_embeddings.npz",
+  "semantic_chunks_npz": "/Users/sigfault/Documents/PCS/data/embedding/semantic_chunks.npz"
+}

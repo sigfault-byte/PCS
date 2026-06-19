@@ -6,7 +6,7 @@ from collections import Counter, defaultdict
 from rapidfuzz import fuzz, process
 from transformers import pipeline
 
-file = "data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_01_turns.json"
+file = "data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_per_extraction.json"
 
 THRESHOLD = 0.8
 THRESHOLD2 = 80
@@ -104,6 +104,20 @@ for turn in turns:
                     "id": turn["turn_id"],
                 }
             )
+        if turn["speaker_id"] == "SPEAKER_55":
+            print("----SPEAKER_55-----")
+            print(f"Speaker_id = {turn['speaker_id']}")
+            print(
+                entities[-2]["entity"],
+                entities[-2]["normalized_name"],
+                entities[-2]["id"],
+            )
+            print(
+                entities[-1]["entity"],
+                entities[-1]["normalized_name"],
+                entities[-1]["id"],
+            )
+
 
 previous_speaker = 0
 next_speaker = 0

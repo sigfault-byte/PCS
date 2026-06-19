@@ -6,9 +6,11 @@ from assemblybot.stages.per_analysis import (
     CURRENT_SPEAKER_SOURCE_ASSEMBLY_CHAIR,
     CURRENT_SPEAKER_SOURCE_NEXT,
     CURRENT_SPEAKER_SOURCE_PREVIOUS,
+    CURRENT_SPEAKER_SOURCE_PROPAGATED,
     SpeakerPersonPrediction,
     build_mentioned_persons_by_turn,
     build_speaker_person_summary,
+    build_speaker_identity_evidence_by_turn,
     build_turn_analysis,
     collect_person_mentions,
     find_predicted_turn_id,
@@ -177,10 +179,34 @@ class PerAnalysisTest(unittest.TestCase):
         self.assertEqual(analyses[1].current_speaker, alice)
         self.assertEqual(
             analyses[1].current_speaker_source,
-            CURRENT_SPEAKER_SOURCE_NEXT,
+            CURRENT_SPEAKER_SOURCE_PROPAGATED,
         )
         self.assertEqual(analyses[1].current_speaker_purity, 1.0)
         self.assertEqual(analyses[1].mentioned_persons, [])
+
+        evidence_by_turn = build_speaker_identity_evidence_by_turn(turns, predictions)
+        analyses_with_evidence = build_turn_analysis(
+            turns,
+            summary,
+            {
+                1: [alice],
+                3: [alice],
+            },
+            evidence_by_turn,
+        )
+        self.assertEqual(
+            analyses_with_evidence[1].current_speaker_source,
+            CURRENT_SPEAKER_SOURCE_NEXT,
+        )
+        self.assertEqual(
+            analyses_with_evidence[1].speaker_identity_evidence[0].source,
+            CURRENT_SPEAKER_SOURCE_NEXT,
+        )
+        self.assertTrue(
+            analyses_with_evidence[1]
+            .speaker_identity_evidence[0]
+            .eligible_for_cluster_majority
+        )
 
     def test_adjacent_turn_fallback_matches_experiment(self) -> None:
         turns = [

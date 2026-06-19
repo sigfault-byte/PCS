@@ -2485,6 +2485,7 @@ dependencies = [
     { name = "silero-vad" },
     { name = "soundfile" },
     { name = "spacy" },
+    { name = "sqlalchemy" },
     { name = "torch" },
     { name = "transformers" },
 ]
@@ -2532,6 +2533,7 @@ requires-dist = [
     { name = "soundfile", specifier = ">=0.13.1" },
     { name = "soundfile", marker = "extra == 'inference'", specifier = ">=0.13.1" },
     { name = "spacy", specifier = ">=3.8.14" },
+    { name = "sqlalchemy", specifier = ">=2.0.0" },
     { name = "torch", specifier = ">=2.11.0" },
     { name = "torch", marker = "extra == 'inference'", specifier = ">=2.11.0" },
     { name = "torchcodec", marker = "extra == 'inference'", specifier = ">=0.11.0" },

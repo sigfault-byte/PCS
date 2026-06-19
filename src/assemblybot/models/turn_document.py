@@ -54,6 +54,39 @@ class PersonIdentity:
         )
 
 
+@dataclass(frozen=True)
+class SpeakerIdentityEvidence:
+    source: str
+    eligible_for_cluster_majority: bool
+    person: PersonIdentity
+    source_turn_id: int
+    target_turn_id: int
+    source_speaker_id: str | None
+    target_speaker_id: str | None
+    speaker_raw: str
+    speaker_normalized: str
+    match_score: float
+    is_known_person: bool
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any]) -> "SpeakerIdentityEvidence":
+        return cls(
+            source=data.get("source", ""),
+            eligible_for_cluster_majority=bool(
+                data.get("eligible_for_cluster_majority", False)
+            ),
+            person=PersonIdentity.from_dict(data.get("person", {})),
+            source_turn_id=data.get("source_turn_id", 0),
+            target_turn_id=data.get("target_turn_id", 0),
+            source_speaker_id=data.get("source_speaker_id"),
+            target_speaker_id=data.get("target_speaker_id"),
+            speaker_raw=data.get("speaker_raw", ""),
+            speaker_normalized=data.get("speaker_normalized", ""),
+            match_score=float(data.get("match_score", 0.0)),
+            is_known_person=bool(data.get("is_known_person", False)),
+        )
+
+
 @dataclass
 class TurnAnalysis:
     turn_id: int
@@ -62,6 +95,9 @@ class TurnAnalysis:
     current_speaker: PersonIdentity | None = None
     current_speaker_source: str | None = None
     current_speaker_purity: float | None = None
+    speaker_identity_evidence: list[SpeakerIdentityEvidence] = field(
+        default_factory=list
+    )
     mentioned_persons: list[PersonIdentity] = field(default_factory=list)
     organizations: list[str] = field(default_factory=list)
     locations: list[str] = field(default_factory=list)
@@ -84,6 +120,10 @@ class TurnAnalysis:
             ),
             current_speaker_source=data.get("current_speaker_source"),
             current_speaker_purity=data.get("current_speaker_purity", None),
+            speaker_identity_evidence=[
+                SpeakerIdentityEvidence.from_dict(item)
+                for item in data.get("speaker_identity_evidence", [])
+            ],
             mentioned_persons=[
                 PersonIdentity.from_dict(item)
                 for item in data.get("mentioned_persons", [])

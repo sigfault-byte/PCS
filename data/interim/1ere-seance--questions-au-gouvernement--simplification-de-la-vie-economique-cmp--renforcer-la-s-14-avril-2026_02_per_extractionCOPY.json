@@ -8516,26 +8516,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 1,
-          "target_turn_id": 1,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -8579,7 +8559,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -8597,26 +8576,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 3,
-          "target_turn_id": 3,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -8660,7 +8619,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": "minister:marie-pierre-verdrenne",
@@ -8685,26 +8643,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 5,
-          "target_turn_id": 5,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:laurent_nunez",
@@ -8727,28 +8665,8 @@
         "role": "Ministre de l'interieur",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:laurent_nunez",
-            "name": "Laurent Nunez",
-            "role": "Ministre de l'interieur",
-            "kind": "minister"
-          },
-          "source_turn_id": 5,
-          "target_turn_id": 6,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_21",
-          "speaker_raw": "Laurent Nunez",
-          "speaker_normalized": "laurent nunez",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:marie-pierre-verdrenne",
@@ -8773,26 +8691,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 7,
-          "target_turn_id": 7,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -8815,28 +8713,8 @@
         "role": null,
         "kind": "raw_per"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": null,
-            "name": "nicolas maisonneuve",
-            "role": null,
-            "kind": "raw_per"
-          },
-          "source_turn_id": 7,
-          "target_turn_id": 8,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_22",
-          "speaker_raw": "Nicolas Maisonneuve",
-          "speaker_normalized": "nicolas maisonneuve",
-          "match_score": 85.5,
-          "is_known_person": false
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -8854,26 +8732,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 9,
-          "target_turn_id": 9,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -8896,28 +8754,8 @@
         "role": null,
         "kind": "raw_per"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": null,
-            "name": "maude brejon",
-            "role": null,
-            "kind": "raw_per"
-          },
-          "source_turn_id": 9,
-          "target_turn_id": 10,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_37",
-          "speaker_raw": "Maude Bréjon",
-          "speaker_normalized": "maude brejon",
-          "match_score": 83.33333333333334,
-          "is_known_person": false
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -8942,26 +8780,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 11,
-          "target_turn_id": 11,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "720154",
@@ -8984,28 +8802,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "720154",
-            "name": "Nicole Dubré-Chirat",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 11,
-          "target_turn_id": 12,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_56",
-          "speaker_raw": "Nicole Dubré-Chirat",
-          "speaker_normalized": "nicole dubre-chirat",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "722190",
@@ -9030,26 +8828,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 13,
-          "target_turn_id": 13,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:jean-pierre-farandou",
@@ -9072,28 +8850,8 @@
         "role": "Ministre du Travail et des Solidarités",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:jean-pierre-farandou",
-            "name": "Jean-Pierre Farandou",
-            "role": "Ministre du Travail et des Solidarités",
-            "kind": "minister"
-          },
-          "source_turn_id": 13,
-          "target_turn_id": 14,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_48",
-          "speaker_raw": "Jean-Pierre Farandou",
-          "speaker_normalized": "jean-pierre farandou",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -9124,26 +8882,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 15,
-          "target_turn_id": 15,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "793736",
@@ -9166,28 +8904,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "793736",
-            "name": "Hadrien Clouet",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 15,
-          "target_turn_id": 16,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_49",
-          "speaker_raw": "Adrien Clouet",
-          "speaker_normalized": "adrien clouet",
-          "match_score": 96.2962962962963,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -9212,26 +8930,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 17,
-          "target_turn_id": 17,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:jean-pierre-farandou",
@@ -9254,28 +8952,8 @@
         "role": "Ministre du Travail et des Solidarités",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:jean-pierre-farandou",
-            "name": "Jean-Pierre Farandou",
-            "role": "Ministre du Travail et des Solidarités",
-            "kind": "minister"
-          },
-          "source_turn_id": 17,
-          "target_turn_id": 18,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_48",
-          "speaker_raw": "Jean-Pierre Farandou",
-          "speaker_normalized": "jean-pierre farandou",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -9313,7 +8991,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -9336,9 +9013,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -9356,26 +9032,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 21,
-          "target_turn_id": 21,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "335612",
@@ -9398,28 +9054,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "335612",
-            "name": "Jean-Paul Lecoq",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 21,
-          "target_turn_id": 22,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_18",
-          "speaker_raw": "Jean-Paul Lecoq",
-          "speaker_normalized": "jean-paul lecoq",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -9437,26 +9073,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 23,
-          "target_turn_id": 23,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -9479,28 +9095,8 @@
         "role": null,
         "kind": "raw_per"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": null,
-            "name": "jean-noel barraud",
-            "role": null,
-            "kind": "raw_per"
-          },
-          "source_turn_id": 23,
-          "target_turn_id": 24,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_28",
-          "speaker_raw": "Jean-Noël Barraud",
-          "speaker_normalized": "jean-noel barraud",
-          "match_score": 84.84848484848484,
-          "is_known_person": false
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "335612",
@@ -9525,26 +9121,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 25,
-          "target_turn_id": 25,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -9567,28 +9143,8 @@
         "role": null,
         "kind": "raw_per"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": null,
-            "name": "alexandra masson",
-            "role": null,
-            "kind": "raw_per"
-          },
-          "source_turn_id": 25,
-          "target_turn_id": 26,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_05",
-          "speaker_raw": "Alexandra Masson",
-          "speaker_normalized": "alexandra masson",
-          "match_score": 85.5,
-          "is_known_person": false
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -9625,26 +9181,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 27,
-          "target_turn_id": 27,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:laurent_nunez",
@@ -9667,28 +9203,8 @@
         "role": "Ministre de l'interieur",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:laurent_nunez",
-            "name": "Laurent Nunez",
-            "role": "Ministre de l'interieur",
-            "kind": "minister"
-          },
-          "source_turn_id": 27,
-          "target_turn_id": 28,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_21",
-          "speaker_raw": "Laurent Nunez",
-          "speaker_normalized": "laurent nunez",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -9704,9 +9220,8 @@
         "role": null,
         "kind": "raw_per"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -9724,26 +9239,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 30,
-          "target_turn_id": 30,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "840175",
@@ -9763,7 +9258,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": "643192",
@@ -9788,26 +9282,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 32,
-          "target_turn_id": 32,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:edouard-geffray",
@@ -9830,28 +9304,8 @@
         "role": "Ministre de l’Éducation nationale",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:edouard-geffray",
-            "name": "Édouard Geffray",
-            "role": "Ministre de l’Éducation nationale",
-            "kind": "minister"
-          },
-          "source_turn_id": 32,
-          "target_turn_id": 33,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_44",
-          "speaker_raw": "Edouard Geffray",
-          "speaker_normalized": "edouard geffray",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -9876,26 +9330,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 34,
-          "target_turn_id": 34,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -9918,28 +9352,8 @@
         "role": null,
         "kind": "raw_per"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": null,
-            "name": "jean claudreau",
-            "role": null,
-            "kind": "raw_per"
-          },
-          "source_turn_id": 34,
-          "target_turn_id": 35,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_27",
-          "speaker_raw": "Jean Claudreau",
-          "speaker_normalized": "jean claudreau",
-          "match_score": 80.0,
-          "is_known_person": false
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -9964,26 +9378,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 36,
-          "target_turn_id": 36,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:stephanie-rist",
@@ -10006,28 +9400,8 @@
         "role": "Ministre déléguée auprès du ministre de l’Europe et des Affaires étrangères, chargée de la Francophonie, des Partenariats internationaux et des Français de l’étranger",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:stephanie-rist",
-            "name": "Stéphanie Rist",
-            "role": "Ministre déléguée auprès du ministre de l’Europe et des Affaires étrangères, chargée de la Francophonie, des Partenariats internationaux et des Français de l’étranger",
-            "kind": "minister"
-          },
-          "source_turn_id": 36,
-          "target_turn_id": 37,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_39",
-          "speaker_raw": "Stéphanie Rist",
-          "speaker_normalized": "stephanie rist",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "794154",
@@ -10058,26 +9432,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 38,
-          "target_turn_id": 38,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "840701",
@@ -10100,28 +9454,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "840701",
-            "name": "Bernard Chaix",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 38,
-          "target_turn_id": 39,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_14",
-          "speaker_raw": "Bernard Chex",
-          "speaker_normalized": "bernard chex",
-          "match_score": 88.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -10146,26 +9480,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 40,
-          "target_turn_id": 40,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:jean-pierre-farandou",
@@ -10188,28 +9502,8 @@
         "role": "Ministre du Travail et des Solidarités",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:jean-pierre-farandou",
-            "name": "Jean-Pierre Farandou",
-            "role": "Ministre du Travail et des Solidarités",
-            "kind": "minister"
-          },
-          "source_turn_id": 40,
-          "target_turn_id": 41,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_48",
-          "speaker_raw": "Jean-Pierre Farandou",
-          "speaker_normalized": "jean-pierre farandou",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -10227,26 +9521,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 42,
-          "target_turn_id": 42,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "842187",
@@ -10269,28 +9543,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "842187",
-            "name": "Gabrielle Cathala",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 42,
-          "target_turn_id": 43,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_12",
-          "speaker_raw": "Gabrielle Catala",
-          "speaker_normalized": "gabrielle catala",
-          "match_score": 96.96969696969697,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -10351,26 +9605,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 44,
-          "target_turn_id": 44,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:aurore_berge",
@@ -10390,7 +9624,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -10413,28 +9646,8 @@
         "role": "Ministre déléguée auprès du Premier ministre, chargée de l'Égalité entre les femmes et les hommes et de la Lutte contre les discriminations",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:aurore_berge",
-            "name": "Aurore Bergé",
-            "role": "Ministre déléguée auprès du Premier ministre, chargée de l'Égalité entre les femmes et les hommes et de la Lutte contre les discriminations",
-            "kind": "minister"
-          },
-          "source_turn_id": 44,
-          "target_turn_id": 46,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_33",
-          "speaker_raw": "Aurore Berger",
-          "speaker_normalized": "aurore berger",
-          "match_score": 96.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -10452,26 +9665,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 47,
-          "target_turn_id": 47,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "721474",
@@ -10500,28 +9693,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "721474",
-            "name": "Stéphane Viry",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 47,
-          "target_turn_id": 48,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_10",
-          "speaker_raw": "Stéphane Viry",
-          "speaker_normalized": "stephane viry",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -10546,26 +9719,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 49,
-          "target_turn_id": 49,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:david-amiel",
@@ -10588,28 +9741,8 @@
         "role": "Ministre de l’Action et des Comptes publics",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:david-amiel",
-            "name": "David Amiel",
-            "role": "Ministre de l’Action et des Comptes publics",
-            "kind": "minister"
-          },
-          "source_turn_id": 49,
-          "target_turn_id": 50,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_52",
-          "speaker_raw": "David Amiel",
-          "speaker_normalized": "david amiel",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -10640,26 +9773,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 51,
-          "target_turn_id": 51,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "605782",
@@ -10682,28 +9795,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "605782",
-            "name": "Laurent Marcangeli",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 51,
-          "target_turn_id": 52,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_26",
-          "speaker_raw": "Laurent Marcangeli",
-          "speaker_normalized": "laurent marcangeli",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -10723,7 +9816,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -10736,7 +9828,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -10773,26 +9864,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 55,
-          "target_turn_id": 55,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -10815,28 +9886,8 @@
         "role": null,
         "kind": "raw_per"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": null,
-            "name": "aurelien lopez ligaurie",
-            "role": null,
-            "kind": "raw_per"
-          },
-          "source_turn_id": 55,
-          "target_turn_id": 56,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_57",
-          "speaker_raw": "Aurélien Lopez Ligaurie",
-          "speaker_normalized": "aurelien lopez ligaurie",
-          "match_score": 85.5,
-          "is_known_person": false
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -10854,26 +9905,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 57,
-          "target_turn_id": 57,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:edouard-geffray",
@@ -10896,28 +9927,8 @@
         "role": "Ministre de l’Éducation nationale",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:edouard-geffray",
-            "name": "Édouard Geffray",
-            "role": "Ministre de l’Éducation nationale",
-            "kind": "minister"
-          },
-          "source_turn_id": 57,
-          "target_turn_id": 58,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_44",
-          "speaker_raw": "Édouard Geffray",
-          "speaker_normalized": "edouard geffray",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -10942,26 +9953,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 59,
-          "target_turn_id": 59,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "722390",
@@ -10984,28 +9975,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "722390",
-            "name": "Josiane Corneloup",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 59,
-          "target_turn_id": 60,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_63",
-          "speaker_raw": "Josiane Corneloup",
-          "speaker_normalized": "josiane corneloup",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -11023,26 +9994,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 61,
-          "target_turn_id": 61,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:edouard-geffray",
@@ -11065,28 +10016,8 @@
         "role": "Ministre de l’Éducation nationale",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:edouard-geffray",
-            "name": "Édouard Geffray",
-            "role": "Ministre de l’Éducation nationale",
-            "kind": "minister"
-          },
-          "source_turn_id": 61,
-          "target_turn_id": 62,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_44",
-          "speaker_raw": "Edouard Geffray",
-          "speaker_normalized": "edouard geffray",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -11111,26 +10042,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 63,
-          "target_turn_id": 63,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "841665",
@@ -11153,28 +10064,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "841665",
-            "name": "Denis Fégné",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 63,
-          "target_turn_id": 64,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_11",
-          "speaker_raw": "Denis Feignet",
-          "speaker_normalized": "denis feignet",
-          "match_score": 91.66666666666666,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "794038",
@@ -11211,26 +10102,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 65,
-          "target_turn_id": 65,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:stephanie-rist",
@@ -11253,28 +10124,8 @@
         "role": "Ministre déléguée auprès du ministre de l’Europe et des Affaires étrangères, chargée de la Francophonie, des Partenariats internationaux et des Français de l’étranger",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:stephanie-rist",
-            "name": "Stéphanie Rist",
-            "role": "Ministre déléguée auprès du ministre de l’Europe et des Affaires étrangères, chargée de la Francophonie, des Partenariats internationaux et des Français de l’étranger",
-            "kind": "minister"
-          },
-          "source_turn_id": 65,
-          "target_turn_id": 66,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_39",
-          "speaker_raw": "Stéphanie Riste",
-          "speaker_normalized": "stephanie riste",
-          "match_score": 96.55172413793103,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -11317,26 +10168,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 67,
-          "target_turn_id": 67,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "795954",
@@ -11359,28 +10190,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "795954",
-            "name": "Catherine Ibled",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 67,
-          "target_turn_id": 68,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_01",
-          "speaker_raw": "Catherine Hiblé",
-          "speaker_normalized": "catherine hible",
-          "match_score": 93.33333333333333,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "794486",
@@ -11405,26 +10216,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 69,
-          "target_turn_id": 69,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:edouard-geffray",
@@ -11447,28 +10238,8 @@
         "role": "Ministre de l’Éducation nationale",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:edouard-geffray",
-            "name": "Édouard Geffray",
-            "role": "Ministre de l’Éducation nationale",
-            "kind": "minister"
-          },
-          "source_turn_id": 69,
-          "target_turn_id": 70,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_44",
-          "speaker_raw": "Edouard Geffray",
-          "speaker_normalized": "edouard geffray",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:marina-ferrari",
@@ -11493,26 +10264,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 71,
-          "target_turn_id": 71,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "794778",
@@ -11535,28 +10286,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "794778",
-            "name": "Sandra Regol",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 71,
-          "target_turn_id": 72,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_04",
-          "speaker_raw": "Sandra Regol",
-          "speaker_normalized": "sandra regol",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -11581,26 +10312,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 73,
-          "target_turn_id": 73,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_40",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:aurore_berge",
@@ -11623,28 +10334,8 @@
         "role": "Ministre déléguée auprès du Premier ministre, chargée de l'Égalité entre les femmes et les hommes et de la Lutte contre les discriminations",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:aurore_berge",
-            "name": "Aurore Bergé",
-            "role": "Ministre déléguée auprès du Premier ministre, chargée de l'Égalité entre les femmes et les hommes et de la Lutte contre les discriminations",
-            "kind": "minister"
-          },
-          "source_turn_id": 73,
-          "target_turn_id": 74,
-          "source_speaker_id": "SPEAKER_40",
-          "target_speaker_id": "SPEAKER_33",
-          "speaker_raw": "Aurore Berger",
-          "speaker_normalized": "aurore berger",
-          "match_score": 96.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -11667,9 +10358,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -11682,7 +10372,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -11700,26 +10389,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 77,
-          "target_turn_id": 77,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "721486",
@@ -11742,28 +10411,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "721486",
-            "name": "Christophe Naegelen",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 77,
-          "target_turn_id": 78,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_17",
-          "speaker_raw": "Christophe Neigelen",
-          "speaker_normalized": "christophe neigelen",
-          "match_score": 94.73684210526316,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -11788,26 +10437,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 79,
-          "target_turn_id": 79,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "607395",
@@ -11830,28 +10459,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "607395",
-            "name": "Stéphane Travert",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 79,
-          "target_turn_id": 80,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_53",
-          "speaker_raw": "Stéphane Travers",
-          "speaker_normalized": "stephane travers",
-          "match_score": 93.75,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -11869,26 +10478,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 81,
-          "target_turn_id": 81,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:serge-papin",
@@ -11911,28 +10500,8 @@
         "role": "Ministre des Petites et moyennes entreprises, du Commerce, de l’Artisanat, du Tourisme et du Pouvoir d’achat",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:serge-papin",
-            "name": "Serge Papin",
-            "role": "Ministre des Petites et moyennes entreprises, du Commerce, de l’Artisanat, du Tourisme et du Pouvoir d’achat",
-            "kind": "minister"
-          },
-          "source_turn_id": 81,
-          "target_turn_id": 82,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_43",
-          "speaker_raw": "Serge Papin",
-          "speaker_normalized": "serge papin",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -11969,26 +10538,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 83,
-          "target_turn_id": 83,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "minister:mathieu-lefevre",
@@ -12011,28 +10560,8 @@
         "role": "Ministre délégué auprès de la ministre de la Transition écologique, de la Biodiversité et des Négociations internationales sur le climat et la nature, chargé de la Transition écologique",
         "kind": "minister"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "minister:mathieu-lefevre",
-            "name": "Mathieu Lefèvre",
-            "role": "Ministre délégué auprès de la ministre de la Transition écologique, de la Biodiversité et des Négociations internationales sur le climat et la nature, chargé de la Transition écologique",
-            "kind": "minister"
-          },
-          "source_turn_id": 83,
-          "target_turn_id": 84,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_24",
-          "speaker_raw": "Mathieu Lefebvre",
-          "speaker_normalized": "mathieu lefebvre",
-          "match_score": 96.7741935483871,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -12075,26 +10604,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 85,
-          "target_turn_id": 85,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "719930",
@@ -12123,28 +10632,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "774958",
-            "name": "Gérard Leseul",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 85,
-          "target_turn_id": 86,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_09",
-          "speaker_raw": "Gérard Leseul",
-          "speaker_normalized": "gerard leseul",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -12176,7 +10665,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -12192,9 +10680,8 @@
         "role": null,
         "kind": "raw_per"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": "774958",
@@ -12226,7 +10713,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -12246,7 +10732,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -12283,26 +10768,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 91,
-          "target_turn_id": 91,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "840773",
@@ -12325,28 +10790,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "840773",
-            "name": "Olivier Fayssat",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 91,
-          "target_turn_id": 92,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_19",
-          "speaker_raw": "Olivier Fessa",
-          "speaker_normalized": "olivier fessa",
-          "match_score": 85.71428571428572,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -12364,26 +10809,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 93,
-          "target_turn_id": 93,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "841955",
@@ -12406,28 +10831,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "841955",
-            "name": "Matthias Renault",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 93,
-          "target_turn_id": 94,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_25",
-          "speaker_raw": "Mathias Renault",
-          "speaker_normalized": "mathias renault",
-          "match_score": 96.7741935483871,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -12445,26 +10850,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 95,
-          "target_turn_id": 95,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "721852",
@@ -12487,28 +10872,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "721852",
-            "name": "Marie Lebec",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 95,
-          "target_turn_id": 96,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_62",
-          "speaker_raw": "Marie Lebec",
-          "speaker_normalized": "marie lebec",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -12526,26 +10891,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 97,
-          "target_turn_id": 97,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "842029",
@@ -12568,28 +10913,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "842029",
-            "name": "Claire Lejeune",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 97,
-          "target_turn_id": 98,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_35",
-          "speaker_raw": "Claire Lejeune",
-          "speaker_normalized": "claire lejeune",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -12614,26 +10939,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 99,
-          "target_turn_id": 99,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "840765",
@@ -12656,28 +10961,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "840765",
-            "name": "Laurent Lhardit",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 99,
-          "target_turn_id": 100,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_54",
-          "speaker_raw": "Laurent Lardi",
-          "speaker_normalized": "laurent lardi",
-          "match_score": 92.85714285714286,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -12695,26 +10980,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 101,
-          "target_turn_id": 101,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -12737,28 +11002,8 @@
         "role": null,
         "kind": "raw_per"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": null,
-            "name": "elisabeth lucot",
-            "role": null,
-            "kind": "raw_per"
-          },
-          "source_turn_id": 101,
-          "target_turn_id": 102,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_42",
-          "speaker_raw": "Elisabeth Lucot",
-          "speaker_normalized": "elisabeth lucot",
-          "match_score": 74.07407407407408,
-          "is_known_person": false
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -12783,26 +11028,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 103,
-          "target_turn_id": 103,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "719914",
@@ -12825,28 +11050,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "719914",
-            "name": "Geneviève Darrieussecq",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 103,
-          "target_turn_id": 104,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_34",
-          "speaker_raw": "Geneviève Dariussecq",
-          "speaker_normalized": "genevieve dariussecq",
-          "match_score": 95.23809523809523,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -12871,26 +11076,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 105,
-          "target_turn_id": 105,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "842125",
@@ -12913,28 +11098,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "842125",
-            "name": "Thomas Lam",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 105,
-          "target_turn_id": 106,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_46",
-          "speaker_raw": "Thomas Lahm",
-          "speaker_normalized": "thomas lahm",
-          "match_score": 95.23809523809523,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -12952,26 +11117,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 107,
-          "target_turn_id": 107,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -12984,7 +11129,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": "842271",
@@ -13004,7 +11148,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -13017,7 +11160,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -13030,7 +11172,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -13043,7 +11184,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -13068,26 +11208,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 113,
-          "target_turn_id": 113,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "840773",
@@ -13110,28 +11230,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "840773",
-            "name": "Olivier Fayssat",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 113,
-          "target_turn_id": 114,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_19",
-          "speaker_raw": "Olivier Fessa",
-          "speaker_normalized": "olivier fessa",
-          "match_score": 85.71428571428572,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -13149,26 +11249,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 115,
-          "target_turn_id": 115,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "793852",
@@ -13191,28 +11271,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "793852",
-            "name": "Pierre Meurin",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 115,
-          "target_turn_id": 116,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_58",
-          "speaker_raw": "Pierre Meurin",
-          "speaker_normalized": "pierre meurin",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -13249,26 +11309,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 117,
-          "target_turn_id": 117,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "721852",
@@ -13291,28 +11331,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "721852",
-            "name": "Marie Lebec",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 117,
-          "target_turn_id": 118,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_62",
-          "speaker_raw": "Marie Lebec",
-          "speaker_normalized": "marie lebec",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -13337,26 +11357,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 119,
-          "target_turn_id": 119,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -13379,28 +11379,8 @@
         "role": null,
         "kind": "raw_per"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": null,
-            "name": "anne stenbach",
-            "role": null,
-            "kind": "raw_per"
-          },
-          "source_turn_id": 119,
-          "target_turn_id": 120,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_23",
-          "speaker_raw": "Anne Stenbach",
-          "speaker_normalized": "anne stenbach",
-          "match_score": 85.5,
-          "is_known_person": false
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -13425,26 +11405,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 121,
-          "target_turn_id": 121,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "840765",
@@ -13467,28 +11427,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "840765",
-            "name": "Laurent Lhardit",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 121,
-          "target_turn_id": 122,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_54",
-          "speaker_raw": "Laurent Lardi",
-          "speaker_normalized": "laurent lardi",
-          "match_score": 92.85714285714286,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -13506,26 +11446,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 123,
-          "target_turn_id": 123,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -13548,28 +11468,8 @@
         "role": null,
         "kind": "raw_per"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": null,
-            "name": "yann boucard",
-            "role": null,
-            "kind": "raw_per"
-          },
-          "source_turn_id": 123,
-          "target_turn_id": 124,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_51",
-          "speaker_raw": "Yann Boucard",
-          "speaker_normalized": "yann boucard",
-          "match_score": 86.95652173913044,
-          "is_known_person": false
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -13601,7 +11501,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -13624,9 +11523,8 @@
         "role": null,
         "kind": "raw_per"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -13639,7 +11537,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": "794810",
@@ -13659,7 +11556,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -13690,26 +11586,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 129,
-          "target_turn_id": 129,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "842125",
@@ -13732,28 +11608,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "842125",
-            "name": "Thomas Lam",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 129,
-          "target_turn_id": 130,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_46",
-          "speaker_raw": "Thomas Lahm",
-          "speaker_normalized": "thomas lahm",
-          "match_score": 95.23809523809523,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -13790,26 +11646,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 131,
-          "target_turn_id": 131,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "841931",
@@ -13835,7 +11671,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -13851,28 +11686,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "841931",
-            "name": "Laurent Mazaury",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 131,
-          "target_turn_id": 133,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_20",
-          "speaker_raw": "Laurent Mazory",
-          "speaker_normalized": "laurent mazory",
-          "match_score": 89.65517241379311,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -13885,7 +11700,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -13901,9 +11715,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -13923,7 +11736,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -13939,9 +11751,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -13954,7 +11765,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -13977,9 +11787,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -13992,7 +11801,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14008,9 +11816,8 @@
         "role": "Ministre délégué auprès de la ministre de la Transition écologique, de la Biodiversité et des Négociations internationales sur le climat et la nature, chargé de la Transition écologique",
         "kind": "minister"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14028,26 +11835,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 142,
-          "target_turn_id": 142,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14063,9 +11850,8 @@
         "role": "Ministre délégué auprès de la ministre de la Transition écologique, de la Biodiversité et des Négociations internationales sur le climat et la nature, chargé de la Transition écologique",
         "kind": "minister"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14078,7 +11864,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14094,9 +11879,8 @@
         "role": "Ministre délégué auprès de la ministre de la Transition écologique, de la Biodiversité et des Négociations internationales sur le climat et la nature, chargé de la Transition écologique",
         "kind": "minister"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -14122,7 +11906,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14138,9 +11921,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14153,7 +11935,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -14176,9 +11957,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14191,7 +11971,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -14214,9 +11993,8 @@
         "role": null,
         "kind": "raw_per"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14229,7 +12007,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -14249,7 +12026,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14267,26 +12043,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 154,
-          "target_turn_id": 154,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -14309,9 +12065,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14324,7 +12079,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": "795864",
@@ -14344,7 +12098,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14357,7 +12110,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14370,7 +12122,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -14401,26 +12152,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 160,
-          "target_turn_id": 160,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14433,7 +12164,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14446,7 +12176,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -14466,7 +12195,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14482,9 +12210,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14502,26 +12229,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 165,
-          "target_turn_id": 165,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14534,7 +12241,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14547,7 +12253,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14565,26 +12270,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 168,
-          "target_turn_id": 168,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "687214",
@@ -14604,7 +12289,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14622,26 +12306,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 170,
-          "target_turn_id": 170,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "841931",
@@ -14664,28 +12328,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "841931",
-            "name": "Laurent Mazaury",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 170,
-          "target_turn_id": 171,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_20",
-          "speaker_raw": "Laurent Mazory",
-          "speaker_normalized": "laurent mazory",
-          "match_score": 89.65517241379311,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -14728,26 +12372,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 172,
-          "target_turn_id": 172,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "721896",
@@ -14770,28 +12394,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "721896",
-            "name": "Elsa Faucillon",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 172,
-          "target_turn_id": 173,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_03",
-          "speaker_raw": "Elsa Faucillon",
-          "speaker_normalized": "elsa faucillon",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14809,26 +12413,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 174,
-          "target_turn_id": 174,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "840773",
@@ -14851,28 +12435,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "840773",
-            "name": "Olivier Fayssat",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 174,
-          "target_turn_id": 175,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_19",
-          "speaker_raw": "Olivier Fessa",
-          "speaker_normalized": "olivier fessa",
-          "match_score": 85.71428571428572,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -14890,26 +12454,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 176,
-          "target_turn_id": 176,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "794502",
@@ -14932,28 +12476,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "794502",
-            "name": "Michaël Taverne",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 176,
-          "target_turn_id": 177,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_61",
-          "speaker_raw": "Michael Taverne",
-          "speaker_normalized": "michael taverne",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -14996,26 +12520,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 178,
-          "target_turn_id": 178,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": "643175",
@@ -15038,28 +12542,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "chair_next_speaker_call",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "643175",
-            "name": "Stella Dupont",
-            "role": "Député",
-            "kind": "deputy"
-          },
-          "source_turn_id": 178,
-          "target_turn_id": 179,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_02",
-          "speaker_raw": "Stella Dupont",
-          "speaker_normalized": "stella dupont",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [
         {
           "id": null,
@@ -15079,7 +12563,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -15092,7 +12575,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15136,7 +12618,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -15152,9 +12633,8 @@
         "role": "Ministre de l'interieur",
         "kind": "minister"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": "795746",
@@ -15192,7 +12672,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15212,7 +12691,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15232,7 +12710,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15252,7 +12729,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -15265,7 +12741,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15285,7 +12760,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -15298,7 +12772,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15318,7 +12791,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15344,7 +12816,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -15357,7 +12828,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15377,7 +12847,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15403,7 +12872,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15429,7 +12897,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15452,9 +12919,8 @@
         "role": "Député",
         "kind": "deputy"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15474,7 +12940,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15494,7 +12959,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15520,7 +12984,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15540,7 +13003,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -15553,7 +13015,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -15566,7 +13027,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -15579,7 +13039,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -15595,9 +13054,8 @@
         "role": "Ministre de l'interieur",
         "kind": "minister"
       },
-      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_source": "inferred_from_next_speaker",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15617,7 +13075,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -15630,7 +13087,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15650,7 +13106,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15682,7 +13137,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15708,7 +13162,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [
         {
           "id": null,
@@ -15728,7 +13181,6 @@
       "current_speaker": null,
       "current_speaker_source": null,
       "current_speaker_purity": null,
-      "speaker_identity_evidence": [],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -15746,26 +13198,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 212,
-          "target_turn_id": 212,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],
@@ -15783,26 +13215,6 @@
       },
       "current_speaker_source": "hardcoded_assembly_chair",
       "current_speaker_purity": 1.0,
-      "speaker_identity_evidence": [
-        {
-          "source": "hardcoded_assembly_chair",
-          "eligible_for_cluster_majority": true,
-          "person": {
-            "id": "assembly_chair:yael-braun-pivet",
-            "name": "Yaël Braun-Pivet",
-            "role": "Présidente de l'Assemblée nationale",
-            "kind": "assembly_chair"
-          },
-          "source_turn_id": 213,
-          "target_turn_id": 213,
-          "source_speaker_id": "SPEAKER_36",
-          "target_speaker_id": "SPEAKER_36",
-          "speaker_raw": "Yaël Braun-Pivet",
-          "speaker_normalized": "yael braun-pivet",
-          "match_score": 100.0,
-          "is_known_person": true
-        }
-      ],
       "mentioned_persons": [],
       "organizations": [],
       "locations": [],

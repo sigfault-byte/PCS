@@ -9,6 +9,7 @@ from assemblybot.stages.per_analysis import (
     NERCallable,
     build_mentioned_persons_by_turn,
     build_speaker_person_summary,
+    build_speaker_identity_evidence_by_turn,
     build_turn_analysis,
     collect_person_mentions,
     predict_person_turns,
@@ -67,6 +68,10 @@ def enrich_turn_document(
     mentions = collect_person_mentions(document.turns, ner)
     predictions = predict_person_turns(document.turns, mentions, known_people)
     speaker_summary = build_speaker_person_summary(document.turns, predictions)
+    speaker_identity_evidence_by_turn = build_speaker_identity_evidence_by_turn(
+        document.turns,
+        predictions,
+    )
     mentioned_persons_by_turn = build_mentioned_persons_by_turn(
         mentions,
         known_people,
@@ -78,6 +83,7 @@ def enrich_turn_document(
             document.turns,
             speaker_summary,
             mentioned_persons_by_turn,
+            speaker_identity_evidence_by_turn,
         ),
     )
 

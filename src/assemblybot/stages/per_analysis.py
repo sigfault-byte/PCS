@@ -2,7 +2,12 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass
 from typing import Any, Callable
 
-from assemblybot.models.turn_document import PersonIdentity, Turn, TurnAnalysis
+from assemblybot.models.turn_document import (
+    PersonIdentity,
+    SpeakerIdentityEvidence,
+    Turn,
+    TurnAnalysis,
+)
 from assemblybot.stages.per_identity import (
     KnownPerson,
     PersonResolution,
@@ -16,9 +21,11 @@ SENTENCE_BOUNDARY_CHARS = ".?!"
 SPEAKER_SEARCH_WINDOW = 5
 NEXT_SPEAKER_WEIGHT = 2
 PREVIOUS_SPEAKER_WEIGHT = 1
-CURRENT_SPEAKER_SOURCE_NEXT = "inferred_from_next_speaker"
+CURRENT_SPEAKER_SOURCE_CHAIR_NEXT_CALL = "chair_next_speaker_call"
+CURRENT_SPEAKER_SOURCE_NEXT = CURRENT_SPEAKER_SOURCE_CHAIR_NEXT_CALL
 CURRENT_SPEAKER_SOURCE_PREVIOUS = "inferred_from_previous_speaker"
 CURRENT_SPEAKER_SOURCE_ASSEMBLY_CHAIR = "hardcoded_assembly_chair"
+CURRENT_SPEAKER_SOURCE_PROPAGATED = "propagated_from_speaker_cluster"
 ASSEMBLY_CHAIR_IDENTITY = PersonIdentity(
     id="assembly_chair:yael-braun-pivet",
     name="Yaël Braun-Pivet",
@@ -164,8 +171,21 @@ def anchor_weight(role: str) -> int:
 
 def current_speaker_source(role: str) -> str:
     if role == "probable_next_speaker":
-        return CURRENT_SPEAKER_SOURCE_NEXT
+        return CURRENT_SPEAKER_SOURCE_CHAIR_NEXT_CALL
     return CURRENT_SPEAKER_SOURCE_PREVIOUS
+
+
+def prediction_evidence_source(
+    prediction: SpeakerPersonPrediction,
+    source_turn: Turn,
+) -> tuple[str, bool]:
+    if (
+        prediction.role == "probable_next_speaker"
+        and is_assembly_chair_turn(source_turn.text)
+    ):
+        return CURRENT_SPEAKER_SOURCE_CHAIR_NEXT_CALL, True
+
+    return current_speaker_source(prediction.role), False
 
 
 def collect_person_mentions(
@@ -340,15 +360,17 @@ def build_speaker_person_summary(
 
     for prediction in predictions:
         turn = turns_by_id.get(prediction.predicted_turn_id)
+        source_turn = turns_by_id.get(prediction.source_turn_id)
 
-        if turn is None or turn.speaker_id is None:
+        if turn is None or turn.speaker_id is None or source_turn is None:
             continue
 
+        source, _ = prediction_evidence_source(prediction, source_turn)
         identities_by_key[prediction.identity_key] = prediction.resolution.identity
         matrix[turn.speaker_id][prediction.identity_key] += prediction.weight
-        source_matrix[turn.speaker_id][prediction.identity_key][
-            current_speaker_source(prediction.role)
-        ] += prediction.weight
+        source_matrix[turn.speaker_id][prediction.identity_key][source] += (
+            prediction.weight
+        )
 
     speaker_id_to_person: dict[str, dict[str, float | int | str | PersonIdentity]] = {}
 
@@ -360,7 +382,7 @@ def build_speaker_person_summary(
             source_counts,
             key=lambda item: (
                 source_counts[item],
-                item == CURRENT_SPEAKER_SOURCE_NEXT,
+                item == CURRENT_SPEAKER_SOURCE_CHAIR_NEXT_CALL,
             ),
         )
         speaker_id_to_person[speaker_id] = {
@@ -374,15 +396,79 @@ def build_speaker_person_summary(
     return speaker_id_to_person
 
 
+def build_speaker_identity_evidence_by_turn(
+    turns: list[Turn],
+    predictions: list[SpeakerPersonPrediction],
+) -> dict[int, list[SpeakerIdentityEvidence]]:
+    evidence_by_turn: defaultdict[int, list[SpeakerIdentityEvidence]] = defaultdict(list)
+    turns_by_id = {turn.turn_id: turn for turn in turns}
+
+    for prediction in predictions:
+        source_turn = turns_by_id.get(prediction.source_turn_id)
+        target_turn = turns_by_id.get(prediction.predicted_turn_id)
+
+        if source_turn is None or target_turn is None:
+            continue
+
+        source, eligible = prediction_evidence_source(prediction, source_turn)
+        evidence_by_turn[target_turn.turn_id].append(
+            SpeakerIdentityEvidence(
+                source=source,
+                eligible_for_cluster_majority=eligible,
+                person=prediction.resolution.identity,
+                source_turn_id=source_turn.turn_id,
+                target_turn_id=target_turn.turn_id,
+                source_speaker_id=source_turn.speaker_id,
+                target_speaker_id=target_turn.speaker_id,
+                speaker_raw=prediction.speaker_raw,
+                speaker_normalized=prediction.speaker_normalized,
+                match_score=prediction.resolution.match_score,
+                is_known_person=prediction.resolution.is_known_person,
+            )
+        )
+
+    return dict(evidence_by_turn)
+
+
+def choose_current_speaker_from_evidence(
+    evidence: list[SpeakerIdentityEvidence],
+) -> tuple[PersonIdentity, str, float]:
+    matrix: Counter[tuple[str, str | None, str]] = Counter()
+    source_matrix: defaultdict[tuple[str, str | None, str], Counter[str]] = defaultdict(
+        Counter
+    )
+    identities_by_key: dict[tuple[str, str | None, str], PersonIdentity] = {}
+
+    for item in evidence:
+        identity_key = (item.person.kind, item.person.id, item.person.name)
+        identities_by_key[identity_key] = item.person
+        matrix[identity_key] += 1
+        source_matrix[identity_key][item.source] += 1
+
+    identity_key, count = matrix.most_common(1)[0]
+    total = sum(matrix.values())
+    source_counts = source_matrix[identity_key]
+    source = source_counts.most_common(1)[0][0]
+
+    return identities_by_key[identity_key], source, count / total
+
+
 def build_turn_analysis(
     turns: list[Turn],
     speaker_id_to_person: dict[str, dict[str, float | int | str | PersonIdentity]],
     mentioned_persons_by_turn: dict[int, list[PersonIdentity]],
+    speaker_identity_evidence_by_turn: dict[int, list[SpeakerIdentityEvidence]]
+    | None = None,
 ) -> list[TurnAnalysis]:
     turns_analysis: list[TurnAnalysis] = []
+    speaker_identity_evidence_by_turn = speaker_identity_evidence_by_turn or {}
 
     for turn in turns:
         mentioned_persons = mentioned_persons_by_turn.get(turn.turn_id, [])
+        speaker_identity_evidence = speaker_identity_evidence_by_turn.get(
+            turn.turn_id,
+            [],
+        )
         hardcoded_current_speaker = (
             ASSEMBLY_CHAIR_IDENTITY if is_assembly_chair_turn(turn.text) else None
         )
@@ -393,12 +479,44 @@ def build_turn_analysis(
         )
 
         if hardcoded_current_speaker is not None:
+            hardcoded_evidence = [
+                SpeakerIdentityEvidence(
+                    source=CURRENT_SPEAKER_SOURCE_ASSEMBLY_CHAIR,
+                    eligible_for_cluster_majority=True,
+                    person=hardcoded_current_speaker,
+                    source_turn_id=turn.turn_id,
+                    target_turn_id=turn.turn_id,
+                    source_speaker_id=turn.speaker_id,
+                    target_speaker_id=turn.speaker_id,
+                    speaker_raw=hardcoded_current_speaker.name,
+                    speaker_normalized=normalize_name(hardcoded_current_speaker.name),
+                    match_score=100.0,
+                    is_known_person=True,
+                )
+            ]
             turns_analysis.append(
                 TurnAnalysis(
                     turn_id=turn.turn_id,
                     current_speaker=hardcoded_current_speaker,
                     current_speaker_source=CURRENT_SPEAKER_SOURCE_ASSEMBLY_CHAIR,
                     current_speaker_purity=1.0,
+                    speaker_identity_evidence=hardcoded_evidence,
+                    mentioned_persons=mentioned_persons,
+                )
+            )
+            continue
+
+        if speaker_identity_evidence:
+            person, source, purity = choose_current_speaker_from_evidence(
+                speaker_identity_evidence
+            )
+            turns_analysis.append(
+                TurnAnalysis(
+                    turn_id=turn.turn_id,
+                    current_speaker=person,
+                    current_speaker_source=source,
+                    current_speaker_purity=purity,
+                    speaker_identity_evidence=speaker_identity_evidence,
                     mentioned_persons=mentioned_persons,
                 )
             )
@@ -408,6 +526,7 @@ def build_turn_analysis(
             turns_analysis.append(
                 TurnAnalysis(
                     turn_id=turn.turn_id,
+                    speaker_identity_evidence=speaker_identity_evidence,
                     mentioned_persons=mentioned_persons,
                 )
             )
@@ -417,8 +536,9 @@ def build_turn_analysis(
             TurnAnalysis(
                 turn_id=turn.turn_id,
                 current_speaker=speaker_data["person"],  # type: ignore[arg-type]
-                current_speaker_source=str(speaker_data["source"]),
+                current_speaker_source=CURRENT_SPEAKER_SOURCE_PROPAGATED,
                 current_speaker_purity=float(speaker_data["purity"]),
+                speaker_identity_evidence=speaker_identity_evidence,
                 mentioned_persons=mentioned_persons,
             )
         )
