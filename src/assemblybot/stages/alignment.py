@@ -1,6 +1,10 @@
 import argparse
 from pathlib import Path
 
+from assemblybot.alignment_config import (
+    AlignmentConfig,
+    add_alignment_arguments,
+)
 from assemblybot.helper.directory import build_default_output_path
 from assemblybot.helper.document import load_document, save_document
 from assemblybot.models.alignment import TranscriptDiarizationMatch
@@ -9,12 +13,6 @@ from assemblybot.models.document import CanonicalDocument
 from assemblybot.models.flags import SegmentFlag, has_flag
 from assemblybot.models.time import TimeRange
 from assemblybot.models.transcript import TranscriptRawSegment
-
-ANOMALY_FLAGS_TO_PROPAGATE = (
-    SegmentFlag.IMPOSSIBLE_SPEECH_RATE,
-    SegmentFlag.INFORMATION_RATE_TOO_HIGH,
-    SegmentFlag.MOSTLY_SILENCE_WITH_SHORT_EVENT,
-)
 
 
 def ranges_overlap_seconds(a: TimeRange, b: TimeRange) -> float:
@@ -28,22 +26,28 @@ def calculate_speaker_evidence_score(
     cumulative_overlap: float,
     longest_overlap: float,
     overlap_segment_count: int,
+    config: AlignmentConfig,
 ) -> float:
     raw_score = (
         cumulative_overlap
-        + 0.5 * longest_overlap
-        - 0.1 * max(0, overlap_segment_count - 1)
+        + config.speaker_evidence_longest_overlap_weight * longest_overlap
+        - config.speaker_evidence_extra_segment_penalty
+        * max(0, overlap_segment_count - 1)
     )
     return max(0.0, raw_score)
 
 
 def propagate_adjacent_transcript_anomaly_flags(
     transcript_segments: list[TranscriptRawSegment],
+    config: AlignmentConfig,
 ) -> None:
     source_indexes = [
         index
         for index, segment in enumerate(transcript_segments)
-        if any(has_flag(segment.flags, flag) for flag in ANOMALY_FLAGS_TO_PROPAGATE)
+        if any(
+            has_flag(segment.flags, flag)
+            for flag in config.anomaly_flags_to_propagate
+        )
     ]
 
     for index in source_indexes:
@@ -57,6 +61,7 @@ def propagate_adjacent_transcript_anomaly_flags(
 def build_transcript_diarization_match(
     transcript_segment: TranscriptRawSegment,
     diarization_segments: list[DiarizationRawSegment],
+    config: AlignmentConfig,
 ) -> TranscriptDiarizationMatch:
     match = TranscriptDiarizationMatch(
         transcript_segment_id=transcript_segment.segment_id,
@@ -96,6 +101,7 @@ def build_transcript_diarization_match(
             cumulative_overlap=cumulative_overlap,
             longest_overlap=longest_overlap,
             overlap_segment_count=overlap_segment_count,
+            config=config,
         )
 
     if match.speaker_evidence_score:
@@ -128,11 +134,13 @@ def build_transcript_diarization_match(
 
 def build_transcript_diarization_matches(
     document: CanonicalDocument,
+    config: AlignmentConfig,
 ) -> list[TranscriptDiarizationMatch]:
     return [
         build_transcript_diarization_match(
             transcript_segment,
             document.diarization.raw_segments,
+            config,
         )
         for transcript_segment in document.transcript.raw_segments
     ]
@@ -154,12 +162,14 @@ def parse_args() -> argparse.Namespace:
         "--output-json",
         help="Optional output JSON path (default: generated in interim directory)",
     )
+    add_alignment_arguments(parser)
 
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
+    config = AlignmentConfig.from_args(args)
 
     input_json_path = Path(args.input_json).resolve()
     document = load_document(input_json_path)
@@ -175,11 +185,14 @@ def main() -> None:
     )
 
     # STEP 1 -- Propagate adjacent transcript anomaly flags.
-    propagate_adjacent_transcript_anomaly_flags(document.transcript.raw_segments)
+    propagate_adjacent_transcript_anomaly_flags(
+        document.transcript.raw_segments,
+        config,
+    )
 
     # STEP 2 -- Build transcript diarization matches.
     document.alignment.transcript_diarization_matches = (
-        build_transcript_diarization_matches(document)
+        build_transcript_diarization_matches(document, config)
     )
 
     # STEP 3 -- Save document.

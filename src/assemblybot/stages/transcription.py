@@ -4,6 +4,11 @@ import argparse
 import time
 from pathlib import Path
 
+from assemblybot.faster_whisper_config import (
+    DEFAULT_FASTER_WHISPER_TRANSCRIPTION_CONFIG,
+    FasterWhisperTranscriptionConfig,
+    add_faster_whisper_transcription_arguments,
+)
 from assemblybot.helper.directory import build_default_output_path
 from assemblybot.helper.document import load_document, save_document
 from assemblybot.models.document import CanonicalDocument
@@ -91,17 +96,9 @@ def transcribe_audio(
     output_json_path: Path,
     *,
     output_txt_path: Path | None = None,
-    model_name: str = "large-v3",
-    device: str = "auto",
-    compute_type: str = "auto",
-    language: str = "fr",
-    beam_size: int = 5,
-    vad_filter: bool = True,
-    vad_min_silence_duration_ms: int = 1000,
-    vad_speech_pad_ms: int = 400,
-    temperature: list[float] = [0.0, 0.2, 0.4],
-    condition_on_previous_text: bool = True,
-    word_timestamps: bool = True,
+    config: FasterWhisperTranscriptionConfig = (
+        DEFAULT_FASTER_WHISPER_TRANSCRIPTION_CONFIG
+    ),
 ) -> CanonicalDocument:
     """
     Main transcription stage orchestrator.
@@ -128,7 +125,11 @@ def transcribe_audio(
     output_txt_path = output_txt_path.resolve()
     output_txt_path.parent.mkdir(parents=True, exist_ok=True)
 
-    device, compute_type = resolve_device_and_compute(device, compute_type)
+    device, compute_type = resolve_device_and_compute(
+        config.device,
+        config.compute_type,
+    )
+    temperature = list(config.temperature)
 
     mark_stage_running(document, "transcription")
 
@@ -137,39 +138,39 @@ def transcribe_audio(
     try:
         from faster_whisper import WhisperModel  # type: ignore
 
-        print(f"Loading faster-whisper model: {model_name}")
+        print(f"Loading faster-whisper model: {config.transcription_model_name}")
         print(f"Using device: {device} ({compute_type})")
         print(f"Transcribing: {input_audio_path.name}")
 
         model = WhisperModel(
-            model_name,
+            config.transcription_model_name,
             device=device,
             compute_type=compute_type,
         )
 
         vad_parameters = {
-            "min_silence_duration_ms": vad_min_silence_duration_ms,
-            "speech_pad_ms": vad_speech_pad_ms,
+            "min_silence_duration_ms": config.vad_min_silence_duration_ms,
+            "speech_pad_ms": config.vad_speech_pad_ms,
         }
         options: dict[str, object] = {
-            "language": language,
-            "vad_filter": vad_filter,
+            "language": config.language,
+            "vad_filter": config.vad_filter,
             "vad_parameters": vad_parameters,
-            "beam_size": beam_size,
+            "beam_size": config.beam_size,
             "temperature": temperature,
-            "condition_on_previous_text": condition_on_previous_text,
-            "word_timestamps": word_timestamps,
+            "condition_on_previous_text": config.condition_on_previous_text,
+            "word_timestamps": config.word_timestamps,
         }
 
         segments_iter, info = model.transcribe(
             str(input_audio_path),
-            language=language,
-            beam_size=beam_size,
-            vad_filter=vad_filter,
+            language=config.language,
+            beam_size=config.beam_size,
+            vad_filter=config.vad_filter,
             vad_parameters=vad_parameters,
             temperature=temperature,
-            condition_on_previous_text=condition_on_previous_text,
-            word_timestamps=word_timestamps,
+            condition_on_previous_text=config.condition_on_previous_text,
+            word_timestamps=config.word_timestamps,
         )
 
         raw_tokens: list[TranscriptRawToken] = []
@@ -245,7 +246,7 @@ def transcribe_audio(
 
         apply_transcript_to_document(
             document=document,
-            model_name=model_name,
+            model_name=config.transcription_model_name,
             device=device,
             compute_type=compute_type,
             options=options,
@@ -311,81 +312,14 @@ def parse_args() -> argparse.Namespace:
         help="Optional output transcript text path",
     )
 
-    parser.add_argument(
-        "--model",
-        default="large-v3",
-        help="faster-whisper model name",
-    )
-
-    parser.add_argument(
-        "--device",
-        default="auto",
-        help="Device to use: auto, cpu, cuda",
-    )
-
-    parser.add_argument(
-        "--compute-type",
-        default="auto",
-        help="Compute type: auto, int8, float16, float32, etc.",
-    )
-
-    parser.add_argument(
-        "--language",
-        default="fr",
-        help="Expected transcription language",
-    )
-
-    parser.add_argument(
-        "--beam-size",
-        type=int,
-        default=5,
-        help="Beam size for decoding",
-    )
-
-    parser.add_argument(
-        "--no-vad-filter",
-        action="store_true",
-        help="Disable faster-whisper VAD filtering",
-    )
-
-    parser.add_argument(
-        "--vad-min-silence-duration-ms",
-        type=int,
-        default=1000,
-        help="Minimum silence duration for VAD filtering",
-    )
-
-    parser.add_argument(
-        "--vad-speech-pad-ms",
-        type=int,
-        default=400,
-        help="Speech padding for VAD filtering",
-    )
-
-    parser.add_argument(
-        "--temperature",
-        type=float,
-        default=[0.0, 0.2, 0.4],
-        help="Sampling temperature for decoding",
-    )
-
-    parser.add_argument(
-        "--no-condition-on-previous-text",
-        action="store_true",
-        help="Disable conditioning each decode window on previous text",
-    )
-
-    parser.add_argument(
-        "--no-word-timestamps",
-        action="store_true",
-        help="Disable word timestamps",
-    )
+    add_faster_whisper_transcription_arguments(parser)
 
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
+    config = FasterWhisperTranscriptionConfig.from_args(args)
 
     input_audio_path = Path(args.input_audio).resolve()
 
@@ -406,7 +340,7 @@ def main() -> None:
     else:
         document = create_empty_document(
             input_audio_path,
-            language_expected=args.language,
+            language_expected=config.language,
         )
 
     transcribe_audio(
@@ -414,17 +348,7 @@ def main() -> None:
         input_audio_path=input_audio_path,
         output_json_path=output_json_path,
         output_txt_path=(Path(args.output_txt).resolve() if args.output_txt else None),
-        model_name=args.model,
-        device=args.device,
-        compute_type=args.compute_type,
-        language=args.language,
-        beam_size=args.beam_size,
-        vad_filter=not args.no_vad_filter,
-        vad_min_silence_duration_ms=args.vad_min_silence_duration_ms,
-        vad_speech_pad_ms=args.vad_speech_pad_ms,
-        temperature=args.temperature,
-        condition_on_previous_text=not args.no_condition_on_previous_text,
-        word_timestamps=not args.no_word_timestamps,
+        config=config,
     )
 
 

@@ -7,6 +7,11 @@ from pathlib import Path
 
 import torch
 
+from assemblybot.config import (
+    DIARIZATION_EMBEDDING_DIR,
+    DIARIZATION_SEGMENT_EMBEDDINGS_SUFFIX,
+    DIARIZATION_SPEAKER_CENTROIDS_SUFFIX,
+)
 from assemblybot.helper.directory import build_default_output_path
 from assemblybot.helper.document import load_document, save_document
 from assemblybot.models.diarization import (
@@ -23,6 +28,11 @@ from assemblybot.models.factories import (
 )
 from assemblybot.models.flags import SegmentFlag
 from assemblybot.models.time import TimeRange
+from assemblybot.pyannote_config import (
+    DEFAULT_PYANNOTE_DIARIZATION_CONFIG,
+    PyannoteDiarizationConfig,
+    add_pyannote_diarization_arguments,
+)
 
 
 def resolve_device(device: str) -> str:
@@ -203,10 +213,7 @@ def diarize_audio(
     output_segment_embeddings_path: Path | None = None,
     output_speaker_centroids_path: Path | None = None,
     hf_token: str | None = None,
-    model_name: str = "pyannote/speaker-diarization-3.1",
-    embedding_model_name: str = "pyannote/embedding",
-    extract_embeddings: bool = True,
-    device: str = "auto",
+    config: PyannoteDiarizationConfig = DEFAULT_PYANNOTE_DIARIZATION_CONFIG,
 ) -> CanonicalDocument:
     """
     Main stage orchestrator.
@@ -236,13 +243,14 @@ def diarize_audio(
             "Missing Hugging Face token. Set HF_TOKEN or HUGGINGFACE_HUB_TOKEN."
         )
 
-    if extract_embeddings:
+    if config.extract_embeddings:
         output_segment_embeddings_path = (
             output_segment_embeddings_path
             or build_default_output_path(
                 input_audio_path,
-                "_01_segment_embeddings",
+                DIARIZATION_SEGMENT_EMBEDDINGS_SUFFIX,
                 "npz",
+                DIARIZATION_EMBEDDING_DIR,
             )
         ).resolve()
 
@@ -250,12 +258,13 @@ def diarize_audio(
             output_speaker_centroids_path
             or build_default_output_path(
                 input_audio_path,
-                "_01_speaker_centroids",
+                DIARIZATION_SPEAKER_CENTROIDS_SUFFIX,
                 "npz",
+                DIARIZATION_EMBEDDING_DIR,
             )
         ).resolve()
 
-    device = resolve_device(device)
+    device = resolve_device(config.device)
 
     torch_device = torch.device(device)
 
@@ -278,7 +287,7 @@ def diarize_audio(
             waveform=waveform,
             sample_rate=sample_rate,
             hf_token=hf_token,
-            model_name=model_name,
+            model_name=config.diarization_model_name,
             torch_device=torch_device,
         )
         overlap_regions = compute_overlap_regions(raw_segments)
@@ -288,15 +297,15 @@ def diarize_audio(
             document=document,
             raw_segments=raw_segments,
             overlap_regions=overlap_regions,
-            model_name=model_name,
+            model_name=config.diarization_model_name,
             device=device,
             options={
-                "embedding_model": embedding_model_name,
-                "extract_embeddings": extract_embeddings,
+                "embedding_model": config.embedding_model_name,
+                "extract_embeddings": config.extract_embeddings,
             },
         )
 
-        if extract_embeddings:
+        if config.extract_embeddings:
             if output_segment_embeddings_path is None:
                 raise RuntimeError("Missing segment embeddings output path.")
             if output_speaker_centroids_path is None:
@@ -313,10 +322,10 @@ def diarize_audio(
                 sample_rate=sample_rate,
                 audio_duration_seconds=duration_seconds,
                 hf_token=hf_token,
-                embedding_model_name=embedding_model_name,
                 torch_device=torch_device,
                 output_segment_embeddings_path=output_segment_embeddings_path,
                 output_speaker_centroids_path=output_speaker_centroids_path,
+                config=config,
             )
         else:
             document.diarization.artifacts = DiarizationArtifacts()
@@ -333,7 +342,7 @@ def diarize_audio(
         print(f"Speakers detected: {document.diarization.speakers_count}")
         print(f"Raw diarization segments: {len(document.diarization.raw_segments)}")
         print(f"Overlap regions: {len(document.diarization.overlap_regions)}")
-        if extract_embeddings:
+        if config.extract_embeddings:
             print(f"Segment embeddings: {output_segment_embeddings_path}")
             print(f"Speaker centroids: {output_speaker_centroids_path}")
         print(f"Canonical JSON: {output_json_path}")
@@ -368,23 +377,7 @@ def parse_args() -> argparse.Namespace:
         help="Optional output JSON path (default: generated in interim directory)",
     )
 
-    parser.add_argument(
-        "--model",
-        default="pyannote/speaker-diarization-3.1",
-        help="Pyannote diarization model name",
-    )
-
-    parser.add_argument(
-        "--embedding-model",
-        default="pyannote/embedding",
-        help="Pyannote embedding model name",
-    )
-
-    parser.add_argument(
-        "--no-embeddings",
-        action="store_true",
-        help="Skip embedding extraction, centroid computation, and NPZ artifacts",
-    )
+    add_pyannote_diarization_arguments(parser)
 
     parser.add_argument(
         "--output-segment-embeddings-npz",
@@ -394,12 +387,6 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output-speaker-centroids-npz",
         help="Optional output path for speaker centroid embeddings",
-    )
-
-    parser.add_argument(
-        "--device",
-        default="auto",
-        help="Device to use: auto, cpu, cuda",
     )
 
     parser.add_argument(
@@ -447,10 +434,7 @@ def main() -> None:
             else None
         ),
         hf_token=args.hf_token,
-        model_name=args.model,
-        embedding_model_name=args.embedding_model,
-        extract_embeddings=not args.no_embeddings,
-        device=args.device,
+        config=PyannoteDiarizationConfig.from_args(args),
     )
 
 

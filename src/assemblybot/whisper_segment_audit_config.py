@@ -1,6 +1,6 @@
 from assemblybot.models.audit_threshold import AuditThresholds
 
-AUDIO_AUDIT_FEATURES = (
+REQUIRED_AUDIO_AUDIT_FEATURES = (
     "frame_center_seconds",
     "rms",
     "db",
@@ -12,7 +12,7 @@ AUDIO_AUDIT_FEATURES = (
     "db_delta",
 )
 
-DEFAULT_AUDIT_THRESHOLD = AuditThresholds(
+DEFAULT_WHISPER_SEGMENT_AUDIT_THRESHOLDS = AuditThresholds(
     vad_partial_coverage=0.80,
     vad_long_segment_seconds=10.0,
     vad_long_segment_min_coverage=0.60,

@@ -155,6 +155,7 @@ def build_turn_records(
                 session_id=session_id,
                 speaker_cluster_id=speaker_cluster_id,
                 speaker_confidence=turn.speaker_confidence,
+                speaker_evidence_ratio=turn.speaker_evidence_ratio,
                 text=turn.text,
                 start_seconds=turn.audio_time.start_seconds,
                 end_seconds=turn.audio_time.end_seconds,

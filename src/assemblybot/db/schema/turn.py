@@ -23,6 +23,7 @@ class TurnRecord(Base):
         nullable=False,
     )
     speaker_confidence: Mapped[float] = mapped_column(Float, nullable=False)
+    speaker_evidence_ratio: Mapped[float] = mapped_column(Float, nullable=False)
     text: Mapped[str] = mapped_column(Text, nullable=False)
     start_seconds: Mapped[float] = mapped_column(Float, nullable=False)
     end_seconds: Mapped[float] = mapped_column(Float, nullable=False)

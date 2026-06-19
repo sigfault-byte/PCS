@@ -8,9 +8,7 @@ import torch
 from assemblybot.helper.artifact import save_npz
 from assemblybot.models.diarization import DiarizationArtifacts, DiarizationRawSegment
 from assemblybot.models.document import CanonicalDocument
-
-MIN_EMBEDDING_DURATION_SECONDS = 0.80
-SKIP_ULTRA_SHORT_EMBEDDINGS_BELOW_SECONDS = 0.08
+from assemblybot.pyannote_config import PyannoteDiarizationConfig
 
 
 def clamp_segment(start: float, end: float, max_end: float) -> tuple[float, float]:
@@ -67,8 +65,8 @@ def extract_segment_embeddings(
     sample_rate: int,
     audio_duration_seconds: float,
     hf_token: str,
-    embedding_model_name: str,
     torch_device: torch.device,
+    config: PyannoteDiarizationConfig,
 ) -> tuple[list[int], list[str], list[np.ndarray], np.ndarray]:
     """
     Extract one embedding per diarization segment.
@@ -79,12 +77,12 @@ def extract_segment_embeddings(
         segment_embeddings_list
         stacked_embeddings_matrix
     """
-    print(f"Loading embedding model: {embedding_model_name}")
+    print(f"Loading embedding model: {config.embedding_model_name}")
     from pyannote.audio import Inference, Model
     from pyannote.core import Segment
 
     embedding_model = Model.from_pretrained(
-        embedding_model_name,
+        config.embedding_model_name,
         use_auth_token=hf_token,
     )
     embedding_inference = Inference(embedding_model, window="whole")  # type: ignore[misc]
@@ -106,7 +104,7 @@ def extract_segment_embeddings(
         end = segment.time.end_seconds
         duration = end - start
 
-        if duration < SKIP_ULTRA_SHORT_EMBEDDINGS_BELOW_SECONDS:
+        if duration < config.skip_embeddings_below_seconds:
             print(
                 f"Skipping ultra-short segment {segment.segment_id} ({duration:.3f}s)"
             )
@@ -115,13 +113,13 @@ def extract_segment_embeddings(
         safe_start, safe_end = expand_segment_to_min_duration(
             start=start,
             end=end,
-            min_duration=MIN_EMBEDDING_DURATION_SECONDS,
+            min_duration=config.min_embedding_duration_seconds,
             max_end=audio_duration_seconds,
         )
 
         excerpt = Segment(safe_start, safe_end)
         emb = embedding_inference.crop(audio_source, excerpt)
-        emb = np.asarray(emb).squeeze().astype(np.float32)
+        emb = np.asarray(emb).squeeze().astype(config.embedding_dtype)
 
         if emb.ndim != 1:
             raise RuntimeError(
@@ -133,9 +131,11 @@ def extract_segment_embeddings(
         segment_embeddings_list.append(emb)
 
     if segment_embeddings_list:
-        segment_embeddings = np.vstack(segment_embeddings_list).astype(np.float32)
+        segment_embeddings = np.vstack(segment_embeddings_list).astype(
+            config.embedding_dtype
+        )
     else:
-        segment_embeddings = np.empty((0, 0), dtype=np.float32)
+        segment_embeddings = np.empty((0, 0), dtype=config.embedding_dtype)
 
     return (
         segment_ids,
@@ -148,6 +148,7 @@ def extract_segment_embeddings(
 def compute_speaker_centroids(
     segment_speaker_ids: list[str],
     segment_embeddings_list: list[np.ndarray],
+    config: PyannoteDiarizationConfig,
 ) -> tuple[list[str], np.ndarray]:
     """Compute one centroid embedding per speaker."""
     speaker_to_embeddings: dict[str, list[np.ndarray]] = {}
@@ -155,7 +156,7 @@ def compute_speaker_centroids(
         speaker_to_embeddings.setdefault(speaker_id, []).append(emb)
 
     if not speaker_to_embeddings:
-        return [], np.empty((0, 0), dtype=np.float32)
+        return [], np.empty((0, 0), dtype=config.embedding_dtype)
 
     sorted_speaker_ids = sorted(speaker_to_embeddings.keys())
     speaker_centroids = np.vstack(
@@ -163,7 +164,7 @@ def compute_speaker_centroids(
             np.mean(np.vstack(speaker_to_embeddings[speaker_id]), axis=0)
             for speaker_id in sorted_speaker_ids
         ]
-    ).astype(np.float32)
+    ).astype(config.embedding_dtype)
 
     return sorted_speaker_ids, speaker_centroids
 
@@ -216,10 +217,10 @@ def save_diarization_embedding_artifacts(
     sample_rate: int,
     audio_duration_seconds: float,
     hf_token: str,
-    embedding_model_name: str,
     torch_device: torch.device,
     output_segment_embeddings_path: Path,
     output_speaker_centroids_path: Path,
+    config: PyannoteDiarizationConfig,
 ) -> None:
     """Extract embeddings, compute centroids, save NPZ files, and update metadata."""
     (
@@ -233,13 +234,14 @@ def save_diarization_embedding_artifacts(
         sample_rate=sample_rate,
         audio_duration_seconds=audio_duration_seconds,
         hf_token=hf_token,
-        embedding_model_name=embedding_model_name,
         torch_device=torch_device,
+        config=config,
     )
 
     speaker_ids, speaker_centroids = compute_speaker_centroids(
         segment_speaker_ids=segment_speaker_ids,
         segment_embeddings_list=segment_embeddings_list,
+        config=config,
     )
 
     save_embedding_artifacts(
@@ -256,5 +258,5 @@ def save_diarization_embedding_artifacts(
         document=document,
         output_segment_embeddings_path=output_segment_embeddings_path,
         output_speaker_centroids_path=output_speaker_centroids_path,
-        embedding_model_name=embedding_model_name,
+        embedding_model_name=config.embedding_model_name,
     )

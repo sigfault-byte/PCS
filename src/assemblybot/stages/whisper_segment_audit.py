@@ -5,9 +5,9 @@ from typing import Any, SupportsFloat
 
 import numpy as np
 
-from assemblybot.config_audio_thresholds_features import (
-    AUDIO_AUDIT_FEATURES,
-    DEFAULT_AUDIT_THRESHOLD,
+from assemblybot.whisper_segment_audit_config import (
+    DEFAULT_WHISPER_SEGMENT_AUDIT_THRESHOLDS,
+    REQUIRED_AUDIO_AUDIT_FEATURES,
 )
 from assemblybot.helper.directory import build_default_output_path
 from assemblybot.helper.document import load_document, save_document
@@ -198,7 +198,7 @@ def load_audio_audit_arrays(audio_audit_path: Path) -> dict[str, np.ndarray]:
         raise ValueError(f"Audio audit contains no frames: {audio_audit_path}")
 
     arrays: dict[str, np.ndarray] = {}
-    for feature_name in AUDIO_AUDIT_FEATURES:
+    for feature_name in REQUIRED_AUDIO_AUDIT_FEATURES:
         # build in memory numpy array
         try:
             arrays[feature_name] = np.asarray(
@@ -413,7 +413,7 @@ def audit_whisper_segments(
     output_path: Path,
     write_sidecar: bool,
     sidecar_output_path: Path,
-    thresholds: AuditThresholds = DEFAULT_AUDIT_THRESHOLD,
+    thresholds: AuditThresholds = DEFAULT_WHISPER_SEGMENT_AUDIT_THRESHOLDS,
 ) -> int:
     print(f"Loading transcript document: {transcript_path}", flush=True)
     transcript_document = load_document(transcript_path)
@@ -488,12 +488,12 @@ def parse_args() -> argparse.Namespace:
         help="Path to canonical document containing VAD and optionally diarization.",
     )
     parser.add_argument(
-        "--input-audit",
+        "--input-audio-audit-json",
         required=True,
         help="Path to audio_audit.json.",
     )
     parser.add_argument(
-        "--output",
+        "--output-json",
         help="Optional enriched transcript JSON path.",
     )
     parser.add_argument(
@@ -502,11 +502,9 @@ def parse_args() -> argparse.Namespace:
         help="Write compact per-segment audio audit sidecar JSON.",
     )
     parser.add_argument(
-        "--segment-audio-audit-output",
+        "--segment-audio-audit-output-json",
         help="Optional sidecar output path.",
     )
-    # Add logic to use it ... !
-    parser.add_argument("--audit-thresholds", help="Optional audit threshold path")
     return parser.parse_args()
 
 
@@ -514,10 +512,10 @@ def main() -> None:
     args = parse_args()
     transcript_path = Path(args.input_json).expanduser().resolve()
     aux_path = Path(args.input_vad_diarization_json).expanduser().resolve()
-    audio_audit_path = Path(args.input_audit).expanduser().resolve()
+    audio_audit_path = Path(args.input_audio_audit_json).expanduser().resolve()
     output_path = (
-        Path(args.output).expanduser().resolve()
-        if args.output
+        Path(args.output_json).expanduser().resolve()
+        if args.output_json
         else build_default_output_path(
             transcript_path,
             "_flagged",
@@ -526,12 +524,10 @@ def main() -> None:
         )
     )
     sidecar_output_path = (
-        Path(args.segment_audio_audit_output).expanduser().resolve()
-        if args.segment_audio_audit_output
+        Path(args.segment_audio_audit_output_json).expanduser().resolve()
+        if args.segment_audio_audit_output_json
         else audio_audit_path.parent / "whisper_segment_audio_audit.json"
     )
-
-    # TODO: ADD AUDIT THRESHOLD DEFAULT LOGIC !
 
     segment_count = audit_whisper_segments(
         transcript_path=transcript_path,
@@ -540,7 +536,6 @@ def main() -> None:
         output_path=output_path,
         write_sidecar=args.write_segment_audio_audit,
         sidecar_output_path=sidecar_output_path,
-        # threshold=path-to-default-or-other !!!
     )
     print(f"Audited segment count: {segment_count}", flush=True)
     print(f"Saved enriched transcript JSON: {output_path}", flush=True)

@@ -21,6 +21,7 @@ class Turn:
     transcript_segment_ids: list[int]
     diarization_segment_ids: list[int]
 
+    speaker_evidence_ratio: float = 0.0
     flags: SegmentFlag = SegmentFlag.NONE
 
     @classmethod
@@ -33,6 +34,7 @@ class Turn:
             speaker_confidence=data.get("speaker_confidence", 0.0),
             transcript_segment_ids=data.get("transcript_segment_ids", []),
             diarization_segment_ids=data.get("diarization_segment_ids", []),
+            speaker_evidence_ratio=data.get("speaker_evidence_ratio", 0.0),
             flags=SegmentFlag(data.get("flags", 0)),
         )
 

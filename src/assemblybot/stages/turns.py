@@ -8,9 +8,38 @@ from assemblybot.models.document import CanonicalDocument
 from assemblybot.models.flags import SegmentFlag
 from assemblybot.models.time import TimeRange
 from assemblybot.models.turn_document import Turn, TurnDocument
+from assemblybot.turns_config import TurnsConfig, add_turns_arguments
 
-# TODO: Test with various timming. Maybe worth to keep the full turn even with long silence, and chunk with semantic variation
-MAX_TURN_SILENCE_SECONDS = 5.0
+
+def _merge_intervals(intervals: list[tuple[float, float]]) -> list[tuple[float, float]]:
+    merged: list[tuple[float, float]] = []
+
+    for start_seconds, end_seconds in sorted(intervals):
+        if end_seconds <= start_seconds:
+            continue
+
+        if not merged or start_seconds > merged[-1][1]:
+            merged.append((start_seconds, end_seconds))
+            continue
+
+        previous_start_seconds, previous_end_seconds = merged[-1]
+        merged[-1] = (
+            previous_start_seconds,
+            max(previous_end_seconds, end_seconds),
+        )
+
+    return merged
+
+
+def _intervals_duration_seconds(intervals: list[tuple[float, float]]) -> float:
+    return sum(
+        end_seconds - start_seconds
+        for start_seconds, end_seconds in _merge_intervals(intervals)
+    )
+
+
+def _clamp_ratio(value: float) -> float:
+    return min(1.0, max(0.0, value))
 
 
 @dataclass
@@ -18,8 +47,10 @@ class _TurnBuilderState:
     text_parts: list[str] = field(default_factory=list)
     transcript_segment_ids: list[int] = field(default_factory=list)
     diarization_segment_ids: list[int] = field(default_factory=list)
+    speaker_evidence_intervals: list[tuple[float, float]] = field(default_factory=list)
     speaker_id: str | None = None
-    speaker_confidence: float = 0.0
+    speaker_confidence_weighted_sum: float = 0.0
+    speaker_confidence_weight: float = 0.0
     start_seconds: float | None = None
     end_seconds: float | None = None
     flags: SegmentFlag = SegmentFlag.NONE
@@ -35,6 +66,8 @@ class _TurnBuilderState:
         text: str,
         speaker_id: str | None,
         speaker_confidence: float,
+        speaker_confidence_weight: float,
+        speaker_evidence_intervals: list[tuple[float, float]],
         transcript_segment_id: int,
         diarization_segment_ids: list[int],
         start_seconds: float,
@@ -45,19 +78,29 @@ class _TurnBuilderState:
             text_parts=[text],
             transcript_segment_ids=[transcript_segment_id],
             diarization_segment_ids=list(diarization_segment_ids),
+            speaker_evidence_intervals=list(speaker_evidence_intervals),
             speaker_id=speaker_id,
-            speaker_confidence=speaker_confidence,
+            speaker_confidence_weighted_sum=(
+                speaker_confidence * speaker_confidence_weight
+            ),
+            speaker_confidence_weight=speaker_confidence_weight,
             start_seconds=start_seconds,
             end_seconds=end_seconds,
             flags=flags,
         )
 
-    def can_merge(self, *, speaker_id: str | None, start_seconds: float) -> bool:
+    def can_merge(
+        self,
+        *,
+        speaker_id: str | None,
+        start_seconds: float,
+        config: TurnsConfig,
+    ) -> bool:
         return (
             self.speaker_id == speaker_id
             and speaker_id is not None
             and self.end_seconds is not None
-            and start_seconds - self.end_seconds <= MAX_TURN_SILENCE_SECONDS
+            and start_seconds - self.end_seconds <= config.max_turn_silence_seconds
         )
 
     def merge_alignment(
@@ -65,6 +108,8 @@ class _TurnBuilderState:
         *,
         text: str,
         speaker_confidence: float,
+        speaker_confidence_weight: float,
+        speaker_evidence_intervals: list[tuple[float, float]],
         transcript_segment_id: int,
         diarization_segment_ids: list[int],
         start_seconds: float,
@@ -80,7 +125,11 @@ class _TurnBuilderState:
             if diarization_segment_id not in self.diarization_segment_ids:
                 self.diarization_segment_ids.append(diarization_segment_id)
 
-        self.speaker_confidence = speaker_confidence
+        self.speaker_evidence_intervals.extend(speaker_evidence_intervals)
+        self.speaker_confidence_weighted_sum += (
+            speaker_confidence * speaker_confidence_weight
+        )
+        self.speaker_confidence_weight += speaker_confidence_weight
         self.start_seconds = min(self.start_seconds, start_seconds)
         self.end_seconds = max(self.end_seconds, end_seconds)
         self.flags |= flags
@@ -88,6 +137,21 @@ class _TurnBuilderState:
     def to_turn(self, turn_id: int) -> Turn:
         if self.start_seconds is None or self.end_seconds is None:
             raise ValueError("Cannot create a turn from an empty turn state.")
+
+        duration_seconds = self.end_seconds - self.start_seconds
+        covered_speaker_duration_seconds = _intervals_duration_seconds(
+            self.speaker_evidence_intervals
+        )
+        speaker_evidence_ratio = (
+            _clamp_ratio(covered_speaker_duration_seconds / duration_seconds)
+            if duration_seconds > 0.0
+            else 0.0
+        )
+        speaker_confidence = (
+            self.speaker_confidence_weighted_sum / self.speaker_confidence_weight
+            if self.speaker_confidence_weight > 0.0
+            else 0.0
+        )
 
         return Turn(
             turn_id=turn_id,
@@ -97,14 +161,18 @@ class _TurnBuilderState:
             ),
             text=" ".join(self.text_parts).strip(),
             speaker_id=self.speaker_id,
-            speaker_confidence=self.speaker_confidence,
+            speaker_confidence=speaker_confidence,
             transcript_segment_ids=self.transcript_segment_ids,
             diarization_segment_ids=self.diarization_segment_ids,
+            speaker_evidence_ratio=speaker_evidence_ratio,
             flags=self.flags,
         )
 
 
-def consolidate_turns(document: CanonicalDocument) -> list[Turn]:
+def consolidate_turns(
+    document: CanonicalDocument,
+    config: TurnsConfig,
+) -> list[Turn]:
     alignments = document.alignment.transcript_diarization_matches
     transcript_by_id = {
         segment.segment_id: segment for segment in document.transcript.raw_segments
@@ -131,6 +199,15 @@ def consolidate_turns(document: CanonicalDocument) -> list[Turn]:
         )
         alignment_speaker_id = alignment.probable_speaker_id
         alignment_speaker_confidence = alignment.speaker_confidence or 0.0
+        alignment_speaker_confidence_weight = alignment.winning_overlap_seconds
+        speaker_evidence_intervals = [
+            (
+                segment.time.start_seconds,
+                segment.time.end_seconds,
+            )
+            for segment in diarization_segments
+            if segment.speaker_id == alignment_speaker_id
+        ]
         alignment_flags = SegmentFlag(alignment.flags) | transcript_segment.flags
 
         for diarization_segment in diarization_segments:
@@ -139,10 +216,13 @@ def consolidate_turns(document: CanonicalDocument) -> list[Turn]:
         if current_turn.can_merge(
             speaker_id=alignment_speaker_id,
             start_seconds=alignment_start_seconds,
+            config=config,
         ):
             current_turn.merge_alignment(
                 text=transcript_segment.raw_text,
                 speaker_confidence=alignment_speaker_confidence,
+                speaker_confidence_weight=alignment_speaker_confidence_weight,
+                speaker_evidence_intervals=speaker_evidence_intervals,
                 transcript_segment_id=alignment.transcript_segment_id,
                 diarization_segment_ids=alignment.diarization_segment_ids,
                 start_seconds=alignment_start_seconds,
@@ -158,6 +238,8 @@ def consolidate_turns(document: CanonicalDocument) -> list[Turn]:
             text=transcript_segment.raw_text,
             speaker_id=alignment_speaker_id,
             speaker_confidence=alignment_speaker_confidence,
+            speaker_confidence_weight=alignment_speaker_confidence_weight,
+            speaker_evidence_intervals=speaker_evidence_intervals,
             transcript_segment_id=alignment.transcript_segment_id,
             diarization_segment_ids=alignment.diarization_segment_ids,
             start_seconds=alignment_start_seconds,
@@ -184,12 +266,14 @@ def parse_args() -> argparse.Namespace:
         "--output-json",
         help="Optional output JSON path (default: generated in interim directory)",
     )
+    add_turns_arguments(parser)
 
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
+    config = TurnsConfig.from_args(args)
 
     input_json_path = Path(args.input_json).resolve()
     document = load_document(input_json_path)
@@ -204,7 +288,7 @@ def main() -> None:
         )
     )
 
-    turns = consolidate_turns(document)
+    turns = consolidate_turns(document, config)
 
     turn_document = TurnDocument(
         turns=turns,
