@@ -190,6 +190,9 @@ def consolidate_turns(
             diarization_by_id[segment_id]
             for segment_id in alignment.diarization_segment_ids
         ]
+        # TODO: THIS IS BAD JUST TO MAKE THE PIPELINE WORK FIRST TIME
+        if not alignment.diarization_segment_ids:
+            continue
 
         alignment_start_seconds = min(
             segment.time.start_seconds for segment in diarization_segments

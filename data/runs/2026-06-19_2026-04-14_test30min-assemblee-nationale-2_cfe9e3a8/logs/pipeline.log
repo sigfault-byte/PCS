@@ -1,238 +1,0 @@
-[1/10] vad.py START
-Loading Silero VAD: silero-vad
-Using device: cpu
-Analyzing: test30min-assemblee-nationale-14-avril-2026-2.wav
-VAD segments: 267
-Speech seconds: 1558.06
-Non-speech seconds: 242.00
-Canonical JSON: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale-2_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026-2_0_vad.json
-Time: 0.1 min
-[1/10] vad.py OK in 5.1s
-  canonical_json: interim/test30min-assemblee-nationale-14-avril-2026-2_0_vad.json
-[2/10] diarization.py START
-Using device: cuda
-Diarizing: test30min-assemblee-nationale-14-avril-2026-2.wav
-/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/pyannote/audio/core/io.py:47: UserWarning: 
-torchcodec is not installed correctly so built-in audio decoding will fail. Solutions are:
-* use audio preloaded in-memory as a {'waveform': (channel, time) torch.Tensor, 'sample_rate': int} dictionary;
-* fix torchcodec installation. Error message was:
-
-Could not load libtorchcodec. Likely causes:
-          1. FFmpeg is not properly installed in your environment. We support
-             versions 4, 5, 6, 7, and 8, and we attempt to load libtorchcodec
-             for each of those versions. Errors for versions not installed on
-             your system are expected; only the error for your installed FFmpeg
-             version is relevant. On Windows, ensure you've installed the
-             "full-shared" version which ships DLLs.
-          2. The PyTorch version (2.11.0+cu130) is not compatible with
-             this version of TorchCodec. Refer to the version compatibility
-             table:
-             https://github.com/pytorch/torchcodec?tab=readme-ov-file#installing-torchcodec.
-          3. Another runtime dependency; see exceptions below.
-
-        The following exceptions were raised as we tried to load libtorchcodec:
-        
-[start of libtorchcodec loading traceback]
-FFmpeg version 8:
-Traceback (most recent call last):
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
-    ctypes.CDLL(path)
-  File "/usr/lib/python3.12/ctypes/__init__.py", line 379, in __init__
-    self._handle = _dlopen(self._name, mode)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^
-OSError: libnppicc.so.13: cannot open shared object file: No such file or directory
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torchcodec/_internally_replaced_utils.py", line 93, in load_torchcodec_shared_libraries
-    torch.ops.load_library(core_library_path)
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
-    raise OSError(f"Could not load this library: {path}") from e
-OSError: Could not load this library: /home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torchcodec/libtorchcodec_core8.so
-
-FFmpeg version 7:
-Traceback (most recent call last):
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
-    ctypes.CDLL(path)
-  File "/usr/lib/python3.12/ctypes/__init__.py", line 379, in __init__
-    self._handle = _dlopen(self._name, mode)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^
-OSError: libnppicc.so.13: cannot open shared object file: No such file or directory
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torchcodec/_internally_replaced_utils.py", line 93, in load_torchcodec_shared_libraries
-    torch.ops.load_library(core_library_path)
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
-    raise OSError(f"Could not load this library: {path}") from e
-OSError: Could not load this library: /home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torchcodec/libtorchcodec_core7.so
-
-FFmpeg version 6:
-Traceback (most recent call last):
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
-    ctypes.CDLL(path)
-  File "/usr/lib/python3.12/ctypes/__init__.py", line 379, in __init__
-    self._handle = _dlopen(self._name, mode)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^
-OSError: libnppicc.so.13: cannot open shared object file: No such file or directory
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torchcodec/_internally_replaced_utils.py", line 93, in load_torchcodec_shared_libraries
-    torch.ops.load_library(core_library_path)
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
-    raise OSError(f"Could not load this library: {path}") from e
-OSError: Could not load this library: /home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torchcodec/libtorchcodec_core6.so
-
-FFmpeg version 5:
-Traceback (most recent call last):
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
-    ctypes.CDLL(path)
-  File "/usr/lib/python3.12/ctypes/__init__.py", line 379, in __init__
-    self._handle = _dlopen(self._name, mode)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^
-OSError: libnppicc.so.13: cannot open shared object file: No such file or directory
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torchcodec/_internally_replaced_utils.py", line 93, in load_torchcodec_shared_libraries
-    torch.ops.load_library(core_library_path)
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
-    raise OSError(f"Could not load this library: {path}") from e
-OSError: Could not load this library: /home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torchcodec/libtorchcodec_core5.so
-
-FFmpeg version 4:
-Traceback (most recent call last):
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1503, in load_library
-    ctypes.CDLL(path)
-  File "/usr/lib/python3.12/ctypes/__init__.py", line 379, in __init__
-    self._handle = _dlopen(self._name, mode)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^
-OSError: libnppicc.so.13: cannot open shared object file: No such file or directory
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torchcodec/_internally_replaced_utils.py", line 93, in load_torchcodec_shared_libraries
-    torch.ops.load_library(core_library_path)
-  File "/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torch/_ops.py", line 1505, in load_library
-    raise OSError(f"Could not load this library: {path}") from e
-OSError: Could not load this library: /home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/torchcodec/libtorchcodec_core4.so
-[end of libtorchcodec loading traceback].
-  warnings.warn(
-Loading diarization pipeline: pyannote/speaker-diarization-3.1
-/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/pyannote/audio/utils/reproducibility.py:74: ReproducibilityWarning: TensorFloat-32 (TF32) has been disabled as it might lead to reproducibility issues and lower accuracy.
-It can be re-enabled by calling
-   >>> import torch
-   >>> torch.backends.cuda.matmul.allow_tf32 = True
-   >>> torch.backends.cudnn.allow_tf32 = True
-See https://github.com/pyannote/pyannote-audio/issues/1370 for more details.
-
-  warnings.warn(
-/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/pyannote/audio/models/blocks/pooling.py:103: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1858.)
-  std = sequences.std(dim=-1, correction=1)
-segmentation         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:01
-speaker_counting     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
-embeddings           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:32
-discrete_diarization ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
-Loading embedding model: pyannote/embedding
-/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/utilities/migration/utils.py:197: Redirecting import of pytorch_lightning.callbacks.early_stopping.EarlyStopping to lightning.pytorch.callbacks.early_stopping.EarlyStopping
-/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/utilities/migration/utils.py:197: Redirecting import of pytorch_lightning.callbacks.model_checkpoint.ModelCheckpoint to lightning.pytorch.callbacks.model_checkpoint.ModelCheckpoint
-/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/utilities/migration/migration.py:208: You have multiple `ModelCheckpoint` callback states in this checkpoint, but we found state keys that would end up colliding with each other after an upgrade, which means we can't differentiate which of your checkpoint callbacks needs which states. At least one of your `ModelCheckpoint` callbacks will not be able to reload the state.
-Lightning automatically upgraded your loaded checkpoint from v1.2.7 to v2.6.1. To apply the upgrade to your files permanently, run `python -m lightning.pytorch.utilities.upgrade_checkpoint ../../.cache/huggingface/hub/models--pyannote--embedding/snapshots/4db4899737a38b2d618bbd74350915aa10293cb2/pytorch_model.bin`
-/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/pyannote/audio/core/model.py:639: UserWarning: Model has been trained with a task-dependent loss function. Set 'strict' to False to load the model without its loss function and prevent this warning from appearing. 
-  warnings.warn(msg)
-Lightning automatically upgraded your loaded checkpoint from v1.2.7 to v2.6.1. To apply the upgrade to your files permanently, run `python -m lightning.pytorch.utilities.upgrade_checkpoint ../../.cache/huggingface/hub/models--pyannote--embedding/snapshots/4db4899737a38b2d618bbd74350915aa10293cb2/pytorch_model.bin`
-/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/core/saving.py:197: Found keys that are not in the model state dict but in the checkpoint: ['loss_func.W']
-Extracting one embedding per diarization segment...
-Skipping ultra-short segment 32 (0.017s)
-Skipping ultra-short segment 55 (0.017s)
-Skipping ultra-short segment 56 (0.017s)
-Skipping ultra-short segment 89 (0.034s)
-Skipping ultra-short segment 93 (0.034s)
-Skipping ultra-short segment 94 (0.017s)
-Speakers detected: 11
-Raw diarization segments: 102
-Overlap regions: 5
-Segment embeddings: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale-2_cfe9e3a8/embeddings/pyannote/test30min-assemblee-nationale-14-avril-2026-2_01_segment_embeddings.npz
-Speaker centroids: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale-2_cfe9e3a8/embeddings/pyannote/test30min-assemblee-nationale-14-avril-2026-2_01_speaker_centroids.npz
-Canonical JSON: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale-2_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026-2_01_diarization.json
-Time: 0.7 min
-[2/10] diarization.py OK in 44.2s
-  canonical_json: interim/test30min-assemblee-nationale-14-avril-2026-2_01_diarization.json
-  segment_embeddings_npz: embeddings/pyannote/test30min-assemblee-nationale-14-avril-2026-2_01_segment_embeddings.npz
-  speaker_centroids_npz: embeddings/pyannote/test30min-assemblee-nationale-14-avril-2026-2_01_speaker_centroids.npz
-  released accelerator memory: gc.collect, torch.cuda.empty_cache, torch.cuda.ipc_collect
-[3/10] transcription.py START
-Loading faster-whisper model: large-v3
-Using device: cuda (float16)
-Transcribing: test30min-assemblee-nationale-14-avril-2026-2.wav
-[segment 000100] up to 516.29s | tokens: 1226
-[segment 000200] up to 791.82s | tokens: 2092
-[segment 000300] up to 1000.20s | tokens: 2679
-[segment 000400] up to 1208.70s | tokens: 3320
-[segment 000500] up to 1418.22s | tokens: 3822
-[segment 000600] up to 1612.87s | tokens: 4352
-Language detected: fr
-Language probability: 1
-Raw transcript tokens: 4938
-Raw transcript segments: 691
-Transcript TXT: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale-2_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026-2_02_transcript.txt
-Canonical JSON: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale-2_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026-2_02_transcription.json
-Time: 2.4 min
-[3/10] transcription.py OK in 144.3s
-  canonical_json: interim/test30min-assemblee-nationale-14-avril-2026-2_02_transcription.json
-  transcript_txt: interim/test30min-assemblee-nationale-14-avril-2026-2_02_transcript.txt
-  released accelerator memory: gc.collect, torch.cuda.empty_cache, torch.cuda.ipc_collect
-[4/10] audio_audit.py START
-Loading audio: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale-2_cfe9e3a8/input/test30min-assemblee-nationale-14-avril-2026-2.wav
-Loaded 1800.06 seconds at 16000 Hz (28801024 samples).
-Computing per-frame acoustic features (17999 frames in 36 chunks)...
-  processed chunk 1/36 through frame 500
-  processed chunk 25/36 through frame 12500
-  processed chunk 36/36 through frame 17999
-Computing dB, rolling median, and local dB delta...
-Computing summary from per-frame feature arrays...
-Validating feature arrays before streaming frames...
-Writing JSON artifact: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale-2_cfe9e3a8/audit/meta_json/test30min-assemblee-nationale-14-avril-2026-2_audio_audit.json
-Streaming JSON frame records...
-  wrote frame 1/17999
-  wrote frame 17999/17999
-[4/10] audio_audit.py OK in 1.7s
-  audio_audit_json: audit/meta_json/test30min-assemblee-nationale-14-avril-2026-2_audio_audit.json
-[5/10] whisper_segment_audit.py START
-Loading transcript document: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale-2_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026-2_02_transcription.json
-Loading VAD/diarization document: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale-2_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026-2_01_diarization.json
-Loaded 267 VAD intervals and 5 diarization overlap regions.
-Loading audio audit frames: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale-2_cfe9e3a8/audit/meta_json/test30min-assemblee-nationale-14-avril-2026-2_audio_audit.json
-Loaded 17999 audio audit frames.
-Auditing 691 Whisper segments...
-  audited segment 1/691
-  audited segment 691/691
-Writing enriched transcript document: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale-2_cfe9e3a8/audit/turn_json/test30min-assemblee-nationale-14-avril-2026-2_02_transcription_flagged.json
-Writing segment audio audit sidecar: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale-2_cfe9e3a8/audit/turn_json/whisper_segment_audio_audit.json
-[5/10] whisper_segment_audit.py OK in 0.2s
-  canonical_json: audit/turn_json/test30min-assemblee-nationale-14-avril-2026-2_02_transcription_flagged.json
-  segment_audio_audit_json: audit/turn_json/whisper_segment_audio_audit.json
-[6/10] alignment.py START
-[6/10] alignment.py OK in 0.1s
-  canonical_json: interim/test30min-assemblee-nationale-14-avril-2026-2_03_alignment.json
-[7/10] turns.py START
-[7/10] turns.py OK in 0.0s
-  turns_json: audit/turn_json/test30min-assemblee-nationale-14-avril-2026-2_01_turns.json
-[8/10] per_extraction.py START
-config.json:   0%|          | 0.00/892 [00:00<?, ?B/s]config.json: 100%|##########| 892/892 [00:00<00:00, 2.48MB/s]
-model.safetensors:   0%|          | 0.00/440M [00:00<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:00<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:00<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:00<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:00<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:01<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:01<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:01<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:01<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:01<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:02<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:02<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:02<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:02<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:02<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:03<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:03<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:03<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:03<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:03<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:04<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:04<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:04<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:04<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:04<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:05<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:05<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:05<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:05<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:05<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:06<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:06<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:06<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:06<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:06<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:07<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:07<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:07<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:07<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:07<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:08<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:08<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:08<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:08<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:08<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:09<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:09<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:09<?, ?B/s]model.safetensors:   0%|          | 0.00/440M [00:09<?, ?B/s]model.safetensors:  51%|#####     | 223M/440M [00:09<00:00, 1.11GB/s]model.safetensors:  63%|######3   | 279M/440M [00:12<00:01, 83.6MB/s]model.safetensors:  79%|#######8  | 346M/440M [00:12<00:01, 90.7MB/s]model.safetensors: 100%|##########| 440M/440M [00:14<00:00, 70.7MB/s]model.safetensors: 100%|##########| 440M/440M [00:14<00:00, 30.1MB/s]
-Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 15878.15it/s]
-tokenizer_config.json:   0%|          | 0.00/269 [00:00<?, ?B/s]tokenizer_config.json: 100%|##########| 269/269 [00:00<00:00, 1.24MB/s]
-sentencepiece.bpe.model:   0%|          | 0.00/811k [00:00<?, ?B/s]sentencepiece.bpe.model:   0%|          | 0.00/811k [00:00<?, ?B/s]sentencepiece.bpe.model:   0%|          | 0.00/811k [00:00<?, ?B/s]sentencepiece.bpe.model:   0%|          | 0.00/811k [00:00<?, ?B/s]sentencepiece.bpe.model:   0%|          | 0.00/811k [00:00<?, ?B/s]sentencepiece.bpe.model: 100%|##########| 811k/811k [00:01<00:00, 4.06MB/s]sentencepiece.bpe.model: 100%|##########| 811k/811k [00:01<00:00, 803kB/s] 
-special_tokens_map.json:   0%|          | 0.00/210 [00:00<?, ?B/s]special_tokens_map.json: 100%|##########| 210/210 [00:00<00:00, 651kB/s]
-[transformers] You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
-[8/10] per_extraction.py OK in 23.9s
-  per_json: audit/turn_json/test30min-assemblee-nationale-14-avril-2026-2_02_per_extraction.json
-[9/10] semantic_chunk.py START
-[9/10] semantic_chunk.py FAILED in 0.0s

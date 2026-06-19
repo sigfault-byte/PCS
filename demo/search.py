@@ -7,7 +7,15 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 from sqlite_function import register_sqlite_functions
 
-DB_PATH = Path(__file__).resolve().parent.parent / "data" / "db" / "assemblybot.sqlite"
+# DB_PATH = Path(__file__).resolve().parent.parent / "data" / "db" / "assemblybot.sqlite"
+DB_PATH = (
+    Path(__file__).resolve().parent.parent
+    / "data"
+    / "runs"
+    / "2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8"
+    / "sqlite"
+    / "assemblybot.sqlite"
+)
 MODEL_NAME = "h4c5/sts-camembert-base"
 TOP_K = 5
 
