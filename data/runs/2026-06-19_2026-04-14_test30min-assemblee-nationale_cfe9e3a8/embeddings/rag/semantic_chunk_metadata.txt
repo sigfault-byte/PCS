@@ -1,0 +1,13 @@
+Semantic chunk embedding metadata
+
+model_name: h4c5/sts-camembert-base
+dtype: float32
+normalize_embeddings: True
+chunking_method: semantic_delta_v1
+delta_threshold: -0.1
+min_words: 8
+sentence_index_policy: start inclusive, end exclusive
+input_json_path: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/audit/turn_json/test30min-assemblee-nationale-14-avril-2026_02_per_extraction.json
+output_dir: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/embeddings/rag
+turn_embeddings_npz: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/embeddings/rag/turn_embeddings.npz
+semantic_chunks_npz: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/embeddings/rag/semantic_chunks.npz

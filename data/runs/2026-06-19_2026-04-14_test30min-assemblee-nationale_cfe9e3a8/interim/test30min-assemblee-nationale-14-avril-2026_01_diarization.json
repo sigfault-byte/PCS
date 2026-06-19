@@ -1,0 +1,4460 @@
+{
+  "schema_version": "0.1.0",
+  "source": {
+    "source_id": "test30min-assemblee-nationale-14-avril-2026",
+    "input_path": "/home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/input/test30min-assemblee-nationale-14-avril-2026.wav",
+    "input_filename": "test30min-assemblee-nationale-14-avril-2026.wav",
+    "media_type": "audio",
+    "language_expected": "fr",
+    "duration_seconds": 1800.064,
+    "file_sha256": null
+  },
+  "pipeline": {
+    "created_at": "2026-06-19T23:13:26.180709+00:00",
+    "updated_at": "2026-06-19T23:14:16.077773+00:00",
+    "stage_outputs": {
+      "vad": {
+        "status": "completed",
+        "output_path": "/home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026_0_vad.json",
+        "completed_at": "2026-06-19T23:13:31.576150+00:00",
+        "error_message": null
+      },
+      "transcription": {
+        "status": "not_started",
+        "output_path": null,
+        "completed_at": null,
+        "error_message": null
+      },
+      "diarization": {
+        "status": "completed",
+        "output_path": "/home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026_01_diarization.json",
+        "completed_at": "2026-06-19T23:14:16.077773+00:00",
+        "error_message": null
+      },
+      "merge": {
+        "status": "not_started",
+        "output_path": null,
+        "completed_at": null,
+        "error_message": null
+      },
+      "enrichment": {
+        "status": "not_started",
+        "output_path": null,
+        "completed_at": null,
+        "error_message": null
+      },
+      "export": {
+        "status": "not_started",
+        "output_path": null,
+        "completed_at": null,
+        "error_message": null
+      }
+    }
+  },
+  "vad": {
+    "engine": {
+      "name": "silero-vad",
+      "model": "silero-vad",
+      "threshold": 0.5,
+      "min_speech_duration_ms": 250,
+      "min_silence_duration_ms": 100,
+      "speech_pad_ms": 30
+    },
+    "segments": [
+      {
+        "segment_id": 1,
+        "time": {
+          "start_seconds": 13.5,
+          "end_seconds": 16.1,
+          "duration_seconds": 2.6000000000000014,
+          "start_ts": "00:00:13.50",
+          "end_ts": "00:00:16.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 2,
+        "time": {
+          "start_seconds": 18.9,
+          "end_seconds": 24.1,
+          "duration_seconds": 5.200000000000003,
+          "start_ts": "00:00:18.90",
+          "end_ts": "00:00:24.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 3,
+        "time": {
+          "start_seconds": 24.3,
+          "end_seconds": 25.7,
+          "duration_seconds": 1.3999999999999986,
+          "start_ts": "00:00:24.30",
+          "end_ts": "00:00:25.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 4,
+        "time": {
+          "start_seconds": 26.2,
+          "end_seconds": 27.6,
+          "duration_seconds": 1.4000000000000021,
+          "start_ts": "00:00:26.20",
+          "end_ts": "00:00:27.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 5,
+        "time": {
+          "start_seconds": 28.5,
+          "end_seconds": 29.8,
+          "duration_seconds": 1.3000000000000007,
+          "start_ts": "00:00:28.50",
+          "end_ts": "00:00:29.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 6,
+        "time": {
+          "start_seconds": 30.6,
+          "end_seconds": 30.9,
+          "duration_seconds": 0.29999999999999716,
+          "start_ts": "00:00:30.60",
+          "end_ts": "00:00:30.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 7,
+        "time": {
+          "start_seconds": 31.2,
+          "end_seconds": 31.8,
+          "duration_seconds": 0.6000000000000014,
+          "start_ts": "00:00:31.20",
+          "end_ts": "00:00:31.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 8,
+        "time": {
+          "start_seconds": 32.2,
+          "end_seconds": 33.9,
+          "duration_seconds": 1.6999999999999957,
+          "start_ts": "00:00:32.20",
+          "end_ts": "00:00:33.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 9,
+        "time": {
+          "start_seconds": 123.4,
+          "end_seconds": 127.0,
+          "duration_seconds": 3.5999999999999943,
+          "start_ts": "00:02:03.40",
+          "end_ts": "00:02:07.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 10,
+        "time": {
+          "start_seconds": 127.5,
+          "end_seconds": 128.3,
+          "duration_seconds": 0.8000000000000114,
+          "start_ts": "00:02:07.50",
+          "end_ts": "00:02:08.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 11,
+        "time": {
+          "start_seconds": 128.5,
+          "end_seconds": 130.4,
+          "duration_seconds": 1.9000000000000057,
+          "start_ts": "00:02:08.50",
+          "end_ts": "00:02:10.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 12,
+        "time": {
+          "start_seconds": 131.1,
+          "end_seconds": 135.2,
+          "duration_seconds": 4.099999999999994,
+          "start_ts": "00:02:11.10",
+          "end_ts": "00:02:15.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 13,
+        "time": {
+          "start_seconds": 135.4,
+          "end_seconds": 136.7,
+          "duration_seconds": 1.299999999999983,
+          "start_ts": "00:02:15.40",
+          "end_ts": "00:02:16.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 14,
+        "time": {
+          "start_seconds": 136.8,
+          "end_seconds": 140.1,
+          "duration_seconds": 3.299999999999983,
+          "start_ts": "00:02:16.80",
+          "end_ts": "00:02:20.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 15,
+        "time": {
+          "start_seconds": 140.6,
+          "end_seconds": 141.5,
+          "duration_seconds": 0.9000000000000057,
+          "start_ts": "00:02:20.60",
+          "end_ts": "00:02:21.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 16,
+        "time": {
+          "start_seconds": 151.6,
+          "end_seconds": 153.2,
+          "duration_seconds": 1.5999999999999943,
+          "start_ts": "00:02:31.60",
+          "end_ts": "00:02:33.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 17,
+        "time": {
+          "start_seconds": 153.4,
+          "end_seconds": 159.2,
+          "duration_seconds": 5.799999999999983,
+          "start_ts": "00:02:33.40",
+          "end_ts": "00:02:39.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 18,
+        "time": {
+          "start_seconds": 159.3,
+          "end_seconds": 164.6,
+          "duration_seconds": 5.299999999999983,
+          "start_ts": "00:02:39.30",
+          "end_ts": "00:02:44.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 19,
+        "time": {
+          "start_seconds": 164.7,
+          "end_seconds": 169.3,
+          "duration_seconds": 4.600000000000023,
+          "start_ts": "00:02:44.70",
+          "end_ts": "00:02:49.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 20,
+        "time": {
+          "start_seconds": 169.4,
+          "end_seconds": 184.3,
+          "duration_seconds": 14.900000000000006,
+          "start_ts": "00:02:49.40",
+          "end_ts": "00:03:04.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 21,
+        "time": {
+          "start_seconds": 184.7,
+          "end_seconds": 188.1,
+          "duration_seconds": 3.4000000000000057,
+          "start_ts": "00:03:04.70",
+          "end_ts": "00:03:08.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 22,
+        "time": {
+          "start_seconds": 191.1,
+          "end_seconds": 198.8,
+          "duration_seconds": 7.700000000000017,
+          "start_ts": "00:03:11.10",
+          "end_ts": "00:03:18.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 23,
+        "time": {
+          "start_seconds": 199.2,
+          "end_seconds": 204.1,
+          "duration_seconds": 4.900000000000006,
+          "start_ts": "00:03:19.20",
+          "end_ts": "00:03:24.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 24,
+        "time": {
+          "start_seconds": 204.4,
+          "end_seconds": 206.9,
+          "duration_seconds": 2.5,
+          "start_ts": "00:03:24.40",
+          "end_ts": "00:03:26.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 25,
+        "time": {
+          "start_seconds": 207.4,
+          "end_seconds": 219.1,
+          "duration_seconds": 11.699999999999989,
+          "start_ts": "00:03:27.40",
+          "end_ts": "00:03:39.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 26,
+        "time": {
+          "start_seconds": 219.6,
+          "end_seconds": 224.9,
+          "duration_seconds": 5.300000000000011,
+          "start_ts": "00:03:39.60",
+          "end_ts": "00:03:44.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 27,
+        "time": {
+          "start_seconds": 225.2,
+          "end_seconds": 228.3,
+          "duration_seconds": 3.1000000000000227,
+          "start_ts": "00:03:45.20",
+          "end_ts": "00:03:48.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 28,
+        "time": {
+          "start_seconds": 228.5,
+          "end_seconds": 232.8,
+          "duration_seconds": 4.300000000000011,
+          "start_ts": "00:03:48.50",
+          "end_ts": "00:03:52.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 29,
+        "time": {
+          "start_seconds": 233.2,
+          "end_seconds": 236.1,
+          "duration_seconds": 2.9000000000000057,
+          "start_ts": "00:03:53.20",
+          "end_ts": "00:03:56.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 30,
+        "time": {
+          "start_seconds": 236.2,
+          "end_seconds": 241.3,
+          "duration_seconds": 5.100000000000023,
+          "start_ts": "00:03:56.20",
+          "end_ts": "00:04:01.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 31,
+        "time": {
+          "start_seconds": 241.4,
+          "end_seconds": 245.1,
+          "duration_seconds": 3.6999999999999886,
+          "start_ts": "00:04:01.40",
+          "end_ts": "00:04:05.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 32,
+        "time": {
+          "start_seconds": 245.3,
+          "end_seconds": 247.6,
+          "duration_seconds": 2.299999999999983,
+          "start_ts": "00:04:05.30",
+          "end_ts": "00:04:07.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 33,
+        "time": {
+          "start_seconds": 247.9,
+          "end_seconds": 251.2,
+          "duration_seconds": 3.299999999999983,
+          "start_ts": "00:04:07.90",
+          "end_ts": "00:04:11.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 34,
+        "time": {
+          "start_seconds": 251.3,
+          "end_seconds": 253.9,
+          "duration_seconds": 2.5999999999999943,
+          "start_ts": "00:04:11.30",
+          "end_ts": "00:04:13.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 35,
+        "time": {
+          "start_seconds": 254.1,
+          "end_seconds": 255.6,
+          "duration_seconds": 1.5,
+          "start_ts": "00:04:14.10",
+          "end_ts": "00:04:15.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 36,
+        "time": {
+          "start_seconds": 255.7,
+          "end_seconds": 264.4,
+          "duration_seconds": 8.699999999999989,
+          "start_ts": "00:04:15.70",
+          "end_ts": "00:04:24.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 37,
+        "time": {
+          "start_seconds": 265.0,
+          "end_seconds": 269.2,
+          "duration_seconds": 4.199999999999989,
+          "start_ts": "00:04:25.00",
+          "end_ts": "00:04:29.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 38,
+        "time": {
+          "start_seconds": 269.3,
+          "end_seconds": 280.3,
+          "duration_seconds": 11.0,
+          "start_ts": "00:04:29.30",
+          "end_ts": "00:04:40.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 39,
+        "time": {
+          "start_seconds": 280.5,
+          "end_seconds": 283.8,
+          "duration_seconds": 3.3000000000000114,
+          "start_ts": "00:04:40.50",
+          "end_ts": "00:04:43.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 40,
+        "time": {
+          "start_seconds": 284.1,
+          "end_seconds": 288.1,
+          "duration_seconds": 4.0,
+          "start_ts": "00:04:44.10",
+          "end_ts": "00:04:48.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 41,
+        "time": {
+          "start_seconds": 288.3,
+          "end_seconds": 323.9,
+          "duration_seconds": 35.599999999999966,
+          "start_ts": "00:04:48.30",
+          "end_ts": "00:05:23.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 42,
+        "time": {
+          "start_seconds": 324.3,
+          "end_seconds": 329.7,
+          "duration_seconds": 5.399999999999977,
+          "start_ts": "00:05:24.30",
+          "end_ts": "00:05:29.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 43,
+        "time": {
+          "start_seconds": 330.1,
+          "end_seconds": 336.3,
+          "duration_seconds": 6.199999999999989,
+          "start_ts": "00:05:30.10",
+          "end_ts": "00:05:36.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 44,
+        "time": {
+          "start_seconds": 336.6,
+          "end_seconds": 345.9,
+          "duration_seconds": 9.299999999999955,
+          "start_ts": "00:05:36.60",
+          "end_ts": "00:05:45.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 45,
+        "time": {
+          "start_seconds": 346.1,
+          "end_seconds": 352.4,
+          "duration_seconds": 6.2999999999999545,
+          "start_ts": "00:05:46.10",
+          "end_ts": "00:05:52.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 46,
+        "time": {
+          "start_seconds": 352.8,
+          "end_seconds": 390.3,
+          "duration_seconds": 37.5,
+          "start_ts": "00:05:52.80",
+          "end_ts": "00:06:30.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 47,
+        "time": {
+          "start_seconds": 390.5,
+          "end_seconds": 418.6,
+          "duration_seconds": 28.100000000000023,
+          "start_ts": "00:06:30.50",
+          "end_ts": "00:06:58.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 48,
+        "time": {
+          "start_seconds": 419.2,
+          "end_seconds": 420.9,
+          "duration_seconds": 1.6999999999999886,
+          "start_ts": "00:06:59.20",
+          "end_ts": "00:07:00.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 49,
+        "time": {
+          "start_seconds": 421.0,
+          "end_seconds": 456.4,
+          "duration_seconds": 35.39999999999998,
+          "start_ts": "00:07:01.00",
+          "end_ts": "00:07:36.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 50,
+        "time": {
+          "start_seconds": 456.5,
+          "end_seconds": 458.6,
+          "duration_seconds": 2.1000000000000227,
+          "start_ts": "00:07:36.50",
+          "end_ts": "00:07:38.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 51,
+        "time": {
+          "start_seconds": 459.6,
+          "end_seconds": 464.2,
+          "duration_seconds": 4.599999999999966,
+          "start_ts": "00:07:39.60",
+          "end_ts": "00:07:44.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 52,
+        "time": {
+          "start_seconds": 466.1,
+          "end_seconds": 472.0,
+          "duration_seconds": 5.899999999999977,
+          "start_ts": "00:07:46.10",
+          "end_ts": "00:07:52.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 53,
+        "time": {
+          "start_seconds": 472.2,
+          "end_seconds": 474.6,
+          "duration_seconds": 2.400000000000034,
+          "start_ts": "00:07:52.20",
+          "end_ts": "00:07:54.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 54,
+        "time": {
+          "start_seconds": 474.9,
+          "end_seconds": 479.8,
+          "duration_seconds": 4.900000000000034,
+          "start_ts": "00:07:54.90",
+          "end_ts": "00:07:59.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 55,
+        "time": {
+          "start_seconds": 479.9,
+          "end_seconds": 481.8,
+          "duration_seconds": 1.900000000000034,
+          "start_ts": "00:07:59.90",
+          "end_ts": "00:08:01.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 56,
+        "time": {
+          "start_seconds": 482.0,
+          "end_seconds": 484.4,
+          "duration_seconds": 2.3999999999999773,
+          "start_ts": "00:08:02.00",
+          "end_ts": "00:08:04.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 57,
+        "time": {
+          "start_seconds": 486.0,
+          "end_seconds": 486.8,
+          "duration_seconds": 0.8000000000000114,
+          "start_ts": "00:08:06.00",
+          "end_ts": "00:08:06.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 58,
+        "time": {
+          "start_seconds": 487.3,
+          "end_seconds": 488.2,
+          "duration_seconds": 0.8999999999999773,
+          "start_ts": "00:08:07.30",
+          "end_ts": "00:08:08.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 59,
+        "time": {
+          "start_seconds": 488.3,
+          "end_seconds": 491.8,
+          "duration_seconds": 3.5,
+          "start_ts": "00:08:08.30",
+          "end_ts": "00:08:11.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 60,
+        "time": {
+          "start_seconds": 491.9,
+          "end_seconds": 493.7,
+          "duration_seconds": 1.8000000000000114,
+          "start_ts": "00:08:11.90",
+          "end_ts": "00:08:13.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 61,
+        "time": {
+          "start_seconds": 493.8,
+          "end_seconds": 496.1,
+          "duration_seconds": 2.3000000000000114,
+          "start_ts": "00:08:13.80",
+          "end_ts": "00:08:16.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 62,
+        "time": {
+          "start_seconds": 496.4,
+          "end_seconds": 497.4,
+          "duration_seconds": 1.0,
+          "start_ts": "00:08:16.40",
+          "end_ts": "00:08:17.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 63,
+        "time": {
+          "start_seconds": 497.5,
+          "end_seconds": 498.8,
+          "duration_seconds": 1.3000000000000114,
+          "start_ts": "00:08:17.50",
+          "end_ts": "00:08:18.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 64,
+        "time": {
+          "start_seconds": 500.3,
+          "end_seconds": 502.9,
+          "duration_seconds": 2.599999999999966,
+          "start_ts": "00:08:20.30",
+          "end_ts": "00:08:22.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 65,
+        "time": {
+          "start_seconds": 503.0,
+          "end_seconds": 508.3,
+          "duration_seconds": 5.300000000000011,
+          "start_ts": "00:08:23.00",
+          "end_ts": "00:08:28.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 66,
+        "time": {
+          "start_seconds": 508.7,
+          "end_seconds": 512.0,
+          "duration_seconds": 3.3000000000000114,
+          "start_ts": "00:08:28.70",
+          "end_ts": "00:08:32.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 67,
+        "time": {
+          "start_seconds": 512.3,
+          "end_seconds": 514.3,
+          "duration_seconds": 2.0,
+          "start_ts": "00:08:32.30",
+          "end_ts": "00:08:34.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 68,
+        "time": {
+          "start_seconds": 514.4,
+          "end_seconds": 516.5,
+          "duration_seconds": 2.1000000000000227,
+          "start_ts": "00:08:34.40",
+          "end_ts": "00:08:36.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 69,
+        "time": {
+          "start_seconds": 517.0,
+          "end_seconds": 525.1,
+          "duration_seconds": 8.100000000000023,
+          "start_ts": "00:08:37.00",
+          "end_ts": "00:08:45.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 70,
+        "time": {
+          "start_seconds": 525.2,
+          "end_seconds": 527.9,
+          "duration_seconds": 2.699999999999932,
+          "start_ts": "00:08:45.20",
+          "end_ts": "00:08:47.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 71,
+        "time": {
+          "start_seconds": 528.2,
+          "end_seconds": 529.7,
+          "duration_seconds": 1.5,
+          "start_ts": "00:08:48.20",
+          "end_ts": "00:08:49.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 72,
+        "time": {
+          "start_seconds": 530.0,
+          "end_seconds": 533.9,
+          "duration_seconds": 3.8999999999999773,
+          "start_ts": "00:08:50.00",
+          "end_ts": "00:08:53.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 73,
+        "time": {
+          "start_seconds": 534.3,
+          "end_seconds": 536.8,
+          "duration_seconds": 2.5,
+          "start_ts": "00:08:54.30",
+          "end_ts": "00:08:56.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 74,
+        "time": {
+          "start_seconds": 536.9,
+          "end_seconds": 539.5,
+          "duration_seconds": 2.6000000000000227,
+          "start_ts": "00:08:56.90",
+          "end_ts": "00:08:59.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 75,
+        "time": {
+          "start_seconds": 539.9,
+          "end_seconds": 544.0,
+          "duration_seconds": 4.100000000000023,
+          "start_ts": "00:08:59.90",
+          "end_ts": "00:09:04.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 76,
+        "time": {
+          "start_seconds": 544.1,
+          "end_seconds": 545.4,
+          "duration_seconds": 1.2999999999999545,
+          "start_ts": "00:09:04.10",
+          "end_ts": "00:09:05.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 77,
+        "time": {
+          "start_seconds": 545.5,
+          "end_seconds": 546.6,
+          "duration_seconds": 1.1000000000000227,
+          "start_ts": "00:09:05.50",
+          "end_ts": "00:09:06.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 78,
+        "time": {
+          "start_seconds": 546.7,
+          "end_seconds": 554.3,
+          "duration_seconds": 7.599999999999909,
+          "start_ts": "00:09:06.70",
+          "end_ts": "00:09:14.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 79,
+        "time": {
+          "start_seconds": 554.4,
+          "end_seconds": 555.1,
+          "duration_seconds": 0.7000000000000455,
+          "start_ts": "00:09:14.40",
+          "end_ts": "00:09:15.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 80,
+        "time": {
+          "start_seconds": 555.6,
+          "end_seconds": 557.7,
+          "duration_seconds": 2.1000000000000227,
+          "start_ts": "00:09:15.60",
+          "end_ts": "00:09:17.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 81,
+        "time": {
+          "start_seconds": 557.8,
+          "end_seconds": 564.8,
+          "duration_seconds": 7.0,
+          "start_ts": "00:09:17.80",
+          "end_ts": "00:09:24.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 82,
+        "time": {
+          "start_seconds": 565.2,
+          "end_seconds": 572.9,
+          "duration_seconds": 7.699999999999932,
+          "start_ts": "00:09:25.20",
+          "end_ts": "00:09:32.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 83,
+        "time": {
+          "start_seconds": 573.0,
+          "end_seconds": 574.2,
+          "duration_seconds": 1.2000000000000455,
+          "start_ts": "00:09:33.00",
+          "end_ts": "00:09:34.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 84,
+        "time": {
+          "start_seconds": 574.4,
+          "end_seconds": 580.4,
+          "duration_seconds": 6.0,
+          "start_ts": "00:09:34.40",
+          "end_ts": "00:09:40.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 85,
+        "time": {
+          "start_seconds": 580.5,
+          "end_seconds": 592.4,
+          "duration_seconds": 11.899999999999977,
+          "start_ts": "00:09:40.50",
+          "end_ts": "00:09:52.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 86,
+        "time": {
+          "start_seconds": 592.5,
+          "end_seconds": 594.6,
+          "duration_seconds": 2.1000000000000227,
+          "start_ts": "00:09:52.50",
+          "end_ts": "00:09:54.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 87,
+        "time": {
+          "start_seconds": 594.8,
+          "end_seconds": 600.6,
+          "duration_seconds": 5.800000000000068,
+          "start_ts": "00:09:54.80",
+          "end_ts": "00:10:00.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 88,
+        "time": {
+          "start_seconds": 600.9,
+          "end_seconds": 603.9,
+          "duration_seconds": 3.0,
+          "start_ts": "00:10:00.90",
+          "end_ts": "00:10:03.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 89,
+        "time": {
+          "start_seconds": 604.1,
+          "end_seconds": 711.5,
+          "duration_seconds": 107.39999999999998,
+          "start_ts": "00:10:04.10",
+          "end_ts": "00:11:51.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 90,
+        "time": {
+          "start_seconds": 712.1,
+          "end_seconds": 714.7,
+          "duration_seconds": 2.6000000000000227,
+          "start_ts": "00:11:52.10",
+          "end_ts": "00:11:54.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 91,
+        "time": {
+          "start_seconds": 716.0,
+          "end_seconds": 721.1,
+          "duration_seconds": 5.100000000000023,
+          "start_ts": "00:11:56.00",
+          "end_ts": "00:12:01.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 92,
+        "time": {
+          "start_seconds": 721.2,
+          "end_seconds": 721.6,
+          "duration_seconds": 0.39999999999997726,
+          "start_ts": "00:12:01.20",
+          "end_ts": "00:12:01.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 93,
+        "time": {
+          "start_seconds": 721.8,
+          "end_seconds": 800.9,
+          "duration_seconds": 79.10000000000002,
+          "start_ts": "00:12:01.80",
+          "end_ts": "00:13:20.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 94,
+        "time": {
+          "start_seconds": 801.1,
+          "end_seconds": 850.1,
+          "duration_seconds": 49.0,
+          "start_ts": "00:13:21.10",
+          "end_ts": "00:14:10.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 95,
+        "time": {
+          "start_seconds": 850.5,
+          "end_seconds": 855.0,
+          "duration_seconds": 4.5,
+          "start_ts": "00:14:10.50",
+          "end_ts": "00:14:15.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 96,
+        "time": {
+          "start_seconds": 855.3,
+          "end_seconds": 864.7,
+          "duration_seconds": 9.400000000000091,
+          "start_ts": "00:14:15.30",
+          "end_ts": "00:14:24.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 97,
+        "time": {
+          "start_seconds": 864.9,
+          "end_seconds": 868.3,
+          "duration_seconds": 3.3999999999999773,
+          "start_ts": "00:14:24.90",
+          "end_ts": "00:14:28.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 98,
+        "time": {
+          "start_seconds": 868.9,
+          "end_seconds": 876.0,
+          "duration_seconds": 7.100000000000023,
+          "start_ts": "00:14:28.90",
+          "end_ts": "00:14:36.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 99,
+        "time": {
+          "start_seconds": 876.2,
+          "end_seconds": 880.5,
+          "duration_seconds": 4.2999999999999545,
+          "start_ts": "00:14:36.20",
+          "end_ts": "00:14:40.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 100,
+        "time": {
+          "start_seconds": 880.6,
+          "end_seconds": 881.6,
+          "duration_seconds": 1.0,
+          "start_ts": "00:14:40.60",
+          "end_ts": "00:14:41.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 101,
+        "time": {
+          "start_seconds": 881.8,
+          "end_seconds": 883.5,
+          "duration_seconds": 1.7000000000000455,
+          "start_ts": "00:14:41.80",
+          "end_ts": "00:14:43.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 102,
+        "time": {
+          "start_seconds": 883.7,
+          "end_seconds": 889.3,
+          "duration_seconds": 5.599999999999909,
+          "start_ts": "00:14:43.70",
+          "end_ts": "00:14:49.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 103,
+        "time": {
+          "start_seconds": 890.1,
+          "end_seconds": 891.4,
+          "duration_seconds": 1.2999999999999545,
+          "start_ts": "00:14:50.10",
+          "end_ts": "00:14:51.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 104,
+        "time": {
+          "start_seconds": 891.6,
+          "end_seconds": 898.4,
+          "duration_seconds": 6.7999999999999545,
+          "start_ts": "00:14:51.60",
+          "end_ts": "00:14:58.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 105,
+        "time": {
+          "start_seconds": 898.5,
+          "end_seconds": 901.4,
+          "duration_seconds": 2.8999999999999773,
+          "start_ts": "00:14:58.50",
+          "end_ts": "00:15:01.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 106,
+        "time": {
+          "start_seconds": 901.9,
+          "end_seconds": 904.0,
+          "duration_seconds": 2.1000000000000227,
+          "start_ts": "00:15:01.90",
+          "end_ts": "00:15:04.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 107,
+        "time": {
+          "start_seconds": 904.1,
+          "end_seconds": 907.1,
+          "duration_seconds": 3.0,
+          "start_ts": "00:15:04.10",
+          "end_ts": "00:15:07.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 108,
+        "time": {
+          "start_seconds": 907.6,
+          "end_seconds": 913.8,
+          "duration_seconds": 6.199999999999932,
+          "start_ts": "00:15:07.60",
+          "end_ts": "00:15:13.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 109,
+        "time": {
+          "start_seconds": 913.9,
+          "end_seconds": 921.5,
+          "duration_seconds": 7.600000000000023,
+          "start_ts": "00:15:13.90",
+          "end_ts": "00:15:21.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 110,
+        "time": {
+          "start_seconds": 921.9,
+          "end_seconds": 924.3,
+          "duration_seconds": 2.3999999999999773,
+          "start_ts": "00:15:21.90",
+          "end_ts": "00:15:24.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 111,
+        "time": {
+          "start_seconds": 924.5,
+          "end_seconds": 927.3,
+          "duration_seconds": 2.7999999999999545,
+          "start_ts": "00:15:24.50",
+          "end_ts": "00:15:27.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 112,
+        "time": {
+          "start_seconds": 927.6,
+          "end_seconds": 933.5,
+          "duration_seconds": 5.899999999999977,
+          "start_ts": "00:15:27.60",
+          "end_ts": "00:15:33.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 113,
+        "time": {
+          "start_seconds": 934.4,
+          "end_seconds": 935.7,
+          "duration_seconds": 1.3000000000000682,
+          "start_ts": "00:15:34.40",
+          "end_ts": "00:15:35.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 114,
+        "time": {
+          "start_seconds": 936.1,
+          "end_seconds": 938.2,
+          "duration_seconds": 2.1000000000000227,
+          "start_ts": "00:15:36.10",
+          "end_ts": "00:15:38.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 115,
+        "time": {
+          "start_seconds": 938.5,
+          "end_seconds": 939.9,
+          "duration_seconds": 1.3999999999999773,
+          "start_ts": "00:15:38.50",
+          "end_ts": "00:15:39.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 116,
+        "time": {
+          "start_seconds": 940.4,
+          "end_seconds": 956.2,
+          "duration_seconds": 15.800000000000068,
+          "start_ts": "00:15:40.40",
+          "end_ts": "00:15:56.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 117,
+        "time": {
+          "start_seconds": 956.5,
+          "end_seconds": 960.0,
+          "duration_seconds": 3.5,
+          "start_ts": "00:15:56.50",
+          "end_ts": "00:16:00.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 118,
+        "time": {
+          "start_seconds": 960.4,
+          "end_seconds": 972.5,
+          "duration_seconds": 12.100000000000023,
+          "start_ts": "00:16:00.40",
+          "end_ts": "00:16:12.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 119,
+        "time": {
+          "start_seconds": 973.2,
+          "end_seconds": 975.6,
+          "duration_seconds": 2.3999999999999773,
+          "start_ts": "00:16:13.20",
+          "end_ts": "00:16:15.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 120,
+        "time": {
+          "start_seconds": 976.3,
+          "end_seconds": 979.8,
+          "duration_seconds": 3.5,
+          "start_ts": "00:16:16.30",
+          "end_ts": "00:16:19.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 121,
+        "time": {
+          "start_seconds": 985.5,
+          "end_seconds": 989.9,
+          "duration_seconds": 4.399999999999977,
+          "start_ts": "00:16:25.50",
+          "end_ts": "00:16:29.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 122,
+        "time": {
+          "start_seconds": 992.9,
+          "end_seconds": 995.1,
+          "duration_seconds": 2.2000000000000455,
+          "start_ts": "00:16:32.90",
+          "end_ts": "00:16:35.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 123,
+        "time": {
+          "start_seconds": 995.4,
+          "end_seconds": 1003.5,
+          "duration_seconds": 8.100000000000023,
+          "start_ts": "00:16:35.40",
+          "end_ts": "00:16:43.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 124,
+        "time": {
+          "start_seconds": 1006.0,
+          "end_seconds": 1013.1,
+          "duration_seconds": 7.100000000000023,
+          "start_ts": "00:16:46.00",
+          "end_ts": "00:16:53.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 125,
+        "time": {
+          "start_seconds": 1013.5,
+          "end_seconds": 1022.4,
+          "duration_seconds": 8.899999999999977,
+          "start_ts": "00:16:53.50",
+          "end_ts": "00:17:02.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 126,
+        "time": {
+          "start_seconds": 1023.3,
+          "end_seconds": 1030.2,
+          "duration_seconds": 6.900000000000091,
+          "start_ts": "00:17:03.30",
+          "end_ts": "00:17:10.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 127,
+        "time": {
+          "start_seconds": 1031.6,
+          "end_seconds": 1037.6,
+          "duration_seconds": 6.0,
+          "start_ts": "00:17:11.60",
+          "end_ts": "00:17:17.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 128,
+        "time": {
+          "start_seconds": 1038.4,
+          "end_seconds": 1041.9,
+          "duration_seconds": 3.5,
+          "start_ts": "00:17:18.40",
+          "end_ts": "00:17:21.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 129,
+        "time": {
+          "start_seconds": 1042.0,
+          "end_seconds": 1046.1,
+          "duration_seconds": 4.099999999999909,
+          "start_ts": "00:17:22.00",
+          "end_ts": "00:17:26.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 130,
+        "time": {
+          "start_seconds": 1048.9,
+          "end_seconds": 1052.0,
+          "duration_seconds": 3.099999999999909,
+          "start_ts": "00:17:28.90",
+          "end_ts": "00:17:32.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 131,
+        "time": {
+          "start_seconds": 1052.4,
+          "end_seconds": 1069.0,
+          "duration_seconds": 16.59999999999991,
+          "start_ts": "00:17:32.40",
+          "end_ts": "00:17:49.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 132,
+        "time": {
+          "start_seconds": 1069.5,
+          "end_seconds": 1070.7,
+          "duration_seconds": 1.2000000000000455,
+          "start_ts": "00:17:49.50",
+          "end_ts": "00:17:50.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 133,
+        "time": {
+          "start_seconds": 1070.8,
+          "end_seconds": 1085.5,
+          "duration_seconds": 14.700000000000045,
+          "start_ts": "00:17:50.80",
+          "end_ts": "00:18:05.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 134,
+        "time": {
+          "start_seconds": 1085.7,
+          "end_seconds": 1092.8,
+          "duration_seconds": 7.099999999999909,
+          "start_ts": "00:18:05.70",
+          "end_ts": "00:18:12.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 135,
+        "time": {
+          "start_seconds": 1095.4,
+          "end_seconds": 1096.9,
+          "duration_seconds": 1.5,
+          "start_ts": "00:18:15.40",
+          "end_ts": "00:18:16.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 136,
+        "time": {
+          "start_seconds": 1097.1,
+          "end_seconds": 1098.9,
+          "duration_seconds": 1.800000000000182,
+          "start_ts": "00:18:17.10",
+          "end_ts": "00:18:18.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 137,
+        "time": {
+          "start_seconds": 1099.0,
+          "end_seconds": 1102.0,
+          "duration_seconds": 3.0,
+          "start_ts": "00:18:19.00",
+          "end_ts": "00:18:22.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 138,
+        "time": {
+          "start_seconds": 1103.5,
+          "end_seconds": 1106.6,
+          "duration_seconds": 3.099999999999909,
+          "start_ts": "00:18:23.50",
+          "end_ts": "00:18:26.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 139,
+        "time": {
+          "start_seconds": 1106.7,
+          "end_seconds": 1109.9,
+          "duration_seconds": 3.2000000000000455,
+          "start_ts": "00:18:26.70",
+          "end_ts": "00:18:29.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 140,
+        "time": {
+          "start_seconds": 1111.0,
+          "end_seconds": 1112.9,
+          "duration_seconds": 1.900000000000091,
+          "start_ts": "00:18:31.00",
+          "end_ts": "00:18:32.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 141,
+        "time": {
+          "start_seconds": 1115.0,
+          "end_seconds": 1118.9,
+          "duration_seconds": 3.900000000000091,
+          "start_ts": "00:18:35.00",
+          "end_ts": "00:18:38.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 142,
+        "time": {
+          "start_seconds": 1119.4,
+          "end_seconds": 1128.5,
+          "duration_seconds": 9.099999999999909,
+          "start_ts": "00:18:39.40",
+          "end_ts": "00:18:48.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 143,
+        "time": {
+          "start_seconds": 1128.7,
+          "end_seconds": 1136.9,
+          "duration_seconds": 8.200000000000045,
+          "start_ts": "00:18:48.70",
+          "end_ts": "00:18:56.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 144,
+        "time": {
+          "start_seconds": 1137.3,
+          "end_seconds": 1142.4,
+          "duration_seconds": 5.100000000000136,
+          "start_ts": "00:18:57.30",
+          "end_ts": "00:19:02.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 145,
+        "time": {
+          "start_seconds": 1143.1,
+          "end_seconds": 1153.5,
+          "duration_seconds": 10.400000000000091,
+          "start_ts": "00:19:03.10",
+          "end_ts": "00:19:13.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 146,
+        "time": {
+          "start_seconds": 1153.7,
+          "end_seconds": 1159.5,
+          "duration_seconds": 5.7999999999999545,
+          "start_ts": "00:19:13.70",
+          "end_ts": "00:19:19.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 147,
+        "time": {
+          "start_seconds": 1159.8,
+          "end_seconds": 1167.9,
+          "duration_seconds": 8.100000000000136,
+          "start_ts": "00:19:19.80",
+          "end_ts": "00:19:27.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 148,
+        "time": {
+          "start_seconds": 1168.4,
+          "end_seconds": 1171.2,
+          "duration_seconds": 2.7999999999999545,
+          "start_ts": "00:19:28.40",
+          "end_ts": "00:19:31.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 149,
+        "time": {
+          "start_seconds": 1171.3,
+          "end_seconds": 1173.1,
+          "duration_seconds": 1.7999999999999545,
+          "start_ts": "00:19:31.30",
+          "end_ts": "00:19:33.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 150,
+        "time": {
+          "start_seconds": 1173.2,
+          "end_seconds": 1174.5,
+          "duration_seconds": 1.2999999999999545,
+          "start_ts": "00:19:33.20",
+          "end_ts": "00:19:34.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 151,
+        "time": {
+          "start_seconds": 1174.8,
+          "end_seconds": 1175.5,
+          "duration_seconds": 0.7000000000000455,
+          "start_ts": "00:19:34.80",
+          "end_ts": "00:19:35.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 152,
+        "time": {
+          "start_seconds": 1176.5,
+          "end_seconds": 1192.7,
+          "duration_seconds": 16.200000000000045,
+          "start_ts": "00:19:36.50",
+          "end_ts": "00:19:52.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 153,
+        "time": {
+          "start_seconds": 1193.0,
+          "end_seconds": 1196.5,
+          "duration_seconds": 3.5,
+          "start_ts": "00:19:53.00",
+          "end_ts": "00:19:56.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 154,
+        "time": {
+          "start_seconds": 1196.7,
+          "end_seconds": 1203.3,
+          "duration_seconds": 6.599999999999909,
+          "start_ts": "00:19:56.70",
+          "end_ts": "00:20:03.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 155,
+        "time": {
+          "start_seconds": 1203.4,
+          "end_seconds": 1206.6,
+          "duration_seconds": 3.199999999999818,
+          "start_ts": "00:20:03.40",
+          "end_ts": "00:20:06.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 156,
+        "time": {
+          "start_seconds": 1207.1,
+          "end_seconds": 1208.2,
+          "duration_seconds": 1.1000000000001364,
+          "start_ts": "00:20:07.10",
+          "end_ts": "00:20:08.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 157,
+        "time": {
+          "start_seconds": 1208.4,
+          "end_seconds": 1219.9,
+          "duration_seconds": 11.5,
+          "start_ts": "00:20:08.40",
+          "end_ts": "00:20:19.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 158,
+        "time": {
+          "start_seconds": 1220.5,
+          "end_seconds": 1237.2,
+          "duration_seconds": 16.700000000000045,
+          "start_ts": "00:20:20.50",
+          "end_ts": "00:20:37.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 159,
+        "time": {
+          "start_seconds": 1237.3,
+          "end_seconds": 1239.7,
+          "duration_seconds": 2.400000000000091,
+          "start_ts": "00:20:37.30",
+          "end_ts": "00:20:39.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 160,
+        "time": {
+          "start_seconds": 1240.6,
+          "end_seconds": 1242.6,
+          "duration_seconds": 2.0,
+          "start_ts": "00:20:40.60",
+          "end_ts": "00:20:42.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 161,
+        "time": {
+          "start_seconds": 1243.3,
+          "end_seconds": 1248.6,
+          "duration_seconds": 5.2999999999999545,
+          "start_ts": "00:20:43.30",
+          "end_ts": "00:20:48.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 162,
+        "time": {
+          "start_seconds": 1248.9,
+          "end_seconds": 1250.5,
+          "duration_seconds": 1.599999999999909,
+          "start_ts": "00:20:48.90",
+          "end_ts": "00:20:50.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 163,
+        "time": {
+          "start_seconds": 1252.4,
+          "end_seconds": 1257.1,
+          "duration_seconds": 4.699999999999818,
+          "start_ts": "00:20:52.40",
+          "end_ts": "00:20:57.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 164,
+        "time": {
+          "start_seconds": 1257.2,
+          "end_seconds": 1262.0,
+          "duration_seconds": 4.7999999999999545,
+          "start_ts": "00:20:57.20",
+          "end_ts": "00:21:02.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 165,
+        "time": {
+          "start_seconds": 1262.2,
+          "end_seconds": 1265.9,
+          "duration_seconds": 3.7000000000000455,
+          "start_ts": "00:21:02.20",
+          "end_ts": "00:21:05.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 166,
+        "time": {
+          "start_seconds": 1266.2,
+          "end_seconds": 1268.2,
+          "duration_seconds": 2.0,
+          "start_ts": "00:21:06.20",
+          "end_ts": "00:21:08.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 167,
+        "time": {
+          "start_seconds": 1268.3,
+          "end_seconds": 1270.1,
+          "duration_seconds": 1.7999999999999545,
+          "start_ts": "00:21:08.30",
+          "end_ts": "00:21:10.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 168,
+        "time": {
+          "start_seconds": 1270.3,
+          "end_seconds": 1271.7,
+          "duration_seconds": 1.400000000000091,
+          "start_ts": "00:21:10.30",
+          "end_ts": "00:21:11.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 169,
+        "time": {
+          "start_seconds": 1271.9,
+          "end_seconds": 1272.6,
+          "duration_seconds": 0.6999999999998181,
+          "start_ts": "00:21:11.90",
+          "end_ts": "00:21:12.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 170,
+        "time": {
+          "start_seconds": 1272.9,
+          "end_seconds": 1273.8,
+          "duration_seconds": 0.8999999999998636,
+          "start_ts": "00:21:12.90",
+          "end_ts": "00:21:13.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 171,
+        "time": {
+          "start_seconds": 1273.9,
+          "end_seconds": 1276.0,
+          "duration_seconds": 2.099999999999909,
+          "start_ts": "00:21:13.90",
+          "end_ts": "00:21:16.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 172,
+        "time": {
+          "start_seconds": 1276.3,
+          "end_seconds": 1278.1,
+          "duration_seconds": 1.7999999999999545,
+          "start_ts": "00:21:16.30",
+          "end_ts": "00:21:18.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 173,
+        "time": {
+          "start_seconds": 1278.3,
+          "end_seconds": 1279.4,
+          "duration_seconds": 1.1000000000001364,
+          "start_ts": "00:21:18.30",
+          "end_ts": "00:21:19.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 174,
+        "time": {
+          "start_seconds": 1279.5,
+          "end_seconds": 1280.2,
+          "duration_seconds": 0.7000000000000455,
+          "start_ts": "00:21:19.50",
+          "end_ts": "00:21:20.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 175,
+        "time": {
+          "start_seconds": 1280.4,
+          "end_seconds": 1282.1,
+          "duration_seconds": 1.699999999999818,
+          "start_ts": "00:21:20.40",
+          "end_ts": "00:21:22.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 176,
+        "time": {
+          "start_seconds": 1282.4,
+          "end_seconds": 1284.6,
+          "duration_seconds": 2.199999999999818,
+          "start_ts": "00:21:22.40",
+          "end_ts": "00:21:24.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 177,
+        "time": {
+          "start_seconds": 1284.9,
+          "end_seconds": 1287.5,
+          "duration_seconds": 2.599999999999909,
+          "start_ts": "00:21:24.90",
+          "end_ts": "00:21:27.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 178,
+        "time": {
+          "start_seconds": 1287.9,
+          "end_seconds": 1291.5,
+          "duration_seconds": 3.599999999999909,
+          "start_ts": "00:21:27.90",
+          "end_ts": "00:21:31.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 179,
+        "time": {
+          "start_seconds": 1292.3,
+          "end_seconds": 1293.4,
+          "duration_seconds": 1.1000000000001364,
+          "start_ts": "00:21:32.30",
+          "end_ts": "00:21:33.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 180,
+        "time": {
+          "start_seconds": 1293.7,
+          "end_seconds": 1294.9,
+          "duration_seconds": 1.2000000000000455,
+          "start_ts": "00:21:33.70",
+          "end_ts": "00:21:34.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 181,
+        "time": {
+          "start_seconds": 1295.2,
+          "end_seconds": 1297.2,
+          "duration_seconds": 2.0,
+          "start_ts": "00:21:35.20",
+          "end_ts": "00:21:37.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 182,
+        "time": {
+          "start_seconds": 1297.7,
+          "end_seconds": 1300.0,
+          "duration_seconds": 2.2999999999999545,
+          "start_ts": "00:21:37.70",
+          "end_ts": "00:21:40.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 183,
+        "time": {
+          "start_seconds": 1300.4,
+          "end_seconds": 1302.4,
+          "duration_seconds": 2.0,
+          "start_ts": "00:21:40.40",
+          "end_ts": "00:21:42.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 184,
+        "time": {
+          "start_seconds": 1302.8,
+          "end_seconds": 1304.7,
+          "duration_seconds": 1.900000000000091,
+          "start_ts": "00:21:42.80",
+          "end_ts": "00:21:44.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 185,
+        "time": {
+          "start_seconds": 1305.6,
+          "end_seconds": 1307.4,
+          "duration_seconds": 1.800000000000182,
+          "start_ts": "00:21:45.60",
+          "end_ts": "00:21:47.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 186,
+        "time": {
+          "start_seconds": 1307.5,
+          "end_seconds": 1309.8,
+          "duration_seconds": 2.2999999999999545,
+          "start_ts": "00:21:47.50",
+          "end_ts": "00:21:49.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 187,
+        "time": {
+          "start_seconds": 1310.0,
+          "end_seconds": 1311.9,
+          "duration_seconds": 1.900000000000091,
+          "start_ts": "00:21:50.00",
+          "end_ts": "00:21:51.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 188,
+        "time": {
+          "start_seconds": 1312.0,
+          "end_seconds": 1313.3,
+          "duration_seconds": 1.2999999999999545,
+          "start_ts": "00:21:52.00",
+          "end_ts": "00:21:53.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 189,
+        "time": {
+          "start_seconds": 1313.5,
+          "end_seconds": 1314.8,
+          "duration_seconds": 1.2999999999999545,
+          "start_ts": "00:21:53.50",
+          "end_ts": "00:21:54.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 190,
+        "time": {
+          "start_seconds": 1315.2,
+          "end_seconds": 1317.1,
+          "duration_seconds": 1.8999999999998636,
+          "start_ts": "00:21:55.20",
+          "end_ts": "00:21:57.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 191,
+        "time": {
+          "start_seconds": 1317.2,
+          "end_seconds": 1319.5,
+          "duration_seconds": 2.2999999999999545,
+          "start_ts": "00:21:57.20",
+          "end_ts": "00:21:59.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 192,
+        "time": {
+          "start_seconds": 1319.9,
+          "end_seconds": 1321.6,
+          "duration_seconds": 1.699999999999818,
+          "start_ts": "00:21:59.90",
+          "end_ts": "00:22:01.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 193,
+        "time": {
+          "start_seconds": 1321.9,
+          "end_seconds": 1323.3,
+          "duration_seconds": 1.3999999999998636,
+          "start_ts": "00:22:01.90",
+          "end_ts": "00:22:03.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 194,
+        "time": {
+          "start_seconds": 1323.5,
+          "end_seconds": 1324.7,
+          "duration_seconds": 1.2000000000000455,
+          "start_ts": "00:22:03.50",
+          "end_ts": "00:22:04.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 195,
+        "time": {
+          "start_seconds": 1325.1,
+          "end_seconds": 1325.7,
+          "duration_seconds": 0.6000000000001364,
+          "start_ts": "00:22:05.10",
+          "end_ts": "00:22:05.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 196,
+        "time": {
+          "start_seconds": 1326.3,
+          "end_seconds": 1328.5,
+          "duration_seconds": 2.2000000000000455,
+          "start_ts": "00:22:06.30",
+          "end_ts": "00:22:08.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 197,
+        "time": {
+          "start_seconds": 1328.7,
+          "end_seconds": 1330.2,
+          "duration_seconds": 1.5,
+          "start_ts": "00:22:08.70",
+          "end_ts": "00:22:10.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 198,
+        "time": {
+          "start_seconds": 1330.6,
+          "end_seconds": 1332.2,
+          "duration_seconds": 1.6000000000001364,
+          "start_ts": "00:22:10.60",
+          "end_ts": "00:22:12.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 199,
+        "time": {
+          "start_seconds": 1332.5,
+          "end_seconds": 1333.8,
+          "duration_seconds": 1.2999999999999545,
+          "start_ts": "00:22:12.50",
+          "end_ts": "00:22:13.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 200,
+        "time": {
+          "start_seconds": 1334.2,
+          "end_seconds": 1337.0,
+          "duration_seconds": 2.7999999999999545,
+          "start_ts": "00:22:14.20",
+          "end_ts": "00:22:17.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 201,
+        "time": {
+          "start_seconds": 1337.4,
+          "end_seconds": 1338.6,
+          "duration_seconds": 1.199999999999818,
+          "start_ts": "00:22:17.40",
+          "end_ts": "00:22:18.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 202,
+        "time": {
+          "start_seconds": 1339.0,
+          "end_seconds": 1341.3,
+          "duration_seconds": 2.2999999999999545,
+          "start_ts": "00:22:19.00",
+          "end_ts": "00:22:21.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 203,
+        "time": {
+          "start_seconds": 1341.7,
+          "end_seconds": 1343.6,
+          "duration_seconds": 1.8999999999998636,
+          "start_ts": "00:22:21.70",
+          "end_ts": "00:22:23.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 204,
+        "time": {
+          "start_seconds": 1344.2,
+          "end_seconds": 1345.2,
+          "duration_seconds": 1.0,
+          "start_ts": "00:22:24.20",
+          "end_ts": "00:22:25.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 205,
+        "time": {
+          "start_seconds": 1345.5,
+          "end_seconds": 1347.0,
+          "duration_seconds": 1.5,
+          "start_ts": "00:22:25.50",
+          "end_ts": "00:22:27.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 206,
+        "time": {
+          "start_seconds": 1347.4,
+          "end_seconds": 1350.5,
+          "duration_seconds": 3.099999999999909,
+          "start_ts": "00:22:27.40",
+          "end_ts": "00:22:30.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 207,
+        "time": {
+          "start_seconds": 1351.1,
+          "end_seconds": 1353.3,
+          "duration_seconds": 2.2000000000000455,
+          "start_ts": "00:22:31.10",
+          "end_ts": "00:22:33.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 208,
+        "time": {
+          "start_seconds": 1353.7,
+          "end_seconds": 1357.8,
+          "duration_seconds": 4.099999999999909,
+          "start_ts": "00:22:33.70",
+          "end_ts": "00:22:37.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 209,
+        "time": {
+          "start_seconds": 1358.5,
+          "end_seconds": 1359.5,
+          "duration_seconds": 1.0,
+          "start_ts": "00:22:38.50",
+          "end_ts": "00:22:39.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 210,
+        "time": {
+          "start_seconds": 1359.7,
+          "end_seconds": 1361.3,
+          "duration_seconds": 1.599999999999909,
+          "start_ts": "00:22:39.70",
+          "end_ts": "00:22:41.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 211,
+        "time": {
+          "start_seconds": 1361.6,
+          "end_seconds": 1364.9,
+          "duration_seconds": 3.300000000000182,
+          "start_ts": "00:22:41.60",
+          "end_ts": "00:22:44.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 212,
+        "time": {
+          "start_seconds": 1366.1,
+          "end_seconds": 1366.9,
+          "duration_seconds": 0.8000000000001819,
+          "start_ts": "00:22:46.10",
+          "end_ts": "00:22:46.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 213,
+        "time": {
+          "start_seconds": 1367.5,
+          "end_seconds": 1371.4,
+          "duration_seconds": 3.900000000000091,
+          "start_ts": "00:22:47.50",
+          "end_ts": "00:22:51.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 214,
+        "time": {
+          "start_seconds": 1371.7,
+          "end_seconds": 1372.5,
+          "duration_seconds": 0.7999999999999545,
+          "start_ts": "00:22:51.70",
+          "end_ts": "00:22:52.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 215,
+        "time": {
+          "start_seconds": 1372.9,
+          "end_seconds": 1374.9,
+          "duration_seconds": 2.0,
+          "start_ts": "00:22:52.90",
+          "end_ts": "00:22:54.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 216,
+        "time": {
+          "start_seconds": 1375.0,
+          "end_seconds": 1376.1,
+          "duration_seconds": 1.099999999999909,
+          "start_ts": "00:22:55.00",
+          "end_ts": "00:22:56.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 217,
+        "time": {
+          "start_seconds": 1376.9,
+          "end_seconds": 1378.7,
+          "duration_seconds": 1.7999999999999545,
+          "start_ts": "00:22:56.90",
+          "end_ts": "00:22:58.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 218,
+        "time": {
+          "start_seconds": 1379.4,
+          "end_seconds": 1382.2,
+          "duration_seconds": 2.7999999999999545,
+          "start_ts": "00:22:59.40",
+          "end_ts": "00:23:02.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 219,
+        "time": {
+          "start_seconds": 1382.7,
+          "end_seconds": 1384.5,
+          "duration_seconds": 1.7999999999999545,
+          "start_ts": "00:23:02.70",
+          "end_ts": "00:23:04.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 220,
+        "time": {
+          "start_seconds": 1384.9,
+          "end_seconds": 1386.2,
+          "duration_seconds": 1.2999999999999545,
+          "start_ts": "00:23:04.90",
+          "end_ts": "00:23:06.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 221,
+        "time": {
+          "start_seconds": 1386.4,
+          "end_seconds": 1388.6,
+          "duration_seconds": 2.199999999999818,
+          "start_ts": "00:23:06.40",
+          "end_ts": "00:23:08.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 222,
+        "time": {
+          "start_seconds": 1388.8,
+          "end_seconds": 1398.1,
+          "duration_seconds": 9.299999999999955,
+          "start_ts": "00:23:08.80",
+          "end_ts": "00:23:18.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 223,
+        "time": {
+          "start_seconds": 1403.4,
+          "end_seconds": 1408.5,
+          "duration_seconds": 5.099999999999909,
+          "start_ts": "00:23:23.40",
+          "end_ts": "00:23:28.50"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 224,
+        "time": {
+          "start_seconds": 1408.9,
+          "end_seconds": 1410.9,
+          "duration_seconds": 2.0,
+          "start_ts": "00:23:28.90",
+          "end_ts": "00:23:30.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 225,
+        "time": {
+          "start_seconds": 1411.0,
+          "end_seconds": 1412.0,
+          "duration_seconds": 1.0,
+          "start_ts": "00:23:31.00",
+          "end_ts": "00:23:32.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 226,
+        "time": {
+          "start_seconds": 1412.4,
+          "end_seconds": 1416.8,
+          "duration_seconds": 4.399999999999864,
+          "start_ts": "00:23:32.40",
+          "end_ts": "00:23:36.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 227,
+        "time": {
+          "start_seconds": 1417.2,
+          "end_seconds": 1421.4,
+          "duration_seconds": 4.2000000000000455,
+          "start_ts": "00:23:37.20",
+          "end_ts": "00:23:41.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 228,
+        "time": {
+          "start_seconds": 1421.9,
+          "end_seconds": 1423.1,
+          "duration_seconds": 1.199999999999818,
+          "start_ts": "00:23:41.90",
+          "end_ts": "00:23:43.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 229,
+        "time": {
+          "start_seconds": 1423.4,
+          "end_seconds": 1424.4,
+          "duration_seconds": 1.0,
+          "start_ts": "00:23:43.40",
+          "end_ts": "00:23:44.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 230,
+        "time": {
+          "start_seconds": 1424.7,
+          "end_seconds": 1427.8,
+          "duration_seconds": 3.099999999999909,
+          "start_ts": "00:23:44.70",
+          "end_ts": "00:23:47.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 231,
+        "time": {
+          "start_seconds": 1427.9,
+          "end_seconds": 1431.4,
+          "duration_seconds": 3.5,
+          "start_ts": "00:23:47.90",
+          "end_ts": "00:23:51.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 232,
+        "time": {
+          "start_seconds": 1431.7,
+          "end_seconds": 1432.8,
+          "duration_seconds": 1.099999999999909,
+          "start_ts": "00:23:51.70",
+          "end_ts": "00:23:52.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 233,
+        "time": {
+          "start_seconds": 1432.9,
+          "end_seconds": 1434.1,
+          "duration_seconds": 1.199999999999818,
+          "start_ts": "00:23:52.90",
+          "end_ts": "00:23:54.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 234,
+        "time": {
+          "start_seconds": 1434.2,
+          "end_seconds": 1435.9,
+          "duration_seconds": 1.7000000000000455,
+          "start_ts": "00:23:54.20",
+          "end_ts": "00:23:55.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 235,
+        "time": {
+          "start_seconds": 1436.2,
+          "end_seconds": 1444.2,
+          "duration_seconds": 8.0,
+          "start_ts": "00:23:56.20",
+          "end_ts": "00:24:04.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 236,
+        "time": {
+          "start_seconds": 1444.5,
+          "end_seconds": 1449.4,
+          "duration_seconds": 4.900000000000091,
+          "start_ts": "00:24:04.50",
+          "end_ts": "00:24:09.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 237,
+        "time": {
+          "start_seconds": 1449.5,
+          "end_seconds": 1454.0,
+          "duration_seconds": 4.5,
+          "start_ts": "00:24:09.50",
+          "end_ts": "00:24:14.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 238,
+        "time": {
+          "start_seconds": 1454.1,
+          "end_seconds": 1466.7,
+          "duration_seconds": 12.600000000000136,
+          "start_ts": "00:24:14.10",
+          "end_ts": "00:24:26.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 239,
+        "time": {
+          "start_seconds": 1466.8,
+          "end_seconds": 1468.4,
+          "duration_seconds": 1.6000000000001364,
+          "start_ts": "00:24:26.80",
+          "end_ts": "00:24:28.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 240,
+        "time": {
+          "start_seconds": 1468.6,
+          "end_seconds": 1490.4,
+          "duration_seconds": 21.800000000000182,
+          "start_ts": "00:24:28.60",
+          "end_ts": "00:24:50.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 241,
+        "time": {
+          "start_seconds": 1490.5,
+          "end_seconds": 1494.0,
+          "duration_seconds": 3.5,
+          "start_ts": "00:24:50.50",
+          "end_ts": "00:24:54.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 242,
+        "time": {
+          "start_seconds": 1494.4,
+          "end_seconds": 1499.8,
+          "duration_seconds": 5.399999999999864,
+          "start_ts": "00:24:54.40",
+          "end_ts": "00:24:59.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 243,
+        "time": {
+          "start_seconds": 1499.9,
+          "end_seconds": 1511.4,
+          "duration_seconds": 11.5,
+          "start_ts": "00:24:59.90",
+          "end_ts": "00:25:11.40"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 244,
+        "time": {
+          "start_seconds": 1511.5,
+          "end_seconds": 1516.6,
+          "duration_seconds": 5.099999999999909,
+          "start_ts": "00:25:11.50",
+          "end_ts": "00:25:16.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 245,
+        "time": {
+          "start_seconds": 1516.7,
+          "end_seconds": 1523.2,
+          "duration_seconds": 6.5,
+          "start_ts": "00:25:16.70",
+          "end_ts": "00:25:23.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 246,
+        "time": {
+          "start_seconds": 1523.4,
+          "end_seconds": 1533.0,
+          "duration_seconds": 9.599999999999909,
+          "start_ts": "00:25:23.40",
+          "end_ts": "00:25:33.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 247,
+        "time": {
+          "start_seconds": 1533.3,
+          "end_seconds": 1535.8,
+          "duration_seconds": 2.5,
+          "start_ts": "00:25:33.30",
+          "end_ts": "00:25:35.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 248,
+        "time": {
+          "start_seconds": 1536.0,
+          "end_seconds": 1540.7,
+          "duration_seconds": 4.7000000000000455,
+          "start_ts": "00:25:36.00",
+          "end_ts": "00:25:40.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 249,
+        "time": {
+          "start_seconds": 1541.7,
+          "end_seconds": 1556.8,
+          "duration_seconds": 15.099999999999909,
+          "start_ts": "00:25:41.70",
+          "end_ts": "00:25:56.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 250,
+        "time": {
+          "start_seconds": 1556.9,
+          "end_seconds": 1562.9,
+          "duration_seconds": 6.0,
+          "start_ts": "00:25:56.90",
+          "end_ts": "00:26:02.90"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 251,
+        "time": {
+          "start_seconds": 1564.1,
+          "end_seconds": 1590.7,
+          "duration_seconds": 26.600000000000136,
+          "start_ts": "00:26:04.10",
+          "end_ts": "00:26:30.70"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 252,
+        "time": {
+          "start_seconds": 1590.8,
+          "end_seconds": 1592.3,
+          "duration_seconds": 1.5,
+          "start_ts": "00:26:30.80",
+          "end_ts": "00:26:32.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 253,
+        "time": {
+          "start_seconds": 1592.5,
+          "end_seconds": 1606.1,
+          "duration_seconds": 13.599999999999909,
+          "start_ts": "00:26:32.50",
+          "end_ts": "00:26:46.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 254,
+        "time": {
+          "start_seconds": 1606.2,
+          "end_seconds": 1608.2,
+          "duration_seconds": 2.0,
+          "start_ts": "00:26:46.20",
+          "end_ts": "00:26:48.20"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 255,
+        "time": {
+          "start_seconds": 1608.3,
+          "end_seconds": 1610.3,
+          "duration_seconds": 2.0,
+          "start_ts": "00:26:48.30",
+          "end_ts": "00:26:50.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 256,
+        "time": {
+          "start_seconds": 1610.4,
+          "end_seconds": 1632.1,
+          "duration_seconds": 21.699999999999818,
+          "start_ts": "00:26:50.40",
+          "end_ts": "00:27:12.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 257,
+        "time": {
+          "start_seconds": 1632.3,
+          "end_seconds": 1633.1,
+          "duration_seconds": 0.7999999999999545,
+          "start_ts": "00:27:12.30",
+          "end_ts": "00:27:13.10"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 258,
+        "time": {
+          "start_seconds": 1633.2,
+          "end_seconds": 1641.0,
+          "duration_seconds": 7.7999999999999545,
+          "start_ts": "00:27:13.20",
+          "end_ts": "00:27:21.00"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 259,
+        "time": {
+          "start_seconds": 1644.1,
+          "end_seconds": 1651.8,
+          "duration_seconds": 7.7000000000000455,
+          "start_ts": "00:27:24.10",
+          "end_ts": "00:27:31.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 260,
+        "time": {
+          "start_seconds": 1651.9,
+          "end_seconds": 1659.8,
+          "duration_seconds": 7.899999999999864,
+          "start_ts": "00:27:31.90",
+          "end_ts": "00:27:39.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 261,
+        "time": {
+          "start_seconds": 1661.1,
+          "end_seconds": 1666.6,
+          "duration_seconds": 5.5,
+          "start_ts": "00:27:41.10",
+          "end_ts": "00:27:46.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 262,
+        "time": {
+          "start_seconds": 1670.4,
+          "end_seconds": 1675.3,
+          "duration_seconds": 4.899999999999864,
+          "start_ts": "00:27:50.40",
+          "end_ts": "00:27:55.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 263,
+        "time": {
+          "start_seconds": 1675.5,
+          "end_seconds": 1703.3,
+          "duration_seconds": 27.799999999999955,
+          "start_ts": "00:27:55.50",
+          "end_ts": "00:28:23.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 264,
+        "time": {
+          "start_seconds": 1703.8,
+          "end_seconds": 1730.6,
+          "duration_seconds": 26.799999999999955,
+          "start_ts": "00:28:23.80",
+          "end_ts": "00:28:50.60"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 265,
+        "time": {
+          "start_seconds": 1730.8,
+          "end_seconds": 1750.3,
+          "duration_seconds": 19.5,
+          "start_ts": "00:28:50.80",
+          "end_ts": "00:29:10.30"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 266,
+        "time": {
+          "start_seconds": 1750.4,
+          "end_seconds": 1789.8,
+          "duration_seconds": 39.399999999999864,
+          "start_ts": "00:29:10.40",
+          "end_ts": "00:29:49.80"
+        },
+        "confidence": null
+      },
+      {
+        "segment_id": 267,
+        "time": {
+          "start_seconds": 1791.7,
+          "end_seconds": 1800.064,
+          "duration_seconds": 8.364000000000033,
+          "start_ts": "00:29:51.70",
+          "end_ts": "00:30:00.06"
+        },
+        "confidence": null
+      }
+    ],
+    "speech_seconds_total": 1558.0639999999973,
+    "non_speech_seconds_total": 242.00000000000273
+  },
+  "transcript": {
+    "engine": {
+      "name": "faster-whisper",
+      "model": null,
+      "device": null,
+      "compute_type": null,
+      "options": {}
+    },
+    "language_detected": null,
+    "language_probability": null,
+    "raw_tokens": [],
+    "raw_segments": []
+  },
+  "diarization": {
+    "engine": {
+      "name": "pyannote",
+      "model": "pyannote/speaker-diarization-3.1",
+      "device": "cuda",
+      "version": null,
+      "options": {
+        "embedding_model": "pyannote/embedding",
+        "extract_embeddings": true
+      }
+    },
+    "raw_segments": [
+      {
+        "segment_id": 1,
+        "time": {
+          "start_seconds": 13.497218750000002,
+          "end_seconds": 15.99471875,
+          "duration_seconds": 2.4974999999999987,
+          "start_ts": "00:00:13.50",
+          "end_ts": "00:00:15.99"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 2,
+        "time": {
+          "start_seconds": 18.88034375,
+          "end_seconds": 25.59659375,
+          "duration_seconds": 6.716249999999999,
+          "start_ts": "00:00:18.88",
+          "end_ts": "00:00:25.60"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 3,
+        "time": {
+          "start_seconds": 26.085968750000003,
+          "end_seconds": 27.63846875,
+          "duration_seconds": 1.5524999999999984,
+          "start_ts": "00:00:26.09",
+          "end_ts": "00:00:27.64"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 4,
+        "time": {
+          "start_seconds": 28.296593750000003,
+          "end_seconds": 29.69721875,
+          "duration_seconds": 1.400624999999998,
+          "start_ts": "00:00:28.30",
+          "end_ts": "00:00:29.70"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 5,
+        "time": {
+          "start_seconds": 30.50721875,
+          "end_seconds": 33.67971875,
+          "duration_seconds": 3.1724999999999994,
+          "start_ts": "00:00:30.51",
+          "end_ts": "00:00:33.68"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 6,
+        "time": {
+          "start_seconds": 123.28596875000001,
+          "end_seconds": 130.49159375000002,
+          "duration_seconds": 7.205625000000012,
+          "start_ts": "00:02:03.29",
+          "end_ts": "00:02:10.49"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 7,
+        "time": {
+          "start_seconds": 130.96409375000002,
+          "end_seconds": 140.32971875,
+          "duration_seconds": 9.365624999999994,
+          "start_ts": "00:02:10.96",
+          "end_ts": "00:02:20.33"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 8,
+        "time": {
+          "start_seconds": 140.34659375,
+          "end_seconds": 141.44346875000002,
+          "duration_seconds": 1.0968750000000114,
+          "start_ts": "00:02:20.35",
+          "end_ts": "00:02:21.44"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 9,
+        "time": {
+          "start_seconds": 151.51784375,
+          "end_seconds": 187.96784375000001,
+          "duration_seconds": 36.45000000000002,
+          "start_ts": "00:02:31.52",
+          "end_ts": "00:03:07.97"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 10,
+        "time": {
+          "start_seconds": 191.14034375,
+          "end_seconds": 198.80159375000002,
+          "duration_seconds": 7.661250000000024,
+          "start_ts": "00:03:11.14",
+          "end_ts": "00:03:18.80"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 11,
+        "time": {
+          "start_seconds": 199.17284375000003,
+          "end_seconds": 206.81721875000002,
+          "duration_seconds": 7.644374999999997,
+          "start_ts": "00:03:19.17",
+          "end_ts": "00:03:26.82"
+        },
+        "speaker_id": "SPEAKER_02",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 12,
+        "time": {
+          "start_seconds": 207.32346875000002,
+          "end_seconds": 219.03471875000002,
+          "duration_seconds": 11.711250000000007,
+          "start_ts": "00:03:27.32",
+          "end_ts": "00:03:39.03"
+        },
+        "speaker_id": "SPEAKER_02",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 13,
+        "time": {
+          "start_seconds": 219.59159375000002,
+          "end_seconds": 264.39471875000004,
+          "duration_seconds": 44.80312500000002,
+          "start_ts": "00:03:39.59",
+          "end_ts": "00:04:24.39"
+        },
+        "speaker_id": "SPEAKER_02",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 14,
+        "time": {
+          "start_seconds": 265.08659375,
+          "end_seconds": 323.91284375000004,
+          "duration_seconds": 58.826250000000016,
+          "start_ts": "00:04:25.09",
+          "end_ts": "00:05:23.91"
+        },
+        "speaker_id": "SPEAKER_02",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 15,
+        "time": {
+          "start_seconds": 324.31784375,
+          "end_seconds": 329.66721875,
+          "duration_seconds": 5.349375000000009,
+          "start_ts": "00:05:24.32",
+          "end_ts": "00:05:29.67"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 16,
+        "time": {
+          "start_seconds": 330.10596875000005,
+          "end_seconds": 335.96159375,
+          "duration_seconds": 5.855624999999975,
+          "start_ts": "00:05:30.11",
+          "end_ts": "00:05:35.96"
+        },
+        "speaker_id": "SPEAKER_03",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 17,
+        "time": {
+          "start_seconds": 336.65346875,
+          "end_seconds": 418.59846875000005,
+          "duration_seconds": 81.94500000000005,
+          "start_ts": "00:05:36.65",
+          "end_ts": "00:06:58.60"
+        },
+        "speaker_id": "SPEAKER_03",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 18,
+        "time": {
+          "start_seconds": 418.69971875000005,
+          "end_seconds": 456.19596875,
+          "duration_seconds": 37.496249999999975,
+          "start_ts": "00:06:58.70",
+          "end_ts": "00:07:36.20"
+        },
+        "speaker_id": "SPEAKER_03",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 19,
+        "time": {
+          "start_seconds": 456.55034375,
+          "end_seconds": 458.47409375,
+          "duration_seconds": 1.923749999999984,
+          "start_ts": "00:07:36.55",
+          "end_ts": "00:07:38.47"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 20,
+        "time": {
+          "start_seconds": 459.63846875,
+          "end_seconds": 463.82346875,
+          "duration_seconds": 4.185000000000002,
+          "start_ts": "00:07:39.64",
+          "end_ts": "00:07:43.82"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 21,
+        "time": {
+          "start_seconds": 466.05096875000004,
+          "end_seconds": 484.41096875000005,
+          "duration_seconds": 18.360000000000014,
+          "start_ts": "00:07:46.05",
+          "end_ts": "00:08:04.41"
+        },
+        "speaker_id": "SPEAKER_10",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 22,
+        "time": {
+          "start_seconds": 485.94659375000003,
+          "end_seconds": 498.77159375,
+          "duration_seconds": 12.824999999999989,
+          "start_ts": "00:08:05.95",
+          "end_ts": "00:08:18.77"
+        },
+        "speaker_id": "SPEAKER_10",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 23,
+        "time": {
+          "start_seconds": 500.30721875,
+          "end_seconds": 594.6553437499999,
+          "duration_seconds": 94.34812499999992,
+          "start_ts": "00:08:20.31",
+          "end_ts": "00:09:54.66"
+        },
+        "speaker_id": "SPEAKER_10",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 24,
+        "time": {
+          "start_seconds": 595.00971875,
+          "end_seconds": 600.5278437500001,
+          "duration_seconds": 5.518125000000055,
+          "start_ts": "00:09:55.01",
+          "end_ts": "00:10:00.53"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 25,
+        "time": {
+          "start_seconds": 600.5278437500001,
+          "end_seconds": 600.6797187500001,
+          "duration_seconds": 0.1518750000000182,
+          "start_ts": "00:10:00.53",
+          "end_ts": "00:10:00.68"
+        },
+        "speaker_id": "SPEAKER_06",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 26,
+        "time": {
+          "start_seconds": 600.89909375,
+          "end_seconds": 711.7678437500001,
+          "duration_seconds": 110.86875000000009,
+          "start_ts": "00:10:00.90",
+          "end_ts": "00:11:51.77"
+        },
+        "speaker_id": "SPEAKER_06",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 27,
+        "time": {
+          "start_seconds": 711.9365937500002,
+          "end_seconds": 712.96596875,
+          "duration_seconds": 1.0293749999998454,
+          "start_ts": "00:11:51.94",
+          "end_ts": "00:11:52.97"
+        },
+        "speaker_id": "SPEAKER_06",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 28,
+        "time": {
+          "start_seconds": 712.96596875,
+          "end_seconds": 714.7378437500001,
+          "duration_seconds": 1.7718750000001364,
+          "start_ts": "00:11:52.97",
+          "end_ts": "00:11:54.74"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 29,
+        "time": {
+          "start_seconds": 716.0034687500001,
+          "end_seconds": 721.0322187500001,
+          "duration_seconds": 5.028749999999945,
+          "start_ts": "00:11:56.00",
+          "end_ts": "00:12:01.03"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 30,
+        "time": {
+          "start_seconds": 721.0322187500001,
+          "end_seconds": 721.2178437500002,
+          "duration_seconds": 0.18562500000007276,
+          "start_ts": "00:12:01.03",
+          "end_ts": "00:12:01.22"
+        },
+        "speaker_id": "SPEAKER_08",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 31,
+        "time": {
+          "start_seconds": 721.2178437500002,
+          "end_seconds": 721.38659375,
+          "duration_seconds": 0.1687499999998181,
+          "start_ts": "00:12:01.22",
+          "end_ts": "00:12:01.39"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 32,
+        "time": {
+          "start_seconds": 721.65659375,
+          "end_seconds": 721.67346875,
+          "duration_seconds": 0.016875000000027285,
+          "start_ts": "00:12:01.66",
+          "end_ts": "00:12:01.67"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 33,
+        "time": {
+          "start_seconds": 721.67346875,
+          "end_seconds": 843.9665937500001,
+          "duration_seconds": 122.29312500000015,
+          "start_ts": "00:12:01.67",
+          "end_ts": "00:14:03.97"
+        },
+        "speaker_id": "SPEAKER_08",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 34,
+        "time": {
+          "start_seconds": 843.9665937500001,
+          "end_seconds": 850.07534375,
+          "duration_seconds": 6.108749999999873,
+          "start_ts": "00:14:03.97",
+          "end_ts": "00:14:10.08"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 35,
+        "time": {
+          "start_seconds": 850.76721875,
+          "end_seconds": 868.21596875,
+          "duration_seconds": 17.448750000000018,
+          "start_ts": "00:14:10.77",
+          "end_ts": "00:14:28.22"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 36,
+        "time": {
+          "start_seconds": 868.90784375,
+          "end_seconds": 889.34346875,
+          "duration_seconds": 20.435625000000073,
+          "start_ts": "00:14:28.91",
+          "end_ts": "00:14:49.34"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 37,
+        "time": {
+          "start_seconds": 890.0690937500001,
+          "end_seconds": 907.28159375,
+          "duration_seconds": 17.212499999999864,
+          "start_ts": "00:14:50.07",
+          "end_ts": "00:15:07.28"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 38,
+        "time": {
+          "start_seconds": 907.5347187500001,
+          "end_seconds": 933.5053437500001,
+          "duration_seconds": 25.970624999999927,
+          "start_ts": "00:15:07.53",
+          "end_ts": "00:15:33.51"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 39,
+        "time": {
+          "start_seconds": 934.3659687500001,
+          "end_seconds": 935.69909375,
+          "duration_seconds": 1.3331249999998818,
+          "start_ts": "00:15:34.37",
+          "end_ts": "00:15:35.70"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 40,
+        "time": {
+          "start_seconds": 935.96909375,
+          "end_seconds": 940.0359687500002,
+          "duration_seconds": 4.066875000000209,
+          "start_ts": "00:15:35.97",
+          "end_ts": "00:15:40.04"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 41,
+        "time": {
+          "start_seconds": 940.06971875,
+          "end_seconds": 972.40221875,
+          "duration_seconds": 32.33249999999998,
+          "start_ts": "00:15:40.07",
+          "end_ts": "00:16:12.40"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 42,
+        "time": {
+          "start_seconds": 973.1784687500001,
+          "end_seconds": 975.52409375,
+          "duration_seconds": 2.3456249999999272,
+          "start_ts": "00:16:13.18",
+          "end_ts": "00:16:15.52"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 43,
+        "time": {
+          "start_seconds": 976.2834687500001,
+          "end_seconds": 979.6584687500001,
+          "duration_seconds": 3.375,
+          "start_ts": "00:16:16.28",
+          "end_ts": "00:16:19.66"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 44,
+        "time": {
+          "start_seconds": 985.49721875,
+          "end_seconds": 989.7665937500001,
+          "duration_seconds": 4.269375000000082,
+          "start_ts": "00:16:25.50",
+          "end_ts": "00:16:29.77"
+        },
+        "speaker_id": "SPEAKER_04",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 45,
+        "time": {
+          "start_seconds": 992.8547187500001,
+          "end_seconds": 1003.5365937500001,
+          "duration_seconds": 10.681874999999991,
+          "start_ts": "00:16:32.85",
+          "end_ts": "00:16:43.54"
+        },
+        "speaker_id": "SPEAKER_04",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 46,
+        "time": {
+          "start_seconds": 1005.9665937500001,
+          "end_seconds": 1022.4197187500001,
+          "duration_seconds": 16.453125,
+          "start_ts": "00:16:45.97",
+          "end_ts": "00:17:02.42"
+        },
+        "speaker_id": "SPEAKER_04",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 47,
+        "time": {
+          "start_seconds": 1023.21284375,
+          "end_seconds": 1030.0303437500002,
+          "duration_seconds": 6.817500000000109,
+          "start_ts": "00:17:03.21",
+          "end_ts": "00:17:10.03"
+        },
+        "speaker_id": "SPEAKER_04",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 48,
+        "time": {
+          "start_seconds": 1031.4647187500002,
+          "end_seconds": 1037.8097187500002,
+          "duration_seconds": 6.345000000000027,
+          "start_ts": "00:17:11.46",
+          "end_ts": "00:17:17.81"
+        },
+        "speaker_id": "SPEAKER_04",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 49,
+        "time": {
+          "start_seconds": 1038.3159687500001,
+          "end_seconds": 1046.01096875,
+          "duration_seconds": 7.694999999999936,
+          "start_ts": "00:17:18.32",
+          "end_ts": "00:17:26.01"
+        },
+        "speaker_id": "SPEAKER_04",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 50,
+        "time": {
+          "start_seconds": 1048.84596875,
+          "end_seconds": 1092.4509687500001,
+          "duration_seconds": 43.60500000000002,
+          "start_ts": "00:17:28.85",
+          "end_ts": "00:18:12.45"
+        },
+        "speaker_id": "SPEAKER_04",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 51,
+        "time": {
+          "start_seconds": 1095.33659375,
+          "end_seconds": 1101.9347187500002,
+          "duration_seconds": 6.598125000000209,
+          "start_ts": "00:18:15.34",
+          "end_ts": "00:18:21.93"
+        },
+        "speaker_id": "SPEAKER_04",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 52,
+        "time": {
+          "start_seconds": 1103.40284375,
+          "end_seconds": 1109.8153437500002,
+          "duration_seconds": 6.412500000000136,
+          "start_ts": "00:18:23.40",
+          "end_ts": "00:18:29.82"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 53,
+        "time": {
+          "start_seconds": 1110.9290937500002,
+          "end_seconds": 1112.8359687500001,
+          "duration_seconds": 1.9068749999999,
+          "start_ts": "00:18:30.93",
+          "end_ts": "00:18:32.84"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 54,
+        "time": {
+          "start_seconds": 1113.35909375,
+          "end_seconds": 1113.91596875,
+          "duration_seconds": 0.5568749999999909,
+          "start_ts": "00:18:33.36",
+          "end_ts": "00:18:33.92"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 55,
+        "time": {
+          "start_seconds": 1113.91596875,
+          "end_seconds": 1113.93284375,
+          "duration_seconds": 0.016875000000027285,
+          "start_ts": "00:18:33.92",
+          "end_ts": "00:18:33.93"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 56,
+        "time": {
+          "start_seconds": 1113.93284375,
+          "end_seconds": 1113.94971875,
+          "duration_seconds": 0.016875000000027285,
+          "start_ts": "00:18:33.93",
+          "end_ts": "00:18:33.95"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 57,
+        "time": {
+          "start_seconds": 1113.94971875,
+          "end_seconds": 1114.0340937500002,
+          "duration_seconds": 0.08437500000013642,
+          "start_ts": "00:18:33.95",
+          "end_ts": "00:18:34.03"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 58,
+        "time": {
+          "start_seconds": 1114.0340937500002,
+          "end_seconds": 1114.1353437500002,
+          "duration_seconds": 0.10124999999993634,
+          "start_ts": "00:18:34.03",
+          "end_ts": "00:18:34.14"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 59,
+        "time": {
+          "start_seconds": 1114.9959687500002,
+          "end_seconds": 1142.48534375,
+          "duration_seconds": 27.48937499999988,
+          "start_ts": "00:18:35.00",
+          "end_ts": "00:19:02.49"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 3221225472,
+        "overlap_speaker_ids": [
+          "SPEAKER_09"
+        ]
+      },
+      {
+        "segment_id": 60,
+        "time": {
+          "start_seconds": 1115.4347187500002,
+          "end_seconds": 1116.0759687500001,
+          "duration_seconds": 0.6412499999999,
+          "start_ts": "00:18:35.43",
+          "end_ts": "00:18:36.08"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 3221225472,
+        "overlap_speaker_ids": [
+          "SPEAKER_01"
+        ]
+      },
+      {
+        "segment_id": 61,
+        "time": {
+          "start_seconds": 1143.1097187500002,
+          "end_seconds": 1175.54346875,
+          "duration_seconds": 32.43374999999992,
+          "start_ts": "00:19:03.11",
+          "end_ts": "00:19:35.54"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 62,
+        "time": {
+          "start_seconds": 1176.4715937500002,
+          "end_seconds": 1219.8909687500002,
+          "duration_seconds": 43.419374999999945,
+          "start_ts": "00:19:36.47",
+          "end_ts": "00:20:19.89"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 63,
+        "time": {
+          "start_seconds": 1220.4140937500001,
+          "end_seconds": 1237.10346875,
+          "duration_seconds": 16.689374999999927,
+          "start_ts": "00:20:20.41",
+          "end_ts": "00:20:37.10"
+        },
+        "speaker_id": "SPEAKER_01",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 64,
+        "time": {
+          "start_seconds": 1237.2890937500001,
+          "end_seconds": 1239.63471875,
+          "duration_seconds": 2.3456249999999272,
+          "start_ts": "00:20:37.29",
+          "end_ts": "00:20:39.63"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 65,
+        "time": {
+          "start_seconds": 1240.5628437500002,
+          "end_seconds": 1242.43596875,
+          "duration_seconds": 1.8731249999998454,
+          "start_ts": "00:20:40.56",
+          "end_ts": "00:20:42.44"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 66,
+        "time": {
+          "start_seconds": 1243.31346875,
+          "end_seconds": 1248.0553437500002,
+          "duration_seconds": 4.741875000000164,
+          "start_ts": "00:20:43.31",
+          "end_ts": "00:20:48.06"
+        },
+        "speaker_id": "SPEAKER_04",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 67,
+        "time": {
+          "start_seconds": 1248.7303437500002,
+          "end_seconds": 1250.2659687500002,
+          "duration_seconds": 1.5356249999999818,
+          "start_ts": "00:20:48.73",
+          "end_ts": "00:20:50.27"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 68,
+        "time": {
+          "start_seconds": 1251.05909375,
+          "end_seconds": 1251.17721875,
+          "duration_seconds": 0.11812499999996362,
+          "start_ts": "00:20:51.06",
+          "end_ts": "00:20:51.18"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 69,
+        "time": {
+          "start_seconds": 1252.3584687500002,
+          "end_seconds": 1257.0159687500002,
+          "duration_seconds": 4.657500000000027,
+          "start_ts": "00:20:52.36",
+          "end_ts": "00:20:57.02"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 70,
+        "time": {
+          "start_seconds": 1257.25221875,
+          "end_seconds": 1291.52534375,
+          "duration_seconds": 34.273124999999936,
+          "start_ts": "00:20:57.25",
+          "end_ts": "00:21:31.53"
+        },
+        "speaker_id": "SPEAKER_00",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 71,
+        "time": {
+          "start_seconds": 1292.26784375,
+          "end_seconds": 1304.73846875,
+          "duration_seconds": 12.470624999999927,
+          "start_ts": "00:21:32.27",
+          "end_ts": "00:21:44.74"
+        },
+        "speaker_id": "SPEAKER_00",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 72,
+        "time": {
+          "start_seconds": 1305.59909375,
+          "end_seconds": 1325.7815937500002,
+          "duration_seconds": 20.18250000000012,
+          "start_ts": "00:21:45.60",
+          "end_ts": "00:22:05.78"
+        },
+        "speaker_id": "SPEAKER_00",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 73,
+        "time": {
+          "start_seconds": 1326.2372187500002,
+          "end_seconds": 1343.7534687500001,
+          "duration_seconds": 17.5162499999999,
+          "start_ts": "00:22:06.24",
+          "end_ts": "00:22:23.75"
+        },
+        "speaker_id": "SPEAKER_00",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 74,
+        "time": {
+          "start_seconds": 1344.0740937500002,
+          "end_seconds": 1350.5034687500001,
+          "duration_seconds": 6.429374999999936,
+          "start_ts": "00:22:24.07",
+          "end_ts": "00:22:30.50"
+        },
+        "speaker_id": "SPEAKER_00",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 75,
+        "time": {
+          "start_seconds": 1351.1109687500002,
+          "end_seconds": 1357.77659375,
+          "duration_seconds": 6.665624999999864,
+          "start_ts": "00:22:31.11",
+          "end_ts": "00:22:37.78"
+        },
+        "speaker_id": "SPEAKER_00",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 76,
+        "time": {
+          "start_seconds": 1358.46846875,
+          "end_seconds": 1364.8472187500001,
+          "duration_seconds": 6.378750000000082,
+          "start_ts": "00:22:38.47",
+          "end_ts": "00:22:44.85"
+        },
+        "speaker_id": "SPEAKER_00",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 77,
+        "time": {
+          "start_seconds": 1366.1128437500001,
+          "end_seconds": 1366.9565937500001,
+          "duration_seconds": 0.84375,
+          "start_ts": "00:22:46.11",
+          "end_ts": "00:22:46.96"
+        },
+        "speaker_id": "SPEAKER_00",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 78,
+        "time": {
+          "start_seconds": 1367.4459687500002,
+          "end_seconds": 1372.54221875,
+          "duration_seconds": 5.096249999999827,
+          "start_ts": "00:22:47.45",
+          "end_ts": "00:22:52.54"
+        },
+        "speaker_id": "SPEAKER_00",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 79,
+        "time": {
+          "start_seconds": 1372.7615937500002,
+          "end_seconds": 1376.18721875,
+          "duration_seconds": 3.4256249999998545,
+          "start_ts": "00:22:52.76",
+          "end_ts": "00:22:56.19"
+        },
+        "speaker_id": "SPEAKER_00",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 80,
+        "time": {
+          "start_seconds": 1376.8284687500002,
+          "end_seconds": 1378.9209687500002,
+          "duration_seconds": 2.0924999999999727,
+          "start_ts": "00:22:56.83",
+          "end_ts": "00:22:58.92"
+        },
+        "speaker_id": "SPEAKER_00",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 81,
+        "time": {
+          "start_seconds": 1379.3259687500001,
+          "end_seconds": 1386.2784687500002,
+          "duration_seconds": 6.9525000000001,
+          "start_ts": "00:22:59.33",
+          "end_ts": "00:23:06.28"
+        },
+        "speaker_id": "SPEAKER_00",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 82,
+        "time": {
+          "start_seconds": 1386.3628437500001,
+          "end_seconds": 1388.55659375,
+          "duration_seconds": 2.193749999999909,
+          "start_ts": "00:23:06.36",
+          "end_ts": "00:23:08.56"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 3221225472,
+        "overlap_speaker_ids": [
+          "SPEAKER_00"
+        ]
+      },
+      {
+        "segment_id": 83,
+        "time": {
+          "start_seconds": 1386.86909375,
+          "end_seconds": 1391.4422187500002,
+          "duration_seconds": 4.573125000000118,
+          "start_ts": "00:23:06.87",
+          "end_ts": "00:23:11.44"
+        },
+        "speaker_id": "SPEAKER_00",
+        "flags": 3221225472,
+        "overlap_speaker_ids": [
+          "SPEAKER_09"
+        ]
+      },
+      {
+        "segment_id": 84,
+        "time": {
+          "start_seconds": 1390.7165937500001,
+          "end_seconds": 1397.9559687500002,
+          "duration_seconds": 7.239375000000109,
+          "start_ts": "00:23:10.72",
+          "end_ts": "00:23:17.96"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 3221225472,
+        "overlap_speaker_ids": [
+          "SPEAKER_00"
+        ]
+      },
+      {
+        "segment_id": 85,
+        "time": {
+          "start_seconds": 1403.3728437500001,
+          "end_seconds": 1532.9222187500002,
+          "duration_seconds": 129.54937500000005,
+          "start_ts": "00:23:23.37",
+          "end_ts": "00:25:32.92"
+        },
+        "speaker_id": "SPEAKER_05",
+        "flags": 3221225472,
+        "overlap_speaker_ids": [
+          "SPEAKER_09"
+        ]
+      },
+      {
+        "segment_id": 86,
+        "time": {
+          "start_seconds": 1532.02784375,
+          "end_seconds": 1532.7703437500002,
+          "duration_seconds": 0.7425000000000637,
+          "start_ts": "00:25:32.03",
+          "end_ts": "00:25:32.77"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 3221225472,
+        "overlap_speaker_ids": [
+          "SPEAKER_05"
+        ]
+      },
+      {
+        "segment_id": 87,
+        "time": {
+          "start_seconds": 1533.3103437500001,
+          "end_seconds": 1540.02659375,
+          "duration_seconds": 6.716249999999945,
+          "start_ts": "00:25:33.31",
+          "end_ts": "00:25:40.03"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 88,
+        "time": {
+          "start_seconds": 1540.02659375,
+          "end_seconds": 1540.3640937500002,
+          "duration_seconds": 0.33750000000009095,
+          "start_ts": "00:25:40.03",
+          "end_ts": "00:25:40.36"
+        },
+        "speaker_id": "SPEAKER_07",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 89,
+        "time": {
+          "start_seconds": 1540.3640937500002,
+          "end_seconds": 1540.3978437500002,
+          "duration_seconds": 0.03375000000005457,
+          "start_ts": "00:25:40.36",
+          "end_ts": "00:25:40.40"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 90,
+        "time": {
+          "start_seconds": 1541.6803437500002,
+          "end_seconds": 1562.65596875,
+          "duration_seconds": 20.97562499999981,
+          "start_ts": "00:25:41.68",
+          "end_ts": "00:26:02.66"
+        },
+        "speaker_id": "SPEAKER_07",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 91,
+        "time": {
+          "start_seconds": 1564.0397187500002,
+          "end_seconds": 1640.8884687500001,
+          "duration_seconds": 76.84874999999988,
+          "start_ts": "00:26:04.04",
+          "end_ts": "00:27:20.89"
+        },
+        "speaker_id": "SPEAKER_07",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 92,
+        "time": {
+          "start_seconds": 1644.09471875,
+          "end_seconds": 1659.6028437500001,
+          "duration_seconds": 15.508125000000064,
+          "start_ts": "00:27:24.09",
+          "end_ts": "00:27:39.60"
+        },
+        "speaker_id": "SPEAKER_07",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 93,
+        "time": {
+          "start_seconds": 1659.6028437500001,
+          "end_seconds": 1659.6365937500002,
+          "duration_seconds": 0.03375000000005457,
+          "start_ts": "00:27:39.60",
+          "end_ts": "00:27:39.64"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 94,
+        "time": {
+          "start_seconds": 1661.0878437500003,
+          "end_seconds": 1661.10471875,
+          "duration_seconds": 0.01687499999979991,
+          "start_ts": "00:27:41.09",
+          "end_ts": "00:27:41.10"
+        },
+        "speaker_id": "SPEAKER_07",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 95,
+        "time": {
+          "start_seconds": 1661.10471875,
+          "end_seconds": 1666.5047187500002,
+          "duration_seconds": 5.400000000000091,
+          "start_ts": "00:27:41.10",
+          "end_ts": "00:27:46.50"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 96,
+        "time": {
+          "start_seconds": 1670.3522187500002,
+          "end_seconds": 1703.3259687500001,
+          "duration_seconds": 32.97374999999988,
+          "start_ts": "00:27:50.35",
+          "end_ts": "00:28:23.33"
+        },
+        "speaker_id": "SPEAKER_03",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 97,
+        "time": {
+          "start_seconds": 1703.7815937500002,
+          "end_seconds": 1786.8909687500002,
+          "duration_seconds": 83.109375,
+          "start_ts": "00:28:23.78",
+          "end_ts": "00:29:46.89"
+        },
+        "speaker_id": "SPEAKER_03",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 98,
+        "time": {
+          "start_seconds": 1787.11034375,
+          "end_seconds": 1788.0384687500002,
+          "duration_seconds": 0.9281250000001364,
+          "start_ts": "00:29:47.11",
+          "end_ts": "00:29:48.04"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 99,
+        "time": {
+          "start_seconds": 1788.0384687500002,
+          "end_seconds": 1789.65846875,
+          "duration_seconds": 1.6199999999998909,
+          "start_ts": "00:29:48.04",
+          "end_ts": "00:29:49.66"
+        },
+        "speaker_id": "SPEAKER_07",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      },
+      {
+        "segment_id": 100,
+        "time": {
+          "start_seconds": 1791.6834687500002,
+          "end_seconds": 1798.09596875,
+          "duration_seconds": 6.412499999999909,
+          "start_ts": "00:29:51.68",
+          "end_ts": "00:29:58.10"
+        },
+        "speaker_id": "SPEAKER_07",
+        "flags": 3221225472,
+        "overlap_speaker_ids": [
+          "SPEAKER_09"
+        ]
+      },
+      {
+        "segment_id": 101,
+        "time": {
+          "start_seconds": 1796.9822187500001,
+          "end_seconds": 1799.7159687500002,
+          "duration_seconds": 2.7337500000001,
+          "start_ts": "00:29:56.98",
+          "end_ts": "00:29:59.72"
+        },
+        "speaker_id": "SPEAKER_09",
+        "flags": 3221225472,
+        "overlap_speaker_ids": [
+          "SPEAKER_07"
+        ]
+      },
+      {
+        "segment_id": 102,
+        "time": {
+          "start_seconds": 1799.7159687500002,
+          "end_seconds": 1799.8678437500002,
+          "duration_seconds": 0.1518750000000182,
+          "start_ts": "00:29:59.72",
+          "end_ts": "00:29:59.87"
+        },
+        "speaker_id": "SPEAKER_07",
+        "flags": 0,
+        "overlap_speaker_ids": []
+      }
+    ],
+    "overlap_regions": [
+      {
+        "region_id": 1,
+        "time": {
+          "start_seconds": 1115.4347187500002,
+          "end_seconds": 1116.0759687500001,
+          "duration_seconds": 0.6412499999999,
+          "start_ts": "00:18:35.43",
+          "end_ts": "00:18:36.08"
+        },
+        "speaker_ids": [
+          "SPEAKER_01",
+          "SPEAKER_09"
+        ]
+      },
+      {
+        "region_id": 2,
+        "time": {
+          "start_seconds": 1386.86909375,
+          "end_seconds": 1388.55659375,
+          "duration_seconds": 1.6875,
+          "start_ts": "00:23:06.87",
+          "end_ts": "00:23:08.56"
+        },
+        "speaker_ids": [
+          "SPEAKER_00",
+          "SPEAKER_09"
+        ]
+      },
+      {
+        "region_id": 3,
+        "time": {
+          "start_seconds": 1390.7165937500001,
+          "end_seconds": 1391.4422187500002,
+          "duration_seconds": 0.7256250000000364,
+          "start_ts": "00:23:10.72",
+          "end_ts": "00:23:11.44"
+        },
+        "speaker_ids": [
+          "SPEAKER_00",
+          "SPEAKER_09"
+        ]
+      },
+      {
+        "region_id": 4,
+        "time": {
+          "start_seconds": 1532.02784375,
+          "end_seconds": 1532.7703437500002,
+          "duration_seconds": 0.7425000000000637,
+          "start_ts": "00:25:32.03",
+          "end_ts": "00:25:32.77"
+        },
+        "speaker_ids": [
+          "SPEAKER_05",
+          "SPEAKER_09"
+        ]
+      },
+      {
+        "region_id": 5,
+        "time": {
+          "start_seconds": 1796.9822187500001,
+          "end_seconds": 1798.09596875,
+          "duration_seconds": 1.1137499999999818,
+          "start_ts": "00:29:56.98",
+          "end_ts": "00:29:58.10"
+        },
+        "speaker_ids": [
+          "SPEAKER_07",
+          "SPEAKER_09"
+        ]
+      }
+    ],
+    "speakers_count": 11,
+    "artifacts": {
+      "raw_txt_path": null,
+      "collapsed_txt_path": null,
+      "embeddings_npz_path": "/home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/embeddings/pyannote/test30min-assemblee-nationale-14-avril-2026_01_segment_embeddings.npz",
+      "centroids_npz_path": "/home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/embeddings/pyannote/test30min-assemblee-nationale-14-avril-2026_01_speaker_centroids.npz",
+      "embedding_model": "pyannote/embedding"
+    }
+  },
+  "alignment": {
+    "transcript_diarization_matches": []
+  },
+  "segments": []
+}

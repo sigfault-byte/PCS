@@ -1,0 +1,129 @@
+[1/10] vad.py START
+Loading Silero VAD: silero-vad
+Using device: cpu
+Analyzing: test30min-assemblee-nationale-14-avril-2026.wav
+VAD segments: 267
+Speech seconds: 1558.06
+Non-speech seconds: 242.00
+Canonical JSON: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026_0_vad.json
+Time: 0.1 min
+[1/10] vad.py OK in 5.4s
+  canonical_json: interim/test30min-assemblee-nationale-14-avril-2026_0_vad.json
+[2/10] diarization.py START
+Using device: cuda
+Diarizing: test30min-assemblee-nationale-14-avril-2026.wav
+Loading diarization pipeline: pyannote/speaker-diarization-3.1
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/pyannote/audio/utils/reproducibility.py:74: ReproducibilityWarning: TensorFloat-32 (TF32) has been disabled as it might lead to reproducibility issues and lower accuracy.
+It can be re-enabled by calling
+   >>> import torch
+   >>> torch.backends.cuda.matmul.allow_tf32 = True
+   >>> torch.backends.cudnn.allow_tf32 = True
+See https://github.com/pyannote/pyannote-audio/issues/1370 for more details.
+
+  warnings.warn(
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/pyannote/audio/models/blocks/pooling.py:103: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1858.)
+  std = sequences.std(dim=-1, correction=1)
+segmentation         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:01
+speaker_counting     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+embeddings           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:33
+discrete_diarization ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Loading embedding model: pyannote/embedding
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/utilities/migration/utils.py:197: Redirecting import of pytorch_lightning.callbacks.early_stopping.EarlyStopping to lightning.pytorch.callbacks.early_stopping.EarlyStopping
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/utilities/migration/utils.py:197: Redirecting import of pytorch_lightning.callbacks.model_checkpoint.ModelCheckpoint to lightning.pytorch.callbacks.model_checkpoint.ModelCheckpoint
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/utilities/migration/migration.py:208: You have multiple `ModelCheckpoint` callback states in this checkpoint, but we found state keys that would end up colliding with each other after an upgrade, which means we can't differentiate which of your checkpoint callbacks needs which states. At least one of your `ModelCheckpoint` callbacks will not be able to reload the state.
+Lightning automatically upgraded your loaded checkpoint from v1.2.7 to v2.6.1. To apply the upgrade to your files permanently, run `python -m lightning.pytorch.utilities.upgrade_checkpoint ../../.cache/huggingface/hub/models--pyannote--embedding/snapshots/4db4899737a38b2d618bbd74350915aa10293cb2/pytorch_model.bin`
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/pyannote/audio/core/model.py:639: UserWarning: Model has been trained with a task-dependent loss function. Set 'strict' to False to load the model without its loss function and prevent this warning from appearing. 
+  warnings.warn(msg)
+Lightning automatically upgraded your loaded checkpoint from v1.2.7 to v2.6.1. To apply the upgrade to your files permanently, run `python -m lightning.pytorch.utilities.upgrade_checkpoint ../../.cache/huggingface/hub/models--pyannote--embedding/snapshots/4db4899737a38b2d618bbd74350915aa10293cb2/pytorch_model.bin`
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/core/saving.py:197: Found keys that are not in the model state dict but in the checkpoint: ['loss_func.W']
+Extracting one embedding per diarization segment...
+Skipping ultra-short segment 32 (0.017s)
+Skipping ultra-short segment 55 (0.017s)
+Skipping ultra-short segment 56 (0.017s)
+Skipping ultra-short segment 89 (0.034s)
+Skipping ultra-short segment 93 (0.034s)
+Skipping ultra-short segment 94 (0.017s)
+Speakers detected: 11
+Raw diarization segments: 102
+Overlap regions: 5
+Segment embeddings: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/embeddings/pyannote/test30min-assemblee-nationale-14-avril-2026_01_segment_embeddings.npz
+Speaker centroids: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/embeddings/pyannote/test30min-assemblee-nationale-14-avril-2026_01_speaker_centroids.npz
+Canonical JSON: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026_01_diarization.json
+Time: 0.7 min
+[2/10] diarization.py OK in 44.5s
+  canonical_json: interim/test30min-assemblee-nationale-14-avril-2026_01_diarization.json
+  segment_embeddings_npz: embeddings/pyannote/test30min-assemblee-nationale-14-avril-2026_01_segment_embeddings.npz
+  speaker_centroids_npz: embeddings/pyannote/test30min-assemblee-nationale-14-avril-2026_01_speaker_centroids.npz
+  released accelerator memory: gc.collect, torch.cuda.empty_cache, torch.cuda.ipc_collect
+[3/10] transcription.py START
+Loading faster-whisper model: large-v3
+Using device: cuda (float16)
+Transcribing: test30min-assemblee-nationale-14-avril-2026.wav
+[segment 000100] up to 516.29s | tokens: 1226
+[segment 000200] up to 791.82s | tokens: 2092
+[segment 000300] up to 999.04s | tokens: 2675
+[segment 000400] up to 1193.96s | tokens: 3268
+[segment 000500] up to 1394.99s | tokens: 3756
+[segment 000600] up to 1596.43s | tokens: 4291
+Language detected: fr
+Language probability: 1
+Raw transcript tokens: 4916
+Raw transcript segments: 698
+Transcript TXT: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026_02_transcript.txt
+Canonical JSON: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026_02_transcription.json
+Time: 2.1 min
+[3/10] transcription.py OK in 128.9s
+  canonical_json: interim/test30min-assemblee-nationale-14-avril-2026_02_transcription.json
+  transcript_txt: interim/test30min-assemblee-nationale-14-avril-2026_02_transcript.txt
+  released accelerator memory: gc.collect, torch.cuda.empty_cache, torch.cuda.ipc_collect
+[4/10] audio_audit.py START
+Loading audio: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/input/test30min-assemblee-nationale-14-avril-2026.wav
+Loaded 1800.06 seconds at 16000 Hz (28801024 samples).
+Computing per-frame acoustic features (17999 frames in 36 chunks)...
+  processed chunk 1/36 through frame 500
+  processed chunk 25/36 through frame 12500
+  processed chunk 36/36 through frame 17999
+Computing dB, rolling median, and local dB delta...
+Computing summary from per-frame feature arrays...
+Validating feature arrays before streaming frames...
+Writing JSON artifact: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/audit/meta_json/test30min-assemblee-nationale-14-avril-2026_audio_audit.json
+Streaming JSON frame records...
+  wrote frame 1/17999
+  wrote frame 17999/17999
+[4/10] audio_audit.py OK in 1.4s
+  audio_audit_json: audit/meta_json/test30min-assemblee-nationale-14-avril-2026_audio_audit.json
+[5/10] whisper_segment_audit.py START
+Loading transcript document: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026_02_transcription.json
+Loading VAD/diarization document: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/interim/test30min-assemblee-nationale-14-avril-2026_01_diarization.json
+Loaded 267 VAD intervals and 5 diarization overlap regions.
+Loading audio audit frames: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/audit/meta_json/test30min-assemblee-nationale-14-avril-2026_audio_audit.json
+Loaded 17999 audio audit frames.
+Auditing 698 Whisper segments...
+  audited segment 1/698
+  audited segment 698/698
+Writing enriched transcript document: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/audit/turn_json/test30min-assemblee-nationale-14-avril-2026_02_transcription_flagged.json
+Writing segment audio audit sidecar: /home/thebeast/Documents/PCS/data/runs/2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8/audit/turn_json/whisper_segment_audio_audit.json
+[5/10] whisper_segment_audit.py OK in 0.2s
+  canonical_json: audit/turn_json/test30min-assemblee-nationale-14-avril-2026_02_transcription_flagged.json
+  segment_audio_audit_json: audit/turn_json/whisper_segment_audio_audit.json
+[6/10] alignment.py START
+[6/10] alignment.py OK in 0.1s
+  canonical_json: interim/test30min-assemblee-nationale-14-avril-2026_03_alignment.json
+[7/10] turns.py START
+[7/10] turns.py OK in 0.0s
+  turns_json: audit/turn_json/test30min-assemblee-nationale-14-avril-2026_01_turns.json
+[8/10] per_extraction.py START
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 15441.63it/s]
+[transformers] You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+[8/10] per_extraction.py OK in 3.3s
+  per_json: audit/turn_json/test30min-assemblee-nationale-14-avril-2026_02_per_extraction.json
+[9/10] semantic_chunk.py START
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 13413.04it/s]
+[9/10] semantic_chunk.py OK in 4.4s
+  turn_embeddings_npz: embeddings/rag/turn_embeddings.npz
+  semantic_chunks_npz: embeddings/rag/semantic_chunks.npz
+  metadata_json: embeddings/rag/semantic_chunk_metadata.json
+  metadata_txt: embeddings/rag/semantic_chunk_metadata.txt
+[10/10] build_sqlite.py START
+[10/10] build_sqlite.py OK in 0.2s
+  sqlite_db: sqlite/assemblybot.sqlite

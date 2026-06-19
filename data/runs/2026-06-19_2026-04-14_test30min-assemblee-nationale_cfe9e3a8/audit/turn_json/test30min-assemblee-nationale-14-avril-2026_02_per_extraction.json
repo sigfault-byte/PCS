@@ -1,0 +1,2658 @@
+{
+  "turns": [
+    {
+      "turn_id": 1,
+      "audio_time": {
+        "start_seconds": 13.497218750000002,
+        "end_seconds": 33.67971875,
+        "duration_seconds": 20.182499999999997,
+        "start_ts": "00:00:13.50",
+        "end_ts": "00:00:33.68"
+      },
+      "text": "Bonjour à tous, la séance est ouverte. Avec vous, mes chers collègues, je voudrais que nous saluions les visages de la liberté. Cécile Collère, Jacques Paris, Olivier Grondeau, Louis Arnault et Benjamin Brière.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        1,
+        2,
+        3
+      ],
+      "diarization_segment_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "speaker_evidence_ratio": 0.7600334448160533,
+      "flags": 6144
+    },
+    {
+      "turn_id": 2,
+      "audio_time": {
+        "start_seconds": 123.28596875000001,
+        "end_seconds": 141.44346875000002,
+        "duration_seconds": 18.157500000000013,
+        "start_ts": "00:02:03.29",
+        "end_ts": "00:02:21.44"
+      },
+      "text": "Voilà, tous les cinq ont été retenus en otage en Iran. Ils se sont rencontrés aujourd'hui et c'est beaucoup d'émotion pour la représentation nationale de vous accueillir ici et de vous voir libre. Et comme le dit Cécile, vive la vie !",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "diarization_segment_ids": [
+        6,
+        7,
+        8
+      ],
+      "speaker_evidence_ratio": 0.9730483271375467,
+      "flags": 2048
+    },
+    {
+      "turn_id": 3,
+      "audio_time": {
+        "start_seconds": 151.51784375,
+        "end_seconds": 198.80159375000002,
+        "duration_seconds": 47.283750000000026,
+        "start_ts": "00:02:31.52",
+        "end_ts": "00:03:18.80"
+      },
+      "text": "Alors, la séance appelle... J'ai reçu de madame Pascale Borde, députée de la 3e circonscription du Gard, une lettre m'informant qu'elle se démettait de son mandat de députée à compter du 13 avril 2026. Acte est donné de cette démission qui sera déterminée. Elle a notifié au Premier ministre. Et par une communication du 13 avril 2026, le ministre de l'Intérieur m'a informé que madame Pascale Borde est remplacée jusqu'au renouvellement de l'Assemblée nationale par madame Catherine De Longue-Mingue, élue en même temps qu'elle. A cet effet, madame la députée, bienvenue à l'Assemblée nationale. L'ordre du jour appelle les questions au gouvernement. Et la première question va être posée par monsieur Philippe Bollot pour le groupe Démocrate.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "diarization_segment_ids": [
+        9,
+        10
+      ],
+      "speaker_evidence_ratio": 0.9329050678087084,
+      "flags": 2048
+    },
+    {
+      "turn_id": 4,
+      "audio_time": {
+        "start_seconds": 199.17284375000003,
+        "end_seconds": 323.91284375000004,
+        "duration_seconds": 124.74000000000001,
+        "start_ts": "00:03:19.17",
+        "end_ts": "00:05:23.91"
+      },
+      "text": "Merci beaucoup. Merci beaucoup madame la présidente et merci à vous pour cet hommage à celles et ceux qui ont retrouvé la liberté. Ma question s'adresse à monsieur le ministre de l'Intérieur. Pour ce qui sera ma dernière question au gouvernement après 9 années sur ces bancs, je souhaite vous alerter monsieur le ministre sur un phénomène en pleine explosion qui ne peut plus être minimisé et qui n'a rien à neudin, la consommation de protoxyde d'azote. Ce que certains présentent encore comme un simple divertissement est devenu un véritable fléau de santé publique. Aujourd'hui, plus d'un jeune de moins de 35 ans sur 10 en a déjà consommé. Et derrière l'image trompeuse du gaz hilarant, la réalité est tout autre. Atteinte neurologique grave, paralysie, perte de sensation, trouble de la vision, trouble de la coordination. Ces usages mettent aussi en danger la vie d'autrui. Sous l'emprise du proto, des conducteurs provoquent des accidents parfois dramatiques qui brisent des vies et endeuillent des familles. A ces conséquences sanitaires s'ajoute un coût croissant pour la collectivité. Les bonbons abandonnés s'accumulent dans l'espace public. Dégradent le cadre de vie, provoquent des explosions dans les incinérateurs, perturbent les chaînes de traitement des déchets, mobilisent à grands frais les services municipaux, les syndicats de déchets et les forces de l'ordre. Monsieur le ministre, face à une banalisation inquiétante, nous ne pouvons plus attendre. Des initiatives parlementaires émergent, des propositions de loi ont été déposées. Le gouvernement lui-même envisage de légiférer. Il est désormais impératif d'unir tous nos efforts pour adopter et adapter notre droit à la hauteur de ce défi. La réponse doit être globale, renforcer la prévention, encadrer strictement la vente, prévoir des sanctions dissuasives, donner davantage de moyens aux forces de l'ordre et créer de nouveaux délits pour l'inhalation, le transport sans motif légitime, la vente illégale et la conduite sous emprise. Il s'agit désormais d'endiguer un phénomène avant qu'il ne nous échappe pour protéger notre jeunesse. Je salue ici la campagne de prévention lancée par la ministre Marie-Pierre Védrenne qui entend montrer par des images chocs les dégâts causés par ce fléau. Monsieur le ministre, quelles autres mesures concrètes et rapides le gouvernement entend-il prendre pour stopper l'explosion de la consommation de protoxyde d'azote et répondre enfin à l'urgence sanitaire, sécuritaire et environnementale qu'elle représente ?",
+      "speaker_id": "SPEAKER_02",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      "diarization_segment_ids": [
+        11,
+        12,
+        13,
+        14
+      ],
+      "speaker_evidence_ratio": 0.9859307359307362,
+      "flags": 2048
+    },
+    {
+      "turn_id": 5,
+      "audio_time": {
+        "start_seconds": 324.31784375,
+        "end_seconds": 329.66721875,
+        "duration_seconds": 5.349375000000009,
+        "start_ts": "00:05:24.32",
+        "end_ts": "00:05:29.67"
+      },
+      "text": "Merci beaucoup monsieur le député. La parole est à monsieur Laurent Nunez, ministre de l'Intérieur.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        49,
+        50
+      ],
+      "diarization_segment_ids": [
+        15
+      ],
+      "speaker_evidence_ratio": 1.0,
+      "flags": 0
+    },
+    {
+      "turn_id": 6,
+      "audio_time": {
+        "start_seconds": 330.10596875000005,
+        "end_seconds": 456.19596875,
+        "duration_seconds": 126.08999999999997,
+        "start_ts": "00:05:30.11",
+        "end_ts": "00:07:36.20"
+      },
+      "text": "Merci beaucoup madame la présidente, mesdames et messieurs les députés, monsieur le député. Vous avez raison de souligner le fléau que représente le protoxyde d'azote et sa consommation, notamment par les plus jeunes. Vous le savez, c'est un problème que nous avons pris à bras le corps. D'abord, nous avons introduit un certain nombre de mesures dans le projet de loi Riposte qui viendra bientôt en discussion parlementaire et nous créons trois délits. Le délit évidemment de transport, le délit de consommation et c'est extrêmement important d'avoir créé ces trois délits. Donc transport sans motif légitime, consommation et conduite sous l'état de protoxyde. Vous l'avez souligné, il y a énormément d'accidents. Et puis une mesure de police administrative qui sera extrêmement importante, la possibilité de fermer administrativement les commerces qui se livrent à la commercialisation, de ce type de produits, dans des conditions qui sont totalement illégales. Vous savez que c'est un produit qui est réservé à un usage très particulier et donc il y aura la possibilité pour les préfets de fermer administrativement. Ce projet de loi, il viendra en discussion très vite, d'abord au Sénat puis à l'Assemblée nationale. Je ne veux pas laisser à penser pour autant que rien n'est fait sur ce sujet. Beaucoup de maires, de préfets prennent des arrêtés, mais la sanction n'est que contraventionnelle et donc il fallait créer un délit. Et d'ailleurs pour la consommation, on aura la possibilité aussi d'avoir la notification, la verbalisation, à travers de l'amende forfaitaire délictuelle. Donc il faut vraiment un choc d'autorité sur ce produit et il sera évidemment mis en place. Et puis vous avez raison, il faut une réponse globale, monsieur le député, je vous rejoins évidemment tout à fait sur ce point. Il faut aussi beaucoup d'actions de prévention. Et je vous remercie d'ailleurs d'avoir salué l'action qui est menée par la ministre déléguée auprès de moi, Marie-Pierre Védrenne, qui a développé des actions de promotion qui se déplacent sur le territoire national pour faire bien expliquer les risques de la consommation. Les risques aux plus jeunes de la consommation du protoxyde d'azote, notamment les risques en termes de santé publique. Et nous avons même mis en ligne, diffusé, y compris à la télévision, des vidéos sur les conséquences en termes de santé de la consommation du protoxyde d'azote, qui sont des vidéos choc. Voilà monsieur le député, comptez sur nous pour continuer cette action déterminée contre la consommation de protoxyde d'azote.",
+      "speaker_id": "SPEAKER_03",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85
+      ],
+      "diarization_segment_ids": [
+        16,
+        17,
+        18
+      ],
+      "speaker_evidence_ratio": 0.9937098501070666,
+      "flags": 0
+    },
+    {
+      "turn_id": 7,
+      "audio_time": {
+        "start_seconds": 456.55034375,
+        "end_seconds": 463.82346875,
+        "duration_seconds": 7.273124999999993,
+        "start_ts": "00:07:36.55",
+        "end_ts": "00:07:43.82"
+      },
+      "text": "Merci beaucoup monsieur le ministre. La parole est à présent à monsieur Nicolas Maisonneuve pour le Rassemblement national.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        86,
+        87
+      ],
+      "diarization_segment_ids": [
+        19,
+        20
+      ],
+      "speaker_evidence_ratio": 0.8399071925754049,
+      "flags": 0
+    },
+    {
+      "turn_id": 8,
+      "audio_time": {
+        "start_seconds": 466.05096875000004,
+        "end_seconds": 594.6553437499999,
+        "duration_seconds": 128.6043749999999,
+        "start_ts": "00:07:46.05",
+        "end_ts": "00:09:54.66"
+      },
+      "text": "Merci. Merci madame la présidente. Au nom du groupe Rassemblement national, je voudrais à mon tour saluer celles et ceux qui ont retrouvé la liberté. Nouvellement élu maire de Vauvert, je tiens à exprimer l'honneur et la fierté que j'ai eu à représenter pendant six ans les habitants de la deuxième circonscription du Gard. J'adresse à chacun et en particulier aux collègues de mon groupe avec lesquels j'ai partagé cet engagement mes voeux de lucidité, de courage et de constance pour la réussite de la France. Ma question s'adresse à madame la ministre de l'Energie. La guerre en Iran a brutalement rappelé une réalité que la Macronie a toujours refusé de voir. En matière de pouvoir d'achat, de souveraineté ou de croissance, l'accès à une énergie bon marché doit être une priorité absolue. Aujourd'hui les Français renoncent à se déplacer, les petites entreprises voient leurs marges s'effondrer, les infirmières, les aides-soignantes sont en difficulté, les agriculteurs et les pêcheurs travaillent à perte, partout la même angoisse, c'est de ne plus pouvoir suivre à cause des factures qui ont explosé. Et que fait l'Etat à part prélever près de la moitié du prix de l'essence ? Rien ou presque rien. A court terme vous espériez une baisse de 5 à 10 centimes par litre d'essence, pour l'instant c'est à peine 1 centime. A long terme votre gouvernement refuse toujours de relancer l'exploration de nouveaux gisements d'hydrocarbures comme nous vous l'avions proposé. Pour s'en sortir et soutenir l'activité, l'Etat doit planifier, revoir la gestion de ses stocks stratégiques et surtout faciliter l'accès à l'essence en la taxant moins. La proposition du Rassemblement National de réduire à 5,5% la TVA sur l'énergie est plus que jamais d'actualité. Même pour les agriculteurs et les pêcheurs déjà exonérés de taxes sur le carburant, les mesures prises restent largement insuffisantes. Des aides directes doivent être renforcées afin d'éviter la disparition de ces filières essentielles. Ma question est donc simple. Allez-vous enfin agir pour faire baisser durablement le prix de l'essence ?",
+      "speaker_id": "SPEAKER_10",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120
+      ],
+      "diarization_segment_ids": [
+        21,
+        22,
+        23
+      ],
+      "speaker_evidence_ratio": 0.9761186196037268,
+      "flags": 2048
+    },
+    {
+      "turn_id": 9,
+      "audio_time": {
+        "start_seconds": 500.30721875,
+        "end_seconds": 600.5278437500001,
+        "duration_seconds": 100.2206250000001,
+        "start_ts": "00:08:20.31",
+        "end_ts": "00:10:00.53"
+      },
+      "text": "Merci monsieur le député. La parole est à madame Maude Bréjon, ministre en charge de l'Energie.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 0.9951336372413263,
+      "transcript_segment_ids": [
+        121,
+        122
+      ],
+      "diarization_segment_ids": [
+        23,
+        24
+      ],
+      "speaker_evidence_ratio": 0.05505977437279052,
+      "flags": 0
+    },
+    {
+      "turn_id": 10,
+      "audio_time": {
+        "start_seconds": 600.89909375,
+        "end_seconds": 711.7678437500001,
+        "duration_seconds": 110.86875000000009,
+        "start_ts": "00:10:00.90",
+        "end_ts": "00:11:51.77"
+      },
+      "text": "Merci madame la députée, mesdames et messieurs les députés. Monsieur le député m'étonnait. D'abord vous le savez, depuis le début nous avons les yeux rivés sur ce qui se passe au Moyen-Orient et votre question aurait probablement dû commencer par cela. On est dans une situation extrêmement volatile, avec des prix qui fluctuent en fonction des prises de parole des grandes puissances et en premier lieu de Donald Trump. On s'est adapté depuis les premiers jours. Dès les premiers jours du conflit, nous avons décidé à la demande du Premier ministre d'être aux côtés des agriculteurs, d'être aux côtés des pêcheurs, parce que vous l'avez souligné et vous avez raison, ils traversent une situation extrêmement difficile, d'être aux côtés des transporteurs et d'apporter une aide d'urgence qui rende soutenable l'activité économique, parce que derrière c'est des emplois, parce que derrière c'est des salaires et évidemment des enjeux sociaux extrêmement importants. Nous adapterons ce dispositif autant que nécessaire dans les jours et dans les semaines à venir, en fonction d'une situation qui nous dépasse, en tout cas qui dépasse le cadre purement franco-français. Nous avons dit depuis le départ que ces aides pouvaient être amplifiées, pouvaient être reconduites autant que de besoin, encore une fois en fonction de l'évolution du conflit. Je note quand même que vous évoquez parmi les pistes pour faire baisser durablement le carburant, alors la baisse de la TVA à 5,5%, j'ai déjà eu l'occasion d'y répondre, 12 milliards d'euros qui aujourd'hui ne sont pas financés dans vos propositions, et ensuite je note l'exploration, pardonnez-moi, de nouveaux gisements d'hydrocarbures, et là on a un désaccord effectivement fondamental sur l'approche qu'on a de l'énergie, parce que nous on considère qu'elle doit être décarbonée, qu'il faut électrifier, et que pour ça on a besoin des renouvelables et du nucléaire, certainement pas d'aller chercher de nouveaux gisements de pétrole, ou de gaz de schiste comme j'ai pu l'entendre dans vos rangs. Donc voilà, j'en conclurai là-dessus. Néanmoins, de façon très républicaine, je voudrais aussi vous souhaiter bon vent pour la suite de vos fonctions.",
+      "speaker_id": "SPEAKER_06",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        123,
+        124,
+        125,
+        126,
+        127,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        162,
+        163,
+        164
+      ],
+      "diarization_segment_ids": [
+        26
+      ],
+      "speaker_evidence_ratio": 1.0,
+      "flags": 0
+    },
+    {
+      "turn_id": 11,
+      "audio_time": {
+        "start_seconds": 711.9365937500002,
+        "end_seconds": 721.0322187500001,
+        "duration_seconds": 9.095624999999927,
+        "start_ts": "00:11:51.94",
+        "end_ts": "00:12:01.03"
+      },
+      "text": "Merci beaucoup Madame la Ministre. La parole est à présent à Madame Nicole Dubré-Chirat pour le groupe Ensemble pour la République.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 0.9040747443854104,
+      "transcript_segment_ids": [
+        165,
+        166,
+        167
+      ],
+      "diarization_segment_ids": [
+        27,
+        28,
+        29
+      ],
+      "speaker_evidence_ratio": 0.7476808905380484,
+      "flags": 0
+    },
+    {
+      "turn_id": 12,
+      "audio_time": {
+        "start_seconds": 721.65659375,
+        "end_seconds": 843.9665937500001,
+        "duration_seconds": 122.31000000000017,
+        "start_ts": "00:12:01.66",
+        "end_ts": "00:14:03.97"
+      },
+      "text": "Merci Madame la Présidente. Vive la vie à nos ex-otages. Ma question s'adresse au ministre du Travail et des Solidarités. Monsieur le ministre, vendredi dernier, l'Assemblée nationale examinait une proposition de loi attendue par des dizaines de milliers de commerçants dans notre pays, dont l'objet était de permettre aux salariés de certains établissements et services de travailler le 1er mai sur la base du volontariat. Si cette date est symbolique, avec un caractère férié et chômé, qui ne saurait être mis en cause, elle est aussi une opportunité financière dans de nombreux secteurs. Pour la seule journée du 1er mai, la vente du Muguet représente un chiffre d'affaires de 19,5 millions d'euros pour les fleuristes. Alors que certains groupes d'opposition ont fait, une fois de plus, le choix de l'obstruction sur un texte essentiel pour contribuer au dynamisme économique de notre pays, le vote d'une motion de rejet préalable aurait dû permettre la tenue, cet après-midi, d'une commission mixte paritaire. Le gouvernement, sous la pression syndicale, a fait le choix de ne pas la convoquer. Je déplore cette décision, car si le dialogue social, qui était possible depuis un an, doit être pris en compte, il me semble que le respect des votes de notre Assemblée l'est tout autant dans une démocratie parlementaire. Le groupe EPR, par la voix de son président, Gabriel Attal, a toujours mis le travail au cœur de son action parlementaire. La liberté de pouvoir travailler est fondamentale, et c'est précisément tout l'enjeu de ce texte qui n'entrera pas en vigueur le 1er mai. Il semble toutefois capital de ne pas laisser l'insécurité juridique en matière d'emploi des salariés persister à cette date. Nous allons nous répondre à ceux qui se lèvent tous les matins et ne comptent pas leurs heures, animés, bien sûr, par la seule ambition de vouloir travailler. Le 1er mai prochain, nous répondrons aux artisans verbalisés à hauteur de 750 euros par salarié employé. C'est la raison pour laquelle je vous demande de préciser les mesures que le gouvernement a l'intention de prendre sur ce sujet, et si des instructions seront données afin de ne pas pénaliser injustement nos artisans. Je vous remercie.",
+      "speaker_id": "SPEAKER_08",
+      "speaker_confidence": 0.9998548320338244,
+      "transcript_segment_ids": [
+        168,
+        169,
+        170,
+        171,
+        172,
+        173,
+        174,
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181,
+        182,
+        183,
+        184,
+        185,
+        186,
+        187,
+        188,
+        189,
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213,
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221,
+        222,
+        223,
+        224,
+        225,
+        226
+      ],
+      "diarization_segment_ids": [
+        32,
+        33
+      ],
+      "speaker_evidence_ratio": 0.9998620309050771,
+      "flags": 0
+    },
+    {
+      "turn_id": 13,
+      "audio_time": {
+        "start_seconds": 721.67346875,
+        "end_seconds": 850.07534375,
+        "duration_seconds": 128.40187500000002,
+        "start_ts": "00:12:01.67",
+        "end_ts": "00:14:10.08"
+      },
+      "text": "Merci beaucoup Madame la députée. Jean-Pierre Farandou, ministre du Travail et des Solidarités.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 0.8836244340270558,
+      "transcript_segment_ids": [
+        227,
+        228,
+        229
+      ],
+      "diarization_segment_ids": [
+        33,
+        34
+      ],
+      "speaker_evidence_ratio": 0.047575239847547954,
+      "flags": 0
+    },
+    {
+      "turn_id": 14,
+      "audio_time": {
+        "start_seconds": 850.76721875,
+        "end_seconds": 972.40221875,
+        "duration_seconds": 121.63499999999999,
+        "start_ts": "00:14:10.77",
+        "end_ts": "00:16:12.40"
+      },
+      "text": "Madame la Présidente, Mesdames et Messieurs les députés, Madame la députée Dubré-Chirard, les inquiétudes exprimées par les organisations syndicales à l'approche de cette échéance sont légitimes, tout comme, vous l'avez souligné, les demandes visant à sécuriser la situation des salariés, des artisans, notamment fleuristes et boulangers. Vous connaissez la position du gouvernement, j'ai pu la rappeler d'ailleurs ce matin à l'occasion d'une réunion de groupe à laquelle vous m'avez invité, j'ai pu participer. Nous sommes parfaitement conscients de la signification particulière du 1er mai, de son statut spécial dans le code du travail, mais aussi de la nécessité de sécuriser juridiquement l'activité de nos fleuristes et de nos boulangers. Personne ici n'a voulu remettre en cause le caractère chômé, férié, rémunéré pour l'immense majorité des salariés du 1er mai, ni encore moins voler le 1er mai aux Français. Notre objectif est clair et constant, apporter une réponse durable et problématique. C'est la raison pour laquelle la méthode que nous employons à mettre en œuvre avec le Premier ministre depuis vendredi l'est tout autant, privilégier un dialogue social de construction pour trouver les solutions, ce dialogue social ancré au plus près des réalités du terrain. J'ai réuni hier les organisations syndicales, je rencontrerai tout à l'heure les organisations patronales, professionnelles et demain les fédérations professionnelles, notamment les fleuristes et les boulangers artisanaux. Les services du ministère pourront informer des évolutions à venir ainsi que des orientations qui seront retenues dans les accords de branches qui seront travaillées dans les branches concernées et à partir du moment où ces accords de branches seront finalisés, nous les inscrirons dans une loi et tout ça sera fait en 2026 qui réglera la question pour le 1er mai 2027. Nous ferons en 2026 ce qui est nécessaire pour 2027. Il est certain que la question du 1er mai 2026 se pose et vous l'avez rappelé. Le gouvernement mettra en œuvre l'ensemble des leviers à sa disposition pour garantir la sécurité et la sérénité des lois et des commerces de proximité. Nous en appellerons à l'intelligence collective de toutes les parties prenantes. Je vous remercie.",
+      "speaker_id": "SPEAKER_01",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        230,
+        231,
+        232,
+        233,
+        234,
+        235,
+        236,
+        237,
+        238,
+        239,
+        240,
+        241,
+        242,
+        243,
+        244,
+        245,
+        246,
+        247,
+        248,
+        249,
+        250,
+        251,
+        252,
+        253,
+        254,
+        255,
+        256,
+        257,
+        258,
+        259,
+        260,
+        261,
+        262,
+        263,
+        264,
+        265,
+        266,
+        267,
+        268,
+        269,
+        270,
+        271,
+        272,
+        273,
+        274,
+        275,
+        276,
+        277,
+        278,
+        279,
+        280,
+        281,
+        282,
+        283,
+        284,
+        285,
+        286,
+        287,
+        288,
+        289,
+        290,
+        291
+      ],
+      "diarization_segment_ids": [
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "speaker_evidence_ratio": 0.9766925638179798,
+      "flags": 2115
+    },
+    {
+      "turn_id": 15,
+      "audio_time": {
+        "start_seconds": 973.1784687500001,
+        "end_seconds": 979.6584687500001,
+        "duration_seconds": 6.480000000000018,
+        "start_ts": "00:16:13.18",
+        "end_ts": "00:16:19.66"
+      },
+      "text": "Merci beaucoup monsieur le ministre. La parole est à monsieur Adrien Clouet pour la France Insoumise.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        292,
+        293,
+        294
+      ],
+      "diarization_segment_ids": [
+        42,
+        43
+      ],
+      "speaker_evidence_ratio": 0.8828124999999863,
+      "flags": 2048
+    },
+    {
+      "turn_id": 16,
+      "audio_time": {
+        "start_seconds": 985.49721875,
+        "end_seconds": 1101.9347187500002,
+        "duration_seconds": 116.43750000000023,
+        "start_ts": "00:16:25.50",
+        "end_ts": "00:18:21.93"
+      },
+      "text": "Le 1er mai 2026 sera férié, chômé et payé. Grâce à la mobilisation populaire, nous avons déjoué la manœuvre conjointe de la Macronie et du RN qui voulait revenir sur 80 ans de conquête sociale. La lutte paye. La lutte paye. Le groupe EPR chouine, le ministre rame et nous on respire. La lutte paye. C'est la victoire de ces millions de travailleuses et travailleurs que vous vouliez envoyer au boulot dans deux semaines contraints par leurs employeurs. C'est la victoire des artisans que vous vouliez liquider en les mettant en concurrence avec les grandes enseignes le 1er mai. C'est la victoire des démocrates horrifiées par vos manœuvres sournoises pour contourner l'Assemblée nationale. Désormais, nous vous demandons une circulaire au parquet pour que soit donnée suite à tous les procès verbaux de l'inspection du travail. Arrêtez de buver l'inspection du travail, respectez les fonctionnaires, car vos contrôles ont toujours la même cible, les travailleuses et les travailleurs. Alors que dans notre pays, le travail est dur, qu'ils blessent, qu'ils tuent, que 45% des salariés ont des problèmes psychologiques liés à leur travail, vous voulez les forcer à bosser une journée de plus. Ce qui rend malade, c'est votre politique, c'est la fin des CHSCT, c'est la liquidation de la médecine du travail, c'est l'abandon des malades de Covid long. Et voilà que vous annoncez, monsieur le ministre du Travail, 750 000 contrôles sur les salariés malades pour les envoyer de force au boulot. Nous ne parlons jamais d'acquis sociaux, mais bien de conquis sociaux, car la bourgeoisie là-bas ne désarme jamais. Ça tombe mal, nous non plus, nous ne désarmons jamais. Rendez-vous dans la rue le 1er mai pour nous battre contre vous.",
+      "speaker_id": "SPEAKER_04",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        295,
+        296,
+        297,
+        298,
+        299,
+        300,
+        301,
+        302,
+        303,
+        304,
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327,
+        328,
+        329,
+        330,
+        331,
+        332,
+        333,
+        334,
+        335,
+        336,
+        337,
+        338,
+        339,
+        340,
+        341,
+        342,
+        343,
+        344,
+        345,
+        346,
+        347,
+        348,
+        349,
+        350,
+        351,
+        352
+      ],
+      "diarization_segment_ids": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "speaker_evidence_ratio": 0.8800000000000014,
+      "flags": 6144
+    },
+    {
+      "turn_id": 17,
+      "audio_time": {
+        "start_seconds": 1103.40284375,
+        "end_seconds": 1112.8359687500001,
+        "duration_seconds": 9.433125000000018,
+        "start_ts": "00:18:23.40",
+        "end_ts": "00:18:32.84"
+      },
+      "text": "Merci monsieur le député, la parole est à monsieur Jean-Pierre Farandou, ministre du Travail et de Solidarité. Allez, un peu de silence, s'il vous plaît.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        353,
+        354,
+        355,
+        356
+      ],
+      "diarization_segment_ids": [
+        52,
+        53
+      ],
+      "speaker_evidence_ratio": 0.8819320214669073,
+      "flags": 2048
+    },
+    {
+      "turn_id": 18,
+      "audio_time": {
+        "start_seconds": 1114.9959687500002,
+        "end_seconds": 1237.10346875,
+        "duration_seconds": 122.10749999999985,
+        "start_ts": "00:18:35.00",
+        "end_ts": "00:20:37.10"
+      },
+      "text": "Madame la présidente, mesdames et messieurs les députés, monsieur le député Clouet. Alors je vous rassure, ce ne sont pas vos actions qui m'ont conduit à ajuster la position du gouvernement. Ce qui me motive, moi, c'est le respect de la démocratie sociale. Oui, ça, ça m'intéresse. Ce que je souhaite faire, moi, c'est approfondir le dialogue social avec les partenaires sociaux. C'est le sens de la réunion que j'ai tenue hier, et vous savez, elle a été féconde. Nous avons avancé. J'ai toujours été et je serai toujours d'ailleurs un fervent défenseur du dialogue social, notamment pour les sujets liés au travail. Avec le premier ministre, ce n'est pas un changement d'ambition. Nous avons l'ambition d'apporter la sécurisation juridique à ces artisans qui veulent travailler le 1er mai comme ils l'ont toujours fait, notamment les boulangers et les fleuristes. Je tiens à vous rappeler que le gouvernement n'a jamais souhaité s'attaquer au 1er mai contre ce que certains ont pu dire. J'ai parfaitement conscience de la signification sociale de ce jour particulier et de son statut, à part dans le code du travail et dans l'histoire de notre pays. Je souhaite donc redire avec force l'attachement du gouvernement à ce jour particulier, férié, chômé et rémunéré. Je tiens aussi à rappeler qu'il existe bien aujourd'hui des dérogations dans la loi qui permettent à certains employeurs de faire appel à leurs salariés le 1er mai. C'est quelque chose qui est connu. Cela permet d'assurer l'activité des établissements quand elle ne peut pas être interrompue. Ce sont en gros les termes de la loi. Sur la base de ces constats, j'ai donc réuni les syndicats hier après-midi. Je réunirai les organisations patronales et demain les fédérations professionnelles, particulièrement celles des fleuristes et des boulangers artisanaux. Avec le Premier ministre, nous avons fait le choix de respecter le message exprimé par les partenaires sociaux car, je le redis, le dialogue social est un principe essentiel de notre action pour apporter des solutions solides aux difficultés rencontrées par les Français. Il nous faudra trouver une intervention législative pour boucler définitivement ce sujet du 1er mai. Monsieur le député Clouet, je le vois bien, comme moi, j'espère que vous le montrerez en votant l'accord conclu dans la loi que nous présenterons bientôt pour réformer l'assurance chômage. Je vous remercie.",
+      "speaker_id": "SPEAKER_01",
+      "speaker_confidence": 0.9953407783970711,
+      "transcript_segment_ids": [
+        357,
+        358,
+        359,
+        360,
+        361,
+        362,
+        363,
+        364,
+        365,
+        366,
+        367,
+        368,
+        369,
+        370,
+        371,
+        372,
+        373,
+        374,
+        375,
+        376,
+        377,
+        378,
+        379,
+        380,
+        381,
+        382,
+        383,
+        384,
+        385,
+        386,
+        387,
+        388,
+        389,
+        390,
+        391,
+        392,
+        393,
+        394,
+        395,
+        396,
+        397,
+        398,
+        399,
+        400,
+        401,
+        402,
+        403,
+        404,
+        405,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        416,
+        417,
+        418,
+        419,
+        420,
+        421,
+        422
+      ],
+      "diarization_segment_ids": [
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "speaker_evidence_ratio": 0.9830016583747913,
+      "flags": 3221227520
+    },
+    {
+      "turn_id": 19,
+      "audio_time": {
+        "start_seconds": 1237.2890937500001,
+        "end_seconds": 1242.43596875,
+        "duration_seconds": 5.146874999999909,
+        "start_ts": "00:20:37.29",
+        "end_ts": "00:20:42.44"
+      },
+      "text": "Merci beaucoup Monsieur le Ministre. Trois secondes Monsieur Clouet.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        423,
+        424
+      ],
+      "diarization_segment_ids": [
+        64,
+        65
+      ],
+      "speaker_evidence_ratio": 0.8196721311475113,
+      "flags": 2048
+    },
+    {
+      "turn_id": 20,
+      "audio_time": {
+        "start_seconds": 1243.31346875,
+        "end_seconds": 1248.0553437500002,
+        "duration_seconds": 4.741875000000164,
+        "start_ts": "00:20:43.31",
+        "end_ts": "00:20:48.06"
+      },
+      "text": "Merci Madame la Présidente. Monsieur le Ministre, pour nous la France est une histoire sociale pas un tiroir caisse.",
+      "speaker_id": "SPEAKER_04",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        425,
+        426,
+        427,
+        428
+      ],
+      "diarization_segment_ids": [
+        66
+      ],
+      "speaker_evidence_ratio": 1.0,
+      "flags": 2048
+    },
+    {
+      "turn_id": 21,
+      "audio_time": {
+        "start_seconds": 1252.3584687500002,
+        "end_seconds": 1257.0159687500002,
+        "duration_seconds": 4.657500000000027,
+        "start_ts": "00:20:52.36",
+        "end_ts": "00:20:57.02"
+      },
+      "text": "La parole est à présent à Monsieur Jean-Paul Lecoq pour le groupe gauche démocrate et républicaine.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        429,
+        430
+      ],
+      "diarization_segment_ids": [
+        69
+      ],
+      "speaker_evidence_ratio": 1.0,
+      "flags": 0
+    },
+    {
+      "turn_id": 22,
+      "audio_time": {
+        "start_seconds": 1252.3584687500002,
+        "end_seconds": 1386.2784687500002,
+        "duration_seconds": 133.92000000000007,
+        "start_ts": "00:20:52.36",
+        "end_ts": "00:23:06.28"
+      },
+      "text": "Merci Madame la Présidente. Ma question s'adresse au Premier Ministre. La semaine dernière, alors que s'amorçait le cessez-le-feu entre l'Iran et les Etats-Unis, l'armée israélienne a bombardé à 100 reprises le Liban en moins de 10 minutes. Beyrouth, sa banlieue, le Liban Sud et l'Abeka, des quartiers densément peuplés, des zones civiles, ciblées, sans avertissement, aucun, avec un bilan qui ne cesse de s'alourdir. Plus de 300 morts et 2000 blessés. Ce schéma rappelle celui qu'a suivi l'armée israélienne en Iran. L'Etat d'Israël, son gouvernement, ne fait pas la guerre à un régime en Iran ou à une faction politique armée au Liban. Il fait la guerre à tout un peuple. Et même à plusieurs peuples. Israël a décidé de mener une guerre d'anéantissement. D'abord sur la Palestine, puis sur le Liban, et enfin sur l'Iran. Une totale violation du droit international. Une violence inouïe, disproportionnée, indiscriminée. Pourtant, Israël bénéficie toujours du soutien de ses alliés. Un soutien sans faille, inconditionnel, donnant non pas le droit de se défendre, mais de bafouer toutes les règles du droit international, tout standard d'humanité. Qu'a fait la France pour arrêter le massacre des petites condamnations sans aucune sanction ? Et ne nous dites pas encore une fois que vous avez participé à des négociations. Monsieur le Premier ministre, oseriez-vous répondre cela aux familles des victimes libanaises des bombardements ? Plusieurs fois, nous avons demandé la suspension de l'accord entre l'Union Européenne et Israël. Il y a dans cet accord une clause spécifique au respect des droits humains. A quoi sert-elle si vous ne l'activez pas ? Soit Séville ne valort rien, et donc vous êtes d'accord.",
+      "speaker_id": "SPEAKER_00",
+      "speaker_confidence": 0.9996795252569592,
+      "transcript_segment_ids": [
+        431,
+        432,
+        433,
+        434,
+        435,
+        436,
+        437,
+        438,
+        439,
+        440,
+        441,
+        442,
+        443,
+        444,
+        445,
+        446,
+        447,
+        448,
+        449,
+        450,
+        451,
+        452,
+        453,
+        454,
+        455,
+        456,
+        457,
+        458,
+        459,
+        460,
+        461,
+        462,
+        463,
+        464,
+        465,
+        466,
+        467,
+        468,
+        469,
+        470,
+        471,
+        472,
+        473,
+        474,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492,
+        493,
+        494,
+        495,
+        496
+      ],
+      "diarization_segment_ids": [
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "speaker_evidence_ratio": 0.9134324596774153,
+      "flags": 6211
+    },
+    {
+      "turn_id": 23,
+      "audio_time": {
+        "start_seconds": 1386.3628437500001,
+        "end_seconds": 1391.4422187500002,
+        "duration_seconds": 5.079375000000027,
+        "start_ts": "00:23:06.36",
+        "end_ts": "00:23:11.44"
+      },
+      "text": "Soit vous dites enfin stop",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 0.5611262836469243,
+      "transcript_segment_ids": [
+        497
+      ],
+      "diarization_segment_ids": [
+        82,
+        83
+      ],
+      "speaker_evidence_ratio": 0.431893687707621,
+      "flags": 3221225472
+    },
+    {
+      "turn_id": 24,
+      "audio_time": {
+        "start_seconds": 1386.3628437500001,
+        "end_seconds": 1397.9559687500002,
+        "duration_seconds": 11.5931250000001,
+        "start_ts": "00:23:06.36",
+        "end_ts": "00:23:17.96"
+      },
+      "text": "et vous vous unissez à l'Espagne pour faire suspendre cet accord.",
+      "speaker_id": "SPEAKER_00",
+      "speaker_confidence": 0.7865190211832095,
+      "transcript_segment_ids": [
+        498,
+        499
+      ],
+      "diarization_segment_ids": [
+        82,
+        83,
+        84
+      ],
+      "speaker_evidence_ratio": 0.3944687045123794,
+      "flags": 3221225472
+    },
+    {
+      "turn_id": 25,
+      "audio_time": {
+        "start_seconds": 1390.7165937500001,
+        "end_seconds": 1397.9559687500002,
+        "duration_seconds": 7.239375000000109,
+        "start_ts": "00:23:10.72",
+        "end_ts": "00:23:17.96"
+      },
+      "text": "La parole est à Monsieur Jean-Noël Barraud, ministre de l'Europe et des Affaires étrangères.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        500,
+        501
+      ],
+      "diarization_segment_ids": [
+        84
+      ],
+      "speaker_evidence_ratio": 1.0,
+      "flags": 3221225472
+    },
+    {
+      "turn_id": 26,
+      "audio_time": {
+        "start_seconds": 1403.3728437500001,
+        "end_seconds": 1532.9222187500002,
+        "duration_seconds": 129.54937500000005,
+        "start_ts": "00:23:23.37",
+        "end_ts": "00:25:32.92"
+      },
+      "text": "Merci Madame la Présidente. Mesdames et Messieurs les députés, Monsieur le député Jean-Paul Lecoq. La France reconnaît en Israël un peuple ami, un pays à la sécurité duquel nous sommes attachés depuis longtemps, un peuple qui a été frappé dans sa chair par l'attentat terroriste du 7 octobre. Mais la France condamne avec fermeté le gouvernement israélien et la politique qu'il mène chaque fois qu'elle contrevient aux droits internationaux et qu'ainsi elle hypothèque la sécurité du peuple israélien. Et ça a été le cas, vous l'avez rappelé, le 8 avril dernier, lorsque le Liban a été ensanglanté par des frappes massives qui, à Beyrouth et dans d'autres villes du pays, en moins de 10 minutes ont fait plus de 300 morts qui s'ajoutent aux 1500 morts depuis le début de la guerre d'Israël et des Etats-Unis contre l'Iran, auxquelles s'ajoutent des destructions d'infrastructures, des destructions de villages et le risque d'une occupation prolongée du pays. C'est le cas à Gaza où l'aide humanitaire entre très insuffisamment et ne parvient pas à la population gazaoui et palestinienne qui en a tant besoin et c'est le cas en Cisjordanie où le gouvernement israélien maintient un blocus financier qui est inacceptable alors que s'accélère la colonisation illégale et qu'explosent les violences des colons extrémistes en toute impunité. Face à cela, à plusieurs reprises, nous avons pris des sanctions au niveau national comme au niveau européen. Un troisième paquet de sanctions contre les colons extrémistes et violents est sur la table. Il a été bloqué jusqu'à dimanche dernier par une voix, un vote, celui de la Hongrie. Bien sûr, la Commission européenne dispose d'autres outils comme elle l'a fait l'été dernier en proposant le réexamen de l'accord d'association et nous l'avions soutenu à l'époque mais la situation n'évolue pas. Elle garde cette carte en main. En tout état de cause, c'est le gouvernement israélien qui doit changer sa politique, respecter le droit international et abandonner ces guerres sans fin.",
+      "speaker_id": "SPEAKER_05",
+      "speaker_confidence": 0.997483993597504,
+      "transcript_segment_ids": [
+        502,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        512,
+        513,
+        514,
+        515,
+        516,
+        517,
+        518,
+        519,
+        520,
+        521,
+        522,
+        523,
+        524,
+        525,
+        526,
+        527,
+        528,
+        529,
+        530,
+        531,
+        532,
+        533,
+        534,
+        535,
+        536,
+        537,
+        538,
+        539,
+        540,
+        541,
+        542,
+        543,
+        544,
+        545,
+        546,
+        547,
+        548,
+        549,
+        550,
+        551,
+        552,
+        553,
+        554,
+        555,
+        556,
+        557,
+        558,
+        559,
+        560,
+        561,
+        562,
+        563,
+        564,
+        565,
+        566,
+        567,
+        568,
+        569
+      ],
+      "diarization_segment_ids": [
+        85,
+        86
+      ],
+      "speaker_evidence_ratio": 1.0,
+      "flags": 3221227585
+    },
+    {
+      "turn_id": 27,
+      "audio_time": {
+        "start_seconds": 1533.3103437500001,
+        "end_seconds": 1540.02659375,
+        "duration_seconds": 6.716249999999945,
+        "start_ts": "00:25:33.31",
+        "end_ts": "00:25:40.03"
+      },
+      "text": "Merci beaucoup Monsieur le Ministre. La parole est à présent à Madame Alexandra Masson pour le Rassemblement National.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        570,
+        571,
+        572
+      ],
+      "diarization_segment_ids": [
+        87
+      ],
+      "speaker_evidence_ratio": 1.0,
+      "flags": 0
+    },
+    {
+      "turn_id": 28,
+      "audio_time": {
+        "start_seconds": 1541.6803437500002,
+        "end_seconds": 1659.6028437500001,
+        "duration_seconds": 117.9224999999999,
+        "start_ts": "00:25:41.68",
+        "end_ts": "00:27:39.60"
+      },
+      "text": "Merci Madame la Présidente. Ma question s'adresse à Monsieur le Ministre de l'Intérieur, Monsieur Laurent Nunez. C'est avec beaucoup d'émotion que moi aussi je vais poser ma dernière question au gouvernement, car dans quelques jours, je vais quitter mon mandat de députée pour me consacrer pleinement à la ville de Menton et à l'agglomération de la rivière française. Mais je ne pouvais pas partir, Monsieur le Ministre, sans évidemment vous interpeller une ultime fois sur le combat que je mène ici dans cet hémicycle depuis 2022, celui de la sécurité. Menton est une ville frontière, en première ligne. Là-bas, les décisions prises ici à Paris ont des conséquences immédiates. Sur la frontière italienne, j'ai demandé des moyens renfrancés pour la PAF face à des flux migratoires persistants et des réseaux de passeurs toujours plus organisés. Les réponses ont été tardives et insuffisantes. Mais c'est aussi la sécurité du quotidien qui se dégrade. Les effectifs de la police nationale à Menton sont en sous-effectifs chroniques. Nos forces de l'ordre sont engagées, mais épuisées, confrontées à toujours plus de missions avec toujours moins de moyens. Cela s'ajoute à un commissariat de Menton vétuste qui ne permet ni un accueil correct du public, ni des conditions de travail acceptables pour les fonctionnaires de police. J'ai demandé des renforts, un engagement clair de votre gouvernement pour ce commissariat et vous m'avez répondu par courrier que les effectifs étaient évidemment insuffisants mais qu'ils ne seront pas augmentés. Je vous le dis franchement, droit dans les yeux, c'est un mépris total pour cette population qui n'en peut plus de ne plus avoir les moyens qu'elle mérite. Alors ma question est simple. Quand allez-vous enfin donner à Menton et à son agglomération les moyens humains et matériels nécessaires pour sa frontière comme pour sa sécurité ? Où faudra-t-il attendre 2027 et l'élection de Marine Le Pen pour que l'autorité de l'Etat soit réellement rétablie ?",
+      "speaker_id": "SPEAKER_07",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        573,
+        574,
+        575,
+        576,
+        577,
+        578,
+        579,
+        580,
+        581,
+        582,
+        583,
+        584,
+        585,
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592,
+        593,
+        594,
+        595,
+        596,
+        597,
+        598,
+        599,
+        600,
+        601,
+        602,
+        603,
+        604,
+        605,
+        606,
+        607,
+        608,
+        609,
+        610,
+        611,
+        612,
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629,
+        630
+      ],
+      "diarization_segment_ids": [
+        90,
+        91,
+        92
+      ],
+      "speaker_evidence_ratio": 0.9610761305094435,
+      "flags": 2048
+    },
+    {
+      "turn_id": 29,
+      "audio_time": {
+        "start_seconds": 1661.0878437500003,
+        "end_seconds": 1666.5047187500002,
+        "duration_seconds": 5.416874999999891,
+        "start_ts": "00:27:41.09",
+        "end_ts": "00:27:46.50"
+      },
+      "text": "Merci beaucoup Madame la députée. La parole est à Monsieur Laurent Nunez, ministre de l'Intérieur.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 0.9965557310802194,
+      "transcript_segment_ids": [
+        631,
+        632,
+        633
+      ],
+      "diarization_segment_ids": [
+        94,
+        95
+      ],
+      "speaker_evidence_ratio": 0.9968847352025291,
+      "flags": 2048
+    },
+    {
+      "turn_id": 30,
+      "audio_time": {
+        "start_seconds": 1670.3522187500002,
+        "end_seconds": 1786.8909687500002,
+        "duration_seconds": 116.53874999999994,
+        "start_ts": "00:27:50.35",
+        "end_ts": "00:29:46.89"
+      },
+      "text": "Madame la Présidente, Mesdames et Messieurs les députés, Madame la députée, donc maire de Menton, quelques remarques. A votre question qui se veut très générale. D'abord, sur le contrôle de la frontière franco-italienne, vous savez que nous déployons des moyens très importants et nous réalisons beaucoup d'interpellations d'étrangers en situation irrégulière. Nous avons des accords avec l'Italie qui nous permettent de les réadmettre et le taux de réadmission des individus interpellés en situation irrégulière est très important. Et comme vous le savez, d'ailleurs, je me suis rendu dans les Alpes-Maritimes pour visiter les effectifs en charge de ces sujets. Concernant les effectifs de Menton, comme les effectifs partout sur le territoire national. Depuis 2017, on a augmenté les forces de sécurité intérieure de 12 000 effectifs. D'ailleurs, il y avait aussi une augmentation au dernier budget, celui-là même que vous n'avez pas voté. Celui-là même que vous n'avez pas voté. Donc les effectifs ont augmenté et c'est de ma responsabilité de veiller à une répartition qui corresponde à ce que représente la délinquance et j'y veille évidemment personnellement. Et je vous ai répondu pour vous dire qu'à Menton, si vous lisez bien mon courrier, moi je fais toujours des comparaisons, les effectifs sont à un niveau que je considère comme étant satisfaisant. Mais je vais évidemment regarder cette situation avec vous comme nouvelle maire de Menton. Et puis je vous donnais aussi quelques chiffres de l'activité de la lutte contre la délinquance des fonctionnaires de police dont je veux saluer l'action. Et vous avez vu qu'il y a certains items de la délinquance qui sont plutôt positifs et donc je m'en félicite. Et évidemment comme ministre de l'Intérieur, Madame la maire, je me tiens à votre disposition pour échanger sur tous ces sujets. Mais comme je le dis d'habitude aux députés de votre groupe qui prennent un malice à ne jamais me donner les thèmes des questions, c'est quand même plus sympathique quand on a le thème et qu'on peut au moins échanger. En tout cas, soyez assurés, soyez assurés Madame la députée, soyez assurés que tout est mis en œuvre pour garantir la sécurité à Menton comme partout sur le territoire national.",
+      "speaker_id": "SPEAKER_03",
+      "speaker_confidence": 1.0,
+      "transcript_segment_ids": [
+        634,
+        635,
+        636,
+        637,
+        638,
+        639,
+        640,
+        641,
+        642,
+        643,
+        644,
+        645,
+        646,
+        647,
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666,
+        667,
+        668,
+        669,
+        670,
+        671,
+        672,
+        673,
+        674,
+        675,
+        676,
+        677,
+        678,
+        679,
+        680,
+        681,
+        682,
+        683,
+        684,
+        685,
+        686,
+        687,
+        688,
+        689,
+        690,
+        691,
+        692
+      ],
+      "diarization_segment_ids": [
+        96,
+        97
+      ],
+      "speaker_evidence_ratio": 0.9960903562119892,
+      "flags": 2048
+    },
+    {
+      "turn_id": 31,
+      "audio_time": {
+        "start_seconds": 1787.11034375,
+        "end_seconds": 1789.65846875,
+        "duration_seconds": 2.5481250000000273,
+        "start_ts": "00:29:47.11",
+        "end_ts": "00:29:49.66"
+      },
+      "text": "Merci Monsieur le ministre.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 0.7547841114134632,
+      "transcript_segment_ids": [
+        693
+      ],
+      "diarization_segment_ids": [
+        98,
+        99
+      ],
+      "speaker_evidence_ratio": 0.36423841059607615,
+      "flags": 0
+    },
+    {
+      "turn_id": 32,
+      "audio_time": {
+        "start_seconds": 1788.0384687500002,
+        "end_seconds": 1799.7159687500002,
+        "duration_seconds": 11.677500000000009,
+        "start_ts": "00:29:48.04",
+        "end_ts": "00:29:59.72"
+      },
+      "text": "Deux secondes. Les 500 personnes que vous avez mis pour les titres de séjour aujourd'hui, moi je les veux pour les Français et pour la sécurité des Français.",
+      "speaker_id": "SPEAKER_07",
+      "speaker_confidence": 0.9936878975477956,
+      "transcript_segment_ids": [
+        694,
+        695,
+        696,
+        697
+      ],
+      "diarization_segment_ids": [
+        99,
+        100,
+        101
+      ],
+      "speaker_evidence_ratio": 0.6878612716762829,
+      "flags": 3221225472
+    },
+    {
+      "turn_id": 33,
+      "audio_time": {
+        "start_seconds": 1791.6834687500002,
+        "end_seconds": 1799.7159687500002,
+        "duration_seconds": 8.032500000000027,
+        "start_ts": "00:29:51.68",
+        "end_ts": "00:29:59.72"
+      },
+      "text": "Merci Madame la députée.",
+      "speaker_id": "SPEAKER_09",
+      "speaker_confidence": 0.6954501597174501,
+      "transcript_segment_ids": [
+        698
+      ],
+      "diarization_segment_ids": [
+        100,
+        101
+      ],
+      "speaker_evidence_ratio": 0.3403361344537928,
+      "flags": 3221225472
+    }
+  ],
+  "turns_analysis": [
+    {
+      "turn_id": 1,
+      "keywords": [],
+      "current_speaker": {
+        "id": "assembly_chair:yael-braun-pivet",
+        "name": "Yaël Braun-Pivet",
+        "role": "Présidente de l'Assemblée nationale",
+        "kind": "assembly_chair"
+      },
+      "current_speaker_source": "hardcoded_assembly_chair",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "hardcoded_assembly_chair",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "assembly_chair:yael-braun-pivet",
+            "name": "Yaël Braun-Pivet",
+            "role": "Présidente de l'Assemblée nationale",
+            "kind": "assembly_chair"
+          },
+          "source_turn_id": 1,
+          "target_turn_id": 1,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_09",
+          "speaker_raw": "Yaël Braun-Pivet",
+          "speaker_normalized": "yael braun-pivet",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "cecile collere",
+          "role": null,
+          "kind": "raw_per"
+        },
+        {
+          "id": null,
+          "name": "jacques paris",
+          "role": null,
+          "kind": "raw_per"
+        },
+        {
+          "id": null,
+          "name": "olivier grondeau",
+          "role": null,
+          "kind": "raw_per"
+        },
+        {
+          "id": null,
+          "name": "louis arnault",
+          "role": null,
+          "kind": "raw_per"
+        },
+        {
+          "id": null,
+          "name": "benjamin briere",
+          "role": null,
+          "kind": "raw_per"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 2,
+      "keywords": [],
+      "current_speaker": null,
+      "current_speaker_source": null,
+      "current_speaker_purity": null,
+      "speaker_identity_evidence": [],
+      "mentioned_persons": [],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 3,
+      "keywords": [],
+      "current_speaker": {
+        "id": "assembly_chair:yael-braun-pivet",
+        "name": "Yaël Braun-Pivet",
+        "role": "Présidente de l'Assemblée nationale",
+        "kind": "assembly_chair"
+      },
+      "current_speaker_source": "hardcoded_assembly_chair",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "hardcoded_assembly_chair",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "assembly_chair:yael-braun-pivet",
+            "name": "Yaël Braun-Pivet",
+            "role": "Présidente de l'Assemblée nationale",
+            "kind": "assembly_chair"
+          },
+          "source_turn_id": 3,
+          "target_turn_id": 3,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_09",
+          "speaker_raw": "Yaël Braun-Pivet",
+          "speaker_normalized": "yael braun-pivet",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "pascale borde",
+          "role": null,
+          "kind": "raw_per"
+        },
+        {
+          "id": null,
+          "name": "catherine de longue-mingue",
+          "role": null,
+          "kind": "raw_per"
+        },
+        {
+          "id": null,
+          "name": "philippe bollot",
+          "role": null,
+          "kind": "raw_per"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 4,
+      "keywords": [],
+      "current_speaker": null,
+      "current_speaker_source": null,
+      "current_speaker_purity": null,
+      "speaker_identity_evidence": [],
+      "mentioned_persons": [
+        {
+          "id": "minister:marie-pierre-verdrenne",
+          "name": "Marie-Pierre Verdrenne",
+          "role": "Ministre déléguée auprès du ministre de l’Intérieur, chargée de la Citoyenneté",
+          "kind": "minister"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 5,
+      "keywords": [],
+      "current_speaker": {
+        "id": "assembly_chair:yael-braun-pivet",
+        "name": "Yaël Braun-Pivet",
+        "role": "Présidente de l'Assemblée nationale",
+        "kind": "assembly_chair"
+      },
+      "current_speaker_source": "hardcoded_assembly_chair",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "hardcoded_assembly_chair",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "assembly_chair:yael-braun-pivet",
+            "name": "Yaël Braun-Pivet",
+            "role": "Présidente de l'Assemblée nationale",
+            "kind": "assembly_chair"
+          },
+          "source_turn_id": 5,
+          "target_turn_id": 5,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_09",
+          "speaker_raw": "Yaël Braun-Pivet",
+          "speaker_normalized": "yael braun-pivet",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": "minister:laurent_nunez",
+          "name": "Laurent Nunez",
+          "role": "Ministre de l'interieur",
+          "kind": "minister"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 6,
+      "keywords": [],
+      "current_speaker": {
+        "id": "minister:laurent_nunez",
+        "name": "Laurent Nunez",
+        "role": "Ministre de l'interieur",
+        "kind": "minister"
+      },
+      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "chair_next_speaker_call",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "minister:laurent_nunez",
+            "name": "Laurent Nunez",
+            "role": "Ministre de l'interieur",
+            "kind": "minister"
+          },
+          "source_turn_id": 5,
+          "target_turn_id": 6,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_03",
+          "speaker_raw": "Laurent Nunez",
+          "speaker_normalized": "laurent nunez",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": "minister:marie-pierre-verdrenne",
+          "name": "Marie-Pierre Verdrenne",
+          "role": "Ministre déléguée auprès du ministre de l’Intérieur, chargée de la Citoyenneté",
+          "kind": "minister"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 7,
+      "keywords": [],
+      "current_speaker": {
+        "id": "assembly_chair:yael-braun-pivet",
+        "name": "Yaël Braun-Pivet",
+        "role": "Présidente de l'Assemblée nationale",
+        "kind": "assembly_chair"
+      },
+      "current_speaker_source": "hardcoded_assembly_chair",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "hardcoded_assembly_chair",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "assembly_chair:yael-braun-pivet",
+            "name": "Yaël Braun-Pivet",
+            "role": "Présidente de l'Assemblée nationale",
+            "kind": "assembly_chair"
+          },
+          "source_turn_id": 7,
+          "target_turn_id": 7,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_09",
+          "speaker_raw": "Yaël Braun-Pivet",
+          "speaker_normalized": "yael braun-pivet",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "nicolas maisonneuve",
+          "role": null,
+          "kind": "raw_per"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 8,
+      "keywords": [],
+      "current_speaker": {
+        "id": null,
+        "name": "nicolas maisonneuve",
+        "role": null,
+        "kind": "raw_per"
+      },
+      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "chair_next_speaker_call",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": null,
+            "name": "nicolas maisonneuve",
+            "role": null,
+            "kind": "raw_per"
+          },
+          "source_turn_id": 7,
+          "target_turn_id": 8,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_10",
+          "speaker_raw": "Nicolas Maisonneuve",
+          "speaker_normalized": "nicolas maisonneuve",
+          "match_score": 85.5,
+          "is_known_person": false
+        }
+      ],
+      "mentioned_persons": [],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 9,
+      "keywords": [],
+      "current_speaker": {
+        "id": "assembly_chair:yael-braun-pivet",
+        "name": "Yaël Braun-Pivet",
+        "role": "Présidente de l'Assemblée nationale",
+        "kind": "assembly_chair"
+      },
+      "current_speaker_source": "hardcoded_assembly_chair",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "hardcoded_assembly_chair",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "assembly_chair:yael-braun-pivet",
+            "name": "Yaël Braun-Pivet",
+            "role": "Présidente de l'Assemblée nationale",
+            "kind": "assembly_chair"
+          },
+          "source_turn_id": 9,
+          "target_turn_id": 9,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_09",
+          "speaker_raw": "Yaël Braun-Pivet",
+          "speaker_normalized": "yael braun-pivet",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "maude brejon",
+          "role": null,
+          "kind": "raw_per"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 10,
+      "keywords": [],
+      "current_speaker": {
+        "id": null,
+        "name": "maude brejon",
+        "role": null,
+        "kind": "raw_per"
+      },
+      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "chair_next_speaker_call",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": null,
+            "name": "maude brejon",
+            "role": null,
+            "kind": "raw_per"
+          },
+          "source_turn_id": 9,
+          "target_turn_id": 10,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_06",
+          "speaker_raw": "Maude Bréjon",
+          "speaker_normalized": "maude brejon",
+          "match_score": 83.33333333333334,
+          "is_known_person": false
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "donald trump",
+          "role": null,
+          "kind": "raw_per"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 11,
+      "keywords": [],
+      "current_speaker": {
+        "id": "assembly_chair:yael-braun-pivet",
+        "name": "Yaël Braun-Pivet",
+        "role": "Présidente de l'Assemblée nationale",
+        "kind": "assembly_chair"
+      },
+      "current_speaker_source": "hardcoded_assembly_chair",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "hardcoded_assembly_chair",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "assembly_chair:yael-braun-pivet",
+            "name": "Yaël Braun-Pivet",
+            "role": "Présidente de l'Assemblée nationale",
+            "kind": "assembly_chair"
+          },
+          "source_turn_id": 11,
+          "target_turn_id": 11,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_09",
+          "speaker_raw": "Yaël Braun-Pivet",
+          "speaker_normalized": "yael braun-pivet",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": "720154",
+          "name": "Nicole Dubré-Chirat",
+          "role": "Député",
+          "kind": "deputy"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 12,
+      "keywords": [],
+      "current_speaker": {
+        "id": "720154",
+        "name": "Nicole Dubré-Chirat",
+        "role": "Député",
+        "kind": "deputy"
+      },
+      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "chair_next_speaker_call",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "720154",
+            "name": "Nicole Dubré-Chirat",
+            "role": "Député",
+            "kind": "deputy"
+          },
+          "source_turn_id": 11,
+          "target_turn_id": 12,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_08",
+          "speaker_raw": "Nicole Dubré-Chirat",
+          "speaker_normalized": "nicole dubre-chirat",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": "722190",
+          "name": "Gabriel Attal",
+          "role": "Député",
+          "kind": "deputy"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 13,
+      "keywords": [],
+      "current_speaker": null,
+      "current_speaker_source": null,
+      "current_speaker_purity": null,
+      "speaker_identity_evidence": [],
+      "mentioned_persons": [
+        {
+          "id": "minister:jean-pierre-farandou",
+          "name": "Jean-Pierre Farandou",
+          "role": "Ministre du Travail et des Solidarités",
+          "kind": "minister"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 14,
+      "keywords": [],
+      "current_speaker": {
+        "id": "minister:jean-pierre-farandou",
+        "name": "Jean-Pierre Farandou",
+        "role": "Ministre du Travail et des Solidarités",
+        "kind": "minister"
+      },
+      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "mesdames",
+          "role": null,
+          "kind": "raw_per"
+        },
+        {
+          "id": null,
+          "name": "madame la deputee dubre-chirard",
+          "role": null,
+          "kind": "raw_per"
+        },
+        {
+          "id": null,
+          "name": "premier ministre",
+          "role": null,
+          "kind": "raw_per"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 15,
+      "keywords": [],
+      "current_speaker": {
+        "id": "assembly_chair:yael-braun-pivet",
+        "name": "Yaël Braun-Pivet",
+        "role": "Présidente de l'Assemblée nationale",
+        "kind": "assembly_chair"
+      },
+      "current_speaker_source": "hardcoded_assembly_chair",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "hardcoded_assembly_chair",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "assembly_chair:yael-braun-pivet",
+            "name": "Yaël Braun-Pivet",
+            "role": "Présidente de l'Assemblée nationale",
+            "kind": "assembly_chair"
+          },
+          "source_turn_id": 15,
+          "target_turn_id": 15,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_09",
+          "speaker_raw": "Yaël Braun-Pivet",
+          "speaker_normalized": "yael braun-pivet",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": "793736",
+          "name": "Hadrien Clouet",
+          "role": "Député",
+          "kind": "deputy"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 16,
+      "keywords": [],
+      "current_speaker": {
+        "id": "793736",
+        "name": "Hadrien Clouet",
+        "role": "Député",
+        "kind": "deputy"
+      },
+      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "chair_next_speaker_call",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "793736",
+            "name": "Hadrien Clouet",
+            "role": "Député",
+            "kind": "deputy"
+          },
+          "source_turn_id": 15,
+          "target_turn_id": 16,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_04",
+          "speaker_raw": "Adrien Clouet",
+          "speaker_normalized": "adrien clouet",
+          "match_score": 96.2962962962963,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "macronie",
+          "role": null,
+          "kind": "raw_per"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 17,
+      "keywords": [],
+      "current_speaker": {
+        "id": "assembly_chair:yael-braun-pivet",
+        "name": "Yaël Braun-Pivet",
+        "role": "Présidente de l'Assemblée nationale",
+        "kind": "assembly_chair"
+      },
+      "current_speaker_source": "hardcoded_assembly_chair",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "hardcoded_assembly_chair",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "assembly_chair:yael-braun-pivet",
+            "name": "Yaël Braun-Pivet",
+            "role": "Présidente de l'Assemblée nationale",
+            "kind": "assembly_chair"
+          },
+          "source_turn_id": 17,
+          "target_turn_id": 17,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_09",
+          "speaker_raw": "Yaël Braun-Pivet",
+          "speaker_normalized": "yael braun-pivet",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": "minister:jean-pierre-farandou",
+          "name": "Jean-Pierre Farandou",
+          "role": "Ministre du Travail et des Solidarités",
+          "kind": "minister"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 18,
+      "keywords": [],
+      "current_speaker": {
+        "id": "minister:jean-pierre-farandou",
+        "name": "Jean-Pierre Farandou",
+        "role": "Ministre du Travail et des Solidarités",
+        "kind": "minister"
+      },
+      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "chair_next_speaker_call",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "minister:jean-pierre-farandou",
+            "name": "Jean-Pierre Farandou",
+            "role": "Ministre du Travail et des Solidarités",
+            "kind": "minister"
+          },
+          "source_turn_id": 17,
+          "target_turn_id": 18,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_01",
+          "speaker_raw": "Jean-Pierre Farandou",
+          "speaker_normalized": "jean-pierre farandou",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "clouet",
+          "role": null,
+          "kind": "raw_per"
+        },
+        {
+          "id": null,
+          "name": "premier ministre",
+          "role": null,
+          "kind": "raw_per"
+        },
+        {
+          "id": null,
+          "name": "depute clouet",
+          "role": null,
+          "kind": "raw_per"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 19,
+      "keywords": [],
+      "current_speaker": null,
+      "current_speaker_source": null,
+      "current_speaker_purity": null,
+      "speaker_identity_evidence": [],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "monsieur clouet",
+          "role": null,
+          "kind": "raw_per"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 20,
+      "keywords": [],
+      "current_speaker": {
+        "id": "793736",
+        "name": "Hadrien Clouet",
+        "role": "Député",
+        "kind": "deputy"
+      },
+      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [],
+      "mentioned_persons": [],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 21,
+      "keywords": [],
+      "current_speaker": {
+        "id": "assembly_chair:yael-braun-pivet",
+        "name": "Yaël Braun-Pivet",
+        "role": "Présidente de l'Assemblée nationale",
+        "kind": "assembly_chair"
+      },
+      "current_speaker_source": "hardcoded_assembly_chair",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "hardcoded_assembly_chair",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "assembly_chair:yael-braun-pivet",
+            "name": "Yaël Braun-Pivet",
+            "role": "Présidente de l'Assemblée nationale",
+            "kind": "assembly_chair"
+          },
+          "source_turn_id": 21,
+          "target_turn_id": 21,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_09",
+          "speaker_raw": "Yaël Braun-Pivet",
+          "speaker_normalized": "yael braun-pivet",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": "335612",
+          "name": "Jean-Paul Lecoq",
+          "role": "Député",
+          "kind": "deputy"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 22,
+      "keywords": [],
+      "current_speaker": {
+        "id": "335612",
+        "name": "Jean-Paul Lecoq",
+        "role": "Député",
+        "kind": "deputy"
+      },
+      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "chair_next_speaker_call",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "335612",
+            "name": "Jean-Paul Lecoq",
+            "role": "Député",
+            "kind": "deputy"
+          },
+          "source_turn_id": 21,
+          "target_turn_id": 22,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_00",
+          "speaker_raw": "Jean-Paul Lecoq",
+          "speaker_normalized": "jean-paul lecoq",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "monsieur le premier ministre",
+          "role": null,
+          "kind": "raw_per"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 23,
+      "keywords": [],
+      "current_speaker": null,
+      "current_speaker_source": null,
+      "current_speaker_purity": null,
+      "speaker_identity_evidence": [],
+      "mentioned_persons": [],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 24,
+      "keywords": [],
+      "current_speaker": {
+        "id": "335612",
+        "name": "Jean-Paul Lecoq",
+        "role": "Député",
+        "kind": "deputy"
+      },
+      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [],
+      "mentioned_persons": [],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 25,
+      "keywords": [],
+      "current_speaker": {
+        "id": "assembly_chair:yael-braun-pivet",
+        "name": "Yaël Braun-Pivet",
+        "role": "Présidente de l'Assemblée nationale",
+        "kind": "assembly_chair"
+      },
+      "current_speaker_source": "hardcoded_assembly_chair",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "hardcoded_assembly_chair",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "assembly_chair:yael-braun-pivet",
+            "name": "Yaël Braun-Pivet",
+            "role": "Présidente de l'Assemblée nationale",
+            "kind": "assembly_chair"
+          },
+          "source_turn_id": 25,
+          "target_turn_id": 25,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_09",
+          "speaker_raw": "Yaël Braun-Pivet",
+          "speaker_normalized": "yael braun-pivet",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "jean-noel barraud",
+          "role": null,
+          "kind": "raw_per"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 26,
+      "keywords": [],
+      "current_speaker": {
+        "id": null,
+        "name": "jean-noel barraud",
+        "role": null,
+        "kind": "raw_per"
+      },
+      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "chair_next_speaker_call",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": null,
+            "name": "jean-noel barraud",
+            "role": null,
+            "kind": "raw_per"
+          },
+          "source_turn_id": 25,
+          "target_turn_id": 26,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_05",
+          "speaker_raw": "Jean-Noël Barraud",
+          "speaker_normalized": "jean-noel barraud",
+          "match_score": 84.84848484848484,
+          "is_known_person": false
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": "335612",
+          "name": "Jean-Paul Lecoq",
+          "role": "Député",
+          "kind": "deputy"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 27,
+      "keywords": [],
+      "current_speaker": {
+        "id": "assembly_chair:yael-braun-pivet",
+        "name": "Yaël Braun-Pivet",
+        "role": "Présidente de l'Assemblée nationale",
+        "kind": "assembly_chair"
+      },
+      "current_speaker_source": "hardcoded_assembly_chair",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "hardcoded_assembly_chair",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "assembly_chair:yael-braun-pivet",
+            "name": "Yaël Braun-Pivet",
+            "role": "Présidente de l'Assemblée nationale",
+            "kind": "assembly_chair"
+          },
+          "source_turn_id": 27,
+          "target_turn_id": 27,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_09",
+          "speaker_raw": "Yaël Braun-Pivet",
+          "speaker_normalized": "yael braun-pivet",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "alexandra masson",
+          "role": null,
+          "kind": "raw_per"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 28,
+      "keywords": [],
+      "current_speaker": {
+        "id": null,
+        "name": "alexandra masson",
+        "role": null,
+        "kind": "raw_per"
+      },
+      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "chair_next_speaker_call",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": null,
+            "name": "alexandra masson",
+            "role": null,
+            "kind": "raw_per"
+          },
+          "source_turn_id": 27,
+          "target_turn_id": 28,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_07",
+          "speaker_raw": "Alexandra Masson",
+          "speaker_normalized": "alexandra masson",
+          "match_score": 85.5,
+          "is_known_person": false
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "'",
+          "role": null,
+          "kind": "raw_per"
+        },
+        {
+          "id": "minister:laurent_nunez",
+          "name": "Laurent Nunez",
+          "role": "Ministre de l'interieur",
+          "kind": "minister"
+        },
+        {
+          "id": "720614",
+          "name": "Marine Le Pen",
+          "role": "Député",
+          "kind": "deputy"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 29,
+      "keywords": [],
+      "current_speaker": {
+        "id": "assembly_chair:yael-braun-pivet",
+        "name": "Yaël Braun-Pivet",
+        "role": "Présidente de l'Assemblée nationale",
+        "kind": "assembly_chair"
+      },
+      "current_speaker_source": "hardcoded_assembly_chair",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "hardcoded_assembly_chair",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "assembly_chair:yael-braun-pivet",
+            "name": "Yaël Braun-Pivet",
+            "role": "Présidente de l'Assemblée nationale",
+            "kind": "assembly_chair"
+          },
+          "source_turn_id": 29,
+          "target_turn_id": 29,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_09",
+          "speaker_raw": "Yaël Braun-Pivet",
+          "speaker_normalized": "yael braun-pivet",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": "minister:laurent_nunez",
+          "name": "Laurent Nunez",
+          "role": "Ministre de l'interieur",
+          "kind": "minister"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 30,
+      "keywords": [],
+      "current_speaker": {
+        "id": "minister:laurent_nunez",
+        "name": "Laurent Nunez",
+        "role": "Ministre de l'interieur",
+        "kind": "minister"
+      },
+      "current_speaker_source": "chair_next_speaker_call",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [
+        {
+          "source": "chair_next_speaker_call",
+          "eligible_for_cluster_majority": true,
+          "person": {
+            "id": "minister:laurent_nunez",
+            "name": "Laurent Nunez",
+            "role": "Ministre de l'interieur",
+            "kind": "minister"
+          },
+          "source_turn_id": 29,
+          "target_turn_id": 30,
+          "source_speaker_id": "SPEAKER_09",
+          "target_speaker_id": "SPEAKER_03",
+          "speaker_raw": "Laurent Nunez",
+          "speaker_normalized": "laurent nunez",
+          "match_score": 100.0,
+          "is_known_person": true
+        }
+      ],
+      "mentioned_persons": [
+        {
+          "id": null,
+          "name": "mesdames",
+          "role": null,
+          "kind": "raw_per"
+        },
+        {
+          "id": null,
+          "name": "madame",
+          "role": null,
+          "kind": "raw_per"
+        }
+      ],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 31,
+      "keywords": [],
+      "current_speaker": null,
+      "current_speaker_source": null,
+      "current_speaker_purity": null,
+      "speaker_identity_evidence": [],
+      "mentioned_persons": [],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 32,
+      "keywords": [],
+      "current_speaker": {
+        "id": null,
+        "name": "alexandra masson",
+        "role": null,
+        "kind": "raw_per"
+      },
+      "current_speaker_source": "propagated_from_speaker_cluster",
+      "current_speaker_purity": 1.0,
+      "speaker_identity_evidence": [],
+      "mentioned_persons": [],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    },
+    {
+      "turn_id": 33,
+      "keywords": [],
+      "current_speaker": null,
+      "current_speaker_source": null,
+      "current_speaker_purity": null,
+      "speaker_identity_evidence": [],
+      "mentioned_persons": [],
+      "organizations": [],
+      "locations": [],
+      "embedding_id": null,
+      "audio_audit": null
+    }
+  ]
+}
