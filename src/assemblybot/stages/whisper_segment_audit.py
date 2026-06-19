@@ -50,6 +50,21 @@ def aux_intervals_from_document(
     return vad_intervals, overlap_intervals
 
 
+def copy_aux_sections_to_transcript_document(
+    transcript_document,
+    aux_document,
+) -> None:
+    """
+    Preserve VAD/diarization context in the enriched transcript document.
+
+    Standalone transcription JSON may not contain upstream VAD/diarization
+    sections. The audit stage receives those sections as an auxiliary document,
+    and downstream alignment expects the enriched output to carry them forward.
+    """
+    transcript_document.vad = aux_document.vad
+    transcript_document.diarization = aux_document.diarization
+
+
 def interval_overlap_seconds(
     start_seconds: float,
     end_seconds: float,
@@ -418,7 +433,23 @@ def audit_whisper_segments(
     print(f"Loading transcript document: {transcript_path}", flush=True)
     transcript_document = load_document(transcript_path)
     print(f"Loading VAD/diarization document: {aux_path}", flush=True)
-    vad_intervals, overlap_intervals = aux_intervals_from_document(aux_path)
+    aux_document = load_document(aux_path)
+    copy_aux_sections_to_transcript_document(transcript_document, aux_document)
+    vad_intervals = [
+        (segment.time.start_seconds, segment.time.end_seconds)
+        for segment in aux_document.vad.segments
+    ]
+    overlap_intervals = [
+        (region.time.start_seconds, region.time.end_seconds)
+        for region in aux_document.diarization.overlap_regions
+    ]
+    vad_intervals.sort()
+    overlap_intervals.sort()
+    print(
+        f"Loaded {len(vad_intervals)} VAD intervals and "
+        f"{len(overlap_intervals)} diarization overlap regions.",
+        flush=True,
+    )
     audit_arrays = load_audio_audit_arrays(audio_audit_path)
 
     segment_count = len(transcript_document.transcript.raw_segments)

@@ -136,6 +136,11 @@ def build_transcript_diarization_matches(
     document: CanonicalDocument,
     config: AlignmentConfig,
 ) -> list[TranscriptDiarizationMatch]:
+    if not document.transcript.raw_segments:
+        raise ValueError("Alignment requires transcript.raw_segments.")
+    if not document.diarization.raw_segments:
+        raise ValueError("Alignment requires diarization.raw_segments.")
+
     return [
         build_transcript_diarization_match(
             transcript_segment,
