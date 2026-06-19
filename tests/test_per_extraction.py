@@ -3,7 +3,8 @@ import io
 import unittest
 
 from assemblybot.models.turn_document import PersonIdentity, TurnDocument
-from assemblybot.stages.PER_extraction import enrich_turn_document, parse_args
+from assemblybot.per_config import DEFAULT_PER_CONFIG
+from assemblybot.stages.per_extraction import enrich_turn_document, parse_args
 from assemblybot.stages.per_analysis import CURRENT_SPEAKER_SOURCE_NEXT
 from tests.per_test_helpers import known_person, make_turn
 
@@ -41,6 +42,7 @@ class PerExtractionStageTest(unittest.TestCase):
             document,
             [known_person("123", "Alice Dupont", "Député", "deputy")],
             ner,
+            DEFAULT_PER_CONFIG,
         )
 
         self.assertIs(enriched.turns, turns)
@@ -99,6 +101,7 @@ class PerExtractionStageTest(unittest.TestCase):
                 known_person("605782", "Laurent Marcangeli", "Député", "deputy"),
             ],
             ner,
+            DEFAULT_PER_CONFIG,
         )
 
         self.assertEqual(enriched.turns_analysis[0].mentioned_persons, [laurent])
@@ -119,8 +122,22 @@ class PerExtractionStageTest(unittest.TestCase):
                     [
                         "--input-json",
                         "turns.json",
+                        "--deputies-ground-truth-csv",
+                        "deputies.csv",
+                    ]
+                )
+
+    def test_parse_args_rejects_old_ground_truth_flags(self) -> None:
+        with contextlib.redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit):
+                parse_args(
+                    [
+                        "--input-json",
+                        "turns.json",
                         "--csv-ground-truth-PER",
                         "deputies.csv",
+                        "--csv-ground-truth-ministers",
+                        "ministers.csv",
                     ]
                 )
 

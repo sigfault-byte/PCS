@@ -8,6 +8,7 @@ from assemblybot.models.turn_document import (
     Turn,
     TurnAnalysis,
 )
+from assemblybot.per_config import DEFAULT_PER_CONFIG, PerConfig
 from assemblybot.stages.per_identity import (
     KnownPerson,
     PersonResolution,
@@ -15,55 +16,26 @@ from assemblybot.stages.per_identity import (
     resolve_known_person,
 )
 
-PER_CONFIDENCE_THRESHOLD = 0.8
-CONTEXT_RADIUS = 80
-SENTENCE_BOUNDARY_CHARS = ".?!"
-SPEAKER_SEARCH_WINDOW = 5
-NEXT_SPEAKER_WEIGHT = 2
-PREVIOUS_SPEAKER_WEIGHT = 1
+PER_CONFIDENCE_THRESHOLD = DEFAULT_PER_CONFIG.per_confidence_threshold
+CONTEXT_RADIUS = DEFAULT_PER_CONFIG.context_radius
+SENTENCE_BOUNDARY_CHARS = DEFAULT_PER_CONFIG.sentence_boundary_chars
+SPEAKER_SEARCH_WINDOW = DEFAULT_PER_CONFIG.speaker_search_window
+NEXT_SPEAKER_WEIGHT = DEFAULT_PER_CONFIG.next_speaker_weight
+PREVIOUS_SPEAKER_WEIGHT = DEFAULT_PER_CONFIG.previous_speaker_weight
 CURRENT_SPEAKER_SOURCE_CHAIR_NEXT_CALL = "chair_next_speaker_call"
 CURRENT_SPEAKER_SOURCE_NEXT = CURRENT_SPEAKER_SOURCE_CHAIR_NEXT_CALL
 CURRENT_SPEAKER_SOURCE_PREVIOUS = "inferred_from_previous_speaker"
 CURRENT_SPEAKER_SOURCE_ASSEMBLY_CHAIR = "hardcoded_assembly_chair"
 CURRENT_SPEAKER_SOURCE_PROPAGATED = "propagated_from_speaker_cluster"
-ASSEMBLY_CHAIR_IDENTITY = PersonIdentity(
-    id="assembly_chair:yael-braun-pivet",
-    name="Yaël Braun-Pivet",
-    role="Présidente de l'Assemblée nationale",
-    kind="assembly_chair",
-)
+ASSEMBLY_CHAIR_IDENTITY = DEFAULT_PER_CONFIG.assembly_chair_identity
 
-NEXT_SPEAKER_PATTERNS = [
-    "la parole est à",
-    "je donne la parole à",
-    "vous avez la parole",
-]
+NEXT_SPEAKER_PATTERNS = list(DEFAULT_PER_CONFIG.next_speaker_patterns)
 
-PREVIOUS_SPEAKER_PATTERNS: list[str] = []
+PREVIOUS_SPEAKER_PATTERNS = list(DEFAULT_PER_CONFIG.previous_speaker_patterns)
 
-GENERIC_PERSON_MENTIONS = {
-    "madame la deputee",
-    "madame la ministre",
-    "madame la presidente",
-    "mesdames les deputees",
-    "mesdames les ministres",
-    "monsieur le depute",
-    "monsieur le ministre",
-    "monsieur le president",
-    "messieurs les deputes",
-    "messieurs les ministres",
-}
+GENERIC_PERSON_MENTIONS = set(DEFAULT_PER_CONFIG.generic_person_mentions)
 
-ASSEMBLY_CHAIR_TURN_PATTERNS = [
-    *NEXT_SPEAKER_PATTERNS,
-    "la séance est ouverte",
-    "la séance est levée",
-    "l'ordre du jour appelle",
-    "le scrutin est ouvert",
-    "le scrutin est clos",
-    "je vais mettre aux voix",
-    "je mets aux voix",
-]
+ASSEMBLY_CHAIR_TURN_PATTERNS = list(DEFAULT_PER_CONFIG.assembly_chair_turn_patterns)
 
 NERCallable = Callable[[str], list[dict[str, Any]]]
 
@@ -87,25 +59,40 @@ def is_generic_person_mention(normalized_name: str) -> bool:
     return normalized_name in GENERIC_PERSON_MENTIONS
 
 
+def is_generic_person_mention_with_config(
+    normalized_name: str,
+    config: PerConfig,
+) -> bool:
+    return normalized_name in config.generic_person_mentions
+
+
 def context_window(
     text: str,
     start: int,
     end: int,
-    radius: int = CONTEXT_RADIUS,
+    radius: int | None = None,
+    config: PerConfig = DEFAULT_PER_CONFIG,
 ) -> str:
+    radius = config.context_radius if radius is None else radius
     return text[max(0, start - radius) : min(len(text), end + radius)].lower()
 
 
-def sentence_context(text: str, start: int, end: int) -> tuple[str, int, int]:
+def sentence_context(
+    text: str,
+    start: int,
+    end: int,
+    config: PerConfig = DEFAULT_PER_CONFIG,
+) -> tuple[str, int, int]:
     previous_boundaries = [
-        text.rfind(boundary, 0, start) for boundary in SENTENCE_BOUNDARY_CHARS
+        text.rfind(boundary, 0, start)
+        for boundary in config.sentence_boundary_chars
     ]
     previous_boundary = max(previous_boundaries)
     span_start = previous_boundary + 1 if previous_boundary >= 0 else 0
 
     next_boundaries = [
         boundary_index
-        for boundary in SENTENCE_BOUNDARY_CHARS
+        for boundary in config.sentence_boundary_chars
         if (boundary_index := text.find(boundary, end)) >= 0
     ]
     span_end = min(next_boundaries) if next_boundaries else len(text)
@@ -127,10 +114,22 @@ def anchor_before_entity(
 
 
 def next_speaker_anchor_position(context: str, entity_start: int) -> int | None:
+    return next_speaker_anchor_position_with_config(
+        context,
+        entity_start,
+        DEFAULT_PER_CONFIG,
+    )
+
+
+def next_speaker_anchor_position_with_config(
+    context: str,
+    entity_start: int,
+    config: PerConfig,
+) -> int | None:
     prefix = context[:entity_start]
     positions = []
 
-    for pattern in NEXT_SPEAKER_PATTERNS:
+    for pattern in config.next_speaker_patterns:
         position = prefix.rfind(pattern)
 
         if position >= 0:
@@ -139,18 +138,35 @@ def next_speaker_anchor_position(context: str, entity_start: int) -> int | None:
     return max(positions) if positions else None
 
 
-def infer_person_role(text: str, start: int, end: int) -> str | None:
-    context, entity_start, _ = sentence_context(text, start, end)
+def infer_person_role(
+    text: str,
+    start: int,
+    end: int,
+    config: PerConfig = DEFAULT_PER_CONFIG,
+) -> str | None:
+    context, entity_start, _ = sentence_context(text, start, end, config)
 
-    if next_speaker_anchor_position(context, entity_start) is not None:
+    if (
+        next_speaker_anchor_position_with_config(context, entity_start, config)
+        is not None
+    ):
         return "probable_next_speaker"
 
     return None
 
 
-def next_speaker_anchor_key(text: str, start: int, end: int) -> tuple[int, int] | None:
-    context, entity_start, _ = sentence_context(text, start, end)
-    anchor_position = next_speaker_anchor_position(context, entity_start)
+def next_speaker_anchor_key(
+    text: str,
+    start: int,
+    end: int,
+    config: PerConfig = DEFAULT_PER_CONFIG,
+) -> tuple[int, int] | None:
+    context, entity_start, _ = sentence_context(text, start, end, config)
+    anchor_position = next_speaker_anchor_position_with_config(
+        context,
+        entity_start,
+        config,
+    )
 
     if anchor_position is None:
         return None
@@ -158,15 +174,21 @@ def next_speaker_anchor_key(text: str, start: int, end: int) -> tuple[int, int] 
     return start - entity_start, anchor_position
 
 
-def is_assembly_chair_turn(text: str) -> bool:
+def is_assembly_chair_turn(
+    text: str,
+    config: PerConfig = DEFAULT_PER_CONFIG,
+) -> bool:
     normalized_text = text.lower()
-    return any(pattern in normalized_text for pattern in ASSEMBLY_CHAIR_TURN_PATTERNS)
+    return any(
+        pattern in normalized_text
+        for pattern in config.assembly_chair_turn_patterns
+    )
 
 
-def anchor_weight(role: str) -> int:
+def anchor_weight(role: str, config: PerConfig = DEFAULT_PER_CONFIG) -> int:
     if role == "probable_next_speaker":
-        return NEXT_SPEAKER_WEIGHT
-    return PREVIOUS_SPEAKER_WEIGHT
+        return config.next_speaker_weight
+    return config.previous_speaker_weight
 
 
 def current_speaker_source(role: str) -> str:
@@ -178,10 +200,11 @@ def current_speaker_source(role: str) -> str:
 def prediction_evidence_source(
     prediction: SpeakerPersonPrediction,
     source_turn: Turn,
+    config: PerConfig = DEFAULT_PER_CONFIG,
 ) -> tuple[str, bool]:
     if (
         prediction.role == "probable_next_speaker"
-        and is_assembly_chair_turn(source_turn.text)
+        and is_assembly_chair_turn(source_turn.text, config)
     ):
         return CURRENT_SPEAKER_SOURCE_CHAIR_NEXT_CALL, True
 
@@ -191,9 +214,11 @@ def prediction_evidence_source(
 def collect_person_mentions(
     turns: list[Turn],
     ner: NERCallable,
-    threshold: float = PER_CONFIDENCE_THRESHOLD,
+    threshold: float | None = None,
+    config: PerConfig = DEFAULT_PER_CONFIG,
 ) -> list[dict[str, Any]]:
     mentions: list[dict[str, Any]] = []
+    threshold = config.per_confidence_threshold if threshold is None else threshold
 
     for turn in turns:
         for entity in ner(turn.text):
@@ -205,7 +230,7 @@ def collect_person_mentions(
 
             normalized_name = normalize_name(str(entity.get("word", "")))
 
-            if is_generic_person_mention(normalized_name):
+            if is_generic_person_mention_with_config(normalized_name, config):
                 continue
 
             mentions.append(
@@ -224,8 +249,12 @@ def find_predicted_turn_id(
     turns_by_id: dict[int, Turn],
     source_turn_id: int,
     role: str,
-    search_window: int = SPEAKER_SEARCH_WINDOW,
+    search_window: int | None = None,
+    config: PerConfig = DEFAULT_PER_CONFIG,
 ) -> int | None:
+    search_window = (
+        config.speaker_search_window if search_window is None else search_window
+    )
     current_turn = turns_by_id[source_turn_id]
     current_speaker = current_turn.speaker_id
 
@@ -252,6 +281,7 @@ def predict_person_turns(
     turns: list[Turn],
     mentions: list[dict[str, Any]],
     known_people: list[KnownPerson],
+    config: PerConfig = DEFAULT_PER_CONFIG,
 ) -> list[SpeakerPersonPrediction]:
     predictions: list[SpeakerPersonPrediction] = []
     turns_by_id = {turn.turn_id: turn for turn in turns}
@@ -263,6 +293,7 @@ def predict_person_turns(
             mention["text"],
             int(entity["start"]),
             int(entity["end"]),
+            config,
         )
 
         if key is None:
@@ -280,6 +311,7 @@ def predict_person_turns(
             mention["text"],
             int(entity["start"]),
             int(entity["end"]),
+            config,
         )
 
         if role is None:
@@ -289,6 +321,7 @@ def predict_person_turns(
             mention["text"],
             int(entity["start"]),
             int(entity["end"]),
+            config,
         )
 
         if key is None:
@@ -302,12 +335,17 @@ def predict_person_turns(
             turns_by_id,
             source_turn_id,
             role,
+            config=config,
         )
 
         if predicted_turn_id is None:
             continue
 
-        resolution = resolve_known_person(mention["normalized_name"], known_people)
+        resolution = resolve_known_person(
+            mention["normalized_name"],
+            known_people,
+            config=config,
+        )
         predictions.append(
             SpeakerPersonPrediction(
                 source_turn_id=source_turn_id,
@@ -316,7 +354,7 @@ def predict_person_turns(
                 speaker_normalized=mention["normalized_name"],
                 resolution=resolution,
                 role=role,
-                weight=anchor_weight(role),
+                weight=anchor_weight(role, config),
             )
         )
 
@@ -326,13 +364,18 @@ def predict_person_turns(
 def build_mentioned_persons_by_turn(
     mentions: list[dict[str, Any]],
     known_people: list[KnownPerson],
+    config: PerConfig = DEFAULT_PER_CONFIG,
 ) -> dict[int, list[PersonIdentity]]:
     mentioned_persons_by_turn: dict[int, list[PersonIdentity]] = defaultdict(list)
     seen_by_turn: defaultdict[int, set[tuple[str, str | None, str]]] = defaultdict(set)
 
     for mention in mentions:
         turn_id = int(mention["turn_id"])
-        resolution = resolve_known_person(mention["normalized_name"], known_people)
+        resolution = resolve_known_person(
+            mention["normalized_name"],
+            known_people,
+            config=config,
+        )
         identity_key = resolution.identity_key
 
         if identity_key in seen_by_turn[turn_id]:
@@ -347,6 +390,7 @@ def build_mentioned_persons_by_turn(
 def build_speaker_person_summary(
     turns: list[Turn],
     predictions: list[SpeakerPersonPrediction],
+    config: PerConfig = DEFAULT_PER_CONFIG,
 ) -> dict[str, dict[str, float | int | str | PersonIdentity]]:
     matrix: defaultdict[str, Counter[tuple[str, str | None, str]]] = defaultdict(
         Counter
@@ -365,7 +409,7 @@ def build_speaker_person_summary(
         if turn is None or turn.speaker_id is None or source_turn is None:
             continue
 
-        source, _ = prediction_evidence_source(prediction, source_turn)
+        source, _ = prediction_evidence_source(prediction, source_turn, config)
         identities_by_key[prediction.identity_key] = prediction.resolution.identity
         matrix[turn.speaker_id][prediction.identity_key] += prediction.weight
         source_matrix[turn.speaker_id][prediction.identity_key][source] += (
@@ -399,6 +443,7 @@ def build_speaker_person_summary(
 def build_speaker_identity_evidence_by_turn(
     turns: list[Turn],
     predictions: list[SpeakerPersonPrediction],
+    config: PerConfig = DEFAULT_PER_CONFIG,
 ) -> dict[int, list[SpeakerIdentityEvidence]]:
     evidence_by_turn: defaultdict[int, list[SpeakerIdentityEvidence]] = defaultdict(list)
     turns_by_id = {turn.turn_id: turn for turn in turns}
@@ -410,7 +455,11 @@ def build_speaker_identity_evidence_by_turn(
         if source_turn is None or target_turn is None:
             continue
 
-        source, eligible = prediction_evidence_source(prediction, source_turn)
+        source, eligible = prediction_evidence_source(
+            prediction,
+            source_turn,
+            config,
+        )
         evidence_by_turn[target_turn.turn_id].append(
             SpeakerIdentityEvidence(
                 source=source,
@@ -459,6 +508,7 @@ def build_turn_analysis(
     mentioned_persons_by_turn: dict[int, list[PersonIdentity]],
     speaker_identity_evidence_by_turn: dict[int, list[SpeakerIdentityEvidence]]
     | None = None,
+    config: PerConfig = DEFAULT_PER_CONFIG,
 ) -> list[TurnAnalysis]:
     turns_analysis: list[TurnAnalysis] = []
     speaker_identity_evidence_by_turn = speaker_identity_evidence_by_turn or {}
@@ -470,7 +520,9 @@ def build_turn_analysis(
             [],
         )
         hardcoded_current_speaker = (
-            ASSEMBLY_CHAIR_IDENTITY if is_assembly_chair_turn(turn.text) else None
+            config.assembly_chair_identity
+            if is_assembly_chair_turn(turn.text, config)
+            else None
         )
         speaker_data = (
             speaker_id_to_person.get(turn.speaker_id)

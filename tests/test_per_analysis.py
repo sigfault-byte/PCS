@@ -1,6 +1,7 @@
 import unittest
 
 from assemblybot.models.turn_document import PersonIdentity
+from assemblybot.per_config import PerConfig
 from assemblybot.stages.per_analysis import (
     ASSEMBLY_CHAIR_IDENTITY,
     CURRENT_SPEAKER_SOURCE_ASSEMBLY_CHAIR,
@@ -429,6 +430,30 @@ class PerAnalysisTest(unittest.TestCase):
         mentions = collect_person_mentions(turns, ner)
         self.assertEqual(len(mentions), 1)
         self.assertEqual(mentions[0]["normalized_name"], "alice dupont")
+
+    def test_custom_per_confidence_threshold_changes_mentions(self) -> None:
+        turns = [make_turn(1, "CHAIR", "Alice Dupont")]
+
+        def ner(_: str) -> list[dict[str, object]]:
+            return [
+                {
+                    "entity_group": "PER",
+                    "score": 0.9,
+                    "word": "Alice Dupont",
+                    "start": 0,
+                    "end": 12,
+                }
+            ]
+
+        self.assertEqual(len(collect_person_mentions(turns, ner)), 1)
+        self.assertEqual(
+            collect_person_mentions(
+                turns,
+                ner,
+                config=PerConfig(per_confidence_threshold=0.95),
+            ),
+            [],
+        )
 
 
 if __name__ == "__main__":

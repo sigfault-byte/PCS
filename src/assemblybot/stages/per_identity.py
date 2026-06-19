@@ -7,21 +7,12 @@ from pathlib import Path
 from rapidfuzz import fuzz, process
 
 from assemblybot.models.turn_document import PersonIdentity
+from assemblybot.per_config import DEFAULT_PER_CONFIG, PerConfig
 
-FUZZY_MATCH_THRESHOLD = 80
-TOKEN_MATCH_THRESHOLD = 65
+FUZZY_MATCH_THRESHOLD = DEFAULT_PER_CONFIG.fuzzy_match_threshold
+TOKEN_MATCH_THRESHOLD = DEFAULT_PER_CONFIG.token_match_threshold
 
-GROUND_TRUTH_HEADERS = [
-    "identifiant",
-    "Prénom",
-    "Nom",
-    "Région",
-    "Département",
-    "Numéro de circonscription",
-    "Profession",
-    "Groupe politique (complet)",
-    "Groupe politique (abrégé)",
-]
+GROUND_TRUTH_HEADERS = list(DEFAULT_PER_CONFIG.ground_truth_headers)
 
 
 @dataclass(frozen=True)
@@ -80,6 +71,7 @@ def raw_person_resolution(normalized_name: str, match_score: float = 0.0) -> Per
 def tokens_have_strong_overlap(
     query_tokens: list[str],
     candidate_tokens: list[str],
+    config: PerConfig = DEFAULT_PER_CONFIG,
 ) -> bool:
     if not query_tokens or not candidate_tokens:
         return False
@@ -96,7 +88,8 @@ def tokens_have_strong_overlap(
     return all(
         any(
             query_token == candidate_token
-            or fuzz.ratio(query_token, candidate_token) >= TOKEN_MATCH_THRESHOLD
+            or fuzz.ratio(query_token, candidate_token)
+            >= config.token_match_threshold
             for candidate_token in candidate_tokens
         )
         for query_token in query_tokens
@@ -117,7 +110,10 @@ def person_kind_from_identifier(identifier: str) -> str:
     return "deputy"
 
 
-def validate_ground_truth_csv(csv_path: Path) -> list[dict[str, str]]:
+def validate_ground_truth_csv(
+    csv_path: Path,
+    config: PerConfig = DEFAULT_PER_CONFIG,
+) -> list[dict[str, str]]:
     with csv_path.open("r", encoding="utf-8", newline="") as input_file:
         reader = csv.reader(input_file)
         rows = list(reader)
@@ -127,10 +123,12 @@ def validate_ground_truth_csv(csv_path: Path) -> list[dict[str, str]]:
 
     header = rows[0]
 
-    if header != GROUND_TRUTH_HEADERS:
+    expected_headers = list(config.ground_truth_headers)
+
+    if header != expected_headers:
         raise ValueError(
             f"{csv_path} has invalid headers: {header}. "
-            f"Expected: {GROUND_TRUTH_HEADERS}"
+            f"Expected: {expected_headers}"
         )
 
     bad_rows = [
@@ -167,28 +165,44 @@ def known_person_from_row(row: dict[str, str], *, source_kind: str) -> KnownPers
     )
 
 
-def load_known_people(csv_path: Path, *, source_kind: str) -> list[KnownPerson]:
+def load_known_people(
+    csv_path: Path,
+    *,
+    source_kind: str,
+    config: PerConfig = DEFAULT_PER_CONFIG,
+) -> list[KnownPerson]:
     return [
         known_person_from_row(row, source_kind=source_kind)
-        for row in validate_ground_truth_csv(csv_path)
+        for row in validate_ground_truth_csv(csv_path, config)
     ]
 
 
 def load_all_known_people(
     deputies_csv_path: Path,
     ministers_csv_path: Path,
+    config: PerConfig = DEFAULT_PER_CONFIG,
 ) -> list[KnownPerson]:
     return [
-        *load_known_people(deputies_csv_path, source_kind="deputy"),
-        *load_known_people(ministers_csv_path, source_kind="minister"),
+        *load_known_people(
+            deputies_csv_path,
+            source_kind="deputy",
+            config=config,
+        ),
+        *load_known_people(
+            ministers_csv_path,
+            source_kind="minister",
+            config=config,
+        ),
     ]
 
 
 def resolve_known_person(
     normalized_name: str,
     known_people: list[KnownPerson],
-    threshold: int = FUZZY_MATCH_THRESHOLD,
+    threshold: int | None = None,
+    config: PerConfig = DEFAULT_PER_CONFIG,
 ) -> PersonResolution:
+    threshold = config.fuzzy_match_threshold if threshold is None else threshold
     known_names = [person.normalized_name for person in known_people]
     name_to_people: defaultdict[str, list[KnownPerson]] = defaultdict(list)
 
@@ -220,7 +234,11 @@ def resolve_known_person(
 
     candidate_tokens = name_tokens(match)
 
-    if score >= threshold and tokens_have_strong_overlap(query_tokens, candidate_tokens):
+    if score >= threshold and tokens_have_strong_overlap(
+        query_tokens,
+        candidate_tokens,
+        config,
+    ):
         known_person = name_to_people[match][0]
         return PersonResolution(
             identity=known_person.identity,

@@ -3,6 +3,7 @@ import unittest
 from pathlib import Path
 
 from assemblybot.models.turn_document import PersonIdentity
+from assemblybot.per_config import PerConfig
 from assemblybot.stages.per_identity import (
     GROUND_TRUTH_HEADERS,
     load_known_people,
@@ -212,6 +213,20 @@ class PerIdentityTest(unittest.TestCase):
                 kind="deputy",
             ),
         )
+
+    def test_custom_fuzzy_threshold_changes_resolution(self) -> None:
+        people = [
+            known_person("720614", "Laurent Marcangeli", "Député", "deputy"),
+        ]
+
+        resolved = resolve_known_person(
+            "laurent marcangelli",
+            people,
+            config=PerConfig(fuzzy_match_threshold=100),
+        )
+
+        self.assertFalse(resolved.is_known_person)
+        self.assertEqual(resolved.identity.kind, "raw_per")
 
 
 if __name__ == "__main__":

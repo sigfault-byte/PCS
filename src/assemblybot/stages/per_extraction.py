@@ -5,6 +5,7 @@ from pathlib import Path
 from assemblybot.helper.directory import build_default_output_path
 from assemblybot.helper.document import save_turn_document
 from assemblybot.models.turn_document import TurnDocument
+from assemblybot.per_config import PerConfig, add_per_arguments
 from assemblybot.stages.per_analysis import (
     NERCallable,
     build_mentioned_persons_by_turn,
@@ -15,8 +16,6 @@ from assemblybot.stages.per_analysis import (
     predict_person_turns,
 )
 from assemblybot.stages.per_identity import KnownPerson, load_all_known_people
-
-NER_MODEL_NAME = "Jean-Baptiste/camembert-ner"
 
 # TODO: drop those token if they are on the left. So the fuzzy match is only on the name
 # TITLE_TOKENS = {
@@ -40,16 +39,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         "--output-json",
         help="Optional output JSON path (default: generated in interim directory)",
     )
-    parser.add_argument(
-        "--csv-ground-truth-PER",
-        required=True,
-        help="Path to a CSV representing the exact PER of the deputy speakers",
-    )
-    parser.add_argument(
-        "--csv-ground-truth-ministers",
-        required=True,
-        help="Path to a CSV representing ministers and Assembly president speakers",
-    )
+    add_per_arguments(parser)
 
     return parser.parse_args(argv)
 
@@ -64,17 +54,29 @@ def enrich_turn_document(
     document: TurnDocument,
     known_people: list[KnownPerson],
     ner: NERCallable,
+    config: PerConfig,
 ) -> TurnDocument:
-    mentions = collect_person_mentions(document.turns, ner)
-    predictions = predict_person_turns(document.turns, mentions, known_people)
-    speaker_summary = build_speaker_person_summary(document.turns, predictions)
+    mentions = collect_person_mentions(document.turns, ner, config=config)
+    predictions = predict_person_turns(
+        document.turns,
+        mentions,
+        known_people,
+        config,
+    )
+    speaker_summary = build_speaker_person_summary(
+        document.turns,
+        predictions,
+        config,
+    )
     speaker_identity_evidence_by_turn = build_speaker_identity_evidence_by_turn(
         document.turns,
         predictions,
+        config,
     )
     mentioned_persons_by_turn = build_mentioned_persons_by_turn(
         mentions,
         known_people,
+        config,
     )
 
     return TurnDocument(
@@ -84,29 +86,35 @@ def enrich_turn_document(
             speaker_summary,
             mentioned_persons_by_turn,
             speaker_identity_evidence_by_turn,
+            config,
         ),
     )
 
 
-def build_ner_pipeline() -> NERCallable:
+def build_ner_pipeline(config: PerConfig) -> NERCallable:
     from transformers import pipeline
 
     return pipeline(
         "token-classification",
-        model=NER_MODEL_NAME,
-        aggregation_strategy="simple",
+        model=config.ner_model_name,
+        aggregation_strategy=config.ner_aggregation_strategy,
     )
 
 
 def main() -> None:
     args = parse_args()
+    config = PerConfig.from_args(args)
 
     input_json_path = Path(args.input_json).resolve()
-    deputies_csv_path = Path(args.csv_ground_truth_PER).resolve()
-    ministers_csv_path = Path(args.csv_ground_truth_ministers).resolve()
+    deputies_csv_path = Path(args.deputies_ground_truth_csv).resolve()
+    ministers_csv_path = Path(args.ministers_ground_truth_csv).resolve()
     document = load_turn_document(input_json_path)
-    known_people = load_all_known_people(deputies_csv_path, ministers_csv_path)
-    ner = build_ner_pipeline()
+    known_people = load_all_known_people(
+        deputies_csv_path,
+        ministers_csv_path,
+        config,
+    )
+    ner = build_ner_pipeline(config)
 
     base = input_json_path.stem.rsplit("_", 2)[0]
     output_json_path = (
@@ -119,7 +127,7 @@ def main() -> None:
         )
     )
 
-    enriched_document = enrich_turn_document(document, known_people, ner)
+    enriched_document = enrich_turn_document(document, known_people, ner, config)
     save_turn_document(enriched_document, output_json_path)
 
 

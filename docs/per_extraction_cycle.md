@@ -2,7 +2,7 @@
 
 This note explains the PER extraction stage implemented around:
 
-- `src/assemblybot/stages/PER_extraction.py`
+- `src/assemblybot/stages/per_extraction.py`
 - `src/assemblybot/stages/per_identity.py`
 - `src/assemblybot/stages/per_analysis.py`
 - `src/assemblybot/models/turn_document.py`
@@ -33,8 +33,8 @@ A dropped name does not become `current_speaker` by itself.
 The CLI stage requires:
 
 - `--input-json`: existing `TurnDocument` JSON.
-- `--csv-ground-truth-PER`: deputy ground truth CSV.
-- `--csv-ground-truth-ministers`: minister and Assembly chair ground truth CSV.
+- `--deputies-ground-truth-csv`: deputy ground truth CSV.
+- `--ministers-ground-truth-csv`: minister and Assembly chair ground truth CSV.
 
 It optionally accepts:
 
@@ -332,9 +332,10 @@ The focused verification commands are:
 
 ```bash
 env PYTHONPATH=src PYTHONDONTWRITEBYTECODE=1 uv run python -m py_compile \
-  src/assemblybot/stages/PER_extraction.py \
+  src/assemblybot/stages/per_extraction.py \
   src/assemblybot/stages/per_identity.py \
   src/assemblybot/stages/per_analysis.py \
+  src/assemblybot/per_config.py \
   src/assemblybot/models/turn_document.py
 ```
 
