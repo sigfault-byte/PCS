@@ -33,6 +33,7 @@ from assemblybot.orchestration.paths import (
 )
 from assemblybot.orchestration.provenance import build_provenance, now_utc_iso
 from assemblybot.orchestration.queue import is_wav_file, move_to_directory
+from assemblybot.orchestration.resources import release_accelerator_memory
 from assemblybot.per_config import DEFAULT_PER_CONFIG
 from assemblybot.pyannote_config import DEFAULT_PYANNOTE_DIARIZATION_CONFIG
 from assemblybot.semantic_chunk_config import DEFAULT_SEMANTIC_CHUNK_CONFIG
@@ -295,6 +296,16 @@ class PipelineRunner:
         self.announce(f"[{index}/{total}] {stage_name} OK in {duration:.1f}s")
         for label, path in record["artifacts"].items():
             self.announce(f"  {label}: {path}")
+        self.release_memory_after_stage(stage_name)
+
+    def release_memory_after_stage(self, stage_name: str) -> None:
+        if stage_name not in {"diarization.py", "transcription.py"}:
+            return
+        actions = release_accelerator_memory()
+        self.announce(
+            "  released accelerator memory: "
+            + ", ".join(actions)
+        )
 
     def stage_vad(self, document: Any, paths: PipelinePaths) -> dict[str, Path | None]:
         run_vad(
