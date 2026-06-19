@@ -9,6 +9,11 @@ from silero_vad import get_speech_timestamps, load_silero_vad
 
 from assemblybot.helper.directory import build_default_output_path
 from assemblybot.helper.document import save_document
+from assemblybot.silero_config import (
+    DEFAULT_SILERO_VAD_CONFIG,
+    SileroVadConfig,
+    add_silero_vad_arguments,
+)
 from assemblybot.models.document import CanonicalDocument
 from assemblybot.models.factories import (
     create_empty_document,
@@ -18,14 +23,6 @@ from assemblybot.models.factories import (
 )
 from assemblybot.models.time import TimeRange
 from assemblybot.models.vad import VadEngine, VadSection, VadSegment
-
-DEFAULT_MODEL_ID = "silero-vad"
-DEFAULT_ONNX = False
-DEFAULT_OPSET_VERSION = 16
-DEFAULT_THRESHOLD = 0.5
-DEFAULT_MIN_SPEECH_DURATION_MS = 250
-DEFAULT_MIN_SILENCE_DURATION_MS = 100
-DEFAULT_SPEECH_PAD_MS = 30
 
 
 def load_audio_as_mono_waveform(
@@ -74,11 +71,7 @@ def apply_vad_to_document(
     document: CanonicalDocument,
     segments: list[VadSegment],
     media_duration_seconds: float,
-    model_id: str,
-    threshold: float,
-    min_speech_duration_ms: int,
-    min_silence_duration_ms: int,
-    speech_pad_ms: int,
+    config: SileroVadConfig,
 ) -> None:
     """Write VAD output into the typed canonical document."""
     speech_seconds_total = sum(segment.time.duration_seconds for segment in segments)
@@ -87,11 +80,11 @@ def apply_vad_to_document(
     document.vad = VadSection(
         engine=VadEngine(
             name="silero-vad",
-            model=model_id,
-            threshold=threshold,
-            min_speech_duration_ms=min_speech_duration_ms,
-            min_silence_duration_ms=min_silence_duration_ms,
-            speech_pad_ms=speech_pad_ms,
+            model=config.model_id,
+            threshold=config.threshold,
+            min_speech_duration_ms=config.min_speech_duration_ms,
+            min_silence_duration_ms=config.min_silence_duration_ms,
+            speech_pad_ms=config.speech_pad_ms,
         ),
         segments=segments,
         speech_seconds_total=speech_seconds_total,
@@ -105,12 +98,7 @@ def run_vad(
     input_audio_path: Path,
     output_json_path: Path,
     *,
-    onnx: bool = DEFAULT_ONNX,
-    opset_version: int = DEFAULT_OPSET_VERSION,
-    threshold: float = DEFAULT_THRESHOLD,
-    min_speech_duration_ms: int = DEFAULT_MIN_SPEECH_DURATION_MS,
-    min_silence_duration_ms: int = DEFAULT_MIN_SILENCE_DURATION_MS,
-    speech_pad_ms: int = DEFAULT_SPEECH_PAD_MS,
+    config: SileroVadConfig = DEFAULT_SILERO_VAD_CONFIG,
 ) -> CanonicalDocument:
     """Run Silero VAD and save the updated canonical document."""
     input_audio_path = input_audio_path.resolve()
@@ -125,13 +113,13 @@ def run_vad(
     stage_start_time = time.time()
 
     try:
-        print(f"Loading Silero VAD: {DEFAULT_MODEL_ID}")
+        print(f"Loading Silero VAD: {config.model_id}")
         print("Using device: cpu")
         print(f"Analyzing: {input_audio_path.name}")
 
         model = load_vad_model(
-            onnx=onnx,
-            opset_version=opset_version,
+            onnx=config.onnx,
+            opset_version=config.opset_version,
         )
 
         waveform, sample_rate, media_duration_seconds = load_audio_as_mono_waveform(
@@ -142,10 +130,10 @@ def run_vad(
             waveform,
             model,
             sampling_rate=sample_rate,
-            threshold=threshold,
-            min_speech_duration_ms=min_speech_duration_ms,
-            min_silence_duration_ms=min_silence_duration_ms,
-            speech_pad_ms=speech_pad_ms,
+            threshold=config.threshold,
+            min_speech_duration_ms=config.min_speech_duration_ms,
+            min_silence_duration_ms=config.min_silence_duration_ms,
+            speech_pad_ms=config.speech_pad_ms,
             return_seconds=True,
         )
 
@@ -155,11 +143,7 @@ def run_vad(
             document=document,
             segments=segments,
             media_duration_seconds=media_duration_seconds,
-            model_id=DEFAULT_MODEL_ID,
-            threshold=threshold,
-            min_speech_duration_ms=min_speech_duration_ms,
-            min_silence_duration_ms=min_silence_duration_ms,
-            speech_pad_ms=speech_pad_ms,
+            config=config,
         )
 
         mark_stage_completed(
@@ -200,47 +184,7 @@ def parse_args() -> argparse.Namespace:
         help="Optional output canonical JSON path",
     )
 
-    parser.add_argument(
-        "--onnx",
-        action="store_true",
-        default=DEFAULT_ONNX,
-        help="Load the ONNX Silero model",
-    )
-
-    parser.add_argument(
-        "--opset-version",
-        type=int,
-        default=DEFAULT_OPSET_VERSION,
-        help="ONNX opset version used by silero-vad",
-    )
-
-    parser.add_argument(
-        "--threshold",
-        type=float,
-        default=DEFAULT_THRESHOLD,
-        help="Speech probability threshold",
-    )
-
-    parser.add_argument(
-        "--min-speech-duration-ms",
-        type=int,
-        default=DEFAULT_MIN_SPEECH_DURATION_MS,
-        help="Minimum speech segment duration",
-    )
-
-    parser.add_argument(
-        "--min-silence-duration-ms",
-        type=int,
-        default=DEFAULT_MIN_SILENCE_DURATION_MS,
-        help="Minimum silence duration used to split speech",
-    )
-
-    parser.add_argument(
-        "--speech-pad-ms",
-        type=int,
-        default=DEFAULT_SPEECH_PAD_MS,
-        help="Padding added around detected speech",
-    )
+    add_silero_vad_arguments(parser)
 
     parser.add_argument(
         "--language",
@@ -275,12 +219,7 @@ def main() -> None:
         document=document,
         input_audio_path=input_audio_path,
         output_json_path=output_json_path,
-        onnx=args.onnx,
-        opset_version=args.opset_version,
-        threshold=args.threshold,
-        min_speech_duration_ms=args.min_speech_duration_ms,
-        min_silence_duration_ms=args.min_silence_duration_ms,
-        speech_pad_ms=args.speech_pad_ms,
+        config=SileroVadConfig.from_args(args),
     )
 
 

@@ -291,7 +291,7 @@ def build_embedding_artifacts(
 def load_sentence_transformer(model_name: str = MODEL_NAME) -> EmbeddingModel:
     from sentence_transformers import SentenceTransformer
 
-    return SentenceTransformer(model_name)
+    return SentenceTransformer(model_name)  # type: ignore
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:

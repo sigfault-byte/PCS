@@ -73,22 +73,31 @@ def collect_counts(session) -> dict[str, int]:
         "session": session.scalar(select(func.count(SessionRecord.id))) or 0,
         "pipeline_run": session.scalar(select(func.count(PipelineRunRecord.id))) or 0,
         "person": session.scalar(select(func.count(PersonRecord.id))) or 0,
-        "speaker_cluster": session.scalar(select(func.count(SpeakerClusterRecord.id))) or 0,
-        "transcript_segment": session.scalar(select(func.count(TranscriptSegmentRecord.id))) or 0,
-        "diarization_segment": session.scalar(select(func.count(DiarizationSegmentRecord.id))) or 0,
+        "speaker_cluster": session.scalar(select(func.count(SpeakerClusterRecord.id)))
+        or 0,
+        "transcript_segment": session.scalar(
+            select(func.count(TranscriptSegmentRecord.id))
+        )
+        or 0,
+        "diarization_segment": session.scalar(
+            select(func.count(DiarizationSegmentRecord.id))
+        )
+        or 0,
         "turn": session.scalar(select(func.count(TurnRecord.id))) or 0,
         "turn_analysis": session.scalar(select(func.count(TurnAnalysisRecord.id))) or 0,
         "turn_transcript_segment": (
             session.scalar(select(func.count(TurnTranscriptSegmentRecord.turn_id))) or 0
         ),
         "turn_diarization_segment": (
-            session.scalar(select(func.count(TurnDiarizationSegmentRecord.turn_id))) or 0
+            session.scalar(select(func.count(TurnDiarizationSegmentRecord.turn_id)))
+            or 0
         ),
         "embedding": session.scalar(select(func.count(EmbeddingRecord.id))) or 0,
         "turn_embedding": (
             session.scalar(select(func.count(TurnEmbeddingRecord.turn_id))) or 0
         ),
-        "semantic_chunk": session.scalar(select(func.count(SemanticChunkRecord.id))) or 0,
+        "semantic_chunk": session.scalar(select(func.count(SemanticChunkRecord.id)))
+        or 0,
     }
 
 
@@ -121,7 +130,9 @@ def build_sqlite_database(
     output_db_path = prepare_output_db_path(output_db_path, replace=replace)
 
     engine = create_sqlite_engine(output_db_path)
+
     create_all_tables(engine)
+
     session_factory = create_session_factory(engine)
 
     with session_scope(session_factory) as db_session:

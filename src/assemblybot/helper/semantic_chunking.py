@@ -5,14 +5,17 @@ from typing import Any
 
 import numpy as np
 
-
 SENTENCE_SPLIT_RE = re.compile(r"[.!?]+")
 WORD_RE = re.compile(r"\S+")
 
 
 def split_sentences(text: str) -> list[str]:
     """Split text into deterministic punctuation-delimited sentence candidates."""
-    return [sentence.strip() for sentence in SENTENCE_SPLIT_RE.split(text) if sentence.strip()]
+    return [
+        sentence.strip()
+        for sentence in SENTENCE_SPLIT_RE.split(text)
+        if sentence.strip()
+    ]
 
 
 def count_words(text: str) -> int:
@@ -26,7 +29,7 @@ def compute_adjacent_cosines(embeddings: np.ndarray) -> np.ndarray:
     if embeddings.shape[0] < 2:
         return np.empty((0,), dtype=np.float32)
 
-    return np.sum(embeddings[:-1] * embeddings[1:], axis=1, dtype=np.float32).astype(
+    return np.sum(embeddings[:-1] * embeddings[1:], axis=1, dtype=np.float32).astype(  # type: ignore
         np.float32,
         copy=False,
     )

@@ -5,9 +5,7 @@ from pathlib import Path
 
 import numpy as np
 from sentence_transformers import SentenceTransformer
-
 from sqlite_function import register_sqlite_functions
-
 
 DB_PATH = Path(__file__).resolve().parent.parent / "data" / "db" / "assemblybot.sqlite"
 MODEL_NAME = "h4c5/sts-camembert-base"
