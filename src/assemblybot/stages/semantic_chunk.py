@@ -8,7 +8,7 @@ from typing import Protocol
 
 import numpy as np
 
-from assemblybot.config import DATA_DIR
+from assemblybot.config import EMBEDDING_DIR
 from assemblybot.helper.artifact import save_npz
 from assemblybot.helper.semantic_chunking import (
     build_chunks_from_breakpoints,
@@ -17,17 +17,21 @@ from assemblybot.helper.semantic_chunking import (
     split_sentences,
 )
 from assemblybot.models.turn_document import TurnDocument
+from assemblybot.semantic_chunk_config import (
+    DEFAULT_SEMANTIC_CHUNK_CONFIG,
+    SemanticChunkConfig,
+    add_semantic_chunk_arguments,
+)
 
-MODEL_NAME = "h4c5/sts-camembert-base"
-OUTPUT_DIR = DATA_DIR / "embedding"
-DELTA_THRESHOLD = -0.1
-MIN_WORDS = 8
-CHUNKING_METHOD = "semantic_delta_v1"
+MODEL_NAME = DEFAULT_SEMANTIC_CHUNK_CONFIG.model_name
+DELTA_THRESHOLD = DEFAULT_SEMANTIC_CHUNK_CONFIG.delta_threshold
+MIN_WORDS = DEFAULT_SEMANTIC_CHUNK_CONFIG.min_words
+CHUNKING_METHOD = DEFAULT_SEMANTIC_CHUNK_CONFIG.chunking_method
 
-TURN_EMBEDDINGS_FILENAME = "turn_embeddings.npz"
-SEMANTIC_CHUNKS_FILENAME = "semantic_chunks.npz"
-METADATA_FILENAME = "semantic_chunk_metadata.json"
-METADATA_TXT_FILENAME = "semantic_chunk_metadata.txt"
+TURN_EMBEDDINGS_FILENAME = DEFAULT_SEMANTIC_CHUNK_CONFIG.turn_embeddings_filename
+SEMANTIC_CHUNKS_FILENAME = DEFAULT_SEMANTIC_CHUNK_CONFIG.semantic_chunks_filename
+METADATA_FILENAME = DEFAULT_SEMANTIC_CHUNK_CONFIG.metadata_filename
+METADATA_TXT_FILENAME = DEFAULT_SEMANTIC_CHUNK_CONFIG.metadata_txt_filename
 
 
 class EmbeddingModel(Protocol):
@@ -62,21 +66,32 @@ def load_turn_document(json_path: Path) -> TurnDocument:
     return TurnDocument.from_dict(data)
 
 
-def encode_texts(model: EmbeddingModel, texts: list[str]) -> np.ndarray:
+def encode_texts(
+    model: EmbeddingModel,
+    texts: list[str],
+    config: SemanticChunkConfig = DEFAULT_SEMANTIC_CHUNK_CONFIG,
+) -> np.ndarray:
     if not texts:
-        return np.empty((0, 0), dtype=np.float32)
+        return np.empty((0, 0), dtype=config.embedding_dtype)
 
-    embeddings = model.encode(texts, normalize_embeddings=True)
-    return np.asarray(embeddings, dtype=np.float32)
+    embeddings = model.encode(
+        texts,
+        normalize_embeddings=config.normalize_embeddings,
+    )
+    return np.asarray(embeddings, dtype=config.embedding_dtype)
 
 
 def semantic_breakpoints_for_turn(
     sentences: list[str],
     model: EmbeddingModel,
     *,
-    threshold: float = DELTA_THRESHOLD,
-    min_words: int = MIN_WORDS,
+    config: SemanticChunkConfig = DEFAULT_SEMANTIC_CHUNK_CONFIG,
+    threshold: float | None = None,
+    min_words: int | None = None,
 ) -> list[int]:
+    threshold = config.delta_threshold if threshold is None else threshold
+    min_words = config.min_words if min_words is None else min_words
+
     if len(sentences) < 2:
         return []
 
@@ -90,7 +105,7 @@ def semantic_breakpoints_for_turn(
 
     usable_indices = [index for index, _sentence in usable]
     usable_texts = [sentence for _index, sentence in usable]
-    sentence_embeddings = encode_texts(model, usable_texts)
+    sentence_embeddings = encode_texts(model, usable_texts, config)
     usable_breakpoints = find_semantic_breakpoints(sentence_embeddings, threshold)
 
     return [
@@ -105,8 +120,9 @@ def build_semantic_chunks_for_turn(
     turn_id: int,
     text: str,
     model: EmbeddingModel,
-    threshold: float = DELTA_THRESHOLD,
-    min_words: int = MIN_WORDS,
+    config: SemanticChunkConfig = DEFAULT_SEMANTIC_CHUNK_CONFIG,
+    threshold: float | None = None,
+    min_words: int | None = None,
 ) -> list[SemanticChunk]:
     sentences = split_sentences(text)
     if not sentences:
@@ -115,6 +131,7 @@ def build_semantic_chunks_for_turn(
     breakpoints = semantic_breakpoints_for_turn(
         sentences,
         model,
+        config=config,
         threshold=threshold,
         min_words=min_words,
     )
@@ -136,8 +153,9 @@ def build_semantic_chunks(
     document: TurnDocument,
     model: EmbeddingModel,
     *,
-    threshold: float = DELTA_THRESHOLD,
-    min_words: int = MIN_WORDS,
+    config: SemanticChunkConfig = DEFAULT_SEMANTIC_CHUNK_CONFIG,
+    threshold: float | None = None,
+    min_words: int | None = None,
 ) -> list[SemanticChunk]:
     chunks: list[SemanticChunk] = []
     for turn in document.turns:
@@ -146,6 +164,7 @@ def build_semantic_chunks(
                 turn_id=turn.turn_id,
                 text=turn.text,
                 model=model,
+                config=config,
                 threshold=threshold,
                 min_words=min_words,
             )
@@ -157,10 +176,11 @@ def save_turn_embeddings(
     document: TurnDocument,
     model: EmbeddingModel,
     output_path: Path,
+    config: SemanticChunkConfig = DEFAULT_SEMANTIC_CHUNK_CONFIG,
 ) -> None:
     turn_ids = np.asarray([turn.turn_id for turn in document.turns], dtype=np.int32)
     turn_texts = [turn.text for turn in document.turns]
-    embeddings = encode_texts(model, turn_texts)
+    embeddings = encode_texts(model, turn_texts, config)
     save_npz(output_path, turn_ids=turn_ids, embeddings=embeddings)
 
 
@@ -168,6 +188,7 @@ def save_semantic_chunks(
     chunks: list[SemanticChunk],
     model: EmbeddingModel,
     output_path: Path,
+    config: SemanticChunkConfig = DEFAULT_SEMANTIC_CHUNK_CONFIG,
 ) -> None:
     turn_ids = np.asarray([chunk.turn_id for chunk in chunks], dtype=np.int32)
     chunk_indices = np.asarray(
@@ -185,7 +206,7 @@ def save_semantic_chunks(
 
     # Sentence embeddings only find boundaries. Retrieval vectors are direct
     # embeddings of merged chunk text.
-    embeddings = encode_texts(model, [chunk.text for chunk in chunks])
+    embeddings = encode_texts(model, [chunk.text for chunk in chunks], config)
     save_npz(
         output_path,
         turn_ids=turn_ids,
@@ -204,15 +225,17 @@ def save_metadata(
     semantic_chunks_path: Path,
     metadata_path: Path,
     metadata_txt_path: Path | None = None,
-    model_name: str = MODEL_NAME,
-    threshold: float = DELTA_THRESHOLD,
-    min_words: int = MIN_WORDS,
+    config: SemanticChunkConfig = DEFAULT_SEMANTIC_CHUNK_CONFIG,
+    threshold: float | None = None,
+    min_words: int | None = None,
 ) -> None:
+    threshold = config.delta_threshold if threshold is None else threshold
+    min_words = config.min_words if min_words is None else min_words
     metadata = {
-        "model_name": model_name,
-        "dtype": "float32",
-        "normalize_embeddings": True,
-        "chunking_method": CHUNKING_METHOD,
+        "model_name": config.model_name,
+        "dtype": np.dtype(config.embedding_dtype).name,
+        "normalize_embeddings": config.normalize_embeddings,
+        "chunking_method": config.chunking_method,
         "delta_threshold": threshold,
         "min_words": min_words,
         "sentence_index_policy": "start inclusive, end exclusive",
@@ -249,26 +272,28 @@ def build_embedding_artifacts(
     input_json_path: Path,
     *,
     model: EmbeddingModel,
-    output_dir: Path = OUTPUT_DIR,
-    threshold: float = DELTA_THRESHOLD,
-    min_words: int = MIN_WORDS,
+    output_dir: Path = EMBEDDING_DIR,
+    config: SemanticChunkConfig = DEFAULT_SEMANTIC_CHUNK_CONFIG,
+    threshold: float | None = None,
+    min_words: int | None = None,
 ) -> SemanticEmbeddingArtifacts:
     document = load_turn_document(input_json_path)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    turn_embeddings_path = output_dir / TURN_EMBEDDINGS_FILENAME
-    semantic_chunks_path = output_dir / SEMANTIC_CHUNKS_FILENAME
-    metadata_path = output_dir / METADATA_FILENAME
-    metadata_txt_path = output_dir / METADATA_TXT_FILENAME
+    turn_embeddings_path = output_dir / config.turn_embeddings_filename
+    semantic_chunks_path = output_dir / config.semantic_chunks_filename
+    metadata_path = output_dir / config.metadata_filename
+    metadata_txt_path = output_dir / config.metadata_txt_filename
 
-    save_turn_embeddings(document, model, turn_embeddings_path)
+    save_turn_embeddings(document, model, turn_embeddings_path, config)
     chunks = build_semantic_chunks(
         document,
         model,
+        config=config,
         threshold=threshold,
         min_words=min_words,
     )
-    save_semantic_chunks(chunks, model, semantic_chunks_path)
+    save_semantic_chunks(chunks, model, semantic_chunks_path, config)
     save_metadata(
         input_json_path=input_json_path,
         output_dir=output_dir,
@@ -276,6 +301,7 @@ def build_embedding_artifacts(
         semantic_chunks_path=semantic_chunks_path,
         metadata_path=metadata_path,
         metadata_txt_path=metadata_txt_path,
+        config=config,
         threshold=threshold,
         min_words=min_words,
     )
@@ -288,10 +314,12 @@ def build_embedding_artifacts(
     )
 
 
-def load_sentence_transformer(model_name: str = MODEL_NAME) -> EmbeddingModel:
+def load_sentence_transformer(
+    config: SemanticChunkConfig = DEFAULT_SEMANTIC_CHUNK_CONFIG,
+) -> EmbeddingModel:
     from sentence_transformers import SentenceTransformer
 
-    return SentenceTransformer(model_name)  # type: ignore
+    return SentenceTransformer(config.model_name)  # type: ignore
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -299,17 +327,34 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         description="Build full-turn and semantic chunk embeddings from a TurnDocument JSON."
     )
     parser.add_argument(
-        "--input_json",
+        "--input-json",
+        required=True,
         help="TurnDocument JSON path, usually an _02_per_extraction.json artifact",
     )
+    parser.add_argument(
+        "--output-dir",
+        help="Optional output directory for embedding artifacts",
+    )
+    add_semantic_chunk_arguments(parser)
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> None:
     args = parse_args(argv)
+    config = SemanticChunkConfig.from_args(args)
     input_json_path = Path(args.input_json).resolve()
-    model = load_sentence_transformer()
-    artifacts = build_embedding_artifacts(input_json_path, model=model)
+    output_dir = (
+        Path(args.output_dir).resolve()
+        if args.output_dir
+        else EMBEDDING_DIR
+    )
+    model = load_sentence_transformer(config)
+    artifacts = build_embedding_artifacts(
+        input_json_path,
+        model=model,
+        output_dir=output_dir,
+        config=config,
+    )
 
     print(f"Turn embeddings: {artifacts.turn_embeddings_path}")
     print(f"Semantic chunks: {artifacts.semantic_chunks_path}")

@@ -6,6 +6,10 @@ from pathlib import Path
 
 from sqlalchemy import func, select
 
+from assemblybot.build_sqlite_config import (
+    BuildSqliteConfig,
+    add_build_sqlite_arguments,
+)
 from assemblybot.db.loaders.chunks import load_embedding_records
 from assemblybot.db.loaders.pipeline_run import load_pipeline_run_records
 from assemblybot.db.loaders.segments import load_segment_records
@@ -168,34 +172,28 @@ def build_sqlite_database(
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Build a fresh AssemblyBot SQLite database from pipeline artifacts."
+        description="Build a fresh AssemblyBot SQLite database from pipeline artifacts.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
     parser.add_argument("--alignment-json", required=True)
     parser.add_argument("--per-json", required=True)
     parser.add_argument("--audio-path", required=True)
-    parser.add_argument("--turn-embeddings-npz", required=True)
-    parser.add_argument("--semantic-chunks-npz", required=True)
-    parser.add_argument("--embedding-metadata-json", required=True)
-    parser.add_argument("--output-db", required=True)
-    parser.add_argument(
-        "--replace",
-        action="store_true",
-        help="Replace the output DB if it already exists.",
-    )
+    add_build_sqlite_arguments(parser)
     return parser.parse_args(argv)
 
 
 def main(argv: list[str] | None = None) -> None:
     args = parse_args(argv)
+    config = BuildSqliteConfig.from_args(args)
     result = build_sqlite_database(
-        output_db_path=args.output_db,
+        output_db_path=config.output_db_path,
         alignment_json_path=args.alignment_json,
         per_json_path=args.per_json,
         audio_path=args.audio_path,
-        turn_embeddings_npz_path=args.turn_embeddings_npz,
-        semantic_chunks_npz_path=args.semantic_chunks_npz,
-        embedding_metadata_json_path=args.embedding_metadata_json,
-        replace=args.replace,
+        turn_embeddings_npz_path=config.turn_embeddings_npz_path,
+        semantic_chunks_npz_path=config.semantic_chunks_npz_path,
+        embedding_metadata_json_path=config.embedding_metadata_json_path,
+        replace=config.replace_existing_db,
     )
 
     print(f"Built SQLite DB: {result.db_path}")

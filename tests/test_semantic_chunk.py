@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import contextlib
+import io
 import json
 import tempfile
 import unittest
@@ -7,6 +9,7 @@ from pathlib import Path
 
 import numpy as np
 
+from assemblybot.config import EMBEDDING_DIR
 from assemblybot.helper.semantic_chunking import (
     build_chunks_from_breakpoints,
     compute_adjacent_cosines,
@@ -16,9 +19,11 @@ from assemblybot.helper.semantic_chunking import (
     split_sentences,
 )
 from assemblybot.models.turn_document import TurnDocument
+from assemblybot.semantic_chunk_config import SemanticChunkConfig
 from assemblybot.stages.semantic_chunk import (
     build_embedding_artifacts,
     build_semantic_chunks_for_turn,
+    parse_args,
 )
 from tests.per_test_helpers import make_turn
 
@@ -131,6 +136,31 @@ class SemanticChunkStageTest(unittest.TestCase):
             ],
         )
 
+    def test_config_threshold_and_min_words_change_chunk_output(self) -> None:
+        model = FakeEmbeddingModel()
+        text = "dog. dog. dog. cat. cat."
+
+        default_chunks = build_semantic_chunks_for_turn(
+            turn_id=42,
+            text=text,
+            model=model,
+        )
+        custom_chunks = build_semantic_chunks_for_turn(
+            turn_id=42,
+            text=text,
+            model=model,
+            config=SemanticChunkConfig(delta_threshold=-0.1, min_words=0),
+        )
+
+        self.assertEqual(
+            [chunk.text for chunk in default_chunks],
+            ["dog dog dog cat cat"],
+        )
+        self.assertEqual(
+            [chunk.text for chunk in custom_chunks],
+            ["dog dog dog", "cat cat"],
+        )
+
     def test_stage_writes_npz_files_and_metadata_with_expected_dtypes(self) -> None:
         model = FakeEmbeddingModel()
         document = TurnDocument(
@@ -191,6 +221,27 @@ class SemanticChunkStageTest(unittest.TestCase):
 
             self.assertIn(["dog", "dog", "dog", "cat", "cat"], model.calls)
             self.assertIn(["dog dog dog", "cat cat"], model.calls)
+
+    def test_default_output_dir_uses_global_embedding_dir(self) -> None:
+        self.assertEqual(parse_args(["--input-json", "turns.json"]).output_dir, None)
+        self.assertEqual(EMBEDDING_DIR.name, "embedding")
+
+    def test_parse_args_accepts_output_dir_and_rejects_old_input_flag(self) -> None:
+        args = parse_args(
+            [
+                "--input-json",
+                "turns.json",
+                "--output-dir",
+                "custom-embedding",
+            ]
+        )
+
+        self.assertEqual(args.input_json, "turns.json")
+        self.assertEqual(args.output_dir, "custom-embedding")
+
+        with contextlib.redirect_stderr(io.StringIO()):
+            with self.assertRaises(SystemExit):
+                parse_args(["--input_json", "turns.json"])
 
 
 if __name__ == "__main__":

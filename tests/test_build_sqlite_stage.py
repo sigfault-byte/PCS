@@ -6,6 +6,8 @@ from pathlib import Path
 
 import numpy as np
 
+from assemblybot.config import DEFAULT_SQLITE_DB_PATH, EMBEDDING_DIR
+from assemblybot.semantic_chunk_config import DEFAULT_SEMANTIC_CHUNK_CONFIG
 from assemblybot.stages.build_sqlite import (
     ExistingDatabaseError,
     build_sqlite_database,
@@ -69,7 +71,38 @@ class BuildSqliteStageTest(unittest.TestCase):
         )
 
         self.assertEqual(args.alignment_json, "alignment.json")
+        self.assertEqual(args.turn_embeddings_npz, "turns.npz")
+        self.assertEqual(args.semantic_chunks_npz, "chunks.npz")
+        self.assertEqual(args.embedding_metadata_json, "metadata.json")
+        self.assertEqual(args.output_db, "assemblybot.sqlite")
         self.assertTrue(args.replace)
+
+    def test_parse_args_defaults_embedding_and_db_paths(self) -> None:
+        args = parse_args(
+            [
+                "--alignment-json",
+                "alignment.json",
+                "--per-json",
+                "per.json",
+                "--audio-path",
+                "audio.mp3",
+            ]
+        )
+
+        self.assertEqual(
+            Path(args.turn_embeddings_npz),
+            EMBEDDING_DIR / DEFAULT_SEMANTIC_CHUNK_CONFIG.turn_embeddings_filename,
+        )
+        self.assertEqual(
+            Path(args.semantic_chunks_npz),
+            EMBEDDING_DIR / DEFAULT_SEMANTIC_CHUNK_CONFIG.semantic_chunks_filename,
+        )
+        self.assertEqual(
+            Path(args.embedding_metadata_json),
+            EMBEDDING_DIR / DEFAULT_SEMANTIC_CHUNK_CONFIG.metadata_filename,
+        )
+        self.assertEqual(Path(args.output_db), DEFAULT_SQLITE_DB_PATH)
+        self.assertFalse(args.replace)
 
     def test_build_sqlite_database(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
