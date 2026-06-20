@@ -1,0 +1,199 @@
+[1/10] vad.py START
+Loading Silero VAD: silero-vad
+Using device: cpu
+Analyzing: 1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026.wav
+VAD segments: 3197
+Speech seconds: 12248.60
+Non-speech seconds: 3096.25
+Canonical JSON: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/interim/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_0_vad.json
+Time: 0.8 min
+[1/10] vad.py OK in 46.9s
+  canonical_json: interim/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_0_vad.json
+[2/10] diarization.py START
+Using device: cuda
+Diarizing: 1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026.wav
+Loading diarization pipeline: pyannote/speaker-diarization-3.1
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/pyannote/audio/utils/reproducibility.py:74: ReproducibilityWarning: TensorFloat-32 (TF32) has been disabled as it might lead to reproducibility issues and lower accuracy.
+It can be re-enabled by calling
+   >>> import torch
+   >>> torch.backends.cuda.matmul.allow_tf32 = True
+   >>> torch.backends.cudnn.allow_tf32 = True
+See https://github.com/pyannote/pyannote-audio/issues/1370 for more details.
+
+  warnings.warn(
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/pyannote/audio/models/blocks/pooling.py:103: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1858.)
+  std = sequences.std(dim=-1, correction=1)
+segmentation         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:11
+speaker_counting     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+embeddings           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:04:37
+discrete_diarization ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Loading embedding model: pyannote/embedding
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/utilities/migration/utils.py:197: Redirecting import of pytorch_lightning.callbacks.early_stopping.EarlyStopping to lightning.pytorch.callbacks.early_stopping.EarlyStopping
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/utilities/migration/utils.py:197: Redirecting import of pytorch_lightning.callbacks.model_checkpoint.ModelCheckpoint to lightning.pytorch.callbacks.model_checkpoint.ModelCheckpoint
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/utilities/migration/migration.py:208: You have multiple `ModelCheckpoint` callback states in this checkpoint, but we found state keys that would end up colliding with each other after an upgrade, which means we can't differentiate which of your checkpoint callbacks needs which states. At least one of your `ModelCheckpoint` callbacks will not be able to reload the state.
+Lightning automatically upgraded your loaded checkpoint from v1.2.7 to v2.6.1. To apply the upgrade to your files permanently, run `python -m lightning.pytorch.utilities.upgrade_checkpoint ../../.cache/huggingface/hub/models--pyannote--embedding/snapshots/4db4899737a38b2d618bbd74350915aa10293cb2/pytorch_model.bin`
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/pyannote/audio/core/model.py:639: UserWarning: Model has been trained with a task-dependent loss function. Set 'strict' to False to load the model without its loss function and prevent this warning from appearing. 
+  warnings.warn(msg)
+Lightning automatically upgraded your loaded checkpoint from v1.2.7 to v2.6.1. To apply the upgrade to your files permanently, run `python -m lightning.pytorch.utilities.upgrade_checkpoint ../../.cache/huggingface/hub/models--pyannote--embedding/snapshots/4db4899737a38b2d618bbd74350915aa10293cb2/pytorch_model.bin`
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/core/saving.py:197: Found keys that are not in the model state dict but in the checkpoint: ['loss_func.W']
+Extracting one embedding per diarization segment...
+Skipping ultra-short segment 3 (0.034s)
+Skipping ultra-short segment 71 (0.034s)
+Skipping ultra-short segment 209 (0.051s)
+Skipping ultra-short segment 210 (0.068s)
+Skipping ultra-short segment 211 (0.068s)
+Skipping ultra-short segment 249 (0.068s)
+Skipping ultra-short segment 459 (0.034s)
+Skipping ultra-short segment 462 (0.017s)
+Skipping ultra-short segment 463 (0.051s)
+Skipping ultra-short segment 464 (0.017s)
+Skipping ultra-short segment 465 (0.068s)
+Skipping ultra-short segment 499 (0.067s)
+Skipping ultra-short segment 504 (0.067s)
+Skipping ultra-short segment 621 (0.017s)
+Skipping ultra-short segment 671 (0.067s)
+Skipping ultra-short segment 830 (0.067s)
+Skipping ultra-short segment 892 (0.051s)
+Skipping ultra-short segment 1045 (0.034s)
+Skipping ultra-short segment 1052 (0.017s)
+Skipping ultra-short segment 1053 (0.034s)
+Skipping ultra-short segment 1064 (0.017s)
+Skipping ultra-short segment 1099 (0.017s)
+Skipping ultra-short segment 1100 (0.017s)
+Skipping ultra-short segment 1101 (0.067s)
+Skipping ultra-short segment 1103 (0.034s)
+Skipping ultra-short segment 1139 (0.034s)
+Skipping ultra-short segment 1147 (0.034s)
+Skipping ultra-short segment 1183 (0.067s)
+Skipping ultra-short segment 1231 (0.017s)
+Speakers detected: 37
+Raw diarization segments: 1231
+Overlap regions: 27
+Segment embeddings: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/embeddings/pyannote/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_01_segment_embeddings.npz
+Speaker centroids: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/embeddings/pyannote/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_01_speaker_centroids.npz
+Canonical JSON: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/interim/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_01_diarization.json
+Time: 5.4 min
+[2/10] diarization.py OK in 326.9s
+  canonical_json: interim/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_01_diarization.json
+  segment_embeddings_npz: embeddings/pyannote/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_01_segment_embeddings.npz
+  speaker_centroids_npz: embeddings/pyannote/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_01_speaker_centroids.npz
+  released accelerator memory: gc.collect, torch.cuda.empty_cache, torch.cuda.ipc_collect
+[3/10] transcription.py START
+Loading faster-whisper model: large-v3
+Using device: cuda (float16)
+Transcribing: 1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026.wav
+[segment 000100] up to 1564.20s | tokens: 2372
+[segment 000200] up to 2056.94s | tokens: 4972
+[segment 000300] up to 2574.90s | tokens: 7572
+[segment 000400] up to 3087.77s | tokens: 10172
+[segment 000500] up to 3595.07s | tokens: 12772
+[segment 000600] up to 4122.51s | tokens: 15372
+[segment 000700] up to 4651.86s | tokens: 17972
+[segment 000800] up to 5175.19s | tokens: 20572
+[segment 000900] up to 5666.44s | tokens: 23172
+[segment 001000] up to 6172.20s | tokens: 25772
+[segment 001100] up to 6914.25s | tokens: 28372
+[segment 001200] up to 7488.05s | tokens: 30972
+[segment 001300] up to 7980.70s | tokens: 33572
+[segment 001400] up to 8524.43s | tokens: 36157
+[segment 001500] up to 9112.30s | tokens: 38557
+[segment 001600] up to 9710.81s | tokens: 40957
+[segment 001700] up to 10334.50s | tokens: 43357
+[segment 001800] up to 10932.62s | tokens: 45757
+[segment 001900] up to 11463.75s | tokens: 47801
+[segment 002000] up to 11731.68s | tokens: 48901
+[segment 002100] up to 12025.97s | tokens: 50001
+[segment 002200] up to 12292.02s | tokens: 51101
+[segment 002300] up to 12554.38s | tokens: 52201
+[segment 002400] up to 12813.26s | tokens: 53301
+[segment 002500] up to 13050.77s | tokens: 54401
+[segment 002600] up to 13320.98s | tokens: 55501
+[segment 002700] up to 13576.06s | tokens: 56601
+[segment 002800] up to 13830.72s | tokens: 57701
+[segment 002900] up to 14085.85s | tokens: 58801
+[segment 003000] up to 14341.86s | tokens: 59901
+[segment 003100] up to 14594.67s | tokens: 61001
+[segment 003200] up to 14864.59s | tokens: 62101
+[segment 003300] up to 15128.35s | tokens: 63201
+Language detected: fr
+Language probability: 1
+Raw transcript tokens: 63982
+Raw transcript segments: 3371
+Transcript TXT: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/interim/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_02_transcript.txt
+Canonical JSON: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/interim/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_02_transcription.json
+Time: 62.5 min
+[3/10] transcription.py OK in 3747.4s
+  canonical_json: interim/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_02_transcription.json
+  transcript_txt: interim/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_02_transcript.txt
+  released accelerator memory: gc.collect, torch.cuda.empty_cache, torch.cuda.ipc_collect
+[4/10] audio_audit.py START
+Loading audio: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/input/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026.wav
+Loaded 15344.85 seconds at 16000 Hz (245517653 samples).
+Computing per-frame acoustic features (153446 frames in 307 chunks)...
+  processed chunk 1/307 through frame 500
+  processed chunk 25/307 through frame 12500
+  processed chunk 50/307 through frame 25000
+  processed chunk 75/307 through frame 37500
+  processed chunk 100/307 through frame 50000
+  processed chunk 125/307 through frame 62500
+  processed chunk 150/307 through frame 75000
+  processed chunk 175/307 through frame 87500
+  processed chunk 200/307 through frame 100000
+  processed chunk 225/307 through frame 112500
+  processed chunk 250/307 through frame 125000
+  processed chunk 275/307 through frame 137500
+  processed chunk 300/307 through frame 150000
+  processed chunk 307/307 through frame 153446
+Computing dB, rolling median, and local dB delta...
+Computing summary from per-frame feature arrays...
+Validating feature arrays before streaming frames...
+Writing JSON artifact: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/audit/meta_json/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_audio_audit.json
+Streaming JSON frame records...
+  wrote frame 1/153446
+  wrote frame 25000/153446
+  wrote frame 50000/153446
+  wrote frame 75000/153446
+  wrote frame 100000/153446
+  wrote frame 125000/153446
+  wrote frame 150000/153446
+  wrote frame 153446/153446
+[4/10] audio_audit.py OK in 9.4s
+  audio_audit_json: audit/meta_json/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_audio_audit.json
+[5/10] whisper_segment_audit.py START
+Loading transcript document: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/interim/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_02_transcription.json
+Loading VAD/diarization document: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/interim/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_01_diarization.json
+Loaded 3197 VAD intervals and 27 diarization overlap regions.
+Loading audio audit frames: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/audit/meta_json/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_audio_audit.json
+Loaded 153446 audio audit frames.
+Auditing 3371 Whisper segments...
+  audited segment 1/3371
+  audited segment 1000/3371
+  audited segment 2000/3371
+  audited segment 3000/3371
+  audited segment 3371/3371
+Writing enriched transcript document: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/audit/turn_json/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_02_transcription_flagged.json
+Writing segment audio audit sidecar: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/audit/turn_json/whisper_segment_audio_audit.json
+[5/10] whisper_segment_audit.py OK in 4.4s
+  canonical_json: audit/turn_json/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_02_transcription_flagged.json
+  segment_audio_audit_json: audit/turn_json/whisper_segment_audio_audit.json
+[6/10] alignment.py START
+[6/10] alignment.py OK in 1.3s
+  canonical_json: interim/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_03_alignment.json
+[7/10] turns.py START
+[7/10] turns.py OK in 0.3s
+  turns_json: audit/turn_json/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_01_turns.json
+[8/10] per_extraction.py START
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 17025.32it/s]
+[transformers] You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+[8/10] per_extraction.py OK in 4.2s
+  per_json: audit/turn_json/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_02_per_extraction.json
+[9/10] semantic_chunk.py START
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 11934.21it/s]
+[9/10] semantic_chunk.py OK in 7.6s
+  turn_embeddings_npz: embeddings/rag/turn_embeddings.npz
+  semantic_chunks_npz: embeddings/rag/semantic_chunks.npz
+  metadata_json: embeddings/rag/semantic_chunk_metadata.json
+  metadata_txt: embeddings/rag/semantic_chunk_metadata.txt
+[10/10] build_sqlite.py START
+[10/10] build_sqlite.py OK in 1.3s
+  sqlite_db: sqlite/assemblybot.sqlite

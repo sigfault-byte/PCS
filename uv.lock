@@ -2488,6 +2488,7 @@ dependencies = [
     { name = "sqlalchemy" },
     { name = "torch" },
     { name = "transformers" },
+    { name = "yt-dlp" },
 ]
 
 [package.optional-dependencies]
@@ -2538,6 +2539,7 @@ requires-dist = [
     { name = "torch", marker = "extra == 'inference'", specifier = ">=2.11.0" },
     { name = "torchcodec", marker = "extra == 'inference'", specifier = "==0.11.1" },
     { name = "transformers", specifier = ">=5.10.2" },
+    { name = "yt-dlp", specifier = ">=2026.3.17" },
     { name = "yt-dlp", marker = "extra == 'scrape'", specifier = ">=2026.3.17" },
 ]
 provides-extras = ["inference", "dev", "scrape"]

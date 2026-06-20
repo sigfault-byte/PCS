@@ -1,0 +1,13 @@
+{
+  "model_name": "h4c5/sts-camembert-base",
+  "dtype": "float32",
+  "normalize_embeddings": true,
+  "chunking_method": "semantic_delta_v1",
+  "delta_threshold": -0.1,
+  "min_words": 8,
+  "sentence_index_policy": "start inclusive, end exclusive",
+  "input_json_path": "/home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/audit/turn_json/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_02_per_extraction.json",
+  "output_dir": "/home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/embeddings/rag",
+  "turn_embeddings_npz": "/home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/embeddings/rag/turn_embeddings.npz",
+  "semantic_chunks_npz": "/home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/embeddings/rag/semantic_chunks.npz"
+}

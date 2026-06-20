@@ -1,0 +1,139 @@
+{
+  "language": "fr",
+  "deputies_ground_truth_csv": "/home/thebeast/Documents/PCS/docs/liste_deputes_libre_office_2026-06.csv",
+  "ministers_ground_truth_csv": "/home/thebeast/Documents/PCS/docs/liste_ministre_2026.csv",
+  "vad": {
+    "model_id": "silero-vad",
+    "onnx": false,
+    "opset_version": 16,
+    "threshold": 0.5,
+    "min_speech_duration_ms": 250,
+    "min_silence_duration_ms": 100,
+    "speech_pad_ms": 30
+  },
+  "diarization": {
+    "diarization_model_name": "pyannote/speaker-diarization-3.1",
+    "embedding_model_name": "pyannote/embedding",
+    "extract_embeddings": true,
+    "device": "auto",
+    "min_embedding_duration_seconds": 0.8,
+    "skip_embeddings_below_seconds": 0.08,
+    "embedding_dtype": "float32"
+  },
+  "transcription": {
+    "transcription_model_name": "large-v3",
+    "device": "auto",
+    "compute_type": "auto",
+    "language": "fr",
+    "beam_size": 5,
+    "vad_filter": true,
+    "vad_min_silence_duration_ms": 1000,
+    "vad_speech_pad_ms": 400,
+    "temperature": [
+      0.0,
+      0.2,
+      0.4
+    ],
+    "condition_on_previous_text": true,
+    "word_timestamps": true
+  },
+  "audio_audit": {
+    "target_sample_rate": 16000,
+    "frame_length": 4096,
+    "hop_length": 1600,
+    "rolling_median_window_frames": 21,
+    "feature_chunk_frames": 500,
+    "spectral_amin": 1e-10,
+    "feature_dtype": "float32"
+  },
+  "alignment": {
+    "anomaly_flags_to_propagate": [
+      1,
+      2,
+      32
+    ],
+    "speaker_evidence_longest_overlap_weight": 0.5,
+    "speaker_evidence_extra_segment_penalty": 0.1
+  },
+  "turns": {
+    "max_turn_silence_seconds": 5.0
+  },
+  "per_extraction": {
+    "ner_model_name": "Jean-Baptiste/camembert-ner",
+    "ner_aggregation_strategy": "simple",
+    "per_confidence_threshold": 0.8,
+    "fuzzy_match_threshold": 80,
+    "token_match_threshold": 65,
+    "context_radius": 80,
+    "sentence_boundary_chars": ".?!",
+    "speaker_search_window": 5,
+    "next_speaker_weight": 2,
+    "previous_speaker_weight": 1,
+    "next_speaker_patterns": [
+      "la parole est à",
+      "je donne la parole à",
+      "vous avez la parole"
+    ],
+    "previous_speaker_patterns": [],
+    "generic_person_mentions": [
+      "madame la deputee",
+      "madame la ministre",
+      "madame la presidente",
+      "mesdames les deputees",
+      "mesdames les ministres",
+      "messieurs les deputes",
+      "messieurs les ministres",
+      "monsieur le depute",
+      "monsieur le ministre",
+      "monsieur le president"
+    ],
+    "assembly_chair_turn_patterns": [
+      "la parole est à",
+      "je donne la parole à",
+      "vous avez la parole",
+      "la séance est ouverte",
+      "la séance est levée",
+      "l'ordre du jour appelle",
+      "le scrutin est ouvert",
+      "le scrutin est clos",
+      "je vais mettre aux voix",
+      "je mets aux voix"
+    ],
+    "assembly_chair_identity": {
+      "id": "assembly_chair:yael-braun-pivet",
+      "name": "Yaël Braun-Pivet",
+      "role": "Présidente de l'Assemblée nationale",
+      "kind": "assembly_chair"
+    },
+    "ground_truth_headers": [
+      "identifiant",
+      "Prénom",
+      "Nom",
+      "Région",
+      "Département",
+      "Numéro de circonscription",
+      "Profession",
+      "Groupe politique (complet)",
+      "Groupe politique (abrégé)"
+    ]
+  },
+  "semantic_chunk": {
+    "model_name": "h4c5/sts-camembert-base",
+    "normalize_embeddings": true,
+    "embedding_dtype": "float32",
+    "delta_threshold": -0.1,
+    "min_words": 8,
+    "chunking_method": "semantic_delta_v1",
+    "turn_embeddings_filename": "turn_embeddings.npz",
+    "semantic_chunks_filename": "semantic_chunks.npz",
+    "metadata_filename": "semantic_chunk_metadata.json",
+    "metadata_txt_filename": "semantic_chunk_metadata.txt"
+  },
+  "build_sqlite": {
+    "output_db_path": "/home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/sqlite/assemblybot.sqlite",
+    "turn_embeddings_npz_path": "/home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/embeddings/rag/turn_embeddings.npz",
+    "semantic_chunks_npz_path": "/home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/embeddings/rag/semantic_chunks.npz",
+    "embedding_metadata_json_path": "/home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/embeddings/rag/semantic_chunk_metadata.json",
+    "replace_existing_db": true
+  }
+}

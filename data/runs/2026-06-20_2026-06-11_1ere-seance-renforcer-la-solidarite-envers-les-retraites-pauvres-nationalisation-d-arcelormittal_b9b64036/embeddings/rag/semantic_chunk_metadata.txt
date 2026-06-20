@@ -1,0 +1,13 @@
+Semantic chunk embedding metadata
+
+model_name: h4c5/sts-camembert-base
+dtype: float32
+normalize_embeddings: True
+chunking_method: semantic_delta_v1
+delta_threshold: -0.1
+min_words: 8
+sentence_index_policy: start inclusive, end exclusive
+input_json_path: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/audit/turn_json/1ere-seance--renforcer-la-solidarite-envers-les-retraites-pauvres--nationalisation-d-arcelormittal-11-juin-2026_02_per_extraction.json
+output_dir: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/embeddings/rag
+turn_embeddings_npz: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/embeddings/rag/turn_embeddings.npz
+semantic_chunks_npz: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-11_1ere-seance-renforcer-la-solidarite-envers-les-retraites-pauvres-nationalisation-d-arcelormittal_b9b64036/embeddings/rag/semantic_chunks.npz

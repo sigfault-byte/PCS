@@ -1,0 +1,211 @@
+[1/10] vad.py START
+Loading Silero VAD: silero-vad
+Using device: cpu
+Analyzing: 1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026.wav
+VAD segments: 2682
+Speech seconds: 11339.40
+Non-speech seconds: 3194.83
+Canonical JSON: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/interim/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_0_vad.json
+Time: 0.7 min
+[1/10] vad.py OK in 42.3s
+  canonical_json: interim/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_0_vad.json
+[2/10] diarization.py START
+Using device: cuda
+Diarizing: 1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026.wav
+Loading diarization pipeline: pyannote/speaker-diarization-3.1
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/pyannote/audio/utils/reproducibility.py:74: ReproducibilityWarning: TensorFloat-32 (TF32) has been disabled as it might lead to reproducibility issues and lower accuracy.
+It can be re-enabled by calling
+   >>> import torch
+   >>> torch.backends.cuda.matmul.allow_tf32 = True
+   >>> torch.backends.cudnn.allow_tf32 = True
+See https://github.com/pyannote/pyannote-audio/issues/1370 for more details.
+
+  warnings.warn(
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/pyannote/audio/models/blocks/pooling.py:103: UserWarning: std(): degrees of freedom is <= 0. Correction should be strictly less than the reduction factor (input numel divided by output numel). (Triggered internally at /pytorch/aten/src/ATen/native/ReduceOps.cpp:1858.)
+  std = sequences.std(dim=-1, correction=1)
+segmentation         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:11
+speaker_counting     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+embeddings           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:04:21
+discrete_diarization ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 0:00:00
+Loading embedding model: pyannote/embedding
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/utilities/migration/utils.py:197: Redirecting import of pytorch_lightning.callbacks.early_stopping.EarlyStopping to lightning.pytorch.callbacks.early_stopping.EarlyStopping
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/utilities/migration/utils.py:197: Redirecting import of pytorch_lightning.callbacks.model_checkpoint.ModelCheckpoint to lightning.pytorch.callbacks.model_checkpoint.ModelCheckpoint
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/utilities/migration/migration.py:208: You have multiple `ModelCheckpoint` callback states in this checkpoint, but we found state keys that would end up colliding with each other after an upgrade, which means we can't differentiate which of your checkpoint callbacks needs which states. At least one of your `ModelCheckpoint` callbacks will not be able to reload the state.
+Lightning automatically upgraded your loaded checkpoint from v1.2.7 to v2.6.1. To apply the upgrade to your files permanently, run `python -m lightning.pytorch.utilities.upgrade_checkpoint ../../.cache/huggingface/hub/models--pyannote--embedding/snapshots/4db4899737a38b2d618bbd74350915aa10293cb2/pytorch_model.bin`
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/pyannote/audio/core/model.py:639: UserWarning: Model has been trained with a task-dependent loss function. Set 'strict' to False to load the model without its loss function and prevent this warning from appearing. 
+  warnings.warn(msg)
+Lightning automatically upgraded your loaded checkpoint from v1.2.7 to v2.6.1. To apply the upgrade to your files permanently, run `python -m lightning.pytorch.utilities.upgrade_checkpoint ../../.cache/huggingface/hub/models--pyannote--embedding/snapshots/4db4899737a38b2d618bbd74350915aa10293cb2/pytorch_model.bin`
+/home/thebeast/Documents/PCS/.venv/lib/python3.12/site-packages/lightning/pytorch/core/saving.py:197: Found keys that are not in the model state dict but in the checkpoint: ['loss_func.W']
+Extracting one embedding per diarization segment...
+Skipping ultra-short segment 1 (0.017s)
+Skipping ultra-short segment 144 (0.017s)
+Skipping ultra-short segment 150 (0.067s)
+Skipping ultra-short segment 151 (0.017s)
+Skipping ultra-short segment 233 (0.017s)
+Skipping ultra-short segment 328 (0.034s)
+Skipping ultra-short segment 332 (0.067s)
+Skipping ultra-short segment 335 (0.034s)
+Skipping ultra-short segment 400 (0.017s)
+Skipping ultra-short segment 403 (0.017s)
+Skipping ultra-short segment 457 (0.034s)
+Skipping ultra-short segment 465 (0.051s)
+Skipping ultra-short segment 469 (0.051s)
+Skipping ultra-short segment 471 (0.068s)
+Skipping ultra-short segment 476 (0.034s)
+Skipping ultra-short segment 784 (0.051s)
+Skipping ultra-short segment 793 (0.034s)
+Skipping ultra-short segment 1125 (0.051s)
+Skipping ultra-short segment 1126 (0.067s)
+Speakers detected: 55
+Raw diarization segments: 1126
+Overlap regions: 26
+Segment embeddings: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/embeddings/pyannote/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_01_segment_embeddings.npz
+Speaker centroids: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/embeddings/pyannote/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_01_speaker_centroids.npz
+Canonical JSON: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/interim/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_01_diarization.json
+Time: 5.2 min
+[2/10] diarization.py OK in 311.6s
+  canonical_json: interim/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_01_diarization.json
+  segment_embeddings_npz: embeddings/pyannote/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_01_segment_embeddings.npz
+  speaker_centroids_npz: embeddings/pyannote/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_01_speaker_centroids.npz
+  released accelerator memory: gc.collect, torch.cuda.empty_cache, torch.cuda.ipc_collect
+[3/10] transcription.py START
+Loading faster-whisper model: large-v3
+Using device: cuda (float16)
+Transcribing: 1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026.wav
+[segment 000100] up to 1456.55s | tokens: 1186
+[segment 000200] up to 1721.22s | tokens: 2159
+[segment 000300] up to 1995.59s | tokens: 3159
+[segment 000400] up to 2277.83s | tokens: 4159
+[segment 000500] up to 2521.70s | tokens: 5159
+[segment 000600] up to 2750.10s | tokens: 6159
+[segment 000700] up to 2976.81s | tokens: 7159
+[segment 000800] up to 3240.52s | tokens: 8159
+[segment 000900] up to 3472.04s | tokens: 9159
+[segment 001000] up to 3728.45s | tokens: 10159
+[segment 001100] up to 3950.27s | tokens: 11159
+[segment 001200] up to 4197.51s | tokens: 12159
+[segment 001300] up to 4420.68s | tokens: 13159
+[segment 001400] up to 4652.20s | tokens: 14159
+[segment 001500] up to 4878.40s | tokens: 15159
+[segment 001600] up to 5142.70s | tokens: 16159
+[segment 001700] up to 5368.91s | tokens: 17159
+[segment 001800] up to 5615.14s | tokens: 18159
+[segment 001900] up to 5843.39s | tokens: 19159
+[segment 002000] up to 6067.05s | tokens: 20159
+[segment 002100] up to 6884.28s | tokens: 21159
+[segment 002200] up to 7122.61s | tokens: 22159
+[segment 002300] up to 7361.84s | tokens: 23159
+[segment 002400] up to 7585.12s | tokens: 24159
+[segment 002500] up to 7815.76s | tokens: 25159
+[segment 002600] up to 8036.22s | tokens: 26159
+[segment 002700] up to 8377.32s | tokens: 27057
+[segment 002800] up to 8709.41s | tokens: 27935
+[segment 002900] up to 8938.05s | tokens: 28557
+[segment 003000] up to 9137.34s | tokens: 29123
+[segment 003100] up to 9334.97s | tokens: 29688
+[segment 003200] up to 9532.56s | tokens: 30199
+[segment 003300] up to 9736.25s | tokens: 30844
+[segment 003400] up to 9941.69s | tokens: 31510
+[segment 003500] up to 10149.45s | tokens: 32132
+[segment 003600] up to 10549.04s | tokens: 32700
+[segment 003700] up to 10749.96s | tokens: 33284
+[segment 003800] up to 10953.62s | tokens: 33873
+[segment 003900] up to 11151.64s | tokens: 34446
+[segment 004000] up to 11345.08s | tokens: 34996
+[segment 004100] up to 11560.10s | tokens: 35563
+[segment 004200] up to 11762.57s | tokens: 36193
+[segment 004300] up to 11967.32s | tokens: 36820
+[segment 004400] up to 12164.24s | tokens: 37480
+[segment 004500] up to 12378.26s | tokens: 38173
+[segment 004600] up to 12569.46s | tokens: 38780
+[segment 004700] up to 12767.52s | tokens: 39343
+[segment 004800] up to 12973.93s | tokens: 40028
+[segment 004900] up to 13176.44s | tokens: 40716
+[segment 005000] up to 13375.17s | tokens: 41259
+[segment 005100] up to 13569.87s | tokens: 41796
+[segment 005200] up to 13775.18s | tokens: 42429
+[segment 005300] up to 13985.60s | tokens: 42968
+[segment 005400] up to 14189.65s | tokens: 43513
+[segment 005500] up to 14391.58s | tokens: 44180
+Language detected: fr
+Language probability: 1
+Raw transcript tokens: 44459
+Raw transcript segments: 5546
+Transcript TXT: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/interim/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_02_transcript.txt
+Canonical JSON: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/interim/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_02_transcription.json
+Time: 36.0 min
+[3/10] transcription.py OK in 2159.2s
+  canonical_json: interim/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_02_transcription.json
+  transcript_txt: interim/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_02_transcript.txt
+  released accelerator memory: gc.collect, torch.cuda.empty_cache, torch.cuda.ipc_collect
+[4/10] audio_audit.py START
+Loading audio: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/input/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026.wav
+Loaded 14534.23 seconds at 16000 Hz (232547669 samples).
+Computing per-frame acoustic features (145340 frames in 291 chunks)...
+  processed chunk 1/291 through frame 500
+  processed chunk 25/291 through frame 12500
+  processed chunk 50/291 through frame 25000
+  processed chunk 75/291 through frame 37500
+  processed chunk 100/291 through frame 50000
+  processed chunk 125/291 through frame 62500
+  processed chunk 150/291 through frame 75000
+  processed chunk 175/291 through frame 87500
+  processed chunk 200/291 through frame 100000
+  processed chunk 225/291 through frame 112500
+  processed chunk 250/291 through frame 125000
+  processed chunk 275/291 through frame 137500
+  processed chunk 291/291 through frame 145340
+Computing dB, rolling median, and local dB delta...
+Computing summary from per-frame feature arrays...
+Validating feature arrays before streaming frames...
+Writing JSON artifact: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/audit/meta_json/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_audio_audit.json
+Streaming JSON frame records...
+  wrote frame 1/145340
+  wrote frame 25000/145340
+  wrote frame 50000/145340
+  wrote frame 75000/145340
+  wrote frame 100000/145340
+  wrote frame 125000/145340
+  wrote frame 145340/145340
+[4/10] audio_audit.py OK in 8.7s
+  audio_audit_json: audit/meta_json/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_audio_audit.json
+[5/10] whisper_segment_audit.py START
+Loading transcript document: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/interim/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_02_transcription.json
+Loading VAD/diarization document: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/interim/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_01_diarization.json
+Loaded 2682 VAD intervals and 26 diarization overlap regions.
+Loading audio audit frames: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/audit/meta_json/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_audio_audit.json
+Loaded 145340 audio audit frames.
+Auditing 5546 Whisper segments...
+  audited segment 1/5546
+  audited segment 1000/5546
+  audited segment 2000/5546
+  audited segment 3000/5546
+  audited segment 4000/5546
+  audited segment 5000/5546
+  audited segment 5546/5546
+Writing enriched transcript document: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/audit/turn_json/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_02_transcription_flagged.json
+Writing segment audio audit sidecar: /home/thebeast/Documents/PCS/data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/audit/turn_json/whisper_segment_audio_audit.json
+[5/10] whisper_segment_audit.py OK in 5.7s
+  canonical_json: audit/turn_json/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_02_transcription_flagged.json
+  segment_audio_audit_json: audit/turn_json/whisper_segment_audio_audit.json
+[6/10] alignment.py START
+[6/10] alignment.py OK in 1.7s
+  canonical_json: interim/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_03_alignment.json
+[7/10] turns.py START
+[7/10] turns.py OK in 0.3s
+  turns_json: audit/turn_json/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_01_turns.json
+[8/10] per_extraction.py START
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 12511.30it/s]
+[transformers] You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+[8/10] per_extraction.py OK in 4.4s
+  per_json: audit/turn_json/1ere-seance--questions-au-gouvernement--conventions-france-finlande-et-france-suede-en-matiere-d-i-9-juin-2026_02_per_extraction.json
+[9/10] semantic_chunk.py START
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|##########| 199/199 [00:00<00:00, 12156.87it/s]
+[9/10] semantic_chunk.py OK in 7.8s
+  turn_embeddings_npz: embeddings/rag/turn_embeddings.npz
+  semantic_chunks_npz: embeddings/rag/semantic_chunks.npz
+  metadata_json: embeddings/rag/semantic_chunk_metadata.json
+  metadata_txt: embeddings/rag/semantic_chunk_metadata.txt
+[10/10] build_sqlite.py START
+[10/10] build_sqlite.py OK in 1.4s
+  sqlite_db: sqlite/assemblybot.sqlite
