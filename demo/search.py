@@ -7,12 +7,13 @@ import numpy as np
 from sentence_transformers import SentenceTransformer
 from sqlite_function import register_sqlite_functions
 
+# data/runs/2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13/sqlite/assemblybot.sqlite
 # DB_PATH = Path(__file__).resolve().parent.parent / "data" / "db" / "assemblybot.sqlite"
 DB_PATH = (
     Path(__file__).resolve().parent.parent
     / "data"
     / "runs"
-    / "2026-06-19_2026-04-14_test30min-assemblee-nationale_cfe9e3a8"
+    / "2026-06-20_2026-06-09_1ere-seance-questions-au-gouvernement-conventions-france-finlande-et-france-suede-en-matiere-d-i_342c2d13"
     / "sqlite"
     / "assemblybot.sqlite"
 )

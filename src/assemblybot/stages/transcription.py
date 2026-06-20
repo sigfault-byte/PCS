@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import json
 import time
 from pathlib import Path
+from typing import Any
 
 from assemblybot.faster_whisper_config import (
     DEFAULT_FASTER_WHISPER_TRANSCRIPTION_CONFIG,
@@ -20,6 +22,135 @@ from assemblybot.models.factories import (
 )
 from assemblybot.models.time import TimeRange
 from assemblybot.models.transcript import TranscriptRawSegment, TranscriptRawToken
+
+
+def _json_safe_runtime_value(value: Any) -> object:
+    if value is None or isinstance(value, (str, int, float, bool)):
+        return value
+    if isinstance(value, Path):
+        return str(value)
+    if isinstance(value, (list, tuple)):
+        return [_json_safe_runtime_value(item) for item in value]
+    if isinstance(value, dict):
+        return {str(key): _json_safe_runtime_value(item) for key, item in value.items()}
+    return repr(value)
+
+
+def _collect_existing_attributes(obj: Any, names: tuple[str, ...]) -> dict[str, object]:
+    values: dict[str, object] = {}
+    for name in names:
+        try:
+            value = getattr(obj, name)
+        except Exception as exc:
+            values[name] = f"<error reading attribute: {exc}>"
+            continue
+
+        if callable(value):
+            continue
+        values[name] = _json_safe_runtime_value(value)
+    return values
+
+
+def dump_loaded_whisper_runtime(model: Any) -> None:
+    """Debug log: print runtime state exposed by loaded faster-whisper objects."""
+    import platform
+
+    runtime: dict[str, object] = {
+        "versions": {
+            "python": platform.python_version(),
+            "platform": platform.platform(),
+        },
+        "wrapper_class": f"{type(model).__module__}.{type(model).__name__}",
+        "wrapper_attributes": _collect_existing_attributes(
+            model,
+            (
+                "model_path",
+                "model_size_or_path",
+                "device",
+                "device_index",
+                "compute_type",
+                "cpu_threads",
+                "num_workers",
+                "download_root",
+                "local_files_only",
+            ),
+        ),
+    }
+
+    try:
+        import faster_whisper  # type: ignore
+
+        versions = runtime["versions"]
+        if isinstance(versions, dict):
+            versions["faster_whisper"] = getattr(
+                faster_whisper,
+                "__version__",
+                None,
+            )
+    except Exception as exc:
+        versions = runtime["versions"]
+        if isinstance(versions, dict):
+            versions["faster_whisper"] = f"<unavailable: {exc}>"
+
+    try:
+        import ctranslate2  # type: ignore
+
+        versions = runtime["versions"]
+        if isinstance(versions, dict):
+            versions["ctranslate2"] = getattr(ctranslate2, "__version__", None)
+    except Exception as exc:
+        versions = runtime["versions"]
+        if isinstance(versions, dict):
+            versions["ctranslate2"] = f"<unavailable: {exc}>"
+
+    try:
+        import torch  # type: ignore
+
+        versions = runtime["versions"]
+        if isinstance(versions, dict):
+            versions["torch"] = getattr(torch, "__version__", None)
+            versions["cuda_available"] = torch.cuda.is_available()
+    except Exception as exc:
+        versions = runtime["versions"]
+        if isinstance(versions, dict):
+            versions["torch"] = f"<unavailable: {exc}>"
+            versions["cuda_available"] = None
+
+    inner_model = getattr(model, "model", None)
+    if inner_model is not None:
+        runtime["inner_model_class"] = (
+            f"{type(inner_model).__module__}.{type(inner_model).__name__}"
+        )
+        runtime["inner_model_attributes"] = _collect_existing_attributes(
+            inner_model,
+            (
+                "device",
+                "device_index",
+                "compute_type",
+                "num_queued_batches",
+                "num_active_batches",
+            ),
+        )
+
+    feature_extractor = getattr(model, "feature_extractor", None)
+    if feature_extractor is not None:
+        runtime["feature_extractor_class"] = (
+            f"{type(feature_extractor).__module__}.{type(feature_extractor).__name__}"
+        )
+        runtime["feature_extractor_attributes"] = _collect_existing_attributes(
+            feature_extractor,
+            (
+                "sampling_rate",
+                "nb_max_frames",
+                "n_fft",
+                "hop_length",
+                "chunk_length",
+                "feature_size",
+            ),
+        )
+
+    print("Loaded faster-whisper runtime:")
+    print(json.dumps(runtime, ensure_ascii=False, indent=2))
 
 
 def resolve_device_and_compute(
@@ -147,30 +278,28 @@ def transcribe_audio(
             device=device,
             compute_type=compute_type,
         )
+        dump_loaded_whisper_runtime(model)
 
         vad_parameters = {
             "min_silence_duration_ms": config.vad_min_silence_duration_ms,
             "speech_pad_ms": config.vad_speech_pad_ms,
         }
-        options: dict[str, object] = {
+        transcribe_options: dict[str, object] = {
             "language": config.language,
+            "beam_size": config.beam_size,
             "vad_filter": config.vad_filter,
             "vad_parameters": vad_parameters,
-            "beam_size": config.beam_size,
             "temperature": temperature,
             "condition_on_previous_text": config.condition_on_previous_text,
             "word_timestamps": config.word_timestamps,
         }
+        # Debug log: exact call-time decode options passed to faster-whisper.
+        print("faster-whisper transcribe options:")
+        print(json.dumps(transcribe_options, ensure_ascii=False, indent=2))
 
         segments_iter, info = model.transcribe(
             str(input_audio_path),
-            language=config.language,
-            beam_size=config.beam_size,
-            vad_filter=config.vad_filter,
-            vad_parameters=vad_parameters,
-            temperature=temperature,
-            condition_on_previous_text=config.condition_on_previous_text,
-            word_timestamps=config.word_timestamps,
+            **transcribe_options,
         )
 
         raw_tokens: list[TranscriptRawToken] = []
@@ -249,7 +378,7 @@ def transcribe_audio(
             model_name=config.transcription_model_name,
             device=device,
             compute_type=compute_type,
-            options=options,
+            options=transcribe_options,
             language_detected=getattr(info, "language", None),
             language_probability=getattr(info, "language_probability", None),
             raw_tokens=raw_tokens,
