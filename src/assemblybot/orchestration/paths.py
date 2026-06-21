@@ -6,7 +6,6 @@ from pathlib import Path
 from assemblybot.config import DATA_DIR, PROJECT_ROOT
 from assemblybot.orchestration.provenance import Provenance
 
-
 AUDIO_DIR = DATA_DIR / "audio"
 UNPROCESSED_DIR = AUDIO_DIR / "unprocessed"
 PROCESSING_DIR = AUDIO_DIR / "processing"
@@ -14,8 +13,10 @@ PROCESSED_DIR = AUDIO_DIR / "processed"
 FAILED_DIR = AUDIO_DIR / "failed"
 RUNS_DIR = DATA_DIR / "runs"
 
-DEFAULT_DEPUTIES_CSV = PROJECT_ROOT / "docs" / "liste_deputes_libre_office_2026-06.csv"
-DEFAULT_MINISTERS_CSV = PROJECT_ROOT / "docs" / "liste_ministre_2026.csv"
+DEFAULT_DEPUTIES_CSV = (
+    PROJECT_ROOT / "ground_truth_PER" / "liste_deputes_libre_office_2026-06.csv"
+)
+DEFAULT_MINISTERS_CSV = PROJECT_ROOT / "ground_truth_PER" / "liste_ministre_2026.csv"
 
 EXECUTED_STAGE_NAMES = [
     "vad.py",
