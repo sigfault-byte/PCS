@@ -1,134 +1,202 @@
-This repository explores a pipeline for turning long (french) parliamentary audio/video sessions into structured, searchable data: transcription, diarization, speaker-attributed segments, enrichment, and eventually storage/retrieval.
+# PCS
 
-## Current Status
+PCS is a data engineering and AI pipeline that transforms long French parliamentary audio sessions into a relational database enriched with speaker identities, semantic search capabilities, and audit metadata.
 
-- Modular pipeline stages implemented
-- Multiple full session experiments conducted
-- Merge logic under active experiment (*prioritizing precision to eliminate hallucination*) 
-- Pipeline validated per-stage before integration. Orchestration in progress.
+The pipeline combines voice activity detection, speaker diarization, speech recognition, entity extraction, semantic embeddings, audio-quality audits, and SQLite persistence.
 
+Rather than producing only a transcript, PCS tracks uncertainty throughout the processing chain, highlighting where the audio, transcript, speaker attribution, and official parliamentary record agree, disagree, or require review.
 
-# Parliamentary Audio Pipeline Notes
+A typical 5-hour parliamentary session (~580 MB WAV) produces a self-contained SQLite database of roughly 5 MB containing transcripts, speaker identities, named entities, semantic chunks, embeddings, and audit metadata.
 
-The project is about reconciling several imperfect signals into a higher-confidence representation of what happened in the room, then using the cleanest verified regions to improve speaker attribution over time.
+Across multiple test runs, roughly 13 hours of parliamentary audio were distilled into about 13 MB of SQLite databases.
 
-- **Whisper** gives the strongest text signal, but can hallucinate, repeat text, or shift boundaries.
-- **pyannote** gives the strongest speaker-activity signal, but its turns do not align cleanly with transcription segments.
-- **Silero VAD** gives an independent speech-presence signal that can expose silence, gaps, and suspicious transcript regions.
-- **librosa audio audits** add low-level acoustic evidence: energy, dB, zero-crossing rate, spectral centroid, bandwidth, and flatness. These help separate clean speech from silence, applause, noise, and timestamp pathologies.
-- **NLP / entity extraction** helps infer speaker names and turns, but has to be treated as contextual evidence rather than ground truth. The current direction is CamemBERT rather than the earlier spaCy experiments. French parliamentary phrasing is difficult and dependency parsing alone was too brittle.
-- The official parliamentary *compte rendu* is useful institutional reference material, but it is not a verbatim acoustic transcript.
+The resulting database can be explored with SQL, searched semantically, or inspected through generated audit artifacts.
 
-The current direction is validation-driven: keep disagreement visible, mark uncertain regions, and only merge signals when there is enough evidence. 
-Once a segment is sufficiently validated, it becomes useful for downstream stages: validating named speakers, confirming speaker turns against diarization, and computing cleaner voice embeddings.
-
-## What Is Being Tested
-
-The notes in this repository document several experiments: 
-
-1. Whether Whisper timestamps can be used as the main merge timeline.
-2. How pyannote diarization boundaries differ from Whisper transcription boundaries.
-3. Whether Silero VAD is a better initial temporal anchor for "speech exists here".
-4. How Whisper behaves with different VAD settings: `VAD OFF`, `VAD 1000 ms`, and `VAD 2000 ms`.
-5. Which confidence proxies may help detect weak or hallucinated segments.
-6. Which librosa metrics help distinguish clean speech, silence, applause, and noisy acoustic events.
-7. How to flag pathological Whisper segments, such as very long timestamp spans containing only a short phrase.
-8. How to detect repeated hallucinations, orphan segments, multi-speaker overlaps, and silence-gap failures.
-9. How official parliamentary text differs from both acoustic speech and ASR output.
-10. How NLP can help identify speaker mentions from French parliamentary phrasing.
-
-Lesson so far: the useful signal comes from the agreement and disagreement between components.
-
-## Current Findings
-
-### Merge Strategy
-
-The initial merge approach treated Whisper segment timestamps as the primary timeline and projected diarization onto them. Whisper and pyannote optimize for different tasks, so their segment boundaries drift, disagree, and sometimes encode different notions of structure.
-
-[Journal 01: Merging Whisper and Pyannote Segments](notes/current/Journal_01_Merging.md).
-
-### Silero VAD As Temporal Anchor
-
-Silero VAD was added as an independent speech-presence layer. On the tested session, it detected the beginning of speech within roughly half a second of the official session start and produced more granular, human-plausible speech regions than the earlier pyannote-derived VAD approach.
-
-[Journal 03: Silero VAD](notes/current/Journal_03_silerao-vad.md).
-
-### Whisper VAD Experiments
-
-[Journal 04: New Transcription Run](notes/current/Journal_04_new_run.md)  
-[Journal 05: Whisper VAD Value](notes/current/Journal_05_whisper_vad_value.md)
-
-### Audio Audit And Segment Flags
-
-Instead of relying only on model outputs, the pipeline now also measures acoustic properties over time.
-[Journal 06: Librosa Audio Audit](notes/current/Journal_06_librosa_audio_audit.md)  
-[Journal 07: Heuristic Flags For Whisper Segments](notes/current/Journal_07_finding_heuristics_flags_whisper_segment.md)
-[Journal 08: Flag audits](notes/current/Journal_07_finding_heuristics_flags_whisper_segment.md)
-
-### Official Transcript Comparison
-
-The official parliamentary *compte rendu* is not a strict ground-truth transcript. It is an institutional record: edited, normalized, occasionally inconsistent, and sometimes non-verbatim.
-
-The notes separate at least three kinds of truth:
-
-- **acoustic truth**: what was physically spoken
-- **speaker truth**: who spoke and when
-- **institutional truth**: what the official record preserves
-
-[Journal 02: Merging With New Input](notes/current/Journal_02_Merging_new_input.md)  
-[Official human reference](notes/current/Assets/human_official.md)  
-[Merged Whisper/human comparison artifact](notes/current/Assets/human_merged.md)
-
-### Speaker Identification, NLP, And Voice Embeddings
-
-The older notes explore using French NLP to identify relevant person mentions and infer turn-taking. A plain `PER` named-entity tag is not enough. The useful signal comes from the surrounding parliamentary context: formulas such as "la parole est à", "va etre posee par", speaker announcements, replies, and turn transitions.
-
-The first version used spaCy and dependency-pattern scoring. The current direction is to use CamemBERT for stronger French language understanding, then validate inferred speakers against the temporal evidence:
-
-- identify candidate `PER` mentions linked to speaking turns
-- assign likely speakers through a forward sweep over the transcript
-- run a backward validation sweep against pyannote speaker turns
-- keep only high-confidence speaker-attributed regions as verified segments
-
-Those verified segments then become training/evaluation material for voice identity. By recomputing pyannote speaker centroids from cleaner segments, the pipeline should produce more stable voice fingerprints for known parliamentary speakers. Those saved centroids can later be used to recognize the same speaker across future Assembly sessions.
-
-See [Step 5: Identifying Speakers](notes/old/Step_5_identifying_speakers.md).
-
-## Plots
-
-The plots under `docs/plots` visualize signal comparisons and help explain why the pipeline now treats agreement/disagreement as data.
-
-### Timeline Agreement
-
-This plot compares VAD and diarization activity over time:
-
-![Timeline VAD/diarization overlap](docs/plots/timeline_vad_diarization_overlap.png)
-
-
-## Current Pipeline Direction
-
-The intended pipeline shape is:
+### Example Output
 
 ```text
-audio/video
-  -> audio extraction / normalization
-  -> Silero VAD speech mask
-  -> pyannote diarization
-  -> Whisper transcription
-  -> librosa audio audit
-  -> temporal cross-check
-  -> segment-level quality flags
-  -> merge with uncertainty flags
-  -> CamemBERT speaker/entity enrichment
-  -> forward speaker sweep
-  -> backward pyannote turn validation
-  -> verified clean speaker segments
-  -> speaker centroid / voice fingerprint refinement
-  -> structured storage
-  -> search / retrieval
-  -> cross-session speaker matching
+5h 20m parliamentary audio
+          │
+          ▼
++-----------------------+
+|  assemblybot.sqlite   |
+|        5.4 MB         |
++-----------------------+
+
+13 relational tables
+214 speaking turns
+45 identified speakers
+720 semantic chunks
+934 embeddings
 ```
 
-The project currently prioritizes precision and explainability over forcing a complete transcript. No absolute ground truth exists., the only possible verification is manually listening.
+[Link to the sqlite of a 5 hour session](demo/assemblybot.sqlite)
 
-Missing or uncertain regions should remain visible so they can be reviewed, filtered, or reprocessed.
+## Why This Exists
+
+Long-form audio processing involves multiple imperfect sources of information.
+
+Speech recognition can hallucinate or drift. Speaker diarization estimates who spoke when but may split or merge speakers incorrectly. Voice activity detection identifies probable speech regions without understanding their content. Official parliamentary records provide valuable context but are edited documents rather than direct acoustic observations.
+
+Instead of hiding uncertainty, the pipeline preserves it. Each stage contributes evidence, confidence signals, provenance, audit metrics, and intermediate artifacts. Disagreements between sources are treated as useful information rather than failures.
+
+The goal is not to produce a perfectly clean transcript. The goal is to produce a structured dataset where uncertain regions can be inspected, filtered, reviewed, or reprocessed with full traceability.
+
+## Pipeline Overview
+
+```text
+.wav
+  │
+  ▼
+Voice Activity Detection
+  │
+  ▼
+Speaker Diarization
+  │
+  ▼
+Transcription
+  │
+  ▼
+Audio & Transcript Audits
+  │
+  ▼
+Speaker / Transcript Alignment
+  │
+  ▼
+Turn Consolidation
+  │
+  ▼
+Identity Resolution
+  │
+  ▼
+Semantic Chunking & Embeddings
+  │
+  ▼
+SQLite Export
+```
+
+## Current technologies
+
+| Stage | Technology |
+|---------|---------|
+| Voice Activity Detection | Silero VAD |
+| Speaker Diarization | pyannote |
+| Transcription | Faster-Whisper (large-v3) |
+| Audio Audit | librosa |
+| Named Entity Recognition | CamemBERT NER |
+| Semantic Embeddings | STS CamemBERT |
+| Persistence | SQLite + SQLAlchemy |
+
+
+## What It Does
+
+Given one or more `.wav` files into `data/audio/unprocessed`, `main.py` discovers candidate audio files, creates a reproducible run folder, executes the pipeline stage by stage, writes a manifest after every stage, and moves the source file to `processed` or `failed` depending on the result.
+
+The current pipeline runs:
+
+1. **Silero VAD** to detect speech regions.
+2. **pyannote diarization** to estimate who spoke when and generate speaker embeddings for later identity resolution.
+3. **Faster Whisper transcription** to generate timestamped French transcript segments.
+4. **librosa audio audit** to compute acoustic metrics such as energy, dB, spectral flatness, and related quality signals.
+5. **Transcript audit** to flag suspicious transcript regions using VAD, diarization, audio evidence, whisper confidence proxy and heuristics.
+6. **Transcript/diarization alignment** to connect text segments with speaker activity.
+7. **Turn consolidation** to produce speaker turns.
+8. **Named-entity extraction and speaker identity resolution** using French NER models and ground-truth lists of deputies and ministers.
+9. **Semantic chunking and embeddings** for semantic search and retrieval.
+10. **SQLite export** for queryable downstream analysis.
+
+Each run is stored in its own reproducible run directory containing configuration snapshots, logs, intermediate artifacts, audit outputs, embeddings, and the final SQLite database.
+
+## Repository Map
+
+* `main.py` — pipeline entrypoint.
+* `src/assemblybot/stages/` — processing stages (VAD, diarization, transcription, audits, enrichment, export).
+* `src/assemblybot/orchestration/` — run management, manifests, provenance, and pipeline execution.
+* `src/assemblybot/models/` — shared domain models and artifacts.
+* `src/assemblybot/db/` — SQLite schema and export logic.
+* `tests/` — unit and integration tests.
+* `docs/` — technical documentation and diagrams.
+* `notes/` — experiment journals and design decisions.
+* `ground_truth_PER/` — deputy and minister reference datasets.
+
+## Requirements
+
+- Python >= 3.12
+- uv
+- NVIDIA GPU recommended
+- Hugging Face access token required for model downloads
+
+Tested on:
+
+- RTX 4080 Laptop GPU (12 GB VRAM)
+- CUDA 13
+- Linux
+
+## Running The Pipeline
+
+Place one or more `.wav` files in:
+
+```text
+data/audio/unprocessed/
+```
+
+Run the default batch:
+
+```bash
+uv run python main.py
+```
+
+### Performance
+
+Tested on:
+
+- RTX 4080 Laptop GPU (12 GB VRAM)
+- CUDA 13
+
+Typical processing time:
+
+```text
+Input:   5h 20m parliamentary session
+Runtime: 26 minutes
+
+≈ 12× faster than real time
+```
+
+
+## Reproducibility and Traceability
+
+This project is deliberately designed around reproducibility, provenance, and inspection.
+
+* Run-level provenance, including source file hashes, ingestion metadata, and processing timestamps.
+* Stage-by-stage manifests recording status, runtime, configuration, and generated artifacts.
+* Persistent intermediate artifacts to allow inspection and reprocessing without rerunning the full pipeline.
+* Audit signals and quality flags for suspicious transcript, diarization, or audio regions.
+* Relational persistence through SQLite for downstream analysis and retrieval.
+* Automated tests covering alignment, enrichment, chunking, and database export workflows.
+
+The goal is to make every output traceable to the evidence that produced it. Model outputs are not treated as truth by default; they are treated as observations that can be validated, audited, and revisited.
+
+## Further Reading
+
+The journals document the evolution of the pipeline, including experiments, failed approaches, design decisions, and architectural changes.
+
+- [Journal 05: Whisper VAD value](notes/current/Journal_05_whisper_vad_value.md) - comparison of Whisper VAD settings and failure modes.
+- [Journal 08: flags and audits](notes/current/Journal_8_flags_audits.md) - how segment-level quality flags evolved.
+- [Journal 11: Merging diarization and transcription](notes/current/Journal_11_merging_pyannote_and_whisper_experiment.md) - finding a strategy to align speaker activity with transcript segments.
+- [Journal 13: PER extraction exploration](notes/current/Journal_13_PER_extraction_and_exploration.md) - early speaker/person extraction experiments.
+- [Journal 14: Semantic Search / RAG](notes/current/Journal_14_experimenting_with_rag.md) - chunking strategy and early search results
+- [Journal 16: SQLite v1](notes/current/Journal_16-sqlite-v1.md) - database schema direction.
+
+Other journals are in `notes/current/`.
+
+## Roadmap
+
+PCS runs end to end on French parliamentary audio and produces auditable intermediate artifacts, speaker and person enrichment, semantic embeddings, and a searchable SQLite database.
+
+Current areas of work include:
+
+* improving speaker identity recall
+* refining speaker attribution and confidence scoring
+* expanding evaluation against manually reviewed samples
+* improving retrieval quality through chunk and segment filtering
+* simplifying the search and query experience for downstream users

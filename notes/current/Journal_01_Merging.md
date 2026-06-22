@@ -86,7 +86,8 @@ Listening to the audio suggests:
 - the segment start is early: no actual word begins before roughly `10s`
 - the segment end is closer to reality: the speaker does finish before `27s`
 
-So the issue is not simply that Whisper timestamps are bad. The issue is that their boundary behavior has a **bias**, and that bias matters when they are used as merge anchors.
+So the issue is not simply that Whisper timestamps are bad.  
+The issue is that their boundary behavior has a **bias**, and that bias matters when they are used as merge anchors.
 
 ### 2. A single early example was misleading
 

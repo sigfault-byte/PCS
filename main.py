@@ -8,6 +8,7 @@ PROJECT_SRC = Path(__file__).resolve().parent / "src"
 if str(PROJECT_SRC) not in sys.path:
     sys.path.insert(0, str(PROJECT_SRC))
 
+# Ground truth names
 from assemblybot.orchestration.paths import (
     DEFAULT_DEPUTIES_CSV,
     DEFAULT_MINISTERS_CSV,

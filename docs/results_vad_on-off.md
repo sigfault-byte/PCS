@@ -76,8 +76,8 @@ Language detected: fr
 Language probability: 1
 Raw transcript tokens: 46375
 Raw transcript segments: 7295
-Transcript TXT: /home/thebeast/Documents/PCS/data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_transcript.txt
-Canonical JSON: /home/thebeast/Documents/PCS/data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_transcription.json
+Transcript TXT: PCS/data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_transcript.txt
+Canonical JSON: PCS/data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_transcription.json
 Time: 19.8 min
 ---
 
@@ -154,6 +154,6 @@ Language detected: fr
 Language probability: 1
 Raw transcript tokens: 46837
 Raw transcript segments: 6697
-Transcript TXT: /home/thebeast/Documents/PCS/data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_transcript.txt
-Canonical JSON: /home/thebeast/Documents/PCS/data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_transcription.json
+Transcript TXT: PCS/data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_transcript.txt
+Canonical JSON: PCS/data/interim/1ere-seance--questions-au-gouvernement--simplification-de-la-vie-economique-cmp--renforcer-la-s-14-avril-2026_02_transcription.json
 Time: 20.6 min
