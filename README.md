@@ -30,8 +30,8 @@ The resulting database can be explored with SQL, searched semantically, or inspe
 934 embeddings
 ```
 
-A standalone, dependency-free search demo is included in demo/, allowing the generated SQLite database to be explored immediately with nothing more than Python.
-[demo](demo/)
+A standalone, dependency-free search demo is included in `demo/`. It allows the generated SQLite database to be explored immediately with nothing more than Python.  
+See the [demo](demo/) directory.
 
 ## Why This Exists
 
