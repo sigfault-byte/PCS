@@ -1,31 +1,37 @@
 from __future__ import annotations
 
 import json
+import math
 import sqlite3
-import sys
-from pathlib import Path
+from array import array
 
-import numpy as np
+from demo_queries_fand_flags import SegmentFlag, flags_to_list
 
-ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / "src"
-if str(SRC) not in sys.path:
-    sys.path.insert(0, str(SRC))
 
-from assemblybot.models.flags import SegmentFlag, flags_to_list
+def float32_array_from_blob(blob: bytes) -> array:
+    """Decode a SQLite BLOB containing native float32 values."""
+    vector = array("f")
+    if len(blob) % vector.itemsize:
+        raise ValueError(
+            f"Float32 vector BLOB length must be a multiple of {vector.itemsize}: "
+            f"got {len(blob)} bytes"
+        )
+
+    vector.frombytes(blob)
+    return vector
 
 
 def dot_product(vector_blob: bytes, query_blob: bytes) -> float:
     """SQLite UDF: dot product between two float32 vector BLOBs."""
-    vector = np.frombuffer(vector_blob, dtype=np.float32)
-    query = np.frombuffer(query_blob, dtype=np.float32)
+    vector = float32_array_from_blob(vector_blob)
+    query = float32_array_from_blob(query_blob)
 
-    if vector.shape != query.shape:
+    if len(vector) != len(query):
         raise ValueError(
-            f"Vector shape mismatch in dot_product: {vector.shape} != {query.shape}"
+            f"Vector length mismatch in dot_product: {len(vector)} != {len(query)}"
         )
 
-    return float(vector @ query)
+    return math.fsum(left * right for left, right in zip(vector, query))
 
 
 def flag_names(flags: int) -> str:
