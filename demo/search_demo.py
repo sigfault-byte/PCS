@@ -9,23 +9,54 @@ from sqlite_function import register_sqlite_functions
 DB_PATH = Path(__file__).resolve().with_name("assemblybot.sqlite")
 TOP_K = 5
 
-LIST_SQL_TABLE = """
-select 'person' as table_name, count(*) as rows from person
-union all
-select 'speaker_cluster', count(*) from speaker_cluster
-union all
-select 'transcript_segment', count(*) from transcript_segment
-union all
-select 'diarization_segment', count(*) from diarization_segment
-union all
-select 'turn', count(*) from turn
-union all
-select 'turn_analysis', count(*) from turn_analysis
-union all
-select 'semantic_chunk', count(*) from semantic_chunk
-union all
-select 'embedding', count(*) from embedding;
+SESSION_SQL = """
+select
+    slug,
+    title,
+    date,
+    duration_seconds
+from session
+order by id
+limit 1
+"""
 
+DATABASE_SUMMARY_SQL = """
+select 'Speaking turns' as item, count(*) as value from turn
+union all
+select 'Semantic chunks', count(*) from semantic_chunk
+union all
+select 'Speaker clusters', count(*) from speaker_cluster
+union all
+select 'Identified people', count(distinct current_person_id)
+from turn_analysis
+where current_person_id is not null
+"""
+
+PERSON_IDENTIFICATION_SQL = """
+select
+    case coalesce(p.kind, 'unknown')
+        when 'assembly_chair' then 'Assembly chair'
+        when 'deputy' then 'Deputies'
+        when 'minister' then 'Ministers'
+        when 'raw_per' then 'Raw PER names'
+        when 'unknown' then 'Unknown speaker'
+        else p.kind
+    end as speaker_type,
+    count(distinct p.id) as people,
+    count(distinct t.id) as turns
+from turn t
+left join turn_analysis ta on ta.turn_id = t.id
+left join person p on p.id = ta.current_person_id
+group by coalesce(p.kind, 'unknown')
+order by
+    case coalesce(p.kind, 'unknown')
+        when 'assembly_chair' then 1
+        when 'minister' then 2
+        when 'deputy' then 3
+        when 'raw_per' then 4
+        when 'unknown' then 5
+        else 6
+    end
 """
 
 SEARCH_SQL = """
@@ -140,8 +171,43 @@ def active_flag_names(flags: int) -> list[str]:
     ]  # type: ignore
 
 
-def print_tables(row: sqlite3.Row) -> None:
-    pass
+def print_banner() -> None:
+    print("AssemblyBot Semantic Search Demo")
+    print("=" * 64)
+    print(" audio  ->  speaking turns  ->  semantic chunks  ->  search")
+    print("                 |                    |")
+    print("                 v                    v")
+    print("             speakers             embeddings")
+
+
+def print_database_intro(connection: sqlite3.Connection) -> None:
+    session = connection.execute(SESSION_SQL).fetchone()
+    summary_rows = connection.execute(DATABASE_SUMMARY_SQL).fetchall()
+    people_rows = connection.execute(PERSON_IDENTIFICATION_SQL).fetchall()
+
+    print("\nParliamentary session")
+    print("-" * 64)
+    print(f"session.slug:     {session['slug']}")
+    print(f"session.date:     {session['date']}")
+    print(f"session.duration: {format_time(session['duration_seconds'])}")
+
+    print("\nDatabase summary")
+    print_table(["what is inside", "count"], [tuple(row) for row in summary_rows])
+
+    print("\nSpeaker / person identification")
+    print("These are the people AssemblyBot linked to speaking turns.")
+    print_table(
+        ["speaker type", "people found", "turns"],
+        [tuple(row) for row in people_rows],
+    )
+
+    print("\nWhat the search will do")
+    print("- A speaking turn is one continuous bit of speech.")
+    print("- A semantic chunk is a smaller searchable piece of text.")
+    print("- This quick demo uses precomputed French query vectors.")
+    print(
+        "- No AI model is loaded during the demo.\nThe semantic vectors are already stored in the SQLite database."
+    )
 
 
 def print_turn_detail(row: sqlite3.Row) -> None:
@@ -171,48 +237,48 @@ def print_turn_detail(row: sqlite3.Row) -> None:
     print("=" * 80)
 
 
-def main():
-    if not DB_PATH.exists():
-        print(f"SQLite demo database not found: {DB_PATH}")
-        return
-
-    print("\n")
-    print("=" * 50)
-    print("\tAssemblyBot Semantic Search Demo")
-    print("=" * 50)
-
-    print("\n")
-
-    print("Choose a query:\n ")
+def choose_query() -> tuple[str, list[float]] | None:
+    print("\nSemantic search")
+    print("-" * 64)
+    print("Choose one precomputed French query:\n")
     for index, (label, _vector) in enumerate(QUERIES, start=1):
         print(f"\t{index}) {label}")
-    print("\n")
+    print()
 
     try:
         choice = int(input("Enter choice: ").strip())
     except ValueError:
         print("Choose one of the numbered queries.")
-        return
+        return None
 
     if choice < 1 or choice > len(QUERIES):
         print("Choose one of the numbered queries.")
+        return None
+
+    return QUERIES[choice - 1]
+
+
+def main():
+    if not DB_PATH.exists():
+        print(f"SQLite demo database not found: {DB_PATH}")
         return
-
-    query_text, query_vector = QUERIES[choice - 1]
-    query_blob = vector_to_blob(query_vector)
-
-    print(f"\nQuery:\n\t{query_text}\n")
 
     with sqlite3.connect(DB_PATH) as connection:
         connection.row_factory = sqlite3.Row
         register_sqlite_functions(connection)
-        table_rows = connection.execute(LIST_SQL_TABLE).fetchall()
-        rows = connection.execute(SEARCH_SQL, (query_blob, TOP_K)).fetchall()
 
-    print("\n")
-    print("Database overview")
-    print_table(["table name", "number of rows"], table_rows)
-    print("\n")
+        print_banner()
+        print_database_intro(connection)
+
+        selected_query = choose_query()
+        if selected_query is None:
+            return
+
+        query_text, query_vector = selected_query
+        query_blob = vector_to_blob(query_vector)
+
+        print(f"\nQuery:\n\t{query_text}\n")
+        rows = connection.execute(SEARCH_SQL, (query_blob, TOP_K)).fetchall()
 
     table_rows = [
         (
@@ -220,14 +286,13 @@ def main():
             row["turn_id"],
             f"{row['score']:.4f}",
             format_time(row["start_seconds"]),
-            textwrap.shorten(row["session_slug"], width=48, placeholder="..."),
             row["speaker_name"] or "<unknown>",
-            textwrap.shorten(row["chunk_text"], width=90, placeholder="..."),
+            textwrap.shorten(row["chunk_text"], width=92, placeholder="..."),
         )
         for rank, row in enumerate(rows, start=1)
     ]
     print_table(
-        ["#", "turn_id", "score", "time", "file", "speaker", "excerpt"],
+        ["#", "turn_id", "score", "time", "speaker", "matching text"],
         table_rows,
     )
 
