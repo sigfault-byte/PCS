@@ -30,7 +30,8 @@ The resulting database can be explored with SQL, searched semantically, or inspe
 934 embeddings
 ```
 
-[Link to the sqlite of a 5 hour session](demo/assemblybot.sqlite)
+A standalone, dependency-free search demo is included in demo/, allowing the generated SQLite database to be explored immediately with nothing more than Python.
+[demo](demo/)
 
 ## Why This Exists
 
